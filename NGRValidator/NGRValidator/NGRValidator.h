@@ -11,6 +11,7 @@
 #import "NGRPropertyValidator+NSObject.h"
 #import "NGRPropertyValidator+NSNumber.h"
 #import "NGRPropertyValidator+Syntax.h"
+#import "NGRPropertyValidator+NSDate.h"
 
 @interface NGRValidator : NSObject
 

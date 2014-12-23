@@ -19,6 +19,8 @@
 		5E0019771A498542002ED961 /* NSString+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019761A498542002ED961 /* NSString+NGRValidator.m */; };
 		5E0019791A498A01002ED961 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019781A498A01002ED961 /* NGRValidatorSpec.m */; };
 		5E00197B1A498A0F002ED961 /* NGRPropertyValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */; };
+		5E0019811A499B5F002ED961 /* NSDate+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019801A499B5F002ED961 /* NSDate+NGRValidator.m */; };
+		5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019861A49A82C002ED961 /* NGRPropertyValidator+NSDate.m */; };
 		5E5C09F51A498164002D3E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F41A498164002D3E72 /* main.m */; };
 		5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F71A498164002D3E72 /* AppDelegate.m */; };
 		5E5C09FB1A498164002D3E72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09FA1A498164002D3E72 /* ViewController.m */; };
@@ -62,6 +64,10 @@
 		5E0019761A498542002ED961 /* NSString+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NGRValidator.m"; path = "NGRValidator/Categories/NSString+NGRValidator.m"; sourceTree = "<group>"; };
 		5E0019781A498A01002ED961 /* NGRValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidatorSpec.m; sourceTree = "<group>"; };
 		5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRPropertyValidatorSpec.m; sourceTree = "<group>"; };
+		5E00197F1A499B5F002ED961 /* NSDate+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+NGRValidator.h"; path = "NGRValidator/Categories/NSDate+NGRValidator.h"; sourceTree = "<group>"; };
+		5E0019801A499B5F002ED961 /* NSDate+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+NGRValidator.m"; path = "NGRValidator/Categories/NSDate+NGRValidator.m"; sourceTree = "<group>"; };
+		5E0019851A49A82C002ED961 /* NGRPropertyValidator+NSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSDate.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSDate.h"; sourceTree = "<group>"; };
+		5E0019861A49A82C002ED961 /* NGRPropertyValidator+NSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NSDate.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSDate.m"; sourceTree = "<group>"; };
 		5E5C09EF1A498164002D3E72 /* NGRValidator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NGRValidator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5C09F31A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5C09F41A498164002D3E72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 				5E0019731A498531002ED961 /* NSArray+NGRValidator.m */,
 				5E0019751A498542002ED961 /* NSString+NGRValidator.h */,
 				5E0019761A498542002ED961 /* NSString+NGRValidator.m */,
+				5E00197F1A499B5F002ED961 /* NSDate+NGRValidator.h */,
+				5E0019801A499B5F002ED961 /* NSDate+NGRValidator.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -163,6 +171,8 @@
 				5E00196A1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m */,
 				5E00196C1A498502002ED961 /* NGRPropertyValidator+Syntax.h */,
 				5E00196D1A498502002ED961 /* NGRPropertyValidator+Syntax.m */,
+				5E0019851A49A82C002ED961 /* NGRPropertyValidator+NSDate.h */,
+				5E0019861A49A82C002ED961 /* NGRPropertyValidator+NSDate.m */,
 			);
 			name = "NGRPropertyValidator Extensions";
 			sourceTree = "<group>";
@@ -374,6 +384,7 @@
 			files = (
 				5E00196B1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m in Sources */,
 				5E5C09FB1A498164002D3E72 /* ViewController.m in Sources */,
+				5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */,
 				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
 				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
 				5E0019581A49833C002ED961 /* NGRTestModel.m in Sources */,
@@ -385,6 +396,7 @@
 				5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */,
 				5E5C09F51A498164002D3E72 /* main.m in Sources */,
 				5E0019681A4984E7002ED961 /* NGRPropertyValidator+NSString.m in Sources */,
+				5E0019811A499B5F002ED961 /* NSDate+NGRValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

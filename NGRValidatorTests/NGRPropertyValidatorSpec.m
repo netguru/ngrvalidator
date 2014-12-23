@@ -255,6 +255,55 @@ describe(@"NGRValidator", ^{
     }, ^(NGRPropertyValidator *validator) {
         validator.syntax(NGRSyntaxURL).wrongSyntax(NGRSyntaxURL, kErrorMessage);
     });
+    
+    /******************************************************************************
+     *                                  Dates                                     *
+     ******************************************************************************/
+    
+    NSDate *date1 = [NSDate date];
+    NSDate *date2 = [NSDate dateWithTimeIntervalSinceNow:10];
+    
+    test(@"earlierThan", ^() {
+        return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
+                 rule(@"2 correct dates", date1, 0, [NSDate class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.earlierThan(date2).notEarlierThan(kErrorMessage);
+    });
+    
+    test(@"laterThan", ^() {
+        return @[rule(@"2 incorrect dates", date1, 1, [NSDate class]),
+                 rule(@"2 correct dates", date2, 0, [NSDate class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.laterThan(date1).notLaterThan(kErrorMessage);
+    });
+    
+    test(@"earlierThanOrEqualTo", ^() {
+        return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
+                 rule(@"2 correct dates", date1, 0, [NSDate class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.earlierThanOrEqualTo(date1).notEarlierThanOrEqualTo(kErrorMessage);
+    });
+    
+    test(@"laterThanOrEqualTo", ^() {
+        return @[rule(@"2 incorrect dates", date1, 1, [NSDate class]),
+                 rule(@"2 correct dates", date2, 0, [NSDate class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.laterThanOrEqualTo(date2).notLaterThanOrEqualTo(kErrorMessage);
+    });
+    
+    test(@"betweenDates inclusive", ^() {
+        return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
+                 rule(@"2 correct dates", date1, 0, [NSDate class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date1, YES).notBetween(kErrorMessage);
+    });
+    
+    test(@"betweenDates exclusive", ^() {
+        return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
+                 rule(@"2 correct dates", date1, 0, [NSDate class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date2, NO).notBetween(kErrorMessage);
+    });
 });
 
 SPEC_END

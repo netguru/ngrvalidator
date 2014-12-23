@@ -28,13 +28,12 @@
     model.aBool = NO;
     
     NSError *error = nil;
-    [NGRValidator validateModel:model error:&error usingRules:^NSArray *{
-        return @[NGRValidate(@"email").required()];
-    }];
+//    [NGRValidator validateModel:model error:&error usingRules:^NSArray *{
+//        return @[NGRValidate(@"email").required().compareTo(@"sd", NGRCompareEqual)];
+//    }];
+
     
     NSLog(@"%@", error);
-    
-    return YES;
     
     return YES;
 }

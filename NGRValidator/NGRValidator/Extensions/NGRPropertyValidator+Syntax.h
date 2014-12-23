@@ -9,9 +9,9 @@
 #import "NGRPropertyValidator.h"
 
 typedef NS_ENUM(NSInteger, NGRSyntax) {
-    NGRSyntaxEmail,
-    NGRSyntaxName,
-    NGRSyntaxURL
+    NGRSyntaxEmail, // validates email syntax.
+    NGRSyntaxName, // validates if given string contains only alphabetic signs.
+    NGRSyntaxURL  // validates syntax of URL.
 };
 
 @interface NGRPropertyValidator (Syntax)

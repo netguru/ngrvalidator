@@ -35,7 +35,14 @@ typedef NS_ENUM(NSInteger, NGRError) {
     NGRErrorNotEmail,
     NGRErrorNotName,
     NGRErrorNotURL,
-    NGRErrorWrongRegex
+    NGRErrorWrongRegex,
+    
+    //NGRPropertyValidator + NSDate
+    NGRErrorNotEarlierThan,
+    NGRErrorNotLaterThan,
+    NGRErrorNotEarlierThanOrEqualTo,
+    NGRErrorNotLaterThanOrEqualTo,
+    NGRErrorNotBetweenDates,
 };
 
 #endif

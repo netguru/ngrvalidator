@@ -8,7 +8,7 @@
 
 #import "NGRPropertyValidator.h"
 
-NSString * const NGRValidatorDomain = @"com.ng.validator.domain";
+NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;
 
 @interface NGRPropertyValidator ()
@@ -66,7 +66,7 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 - (void)validateClass:(Class)aClass withBlock:(NGRValidationBlock)validationBlock {
     __weak typeof(self) weakSelf = self;
     
-    [self addValidatonWithBlock:^NGRError (NSString *value) {
+    [self addValidatonWithBlock:^NGRError (id value) {
         if (aClass != nil && ![weakSelf isObject:value kindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
         }
@@ -135,10 +135,18 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     [self setMessage:@"isn't exact." forError:NGRErrorNotExact];
     [self setMessage:@"isn't false." forError:NGRErrorNotFalse];
     [self setMessage:@"isn't true." forError:NGRErrorNotTrue];
+    
+    //NGPropertyValidator + Syntax
     [self setMessage:@"has invalid email syntax." forError:NGRErrorNotEmail];
-    [self setMessage:@"has invalid name syntax." forError:NGRErrorNotName];
+    [self setMessage:@"should contains only letters." forError:NGRErrorNotName];
     [self setMessage:@"has invalid url syntax." forError:NGRErrorNotURL];
     [self setMessage:@"do not match pattern." forError:NGRErrorWrongRegex];
+    
+    //NGPropertyValidator + Compare
+    [self setMessage:@"isn't earlier than compared date." forError:NGRErrorNotEarlierThan];
+    [self setMessage:@"isn't later than compared date." forError:NGRErrorNotLaterThan];
+    [self setMessage:@"isn't earlier than or equal to compared date." forError:NGRErrorNotEarlierThanOrEqualTo];
+    [self setMessage:@"isn't later than or equal to compared date." forError:NGRErrorNotLaterThanOrEqualTo];
 }
 
 @end

@@ -14,6 +14,8 @@
 
 - (BOOL)ngr_isURL;
 
+- (BOOL)ngr_isName;
+
 - (BOOL)ngr_isDecimal;
 
 @end
