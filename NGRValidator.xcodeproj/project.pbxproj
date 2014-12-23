@@ -1,953 +1,597 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>2FE3165896E87102CEE34281</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>694413942B9120CB278F6871</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09E61A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C09F11A498164002D3E72</string>
-				<string>5E5C0A0B1A498164002D3E72</string>
-				<string>5E5C09F01A498164002D3E72</string>
-				<string>A6EA48BCBDCAB0C2609537C8</string>
-				<string>2FE3165896E87102CEE34281</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09E71A498164002D3E72</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0610</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>5E5C09EE1A498164002D3E72</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.1</string>
-					</dict>
-					<key>5E5C0A071A498164002D3E72</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>6.1</string>
-						<key>TestTargetID</key>
-						<string>5E5C09EE1A498164002D3E72</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>5E5C09EA1A498164002D3E72</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>5E5C09E61A498164002D3E72</string>
-			<key>productRefGroup</key>
-			<string>5E5C09F01A498164002D3E72</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>5E5C09EE1A498164002D3E72</string>
-				<string>5E5C0A071A498164002D3E72</string>
-			</array>
-		</dict>
-		<key>5E5C09EA1A498164002D3E72</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5E5C0A101A498164002D3E72</string>
-				<string>5E5C0A111A498164002D3E72</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5E5C09EB1A498164002D3E72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5E5C09FB1A498164002D3E72</string>
-				<string>5E5C09F81A498164002D3E72</string>
-				<string>5E5C09F51A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5E5C09EC1A498164002D3E72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5E5C09ED1A498164002D3E72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5E5C09FE1A498164002D3E72</string>
-				<string>5E5C0A031A498164002D3E72</string>
-				<string>5E5C0A001A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5E5C09EE1A498164002D3E72</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5E5C0A121A498164002D3E72</string>
-			<key>buildPhases</key>
-			<array>
-				<string>5E5C09EB1A498164002D3E72</string>
-				<string>5E5C09EC1A498164002D3E72</string>
-				<string>5E5C09ED1A498164002D3E72</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>NGRValidator</string>
-			<key>productName</key>
-			<string>NGRValidator</string>
-			<key>productReference</key>
-			<string>5E5C09EF1A498164002D3E72</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>5E5C09EF1A498164002D3E72</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>NGRValidator.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>5E5C09F01A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C09EF1A498164002D3E72</string>
-				<string>5E5C0A081A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F11A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C09F61A498164002D3E72</string>
-				<string>5E5C09F71A498164002D3E72</string>
-				<string>5E5C09F91A498164002D3E72</string>
-				<string>5E5C09FA1A498164002D3E72</string>
-				<string>5E5C09FC1A498164002D3E72</string>
-				<string>5E5C09FF1A498164002D3E72</string>
-				<string>5E5C0A011A498164002D3E72</string>
-				<string>5E5C09F21A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>NGRValidator</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F21A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C09F31A498164002D3E72</string>
-				<string>5E5C09F41A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F31A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F41A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F51A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C09F41A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C09F61A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F71A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09F81A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C09F71A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C09F91A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09FA1A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09FB1A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C09FA1A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C09FC1A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C09FD1A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09FD1A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C09FE1A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C09FC1A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C09FF1A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A001A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C09FF1A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C0A011A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C0A021A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A021A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A031A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C0A011A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C0A041A498164002D3E72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>5E5C0A0F1A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5E5C0A051A498164002D3E72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>DE7F815529AF01B08397162D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5E5C0A061A498164002D3E72</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5E5C0A071A498164002D3E72</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>5E5C0A151A498164002D3E72</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D6DF47A466456CB09596D933</string>
-				<string>5E5C0A041A498164002D3E72</string>
-				<string>5E5C0A051A498164002D3E72</string>
-				<string>5E5C0A061A498164002D3E72</string>
-				<string>7010E1BDA69E61E05205767B</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>5E5C0A0A1A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>NGRValidatorTests</string>
-			<key>productName</key>
-			<string>NGRValidatorTests</string>
-			<key>productReference</key>
-			<string>5E5C0A081A498164002D3E72</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>5E5C0A081A498164002D3E72</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>NGRValidatorTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>5E5C0A091A498164002D3E72</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>5E5C09E71A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>5E5C09EE1A498164002D3E72</string>
-			<key>remoteInfo</key>
-			<string>NGRValidator</string>
-		</dict>
-		<key>5E5C0A0A1A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>5E5C09EE1A498164002D3E72</string>
-			<key>targetProxy</key>
-			<string>5E5C0A091A498164002D3E72</string>
-		</dict>
-		<key>5E5C0A0B1A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C0A0E1A498164002D3E72</string>
-				<string>5E5C0A0C1A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>NGRValidatorTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A0C1A498164002D3E72</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5E5C0A0D1A498164002D3E72</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A0D1A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A0E1A498164002D3E72</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>NGRValidatorTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5E5C0A0F1A498164002D3E72</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5E5C0A0E1A498164002D3E72</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5E5C0A101A498164002D3E72</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5E5C0A111A498164002D3E72</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.1</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5E5C0A121A498164002D3E72</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5E5C0A131A498164002D3E72</string>
-				<string>5E5C0A141A498164002D3E72</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5E5C0A131A498164002D3E72</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>INFOPLIST_FILE</key>
-				<string>NGRValidator/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5E5C0A141A498164002D3E72</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>INFOPLIST_FILE</key>
-				<string>NGRValidator/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>5E5C0A151A498164002D3E72</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>5E5C0A161A498164002D3E72</string>
-				<string>5E5C0A171A498164002D3E72</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>5E5C0A161A498164002D3E72</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>89C529EEA7D2F290421E1F80</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>NGRValidatorTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/NGRValidator.app/NGRValidator</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>5E5C0A171A498164002D3E72</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>FE66DA67A44D621453582AF9</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>NGRValidatorTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/NGRValidator.app/NGRValidator</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>694413942B9120CB278F6871</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-NGRValidatorTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>7010E1BDA69E61E05205767B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>89C529EEA7D2F290421E1F80</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-NGRValidatorTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A6EA48BCBDCAB0C2609537C8</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>89C529EEA7D2F290421E1F80</string>
-				<string>FE66DA67A44D621453582AF9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D6DF47A466456CB09596D933</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>DE7F815529AF01B08397162D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>694413942B9120CB278F6871</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>FE66DA67A44D621453582AF9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-NGRValidatorTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>5E5C09E71A498164002D3E72</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E0019581A49833C002ED961 /* NGRTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019571A49833C002ED961 /* NGRTestModel.m */; };
+		5E00195B1A498414002ED961 /* NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195A1A498414002ED961 /* NGRValidator.m */; };
+		5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195E1A49842B002ED961 /* NGRPropertyValidator.m */; };
+		5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019641A4984DA002ED961 /* NGRPropertyValidator+NSObject.m */; };
+		5E0019681A4984E7002ED961 /* NGRPropertyValidator+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019671A4984E7002ED961 /* NGRPropertyValidator+NSString.m */; };
+		5E00196B1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00196A1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m */; };
+		5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00196D1A498502002ED961 /* NGRPropertyValidator+Syntax.m */; };
+		5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019701A49851B002ED961 /* NSObject+NGRRuntime.m */; };
+		5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019731A498531002ED961 /* NSArray+NGRValidator.m */; };
+		5E0019771A498542002ED961 /* NSString+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019761A498542002ED961 /* NSString+NGRValidator.m */; };
+		5E0019791A498A01002ED961 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019781A498A01002ED961 /* NGRValidatorSpec.m */; };
+		5E00197B1A498A0F002ED961 /* NGRPropertyValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */; };
+		5E5C09F51A498164002D3E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F41A498164002D3E72 /* main.m */; };
+		5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F71A498164002D3E72 /* AppDelegate.m */; };
+		5E5C09FB1A498164002D3E72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09FA1A498164002D3E72 /* ViewController.m */; };
+		5E5C09FE1A498164002D3E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FC1A498164002D3E72 /* Main.storyboard */; };
+		5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FF1A498164002D3E72 /* Images.xcassets */; };
+		5E5C0A031A498164002D3E72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C0A011A498164002D3E72 /* LaunchScreen.xib */; };
+		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E5C0A091A498164002D3E72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E5C09E71A498164002D3E72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E5C09EE1A498164002D3E72;
+			remoteInfo = NGRValidator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E0019561A49833C002ED961 /* NGRTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRTestModel.h; sourceTree = "<group>"; };
+		5E0019571A49833C002ED961 /* NGRTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRTestModel.m; sourceTree = "<group>"; };
+		5E0019591A498414002ED961 /* NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRValidator.h; path = NGRValidator/NGRValidator.h; sourceTree = "<group>"; };
+		5E00195A1A498414002ED961 /* NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidator.m; path = NGRValidator/NGRValidator.m; sourceTree = "<group>"; };
+		5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRPropertyValidator.h; path = NGRValidator/NGRPropertyValidator.h; sourceTree = "<group>"; };
+		5E00195E1A49842B002ED961 /* NGRPropertyValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRPropertyValidator.m; path = NGRValidator/NGRPropertyValidator.m; sourceTree = "<group>"; };
+		5E0019601A49843C002ED961 /* NGRErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRErrors.h; path = NGRValidator/NGRErrors.h; sourceTree = "<group>"; };
+		5E0019631A4984DA002ED961 /* NGRPropertyValidator+NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSObject.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSObject.h"; sourceTree = "<group>"; };
+		5E0019641A4984DA002ED961 /* NGRPropertyValidator+NSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NSObject.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSObject.m"; sourceTree = "<group>"; };
+		5E0019661A4984E7002ED961 /* NGRPropertyValidator+NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSString.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSString.h"; sourceTree = "<group>"; };
+		5E0019671A4984E7002ED961 /* NGRPropertyValidator+NSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NSString.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSString.m"; sourceTree = "<group>"; };
+		5E0019691A4984F4002ED961 /* NGRPropertyValidator+NSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSNumber.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSNumber.h"; sourceTree = "<group>"; };
+		5E00196A1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NSNumber.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSNumber.m"; sourceTree = "<group>"; };
+		5E00196C1A498502002ED961 /* NGRPropertyValidator+Syntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+Syntax.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+Syntax.h"; sourceTree = "<group>"; };
+		5E00196D1A498502002ED961 /* NGRPropertyValidator+Syntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+Syntax.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+Syntax.m"; sourceTree = "<group>"; };
+		5E00196F1A49851B002ED961 /* NSObject+NGRRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NGRRuntime.h"; path = "NGRValidator/Categories/NSObject+NGRRuntime.h"; sourceTree = "<group>"; };
+		5E0019701A49851B002ED961 /* NSObject+NGRRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NGRRuntime.m"; path = "NGRValidator/Categories/NSObject+NGRRuntime.m"; sourceTree = "<group>"; };
+		5E0019721A498531002ED961 /* NSArray+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+NGRValidator.h"; path = "NGRValidator/Categories/NSArray+NGRValidator.h"; sourceTree = "<group>"; };
+		5E0019731A498531002ED961 /* NSArray+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+NGRValidator.m"; path = "NGRValidator/Categories/NSArray+NGRValidator.m"; sourceTree = "<group>"; };
+		5E0019751A498542002ED961 /* NSString+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NGRValidator.h"; path = "NGRValidator/Categories/NSString+NGRValidator.h"; sourceTree = "<group>"; };
+		5E0019761A498542002ED961 /* NSString+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NGRValidator.m"; path = "NGRValidator/Categories/NSString+NGRValidator.m"; sourceTree = "<group>"; };
+		5E0019781A498A01002ED961 /* NGRValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidatorSpec.m; sourceTree = "<group>"; };
+		5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRPropertyValidatorSpec.m; sourceTree = "<group>"; };
+		5E5C09EF1A498164002D3E72 /* NGRValidator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NGRValidator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5C09F31A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E5C09F41A498164002D3E72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5E5C09F61A498164002D3E72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5E5C09F71A498164002D3E72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5E5C09F91A498164002D3E72 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5E5C09FA1A498164002D3E72 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5E5C09FD1A498164002D3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5E5C09FF1A498164002D3E72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5E5C0A021A498164002D3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5E5C0A081A498164002D3E72 /* NGRValidatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NGRValidatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5C0A0D1A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E5C09EC1A498164002D3E72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5C0A051A498164002D3E72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FE3165896E87102CEE34281 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E0019541A498273002ED961 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C09F91A498164002D3E72 /* ViewController.h */,
+				5E5C09FA1A498164002D3E72 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5E0019551A49827E002ED961 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C09FC1A498164002D3E72 /* Main.storyboard */,
+				5E5C09FF1A498164002D3E72 /* Images.xcassets */,
+				5E5C0A011A498164002D3E72 /* LaunchScreen.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5E00195C1A498418002ED961 /* NGRValidator */ = {
+			isa = PBXGroup;
+			children = (
+				5E0019601A49843C002ED961 /* NGRErrors.h */,
+				5E0019591A498414002ED961 /* NGRValidator.h */,
+				5E00195A1A498414002ED961 /* NGRValidator.m */,
+				5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */,
+				5E00195E1A49842B002ED961 /* NGRPropertyValidator.m */,
+				5E0019621A49849E002ED961 /* NGRPropertyValidator Extensions */,
+				5E0019611A498497002ED961 /* Categories */,
+			);
+			name = NGRValidator;
+			sourceTree = "<group>";
+		};
+		5E0019611A498497002ED961 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5E00196F1A49851B002ED961 /* NSObject+NGRRuntime.h */,
+				5E0019701A49851B002ED961 /* NSObject+NGRRuntime.m */,
+				5E0019721A498531002ED961 /* NSArray+NGRValidator.h */,
+				5E0019731A498531002ED961 /* NSArray+NGRValidator.m */,
+				5E0019751A498542002ED961 /* NSString+NGRValidator.h */,
+				5E0019761A498542002ED961 /* NSString+NGRValidator.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		5E0019621A49849E002ED961 /* NGRPropertyValidator Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E0019631A4984DA002ED961 /* NGRPropertyValidator+NSObject.h */,
+				5E0019641A4984DA002ED961 /* NGRPropertyValidator+NSObject.m */,
+				5E0019661A4984E7002ED961 /* NGRPropertyValidator+NSString.h */,
+				5E0019671A4984E7002ED961 /* NGRPropertyValidator+NSString.m */,
+				5E0019691A4984F4002ED961 /* NGRPropertyValidator+NSNumber.h */,
+				5E00196A1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m */,
+				5E00196C1A498502002ED961 /* NGRPropertyValidator+Syntax.h */,
+				5E00196D1A498502002ED961 /* NGRPropertyValidator+Syntax.m */,
+			);
+			name = "NGRPropertyValidator Extensions";
+			sourceTree = "<group>";
+		};
+		5E5C09E61A498164002D3E72 = {
+			isa = PBXGroup;
+			children = (
+				5E5C09F11A498164002D3E72 /* NGRValidator */,
+				5E5C0A0B1A498164002D3E72 /* NGRValidatorTests */,
+				5E5C09F01A498164002D3E72 /* Products */,
+				A6EA48BCBDCAB0C2609537C8 /* Pods */,
+				2FE3165896E87102CEE34281 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5E5C09F01A498164002D3E72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C09EF1A498164002D3E72 /* NGRValidator.app */,
+				5E5C0A081A498164002D3E72 /* NGRValidatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E5C09F11A498164002D3E72 /* NGRValidator */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C09F61A498164002D3E72 /* AppDelegate.h */,
+				5E5C09F71A498164002D3E72 /* AppDelegate.m */,
+				5E0019561A49833C002ED961 /* NGRTestModel.h */,
+				5E0019571A49833C002ED961 /* NGRTestModel.m */,
+				5E00195C1A498418002ED961 /* NGRValidator */,
+				5E0019541A498273002ED961 /* Controllers */,
+				5E0019551A49827E002ED961 /* Resources */,
+				5E5C09F21A498164002D3E72 /* Supporting Files */,
+			);
+			path = NGRValidator;
+			sourceTree = "<group>";
+		};
+		5E5C09F21A498164002D3E72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C09F31A498164002D3E72 /* Info.plist */,
+				5E5C09F41A498164002D3E72 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E5C0A0B1A498164002D3E72 /* NGRValidatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C0A0C1A498164002D3E72 /* Supporting Files */,
+				5E0019781A498A01002ED961 /* NGRValidatorSpec.m */,
+				5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */,
+			);
+			path = NGRValidatorTests;
+			sourceTree = "<group>";
+		};
+		5E5C0A0C1A498164002D3E72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E5C0A0D1A498164002D3E72 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6EA48BCBDCAB0C2609537C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */,
+				FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E5C09EE1A498164002D3E72 /* NGRValidator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E5C0A121A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidator" */;
+			buildPhases = (
+				5E5C09EB1A498164002D3E72 /* Sources */,
+				5E5C09EC1A498164002D3E72 /* Frameworks */,
+				5E5C09ED1A498164002D3E72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NGRValidator;
+			productName = NGRValidator;
+			productReference = 5E5C09EF1A498164002D3E72 /* NGRValidator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E5C0A071A498164002D3E72 /* NGRValidatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E5C0A151A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidatorTests" */;
+			buildPhases = (
+				D6DF47A466456CB09596D933 /* Check Pods Manifest.lock */,
+				5E5C0A041A498164002D3E72 /* Sources */,
+				5E5C0A051A498164002D3E72 /* Frameworks */,
+				5E5C0A061A498164002D3E72 /* Resources */,
+				7010E1BDA69E61E05205767B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E5C0A0A1A498164002D3E72 /* PBXTargetDependency */,
+			);
+			name = NGRValidatorTests;
+			productName = NGRValidatorTests;
+			productReference = 5E5C0A081A498164002D3E72 /* NGRValidatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E5C09E71A498164002D3E72 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					5E5C09EE1A498164002D3E72 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					5E5C0A071A498164002D3E72 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 5E5C09EE1A498164002D3E72;
+					};
+				};
+			};
+			buildConfigurationList = 5E5C09EA1A498164002D3E72 /* Build configuration list for PBXProject "NGRValidator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5E5C09E61A498164002D3E72;
+			productRefGroup = 5E5C09F01A498164002D3E72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E5C09EE1A498164002D3E72 /* NGRValidator */,
+				5E5C0A071A498164002D3E72 /* NGRValidatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E5C09ED1A498164002D3E72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E5C09FE1A498164002D3E72 /* Main.storyboard in Resources */,
+				5E5C0A031A498164002D3E72 /* LaunchScreen.xib in Resources */,
+				5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5C0A061A498164002D3E72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7010E1BDA69E61E05205767B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6DF47A466456CB09596D933 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E5C09EB1A498164002D3E72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E00196B1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m in Sources */,
+				5E5C09FB1A498164002D3E72 /* ViewController.m in Sources */,
+				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
+				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
+				5E0019581A49833C002ED961 /* NGRTestModel.m in Sources */,
+				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,
+				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
+				5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */,
+				5E0019771A498542002ED961 /* NSString+NGRValidator.m in Sources */,
+				5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */,
+				5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */,
+				5E5C09F51A498164002D3E72 /* main.m in Sources */,
+				5E0019681A4984E7002ED961 /* NGRPropertyValidator+NSString.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5C0A041A498164002D3E72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E00197B1A498A0F002ED961 /* NGRPropertyValidatorSpec.m in Sources */,
+				5E0019791A498A01002ED961 /* NGRValidatorSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E5C0A0A1A498164002D3E72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E5C09EE1A498164002D3E72 /* NGRValidator */;
+			targetProxy = 5E5C0A091A498164002D3E72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5E5C09FC1A498164002D3E72 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E5C09FD1A498164002D3E72 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5E5C0A011A498164002D3E72 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E5C0A021A498164002D3E72 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5E5C0A101A498164002D3E72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5E5C0A111A498164002D3E72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E5C0A131A498164002D3E72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NGRValidator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5E5C0A141A498164002D3E72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NGRValidator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5E5C0A161A498164002D3E72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NGRValidatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NGRValidator.app/NGRValidator";
+			};
+			name = Debug;
+		};
+		5E5C0A171A498164002D3E72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NGRValidatorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NGRValidator.app/NGRValidator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E5C09EA1A498164002D3E72 /* Build configuration list for PBXProject "NGRValidator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5C0A101A498164002D3E72 /* Debug */,
+				5E5C0A111A498164002D3E72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E5C0A121A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5C0A131A498164002D3E72 /* Debug */,
+				5E5C0A141A498164002D3E72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E5C0A151A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5C0A161A498164002D3E72 /* Debug */,
+				5E5C0A171A498164002D3E72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E5C09E71A498164002D3E72 /* Project object */;
+}
