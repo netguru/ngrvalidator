@@ -16,6 +16,7 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 @property (strong, nonatomic, readwrite) NSMutableArray *validators;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *messages;
 @property (strong, nonatomic) NSString *localizedPropertyName;
+@property (assign, nonatomic) BOOL isRequired;
 
 @end
 
@@ -27,7 +28,7 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     self = [super init];
     if (self) {
         _property = property;
-        _localizedPropertyName = property;
+        self.isRequired = NO;
         [self setupMessages];
     }
     return self;
@@ -44,7 +45,9 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     for (NGRValidationBlock block in self.validators) {
         NGRError error = block(value);
         
-        if (error != NGRErrorNoone) {
+        if (error == NGRErrorUnexpectedClass) {
+             NSAssert(NO, @"Parameter %@ is wrong kind of class", value);
+        } else if (error != NGRErrorNoone) {
             return [self errorWithNGRError:error];
         }
     }
@@ -56,7 +59,9 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     
     for (NGRValidationBlock block in self.validators) {
         NGRError error = block(value);
-        if (error != NGRErrorNoone) {
+        if (error == NGRErrorUnexpectedClass) {
+            NSAssert(NO, @"Parameter %@ is wrong kind of class", value);
+        } else if (error != NGRErrorNoone) {
             [array addObject:[self errorWithNGRError:error]];
         }
     }
@@ -67,8 +72,11 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     __weak typeof(self) weakSelf = self;
     
     [self addValidatonWithBlock:^NGRError (id value) {
-        if (aClass != nil && ![weakSelf isObject:value kindOfClass:aClass]) {
+        if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
+            
+        } else if (!weakSelf.isRequired) {
+            return NGRErrorNoone;
         }
         return validationBlock(value);
     }];
@@ -77,6 +85,16 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 - (NGRPropertyValidator *(^)(NSString *))localizedName {
     return ^(NSString *message) {
         self.localizedPropertyName = message;
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)())required {
+    return ^() {
+        self.isRequired = YES;
+        [self validateClass:nil withBlock:^NGRError(id value) {
+            return (!value || [value isKindOfClass:[NSNull class]]) ? NGRErrorRequired : NGRErrorNoone;
+        }];
         return self;
     };
 }
@@ -97,20 +115,9 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     [self.validators addObject:validationBlock];
 }
 
-- (BOOL)isObject:(NSObject *)object kindOfClass:(Class)aClass {
-    
-    if (object == nil) {
-        NSLog(@"Cannot validate property when is nil. Validation skipped");
-        return NO;
-        
-    } else if (![object isKindOfClass:aClass]) {
-        NSAssert(NO, @"Parameter %@ is not kind of %@ class", object, aClass);
-    }
-    return YES;
-}
-
 - (NSError *)errorWithNGRError:(NGRError)error {
-    NSString *description = [NSString stringWithFormat:@"%@ %@", (self.localizedPropertyName) ?: self.property, [self messageForError:error]];
+    NSString *propertyName = (self.localizedPropertyName) ?: [self.property capitalizedString];
+    NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self messageForError:error]];
     return [NSError errorWithDomain:NGRValidatorDomain code:NGRValidationInconsistencyCode userInfo:@{NSLocalizedDescriptionKey : description}];
 }
 
@@ -137,9 +144,9 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     [self setMessage:@"isn't true." forError:NGRErrorNotTrue];
     
     //NGPropertyValidator + Syntax
-    [self setMessage:@"has invalid email syntax." forError:NGRErrorNotEmail];
+    [self setMessage:@"has invalid syntax." forError:NGRErrorNotEmail];
     [self setMessage:@"should contains only letters." forError:NGRErrorNotName];
-    [self setMessage:@"has invalid url syntax." forError:NGRErrorNotURL];
+    [self setMessage:@"has invalid syntax." forError:NGRErrorNotURL];
     [self setMessage:@"do not match pattern." forError:NGRErrorWrongRegex];
     
     //NGPropertyValidator + Compare

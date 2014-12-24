@@ -12,15 +12,6 @@
 
 #pragma mark - Rules
 
-- (NGRPropertyValidator *(^)())required {
-    return ^() {
-        [self validateClass:nil withBlock:^NGRError(id value) {
-            return (!value || [value isKindOfClass:[NSNull class]]) ? NGRErrorRequired : NGRErrorNoone;
-        }];
-        return self;
-    };
-}
-
 - (NGRPropertyValidator *(^)(id, SEL, NSString *))condition {
     return ^(id target, SEL selector, NSString *message) {
         [self validateClass:nil withBlock:^NGRError(id value) {

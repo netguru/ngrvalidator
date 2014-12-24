@@ -32,6 +32,11 @@ typedef NGRError (^NGRValidationBlock)(id);
 @property (nonatomic, readonly, copy) NGRPropertyValidator *(^localizedName)(NSString *name);
 
 /**
+ *  Validates that the NSObject is nil or not.
+ */
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^required)();
+
+/**
  *  Array of validator blocks invoked one by one in validation proccess.
  */
 @property (strong, nonatomic, readonly) NSMutableArray *validators;

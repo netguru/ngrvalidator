@@ -125,7 +125,7 @@ describe(@"NGRValidator", ^{
         return @[rule(@"to long non-decimal string", @"foo_bar_baz", 2, [NSString class]),
                  rule(@"decimal with required length", @"123", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.maxLength(5).decimal().notDecimal(kErrorMessage).tooLong(kErrorMessage);
+        validator.required().maxLength(5).decimal().notDecimal(kErrorMessage).tooLong(kErrorMessage);
     });
     
     /******************************************************************************
@@ -146,21 +146,21 @@ describe(@"NGRValidator", ^{
         return @[rule(@"invalid decimal", @"123ewq", 1, [NSString class]),
                  rule(@"valid decimal", @"123567", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.decimal().notDecimal(kErrorMessage);
+        validator.required().decimal().notDecimal(kErrorMessage);
     });
     
     test(@"minLength", ^() {
         return @[rule(@"too short string", @"foo", 1, [NSString class]),
                  rule(@"string with required length", @"foo_bar_baz", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.minLength(5).tooShort(kErrorMessage);
+        validator.required().minLength(5).tooShort(kErrorMessage);
     });
     
     test(@"maxLength", ^() {
         return @[rule(@"too long string", @"foo_bar_baz", 1, [NSString class]),
                  rule(@"string with required length", @"foo", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.maxLength(5).tooLong(kErrorMessage);
+        validator.required().maxLength(5).tooLong(kErrorMessage);
     });
     
     test(@"exactLength", ^() {
@@ -168,7 +168,7 @@ describe(@"NGRValidator", ^{
                  rule(@"too short string", @"foo", 1, [NSString class]),
                  rule(@"string with correct length", @"_foo_", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.exactLength(5).notExactLength(kErrorMessage);
+        validator.required().exactLength(5).notExactLength(kErrorMessage);
     });
     
     test(@"lengthRange", ^() {
@@ -176,7 +176,7 @@ describe(@"NGRValidator", ^{
                  rule(@"too short string", @"f", 1, [NSString class]),
                  rule(@"string with required length", @"foo", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.lengthRange(2, 4).tooShort(kErrorMessage).tooLong(kErrorMessage);
+        validator.required().lengthRange(2, 4).tooShort(kErrorMessage).tooLong(kErrorMessage);
     });
     
     /******************************************************************************
@@ -188,7 +188,7 @@ describe(@"NGRValidator", ^{
                  rule(@"exact number", @100.23f, 0, [NSNumber class]),
                  rule(@"bigger number", @101.23f, 0, [NSNumber class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.min(100.23f).tooSmall(kErrorMessage);
+        validator.required().min(100.23f).tooSmall(kErrorMessage);
     });
     
     test(@"max", ^() {
@@ -196,7 +196,7 @@ describe(@"NGRValidator", ^{
                  rule(@"exact number", @100.23f, 0, [NSNumber class]),
                  rule(@"smaller number", @1.23f, 0, [NSNumber class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.max(100.23f).tooBig(kErrorMessage);
+        validator.required().max(100.23f).tooBig(kErrorMessage);
     });
     
     test(@"exact", ^() {
@@ -204,7 +204,7 @@ describe(@"NGRValidator", ^{
                  rule(@"too small number", @1.23f, 1, [NSNumber class]),
                  rule(@"expected number", @100.23f, 0, [NSNumber class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.exact(100.23f).notExact(kErrorMessage);
+        validator.required().exact(100.23f).notExact(kErrorMessage);
     });
     
     test(@"range", ^() {
@@ -212,21 +212,21 @@ describe(@"NGRValidator", ^{
                  rule(@"to small number", @1.23f, 1, [NSNumber class]),
                  rule(@"expected number", @100.23f, 0, [NSNumber class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.range(50.23f, 150.23f).tooBig(kErrorMessage).tooSmall(kErrorMessage);
+        validator.required().range(50.23f, 150.23f).tooBig(kErrorMessage).tooSmall(kErrorMessage);
     });
     
     test(@"falseValue", ^() {
         return @[rule(@"true", @YES, 1, [NSNumber class]),
                  rule(@"false", @NO, 0, [NSNumber class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.falseValue().notFalse(kErrorMessage);
+        validator.required().falseValue().notFalse(kErrorMessage);
     });
     
     test(@"trueValue", ^() {
         return @[rule(@"false", @NO, 1, [NSNumber class]),
                  rule(@"true", @YES, 0, [NSNumber class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.trueValue().notTrue(kErrorMessage);
+        validator.required().trueValue().notTrue(kErrorMessage);
     });
     
     /******************************************************************************
@@ -237,7 +237,7 @@ describe(@"NGRValidator", ^{
         return @[rule(@"wrong email syntax", @"email@.", 1, [NSString class]),
                  rule(@"valid email syntax", @"email@example.com", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.syntax(NGRSyntaxEmail).wrongSyntax(NGRSyntaxEmail, kErrorMessage);
+        validator.required().syntax(NGRSyntaxEmail).wrongSyntax(NGRSyntaxEmail, kErrorMessage);
     });
     
     test(@"regex", ^() {
@@ -246,14 +246,14 @@ describe(@"NGRValidator", ^{
     }, ^(NGRPropertyValidator *validator) {
         NSString *pattern = @"b[a-z]";
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
-        validator.regex(regex).wrongRegex(kErrorMessage);
+        validator.required().regex(regex).wrongRegex(kErrorMessage);
     });
     
     test(@"syntax URL", ^() {
         return @[rule(@"wrong url syntax", @"http://bar", 1, [NSString class]),
                  rule(@"valid url syntax", @"http://www.google.com", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.syntax(NGRSyntaxURL).wrongSyntax(NGRSyntaxURL, kErrorMessage);
+        validator.required().syntax(NGRSyntaxURL).wrongSyntax(NGRSyntaxURL, kErrorMessage);
     });
     
     /******************************************************************************
@@ -267,42 +267,42 @@ describe(@"NGRValidator", ^{
         return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
                  rule(@"2 correct dates", date1, 0, [NSDate class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.earlierThan(date2).notEarlierThan(kErrorMessage);
+        validator.required().earlierThan(date2).notEarlierThan(kErrorMessage);
     });
     
     test(@"laterThan", ^() {
         return @[rule(@"2 incorrect dates", date1, 1, [NSDate class]),
                  rule(@"2 correct dates", date2, 0, [NSDate class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.laterThan(date1).notLaterThan(kErrorMessage);
+        validator.required().laterThan(date1).notLaterThan(kErrorMessage);
     });
     
     test(@"earlierThanOrEqualTo", ^() {
         return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
                  rule(@"2 correct dates", date1, 0, [NSDate class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.earlierThanOrEqualTo(date1).notEarlierThanOrEqualTo(kErrorMessage);
+        validator.required().earlierThanOrEqualTo(date1).notEarlierThanOrEqualTo(kErrorMessage);
     });
     
     test(@"laterThanOrEqualTo", ^() {
         return @[rule(@"2 incorrect dates", date1, 1, [NSDate class]),
                  rule(@"2 correct dates", date2, 0, [NSDate class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.laterThanOrEqualTo(date2).notLaterThanOrEqualTo(kErrorMessage);
+        validator.required().laterThanOrEqualTo(date2).notLaterThanOrEqualTo(kErrorMessage);
     });
     
     test(@"betweenDates inclusive", ^() {
         return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
                  rule(@"2 correct dates", date1, 0, [NSDate class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date1, YES).notBetween(kErrorMessage);
+        validator.required().betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date1, YES).notBetween(kErrorMessage);
     });
     
     test(@"betweenDates exclusive", ^() {
         return @[rule(@"2 incorrect dates", date2, 1, [NSDate class]),
                  rule(@"2 correct dates", date1, 0, [NSDate class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date2, NO).notBetween(kErrorMessage);
+        validator.required().betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date2, NO).notBetween(kErrorMessage);
     });
 });
 

@@ -13,11 +13,6 @@
 #pragma mark - Rules
 
 /**
- *  Validates that the NSObject is nil or not.
- */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^required)();
-
-/**
  *  Validates property with user-defined condition.
  *
  *  @param selector The selector which implements custom validation. Selector has to return BOOL. Otherwise an exception will raise.

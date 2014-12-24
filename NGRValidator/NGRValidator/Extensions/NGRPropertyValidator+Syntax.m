@@ -32,8 +32,7 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
                 
             case NGRSyntaxName:
                 [self validateSyntaxWithBlock:^NGRError(NSString *string) {
-#warning todo
-                    return NGRErrorNoone;
+                    return [string ngr_isName] ? NGRErrorNoone : NGRErrorNotName;
                 }]; break;
                 
             case NGRSyntaxURL:
