@@ -13,6 +13,8 @@
 @property (unsafe_unretained, nonatomic) id value;
 @end
 
+@implementation NGRValidationTestModel @end
+
 #define kValue @"value"
 #define kName @"name"
 #define kErrorsNumber @"errorsNumber"
