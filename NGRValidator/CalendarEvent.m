@@ -21,7 +21,7 @@
                  NGRValidate(@"url").syntax(NGRSyntaxURL),
                  NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
                  NGRValidate(@"endDate").required().laterThan(self.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
-                 NGRValidate(@"termsOfUse").required().trueValue().msgNotTrue(@"You have to accept terms of use")];
+                 NGRValidate(@"termsOfUse").required().trueValue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
     }];
     
     success ? NSLog(@"Event validation succeed") : NSLog(@"Event validation failed because of an error: %@", error.localizedDescription);
