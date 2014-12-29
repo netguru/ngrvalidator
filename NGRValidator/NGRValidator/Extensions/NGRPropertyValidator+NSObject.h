@@ -26,6 +26,6 @@
 /**
  *  User-defined error message used when the property is nil (default: cannot be nil).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^isNil)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNil)(NSString *message);
 
 @end

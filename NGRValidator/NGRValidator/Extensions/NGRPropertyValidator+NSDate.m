@@ -68,35 +68,35 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 
 #pragma mark - Messaging
 
-- (NGRPropertyValidator *(^)(NSString *message))notEarlierThan {
+- (NGRPropertyValidator *(^)(NSString *message))msgNotEarlierThan {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotEarlierThan];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *message))notLaterThan {
+- (NGRPropertyValidator *(^)(NSString *message))msgNotLaterThan {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotLaterThan];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *message))notEarlierThanOrEqualTo {
+- (NGRPropertyValidator *(^)(NSString *message))msgNotEarlierThanOrEqualTo {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotEarlierThanOrEqualTo];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *message))notLaterThanOrEqualTo {
+- (NGRPropertyValidator *(^)(NSString *message))msgNotLaterThanOrEqualTo {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotLaterThanOrEqualTo];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))notBetween {
+- (NGRPropertyValidator *(^)(NSString *))msgNotBetweenDates {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotBetweenDates];
         return self;

@@ -44,7 +44,7 @@ describe(@"NGPropertyValidator", ^{
     };
     
     NGRPropertyValidator *validator = [NGRPropertyValidator validatorForProperty:kPropertyName];
-    testMessage(@"required", NGRErrorRequired, validator.isNil(KBlockMessage));
+    testMessage(@"required", NGRErrorRequired, validator.msgNil(KBlockMessage));
 });
 
 SPEC_END

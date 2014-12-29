@@ -47,26 +47,26 @@
 /**
  *  User-defined error message used when validated property length is too short.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^tooShort)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgTooShort)(NSString *message);
 
 /**
  *  User-defined error message used when validated property length is too long.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^tooLong)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgTooLong)(NSString *message);
 
 /**
  *  User-defined error message used when validated property hasn't exact length.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^notExactLength)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotExactLength)(NSString *message);
 
 /**
  *  User-defined error message used when validated property doesn't match another string.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^notMatch)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotMatch)(NSString *message);
 
 /**
  *  User-defined error message used when validated property is not decimal.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^notDecimal)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotDecimal)(NSString *message);
 
 @end

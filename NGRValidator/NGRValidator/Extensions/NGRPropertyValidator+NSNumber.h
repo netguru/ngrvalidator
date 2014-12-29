@@ -47,26 +47,26 @@
 /**
  *  User-defined error message used when validated property value is too small.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^tooSmall)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgTooSmall)(NSString *message);
 
 /**
  *  User-defined error message used when validated property value is too big.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^tooBig)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgTooBig)(NSString *message);
 
 /**
  *  User-defined error message used when validated property hasn't exact value.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^notExact)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotExact)(NSString *message);
 
 /**
  *  User-defined error message used when validated property value isn't false.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^notFalse)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotFalse)(NSString *message);
 
 /**
  *  User-defined error message used when validated property value isn't true.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^notTrue)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotTrue)(NSString *message);
 
 @end

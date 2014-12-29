@@ -49,12 +49,12 @@
     event.title = @"sf";
     
     NSArray * array = [NGRValidator validateModel:event usingRules:^NSArray *{
-        return @[NGRValidate(@"title").required().minLength(5).tooLong(@"should has at least 5 signs"),
-                 NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").tooShort(@"should has at least 4 signs").tooLong(@"should has at most 30 signs.").wrongSyntax(NGRSyntaxName, @"has to contain digits only."),
+        return @[NGRValidate(@"title").required().minLength(5).msgTooLong(@"should has at least 5 signs"),
+                 NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should has at least 4 signs").msgTooLong(@"should has at most 30 signs.").msgWrongSyntax(NGRSyntaxName, @"has to contain digits only."),
                  NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
                  NGRValidate(@"url").syntax(NGRSyntaxURL),
-                 NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(event.endDate).localizedName(@"Event start date").notLaterThanOrEqualTo(@"cannot be earlier than now.").notEarlierThan(@"cannot be later than it's end."),
-                 NGRValidate(@"endDate").required().laterThan(event.startDate).localizedName(@"Event end date").notLaterThan(@"cannot be earlier than it's start")];
+                 NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(event.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
+                 NGRValidate(@"endDate").required().laterThan(event.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start")];
     }];
 
     for (NSError *error in array) {

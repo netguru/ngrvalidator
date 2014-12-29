@@ -154,6 +154,7 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     [self setMessage:@"isn't later than compared date." forError:NGRErrorNotLaterThan];
     [self setMessage:@"isn't earlier than or equal to compared date." forError:NGRErrorNotEarlierThanOrEqualTo];
     [self setMessage:@"isn't later than or equal to compared date." forError:NGRErrorNotLaterThanOrEqualTo];
+    [self setMessage:@"isn't between given dates." forError:NGRErrorNotBetweenDates];
 }
 
 @end

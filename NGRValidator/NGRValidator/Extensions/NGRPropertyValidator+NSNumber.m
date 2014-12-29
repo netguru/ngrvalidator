@@ -81,35 +81,35 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 #pragma mark - Messaging
 
-- (NGRPropertyValidator *(^)(NSString *))tooSmall {
+- (NGRPropertyValidator *(^)(NSString *))msgTooSmall {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorTooSmall];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))tooBig {
+- (NGRPropertyValidator *(^)(NSString *))msgTooBig {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorTooBig];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))notExact {
+- (NGRPropertyValidator *(^)(NSString *))msgNotExact {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotExact];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))notTrue {
+- (NGRPropertyValidator *(^)(NSString *))msgNotTrue {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotTrue];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))notFalse {
+- (NGRPropertyValidator *(^)(NSString *))msgNotFalse {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotFalse];
         return self;

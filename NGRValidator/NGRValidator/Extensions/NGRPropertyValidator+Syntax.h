@@ -34,11 +34,11 @@ typedef NS_ENUM(NSInteger, NGRSyntax) {
 /**
  *  User-defined error message used when validated property has invalid syntax.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^wrongSyntax)(NGRSyntax syntax, NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgWrongSyntax)(NGRSyntax syntax, NSString *message);
 
 /**
  *  User-defined error message used when validated property do not match given regex.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^wrongRegex)(NSString *message);
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgWrongRegex)(NSString *message);
 
 @end

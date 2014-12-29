@@ -42,7 +42,7 @@
 
 #pragma mark - Messaging
 
-- (NGRPropertyValidator *(^)(NSString *))isNil {
+- (NGRPropertyValidator *(^)(NSString *))msgNil {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorRequired];
         return self;

@@ -60,14 +60,14 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
 
 #pragma mark - Messaging
 
-- (NGRPropertyValidator *(^)(NSString *))wrongRegex {
+- (NGRPropertyValidator *(^)(NSString *))msgWrongRegex {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorWrongRegex];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NGRSyntax, NSString *))wrongSyntax {
+- (NGRPropertyValidator *(^)(NGRSyntax, NSString *))msgWrongSyntax {
     return ^(NGRSyntax aSyntax, NSString *message) {
         [self setMessage:message forError:[self errorFromSyntax:aSyntax]];
         return self;
