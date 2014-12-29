@@ -33,6 +33,7 @@ Let's consider a typical model class used in Objective-C. Imagine you want to cr
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
+@property (assign, nonatomic) BOOL termsOfUse;
 
 @end
 ```
@@ -43,6 +44,7 @@ Given model has to fulfill following conditions:
 * `url` - optional. When not nil, should has url syntax.
 * `startDate` - obligatory. Should be not earlier than now and not later than `endDate`.
 * `endDate` - obligatory. Should be later than `startDate`.
+* `termsOfUse` - oblligatory. Should be accepted.
 
 and display appropriate messages when validation rules above fail:
 * `title` - `Title should has at least 5 signs`.
@@ -50,7 +52,8 @@ and display appropriate messages when validation rules above fail:
 * `creatorEmail` - `Email has invalid syntax.`
 * `url` - `URL has invalid syntax.`
 * `startDate` - `Event start date cannot be earlier than now.` and `Event start date cannot be later than it's end.`
-* `endDate` - `Event end date cannot be earlier than it's start`.
+* `endDate` - `Event end date cannot be earlier than it's start.`.
+* `termsOfuse` - `You have to accept terms of use.`.
 
 Whew, all that rules and messages will generate lot of code for something so simple! Let's take a look how to implemention in **NGRValidator** looks like:
 
@@ -65,7 +68,8 @@ NSError *error = nil;
                  NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
                  NGRValidate(@"url").syntax(NGRSyntaxURL),
                  NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(event.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
-                 NGRValidate(@"endDate").required().laterThan(event.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start")];
+                 NGRValidate(@"endDate").required().laterThan(event.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
+                 NGRValidate(@"termsOfUse").required().trueValue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
     }];
 
 error ? NSLog(@"Validation failed with error: %@", error) : NSLog(@"Validation succeed");
