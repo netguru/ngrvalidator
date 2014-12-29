@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E0019581A49833C002ED961 /* NGRTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019571A49833C002ED961 /* NGRTestModel.m */; };
 		5E00195B1A498414002ED961 /* NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195A1A498414002ED961 /* NGRValidator.m */; };
 		5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195E1A49842B002ED961 /* NGRPropertyValidator.m */; };
 		5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019641A4984DA002ED961 /* NGRPropertyValidator+NSObject.m */; };
@@ -27,6 +26,7 @@
 		5E5C09FE1A498164002D3E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FC1A498164002D3E72 /* Main.storyboard */; };
 		5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FF1A498164002D3E72 /* Images.xcassets */; };
 		5E5C0A031A498164002D3E72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C0A011A498164002D3E72 /* LaunchScreen.xib */; };
+		5EAD46F41A5178B400D4044A /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD46F31A5178B400D4044A /* CalendarEvent.m */; };
 		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5E0019561A49833C002ED961 /* NGRTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRTestModel.h; sourceTree = "<group>"; };
-		5E0019571A49833C002ED961 /* NGRTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRTestModel.m; sourceTree = "<group>"; };
 		5E0019591A498414002ED961 /* NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRValidator.h; path = NGRValidator/NGRValidator.h; sourceTree = "<group>"; };
 		5E00195A1A498414002ED961 /* NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidator.m; path = NGRValidator/NGRValidator.m; sourceTree = "<group>"; };
 		5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRPropertyValidator.h; path = NGRValidator/NGRPropertyValidator.h; sourceTree = "<group>"; };
@@ -80,6 +78,8 @@
 		5E5C0A021A498164002D3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5E5C0A081A498164002D3E72 /* NGRValidatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NGRValidatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5C0A0D1A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EAD46F21A5178B400D4044A /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		5EAD46F31A5178B400D4044A /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 			children = (
 				5E5C09F61A498164002D3E72 /* AppDelegate.h */,
 				5E5C09F71A498164002D3E72 /* AppDelegate.m */,
-				5E0019561A49833C002ED961 /* NGRTestModel.h */,
-				5E0019571A49833C002ED961 /* NGRTestModel.m */,
+				5EAD46F21A5178B400D4044A /* CalendarEvent.h */,
+				5EAD46F31A5178B400D4044A /* CalendarEvent.m */,
 				5E00195C1A498418002ED961 /* NGRValidator */,
 				5E0019541A498273002ED961 /* Controllers */,
 				5E0019551A49827E002ED961 /* Resources */,
@@ -387,7 +387,7 @@
 				5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */,
 				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
 				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
-				5E0019581A49833C002ED961 /* NGRTestModel.m in Sources */,
+				5EAD46F41A5178B400D4044A /* CalendarEvent.m in Sources */,
 				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,
 				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
 				5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */,

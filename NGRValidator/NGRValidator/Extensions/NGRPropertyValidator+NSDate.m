@@ -24,6 +24,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 - (NGRPropertyValidator *(^)(NSDate *))earlierThan {
     return ^(NSDate *toDate) {
         [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+            [self checkArgument:toDate];
             return [mainDate ngr_isEarlierThan:toDate] ? NGRErrorNoone : NGRErrorNotEarlierThan;
         }];
         return self;
@@ -33,6 +34,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 - (NGRPropertyValidator *(^)(NSDate *))earlierThanOrEqualTo {
     return ^(NSDate *toDate) {
         [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+            [self checkArgument:toDate];
             return [mainDate ngr_isEarlierThanOrEqualTo:toDate] ? NGRErrorNoone : NGRErrorNotEarlierThanOrEqualTo;
         }];
         return self;
@@ -42,6 +44,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 - (NGRPropertyValidator *(^)(NSDate *))laterThan {
     return ^(NSDate *toDate) {
         [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+            [self checkArgument:toDate];
             return [mainDate ngr_isLaterThan:toDate] ? NGRErrorNoone : NGRErrorNotLaterThan;
         }];
         return self;
@@ -51,6 +54,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 - (NGRPropertyValidator *(^)(NSDate *))laterThanOrEqualTo {
     return ^(NSDate *toDate) {
         [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+            [self checkArgument:toDate];
             return [mainDate ngr_isLaterThanOrEqualTo:toDate] ? NGRErrorNoone : NGRErrorNotLaterThanOrEqualTo;
         }];
         return self;
@@ -60,6 +64,8 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 - (NGRPropertyValidator *(^)(NSDate *, NSDate *, BOOL))betweenDates {
     return ^(NSDate *fromDate, NSDate *toDate, BOOL inclusive) {
         [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+            [self checkArgument:fromDate];
+            [self checkArgument:toDate];
             return [mainDate ngr_isBetweenFirstDate:fromDate lastDate:toDate inclusive:inclusive] ? NGRErrorNoone : NGRErrorNotBetweenDates;
         }];
         return self;
@@ -101,6 +107,13 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
         [self setMessage:message forError:NGRErrorNotBetweenDates];
         return self;
     };
+}
+
+#pragma mark - Private Methods
+- (void)checkArgument:(id)argument {
+    if (!argument) {
+        NSLog(@"[WARNING] A date which is %@ compared to, is nil", self.property);
+    }
 }
 
 @end

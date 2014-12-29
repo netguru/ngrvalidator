@@ -72,10 +72,10 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     __weak typeof(self) weakSelf = self;
     
     [self addValidatonWithBlock:^NGRError (id value) {
+        
         if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
-            
-        } else if (!weakSelf.isRequired) {
+        } else if (!weakSelf.isRequired && !value) {
             return NGRErrorNoone;
         }
         return validationBlock(value);
