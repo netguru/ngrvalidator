@@ -10,6 +10,7 @@
 
 NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;
+NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 
 @interface NGRPropertyValidator ()
 
@@ -28,6 +29,7 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     self = [super init];
     if (self) {
         _property = property;
+        _priority = NGRPropertyValidatorDefaultPriority;
         self.isRequired = NO;
         [self setupMessages];
     }
@@ -42,8 +44,8 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 
 - (NSError *)simpleValidationOfValue:(id)value {
     
-    for (NGRValidationBlock block in self.validators) {
-        NGRError error = block(value);
+    for (NGRValidationRule *validationRule in self.validators) {
+        NGRError error = validationRule.validationBlock(value);
         
         if (error == NGRErrorUnexpectedClass) {
              NSAssert(NO, @"Parameter %@ is wrong kind of class", value);
@@ -57,8 +59,9 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 - (NSArray *)complexValidationOfValue:(id)value {
     NSMutableArray *array = [NSMutableArray array];
     
-    for (NGRValidationBlock block in self.validators) {
-        NGRError error = block(value);
+    for (NGRValidationRule *validationRule in self.validators) {
+        NGRError error = validationRule.validationBlock(value);
+        
         if (error == NGRErrorUnexpectedClass) {
             NSAssert(NO, @"Parameter %@ is wrong kind of class", value);
         } else if (error != NGRErrorNoone) {
@@ -68,18 +71,25 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
     return array;
 }
 
-- (void)validateClass:(Class)aClass withBlock:(NGRValidationBlock)validationBlock {
+- (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block {
     __weak typeof(self) weakSelf = self;
     
-    [self addValidatonWithBlock:^NGRError (id value) {
+    [self addValidatonBlockWithName:name block:^NGRError (id value) {
         
         if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
         } else if (!weakSelf.isRequired && !value) {
             return NGRErrorNoone;
         }
-        return validationBlock(value);
+        return block(value);
     }];
+}
+
+- (NGRPropertyValidator *(^)(NSUInteger))order {
+    return ^(NSUInteger priority){
+        _priority = priority;
+        return self;
+    };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))localizedName {
@@ -92,7 +102,7 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 - (NGRPropertyValidator *(^)())required {
     return ^() {
         self.isRequired = YES;
-        [self validateClass:nil withBlock:^NGRError(id value) {
+        [self validateClass:nil withName:@"required" validationBlock:^NGRError(id value) {
             return (!value || [value isKindOfClass:[NSNull class]]) ? NGRErrorRequired : NGRErrorNoone;
         }];
         return self;
@@ -109,10 +119,12 @@ NSInteger const NGRValidationInconsistencyCode = 10000;
 
 #pragma mark - Private Methods
 
-- (void)addValidatonWithBlock:(NGRError (^)(id))validationBlock {
+- (void)addValidatonBlockWithName:(NSString *)name block:(NGRError (^)(id))block {
     
     if (!self.validators) self.validators = [NSMutableArray array];
-    [self.validators addObject:validationBlock];
+    
+    NGRValidationRule *validatorBlock = [[NGRValidationRule alloc] initWithName:name block:block];
+    [self.validators addObject:validatorBlock];
 }
 
 - (NSError *)errorWithNGRError:(NGRError)error {

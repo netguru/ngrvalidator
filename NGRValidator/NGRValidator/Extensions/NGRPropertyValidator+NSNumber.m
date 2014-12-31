@@ -14,15 +14,15 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 #pragma mark - Rules
 
-- (void)validateNumberWithBlock:(NGRNumberValidationBlock)validationBlock {
-    [self validateClass:[NSNumber class] withBlock:^NGRError(NSNumber *value) {
-        return validationBlock(value);
+- (void)validateNumberWithName:(NSString *)name block:(NGRNumberValidationBlock)block {
+    [self validateClass:[NSNumber class] withName:name validationBlock:^NGRError(NSNumber *value) {
+        return block(value);
     }];
 }
 
 - (NGRPropertyValidator *(^)(float))min {
     return ^(float min) {
-        [self validateNumberWithBlock:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"min" block:^NGRError(NSNumber *number) {
             return (number.floatValue < min) ? NGRErrorTooSmall : NGRErrorNoone;
         }];
         return self;
@@ -31,7 +31,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(float))max {
     return ^(float max) {
-        [self validateNumberWithBlock:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"max" block:^NGRError(NSNumber *number) {
             return (number.floatValue > max) ? NGRErrorTooBig : NGRErrorNoone;
         }];
         return self;
@@ -40,7 +40,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(float, float))range {
     return ^(float min, float max) {
-        [self validateNumberWithBlock:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"range" block:^NGRError(NSNumber *number) {
             if (number.floatValue > MAX(min, max)) {
                 return NGRErrorTooBig;
             } else if (number.floatValue < MIN(min, max)) {
@@ -54,7 +54,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(float))exact {
     return ^(float exactFloat) {
-        [self validateNumberWithBlock:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"exact" block:^NGRError(NSNumber *number) {
             return ([number isEqualToNumber:@(exactFloat)]) ? NGRErrorNoone : NGRErrorNotExact;
         }];
         return self;
@@ -63,7 +63,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)())falseValue {
     return ^() {
-        [self validateNumberWithBlock:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"false value" block:^NGRError(NSNumber *number) {
             return ([number isEqualToNumber:@NO]) ? NGRErrorNoone : NGRErrorNotFalse;
         }];
         return self;
@@ -72,7 +72,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)())trueValue {
     return ^() {
-        [self validateNumberWithBlock:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"true value" block:^NGRError(NSNumber *number) {
             return ([number isEqualToNumber:@YES]) ? NGRErrorNoone : NGRErrorNotTrue;
         }];
         return self;

@@ -11,5 +11,6 @@
 @interface NSArray (NGRValidator)
 
 - (BOOL)ngr_containsString:(NSString *)string;
+- (NSArray *)ngr_sortedArrayByPriority;
 
 @end

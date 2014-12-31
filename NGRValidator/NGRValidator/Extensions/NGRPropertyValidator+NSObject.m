@@ -14,7 +14,7 @@
 
 - (NGRPropertyValidator *(^)(id, SEL, NSString *))condition {
     return ^(id target, SEL selector, NSString *message) {
-        [self validateClass:nil withBlock:^NGRError(id value) {
+        [self validateClass:nil withName:@"custom condition" validationBlock:^NGRError(id value) {
             
             if (message) {
                 [self setMessage:message forError:NGRErrorCustomCondition];
@@ -27,10 +27,10 @@
                 BOOL returnsBoolean = strcmp (signature.methodReturnType, @encode(BOOL)) == 0;
                 NSAssert(returnsBoolean, @"[NGValidator] Custom validation method has to return BOOL.");
                 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                #pragma clang diagnostic push
+                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                 valid = [target performSelector:selector];
-#pragma clang diagnostic pop
+                #pragma clang diagnostic pop
             } else {
                 NSAssert(NO, @"[NGValidator] Selector \"%@\" not found in %@ class.", NSStringFromSelector(selector), NSStringFromClass([target class]));
             }

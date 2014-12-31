@@ -9,6 +9,7 @@
 #import "NGRValidator.h"
 #import "NSArray+NGRValidator.h"
 #import "NSObject+NGRRuntime.h"
+#import "NSArray+NGRValidator.h"
 
 @interface NGRValidator ()
 
@@ -61,7 +62,7 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
     else if (class == [NSError class]) throwFirstError = YES;
     else NSAssert(NO, @"Allowed class: NSArray or NSError");
     
-    NSArray *array = rules();
+    NSArray *array = [rules() ngr_sortedArrayByPriority];
     NSArray *properties = [model ngr_properties];
     NSMutableArray *errors = [NSMutableArray array];
     

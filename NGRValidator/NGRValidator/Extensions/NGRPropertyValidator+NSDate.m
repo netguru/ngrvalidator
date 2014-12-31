@@ -9,21 +9,21 @@
 #import "NGRPropertyValidator+NSDate.h"
 #import "NSDate+NGRValidator.h"
 
-typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
+typedef NGRError (^NGRDateValidationBlock)(NSDate *mainDate);
 
 @implementation NGRPropertyValidator (NSDate)
 
 #pragma mark - Rules
 
-- (void)validateDateWithBlock:(NGRDateValidationBlock)validationBlock {
-    [self validateClass:[NSDate class] withBlock:^NGRError(NSDate *date) {
-        return validationBlock(date);
+- (void)validateDateWithName:(NSString *)name block:(NGRDateValidationBlock)block {
+    [self validateClass:[NSDate class] withName:name validationBlock:^NGRError(NSDate *date) {
+        return block(date);
     }];
 }
 
 - (NGRPropertyValidator *(^)(NSDate *))earlierThan {
     return ^(NSDate *toDate) {
-        [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+        [self validateDateWithName:@"earlier than" block:^NGRError(NSDate *mainDate) {
             [self checkArgument:toDate];
             return [mainDate ngr_isEarlierThan:toDate] ? NGRErrorNoone : NGRErrorNotEarlierThan;
         }];
@@ -33,7 +33,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 
 - (NGRPropertyValidator *(^)(NSDate *))earlierThanOrEqualTo {
     return ^(NSDate *toDate) {
-        [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+        [self validateDateWithName:@"earlier than or equal to" block:^NGRError(NSDate *mainDate) {
             [self checkArgument:toDate];
             return [mainDate ngr_isEarlierThanOrEqualTo:toDate] ? NGRErrorNoone : NGRErrorNotEarlierThanOrEqualTo;
         }];
@@ -43,7 +43,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 
 - (NGRPropertyValidator *(^)(NSDate *))laterThan {
     return ^(NSDate *toDate) {
-        [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+        [self validateDateWithName:@"later than" block:^NGRError(NSDate *mainDate) {
             [self checkArgument:toDate];
             return [mainDate ngr_isLaterThan:toDate] ? NGRErrorNoone : NGRErrorNotLaterThan;
         }];
@@ -53,7 +53,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 
 - (NGRPropertyValidator *(^)(NSDate *))laterThanOrEqualTo {
     return ^(NSDate *toDate) {
-        [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+        [self validateDateWithName:@"later than or equal to" block:^NGRError(NSDate *mainDate) {
             [self checkArgument:toDate];
             return [mainDate ngr_isLaterThanOrEqualTo:toDate] ? NGRErrorNoone : NGRErrorNotLaterThanOrEqualTo;
         }];
@@ -63,7 +63,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *date);
 
 - (NGRPropertyValidator *(^)(NSDate *, NSDate *, BOOL))betweenDates {
     return ^(NSDate *fromDate, NSDate *toDate, BOOL inclusive) {
-        [self validateDateWithBlock:^NGRError(NSDate *mainDate) {
+        [self validateDateWithName:@"between dates" block:^NGRError(NSDate *mainDate) {
             [self checkArgument:fromDate];
             [self checkArgument:toDate];
             return [mainDate ngr_isBetweenFirstDate:fromDate lastDate:toDate inclusive:inclusive] ? NGRErrorNoone : NGRErrorNotBetweenDates;

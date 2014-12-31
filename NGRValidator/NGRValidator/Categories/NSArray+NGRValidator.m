@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+NGRValidator.h"
+#import "NGRPropertyValidator.h"
 
 @implementation NSArray (NGRValidator)
 
@@ -17,6 +18,12 @@
         }
     }
     return NO;
+}
+
+- (NSArray *)ngr_sortedArrayByPriority {
+    return [self sortedArrayUsingComparator:^NSComparisonResult(NGRPropertyValidator *validatorA, NGRPropertyValidator *validatorB) {
+        return [@(validatorA.priority) compare:@(validatorB.priority)];
+    }];
 }
 
 @end

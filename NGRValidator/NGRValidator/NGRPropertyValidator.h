@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "NGRErrors.h"
+#import "NGRValidationRule.h"
 
-typedef NGRError (^NGRValidationBlock)(id);
+extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
 @interface NGRPropertyValidator : NSObject
 
@@ -37,9 +38,21 @@ typedef NGRError (^NGRValidationBlock)(id);
 @property (nonatomic, readonly, copy) NGRPropertyValidator *(^required)();
 
 /**
- *  Array of validator blocks invoked one by one in validation proccess.
+ *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
+ *  Default behaviour: All property validators have same priority and will be invoke in order of NSArray order given in
+ *  [NGRValidator validateModel:error:usingRules:] or [NGRValidator validateModel:usingRules:] method.
  */
-@property (strong, nonatomic, readonly) NSMutableArray *validators;
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^order)(NSUInteger);
+
+/**
+ *  Priority of property validator. Default equal to NGRPropertyValidatorDefaultPriority (100).
+ */
+@property (assign, readonly, nonatomic) NSUInteger priority;
+
+/**
+ *  Array of NGRValidationRule objects, invoked one by one in validation proccess.
+ */
+@property (strong, nonatomic, readonly) NSMutableArray *validationRules;
 
 /**
  * Dictionary of error - message pairs.
@@ -81,9 +94,10 @@ typedef NGRError (^NGRValidationBlock)(id);
 /**
  *  Adds a validator block to validators. Also checks if validated property is kind of given class.
  *
- *  @param aClass          The class which given property should be. If nil, class validation will be skipped
- *  @param validationBlock The validation block invoked during validation proccess.
+ *  @param aClass           The class which given property should be. If nil, class validation will be skipped
+ *  @param name             The name of validator block
+ *  @param validationBlock  The validation block invoked during validation proccess.
  */
-- (void)validateClass:(Class)aClass withBlock:(NGRValidationBlock)validationBlock;
+- (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block;
 
 @end

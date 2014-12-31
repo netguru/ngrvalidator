@@ -15,15 +15,15 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 #pragma mark - Rules
 
-- (void)validateStringWithBlock:(NGRStringValidationBlock)validationBlock {
-    [self validateClass:[NSString class] withBlock:^NGRError(NSString *value) {
-        return validationBlock(value);
+- (void)validateStringWithName:(NSString *)name block:(NGRStringValidationBlock)block {
+    [self validateClass:[NSString class] withName:name validationBlock:^NGRError(NSString *value) {
+        return block(value);
     }];
 }
 
 - (NGRPropertyValidator *(^)(NSUInteger min))minLength {
     return ^(NSUInteger min) {
-        [self validateStringWithBlock:^NGRError(NSString *string) {
+        [self validateStringWithName:@"minimum length" block:^NGRError(NSString *string) {
             return (string.length < min) ? NGRErrorTooShort : NGRErrorNoone;
         }];
         return self;
@@ -32,7 +32,7 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSUInteger))maxLength {
     return ^(NSUInteger max) {
-        [self validateStringWithBlock:^NGRError(NSString *string) {
+        [self validateStringWithName:@"maximum length" block:^NGRError(NSString *string) {
             return (string.length > max) ? NGRErrorTooLong : NGRErrorNoone;
         }];
         return self;
@@ -41,7 +41,7 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSUInteger, NSUInteger))lengthRange {
     return ^(NSUInteger min, NSUInteger max) {
-        [self validateStringWithBlock:^NGRError(NSString *string) {
+        [self validateStringWithName:@"length range" block:^NGRError(NSString *string) {
             if (string.length > MAX(min, max)) {
                 return NGRErrorTooLong;
             } else if (string.length < MIN(min, max)) {
@@ -55,7 +55,7 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSUInteger))exactLength {
     return ^(NSUInteger length) {
-        [self validateStringWithBlock:^NGRError(NSString *string) {
+        [self validateStringWithName:@"exact length" block:^NGRError(NSString *string) {
             return (string.length != length) ? NGRErrorNotExactLength : NGRErrorNoone;
         }];
         return self;
@@ -64,7 +64,7 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSString *))match {
     return ^(NSString *stringToMatch) {
-        [self validateStringWithBlock:^NGRError(NSString *string) {
+        [self validateStringWithName:@"match" block:^NGRError(NSString *string) {
             return [string isEqualToString:stringToMatch] ? NGRErrorNoone : NGRErrorNotMatch;
         }];
         return self;
@@ -73,7 +73,7 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)())decimal {
     return ^() {
-        [self validateStringWithBlock:^NGRError(NSString *string) {
+        [self validateStringWithName:@"decimal" block:^NGRError(NSString *string) {
             return [string ngr_isDecimal] ? NGRErrorNoone : NGRErrorNotDecimal;
         }];
         return self;

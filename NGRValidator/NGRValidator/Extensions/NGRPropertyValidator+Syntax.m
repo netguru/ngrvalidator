@@ -15,9 +15,9 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
 
 #pragma mark - Rules
 
-- (void)validateSyntaxWithBlock:(NGRSyntaxValidationBlock)validationBlock {
-    [self validateClass:[NSString class] withBlock:^NGRError(NSString *value) {
-        return validationBlock(value);
+- (void)validateSyntaxWithName:(NSString *)name block:(NGRSyntaxValidationBlock)block {
+    [self validateClass:[NSString class] withName:name validationBlock:^NGRError(NSString *value) {
+        return block(value);
     }];
 }
 
@@ -26,17 +26,17 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
         
         switch (aSyntax) {
             case NGRSyntaxEmail:
-                [self validateSyntaxWithBlock:^NGRError(NSString *string) {
+                [self validateSyntaxWithName:@"syntax: email" block:^NGRError(NSString *string) {
                     return [string ngr_isEmail] ? NGRErrorNoone : NGRErrorNotEmail;
                 }]; break;
                 
             case NGRSyntaxName:
-                [self validateSyntaxWithBlock:^NGRError(NSString *string) {
+                [self validateSyntaxWithName:@"syntax: name" block:^NGRError(NSString *string) {
                     return [string ngr_isName] ? NGRErrorNoone : NGRErrorNotName;
                 }]; break;
                 
             case NGRSyntaxURL:
-                [self validateSyntaxWithBlock:^NGRError(NSString *string) {
+                [self validateSyntaxWithName:@"syntax: URL" block:^NGRError(NSString *string) {
                     return [string ngr_isURL] ? NGRErrorNoone : NGRErrorNotURL;
                 }]; break;
                 
@@ -50,7 +50,7 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSRegularExpression *))regex {
     return ^(NSRegularExpression *aRegex) {
-        [self validateSyntaxWithBlock:^NGRError(NSString *string) {
+        [self validateSyntaxWithName:@"regex" block:^NGRError(NSString *string) {
             NSUInteger matches = [aRegex numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
             return (matches == 1) ? NGRErrorNoone : NGRErrorWrongRegex;
         }];
