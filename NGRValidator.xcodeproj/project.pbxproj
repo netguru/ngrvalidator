@@ -22,12 +22,16 @@
 		5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019861A49A82C002ED961 /* NGRPropertyValidator+NSDate.m */; };
 		5E5C09F51A498164002D3E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F41A498164002D3E72 /* main.m */; };
 		5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F71A498164002D3E72 /* AppDelegate.m */; };
-		5E5C09FB1A498164002D3E72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09FA1A498164002D3E72 /* ViewController.m */; };
 		5E5C09FE1A498164002D3E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FC1A498164002D3E72 /* Main.storyboard */; };
 		5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FF1A498164002D3E72 /* Images.xcassets */; };
 		5E5C0A031A498164002D3E72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C0A011A498164002D3E72 /* LaunchScreen.xib */; };
 		5E6D99BD1A53827000161808 /* NGRValidationRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99BC1A53827000161808 /* NGRValidationRule.m */; };
-		5EAD46F41A5178B400D4044A /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAD46F31A5178B400D4044A /* CalendarEvent.m */; };
+		5E6D99C01A53959500161808 /* NGRDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99BF1A53959500161808 /* NGRDemoViewController.m */; };
+		5E6D99C41A5395C600161808 /* NGRDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C31A5395C600161808 /* NGRDemoView.m */; };
+		5E6D99C71A53971900161808 /* NGRDemoTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C61A53971900161808 /* NGRDemoTextFieldCell.m */; };
+		5E6D99CA1A539B9400161808 /* NGRDemoDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */; };
+		5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */; };
+		5E9643241A53A2CA003E1773 /* NGRDemoCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9643231A53A2CA003E1773 /* NGRDemoCalendarEvent.m */; };
 		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +76,6 @@
 		5E5C09F41A498164002D3E72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5E5C09F61A498164002D3E72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E5C09F71A498164002D3E72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5E5C09F91A498164002D3E72 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5E5C09FA1A498164002D3E72 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5E5C09FD1A498164002D3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E5C09FF1A498164002D3E72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5E5C0A021A498164002D3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -81,8 +83,18 @@
 		5E5C0A0D1A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E6D99BB1A53827000161808 /* NGRValidationRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRValidationRule.h; path = NGRValidator/NGRValidationRule.h; sourceTree = "<group>"; };
 		5E6D99BC1A53827000161808 /* NGRValidationRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidationRule.m; path = NGRValidator/NGRValidationRule.m; sourceTree = "<group>"; };
-		5EAD46F21A5178B400D4044A /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
-		5EAD46F31A5178B400D4044A /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
+		5E6D99BE1A53959500161808 /* NGRDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoViewController.h; path = Demo/NGRDemoViewController.h; sourceTree = "<group>"; };
+		5E6D99BF1A53959500161808 /* NGRDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoViewController.m; path = Demo/NGRDemoViewController.m; sourceTree = "<group>"; };
+		5E6D99C21A5395C600161808 /* NGRDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoView.h; path = Demo/NGRDemoView.h; sourceTree = "<group>"; };
+		5E6D99C31A5395C600161808 /* NGRDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoView.m; path = Demo/NGRDemoView.m; sourceTree = "<group>"; };
+		5E6D99C51A53971900161808 /* NGRDemoTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoTextFieldCell.h; path = Demo/NGRDemoTextFieldCell.h; sourceTree = "<group>"; };
+		5E6D99C61A53971900161808 /* NGRDemoTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoTextFieldCell.m; path = Demo/NGRDemoTextFieldCell.m; sourceTree = "<group>"; };
+		5E6D99C81A539B9400161808 /* NGRDemoDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoDatePickerCell.h; path = Demo/NGRDemoDatePickerCell.h; sourceTree = "<group>"; };
+		5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoDatePickerCell.m; path = Demo/NGRDemoDatePickerCell.m; sourceTree = "<group>"; };
+		5E6D99CB1A539BA500161808 /* NGRDemoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoSwitchCell.h; path = Demo/NGRDemoSwitchCell.h; sourceTree = "<group>"; };
+		5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoSwitchCell.m; path = Demo/NGRDemoSwitchCell.m; sourceTree = "<group>"; };
+		5E9643221A53A2CA003E1773 /* NGRDemoCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoCalendarEvent.h; path = Demo/NGRDemoCalendarEvent.h; sourceTree = "<group>"; };
+		5E9643231A53A2CA003E1773 /* NGRDemoCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoCalendarEvent.m; path = Demo/NGRDemoCalendarEvent.m; sourceTree = "<group>"; };
 		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,15 +125,6 @@
 				694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5E0019541A498273002ED961 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				5E5C09F91A498164002D3E72 /* ViewController.h */,
-				5E5C09FA1A498164002D3E72 /* ViewController.m */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		5E0019551A49827E002ED961 /* Resources */ = {
@@ -207,10 +210,8 @@
 			children = (
 				5E5C09F61A498164002D3E72 /* AppDelegate.h */,
 				5E5C09F71A498164002D3E72 /* AppDelegate.m */,
-				5EAD46F21A5178B400D4044A /* CalendarEvent.h */,
-				5EAD46F31A5178B400D4044A /* CalendarEvent.m */,
+				5E6D99C11A53959900161808 /* Demo */,
 				5E00195C1A498418002ED961 /* NGRValidator */,
-				5E0019541A498273002ED961 /* Controllers */,
 				5E0019551A49827E002ED961 /* Resources */,
 				5E5C09F21A498164002D3E72 /* Supporting Files */,
 			);
@@ -242,6 +243,57 @@
 				5E5C0A0D1A498164002D3E72 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5E6D99C11A53959900161808 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				5E9643281A53A2F4003E1773 /* Model */,
+				5E9643261A53A2D7003E1773 /* Controllers */,
+				5E9643251A53A2D0003E1773 /* Cells */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		5E9643251A53A2D0003E1773 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D99C51A53971900161808 /* NGRDemoTextFieldCell.h */,
+				5E6D99C61A53971900161808 /* NGRDemoTextFieldCell.m */,
+				5E6D99C81A539B9400161808 /* NGRDemoDatePickerCell.h */,
+				5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */,
+				5E6D99CB1A539BA500161808 /* NGRDemoSwitchCell.h */,
+				5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		5E9643261A53A2D7003E1773 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D99BE1A53959500161808 /* NGRDemoViewController.h */,
+				5E6D99BF1A53959500161808 /* NGRDemoViewController.m */,
+				5E9643271A53A2DF003E1773 /* View */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5E9643271A53A2DF003E1773 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D99C21A5395C600161808 /* NGRDemoView.h */,
+				5E6D99C31A5395C600161808 /* NGRDemoView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5E9643281A53A2F4003E1773 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E9643221A53A2CA003E1773 /* NGRDemoCalendarEvent.h */,
+				5E9643231A53A2CA003E1773 /* NGRDemoCalendarEvent.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A6EA48BCBDCAB0C2609537C8 /* Pods */ = {
@@ -389,17 +441,21 @@
 			files = (
 				5E6D99BD1A53827000161808 /* NGRValidationRule.m in Sources */,
 				5E00196B1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m in Sources */,
-				5E5C09FB1A498164002D3E72 /* ViewController.m in Sources */,
 				5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */,
+				5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */,
 				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
 				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
-				5EAD46F41A5178B400D4044A /* CalendarEvent.m in Sources */,
 				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,
 				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
+				5E6D99C01A53959500161808 /* NGRDemoViewController.m in Sources */,
+				5E6D99C71A53971900161808 /* NGRDemoTextFieldCell.m in Sources */,
 				5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */,
+				5E9643241A53A2CA003E1773 /* NGRDemoCalendarEvent.m in Sources */,
 				5E0019771A498542002ED961 /* NSString+NGRValidator.m in Sources */,
 				5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */,
+				5E6D99CA1A539B9400161808 /* NGRDemoDatePickerCell.m in Sources */,
 				5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */,
+				5E6D99C41A5395C600161808 /* NGRDemoView.m in Sources */,
 				5E5C09F51A498164002D3E72 /* main.m in Sources */,
 				5E0019681A4984E7002ED961 /* NGRPropertyValidator+NSString.m in Sources */,
 				5E0019811A499B5F002ED961 /* NSDate+NGRValidator.m in Sources */,

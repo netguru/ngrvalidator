@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "CalendarEvent.h"
+#import "NGRDemoCalendarEvent.h"
+#import "NGRDemoViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    CalendarEvent *event = [[CalendarEvent alloc] init];
+    BOOL logStory = NO; //change to YES if you want to log story
+    if (logStory) {
+        [self story];
+    }
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    NGRDemoViewController *controller = [[NGRDemoViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    self.window.rootViewController = navigationController;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+/**
+ *  It's recommended to set breakpoint at event object initializing to improve readability of log statements
+ */
+- (void)story {
+    NGRDemoCalendarEvent *event = [[NGRDemoCalendarEvent alloc] init];
+    event.enableImmediatelyValidation = YES;
     
     //Let's start validation story! First property (title) given in 'usingRules' block will be validated:
     NSLog(@"[1]:");
@@ -75,9 +97,6 @@
     //Stupid 'dot' key. Seems not working...Copy-paste method should be enough!
     NSLog(@"[14]:");
     event.url = @"http://www.example.com";
-    
-    return YES;
 }
-
 
 @end

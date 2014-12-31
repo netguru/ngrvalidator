@@ -6,10 +6,18 @@
 //
 //
 
-#import "CalendarEvent.h"
+#import "NGRDemoCalendarEvent.h"
 #import "NGRValidator.h"
 
-@implementation CalendarEvent
+@implementation NGRDemoCalendarEvent
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _enableImmediatelyValidation = NO;
+    }
+    return self;
+}
 
 - (NSError *)validate {
     
@@ -35,37 +43,38 @@
 
 - (void)setTitle:(NSString *)title {
     _title = title;
-    [self validate];
+    
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 - (void)setCreatorLastName:(NSString *)creatorLastName {
     _creatorLastName = creatorLastName;
-    [self validate];
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 - (void)setEmail:(NSString *)email {
     _email = email;
-    [self validate];
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 - (void)setUrl:(NSString *)url {
     _url = url;
-    [self validate];
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 - (void)setStartDate:(NSDate *)startDate {
     _startDate = startDate;
-    [self validate];
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 - (void)setEndDate:(NSDate *)endDate {
     _endDate = endDate;
-    [self validate];
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 - (void)setTermsOfUse:(BOOL)termsOfUse {
     _termsOfUse = termsOfUse;
-    [self validate];
+    if (self.isImmediatelyValidationEnabled) [self validate];
 }
 
 @end

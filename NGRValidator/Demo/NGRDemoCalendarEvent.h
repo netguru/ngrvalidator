@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CalendarEvent : NSObject
+@interface NGRDemoCalendarEvent : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *creatorLastName;
@@ -19,5 +19,12 @@
 @property (assign, nonatomic) BOOL termsOfUse;
 
 - (NSError *)validate;
+
+/**
+ *  Only for demo purposes:
+ *  Flag which indicates if validation should be invoked after any setter call
+ */
+@property (assign, nonatomic, getter=isImmediatelyValidationEnabled) BOOL enableImmediatelyValidation;
+
 
 @end
