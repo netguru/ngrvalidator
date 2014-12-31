@@ -7,14 +7,26 @@
 - iOS 7.0+ SDK
 - CocoaPods 0.35.0 (use `gem install cocoapods` to grab it!)
 
-## CocoaPods
-
+## Installation:
+#### Installation with CocoaPods
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
 pod 'NGRValidator', '~> 0.1.0'
 ```
 and run `pod update` or `pod install`
+
+#### Submodule
+In your projects git folder type:
+```bash
+git submodule init
+git submodule add --copy link to the repo--
+git submodule update
+```
+Copy all files from  **NGRValidator** folder.
+
+#### Just download & attach
+This is strongly misadvised as you won't be able to see code updates. Clone or download the source, copy all files from  **NGRValidator** folder.
 
 ## Configuration
 
@@ -38,17 +50,17 @@ Let's consider a typical model class used in Objective-C. Imagine you want to cr
 @end
 ```
 Given model has to fulfill following conditions:
-* `title` - obligatory. Should has at least 5 signs.
+* `title` - obligatory. Should have at least 5 signs.
 * `creatorLastName` - obligatory. Should be at least 4 signs and at moset 30 signs. Also should contains only letters cause it lastname. No digit and special signs allowed!
-* `creatorEmail` - obligatory. Should has email syntax.
-* `url` - optional. When not nil, should has url syntax.
+* `creatorEmail` - obligatory. Should have email syntax.
+* `url` - optional. When not nil, should have url syntax.
 * `startDate` - obligatory. Should be not earlier than now and not later than `endDate`.
 * `endDate` - obligatory. Should be later than `startDate`.
 * `termsOfUse` - oblligatory. Should be accepted.
 
 and display appropriate messages when validation rules above fail:
-* `title` - `Title should has at least 5 signs`.
-* `creatorLastName` - `Lastname has to contain digits only.`, `Lastname should has at least 4 signs` and `Lastname should has at most 30 signs.`
+* `title` - `Title should have at least 5 signs`.
+* `creatorLastName` - `Lastname has to contain digits only.`, `Lastname should have at least 4 signs` and `Lastname should have at most 30 signs.`
 * `creatorEmail` - `Email has invalid syntax.`
 * `url` - `URL has invalid syntax.`
 * `startDate` - `Event start date cannot be earlier than now.` and `Event start date cannot be later than it's end.`
@@ -63,8 +75,8 @@ CalendarEvent *event = [[CalendarEvent alloc] init];
 
 NSError *error = nil;
 [NGRValidator validateModel:event error:&error usingRules:^NSArray *{
-        return @[NGRValidate(@"title").required().minLength(5).msgTooLong(@"should has at least 5 signs"),
-                 NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should has at least 4 signs").msgTooLong(@"should has at most 30 signs.").msgWrongSyntax(NGRSyntaxName, @"has to contain digits only."),
+        return @[NGRValidate(@"title").required().minLength(6).msgTooLong(@"should have at least 6 signs"),
+                 NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should has at least 4 signs").msgTooLong(@"should have at most 30 signs.").msgWrongSyntax(NGRSyntaxName, @"has to contain digits only."),
                  NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
                  NGRValidate(@"url").syntax(NGRSyntaxURL),
                  NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(event.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
@@ -90,8 +102,8 @@ There are 2 possible ways to validate model:
 
 ## Validation rules
 
-**NGRValidator** offers many validators which you don't have code. Let's take a look on them:
-* `required()` - validates if property is nil or not. If it isn't `required()` and has any other validation rules attached, like `.syntax(NGRSyntaxURL)` in example above, property will be validated only when is not nil. This make you sure if property is not nil should pass applied rules.
+**NGRValidator** offers many rules which you don't have to code. Let's take a look on them:
+* `required()` - validates if property is nil or not. If isn't `required()` and has any other validation rules attached, like `.syntax(NGRSyntaxURL)` in example above, will be validated only when is not nil. This make you sure if property is not nil should pass applied rules.
 
 **NSString**: 
 * `minLength(NSUInteger)` - validates minimum length of NSString (inclusive).
@@ -124,7 +136,7 @@ There are 2 possible ways to validate model:
 * `betweenDates(NSDate *, NSDate *, BOOL)` - validates if NSDate property is between given dates. `BOOL` parameter specify inclusiveness of comparison.
 
 ## Validation messages
-Although **NGRValidator** contains default error messages for each validation, it is possible to customize them as well. Any [validation rule](https://github.com/netguru/ngrvalidator/validation-rules) has its message counterpart ans starts with `msg` prefix:
+Although **NGRValidator** contains default error messages for each validation, it is possible to customize them as well. Any [validation rule](https://github.com/netguru/ngrvalidator#validation-rules) has its message counterpart ans starts with `msg` prefix:
 
 | Validation rule | Counterpart message method  | Default message  |
 |:--------------------:|:---------------------------:|:----------------------------:|
@@ -142,7 +154,7 @@ Although **NGRValidator** contains default error messages for each validation, i
 |`falseValue()`|`msgNotFalse(NSString *)`|isn't false.|
 |`trueValue()`|`msgNotTrue(NSString *)`|isn't true.|
 |`syntax(NGRSyntaxEmail)`|`msgWrongSyntax(NGRSyntaxEmail, NSString *)`|has invalid syntax.|
-|`syntax(NGRSyntaxName)`|`msgWrongSyntax(NGRSyntaxName, NSString *)`|should contains only letters.|
+|`syntax(NGRSyntaxName)`|`msgWrongSyntax(NGRSyntaxName, NSString *)`|should contain only letters.|
 |`syntax(NGRSyntaxURL)`|`msgWrongSyntax(NGRSyntaxURL, NSString *)`|has invalid syntax.|
 |`regex(NSRegularExpression *)`|`msgWrongRegex(NSString *)`|do not match pattern.|
 |`earlierThan(NSDate *)`|`msgNotTrue(msgNotEarlierThan *)`|isn't earlier than compared date.|
@@ -151,15 +163,22 @@ Although **NGRValidator** contains default error messages for each validation, i
 |`laterThanOrEqualTo(NSDate *)`|`msgNotLaterThanOrEqualTo(NSString *)`|isn't later than or equal to compared date.|
 |`betweenDates(NSDate *, NSDate *, BOOL)`|`msgNotBetweenDates(NSString *)`|isn't between given dates.|
 
-**NGRValidator** has also special method:
+By default **NGRValidator** will use name of validated property in error localized description. Nevertheless there is possibility to localize that name for everything you want! Just use:
 ```objc
 localizedName(NSString *);
 ```
-which allows to localize property name for everything you want! If `localizedName` has been set, it will be used instead of name of property from code. So in given example above:
+Let's take a look on following example:
 ```objc
 NGRValidate(@"creatorLastName").required().localizedName(@"Lastname")
 ```
-will change every validation message applied to this property. So message `CreatorLastName is required.` will be changed to `Lastname is required.` So simple!
+will change every error localized description applied to this property. Message `CreatorLastName is required.` will be changed to `Lastname is required.` So simple!
+
+##Demo
+Contains 2 examples:
+* with UI
+* coded
+
+UI example will be automatically fired when you hit `⌘+R`. To enable coded example please change `logStory` flag from `NO` to `YES` in `AppDelegate`. To improve `story` readability and understandability, set brakepoint at the beginning of `story` method and follow debugger line by line.
 
 ## License
 **NGRValidator** is available under the [MIT license](https://github.com/netguru/ngrvalidator/blob/master/LICENSE.md).
