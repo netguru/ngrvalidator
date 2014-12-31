@@ -33,7 +33,7 @@
     
     NSError *error = nil;
     BOOL success = [NGRValidator validateModel:self error:&error usingRules:^NSArray *{
-        return @[NGRValidate(@"title").required().minLength(6).msgTooShort(@"should has at least 6 signs"),
+        return @[NGRValidate(@"title").required().minLength(6).msgTooShort(@"should have at least 6 signs"),
                  NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
                  NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
                  NGRValidate(@"url").syntax(NGRSyntaxURL),

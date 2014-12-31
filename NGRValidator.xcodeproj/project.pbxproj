@@ -16,8 +16,8 @@
 		5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019701A49851B002ED961 /* NSObject+NGRRuntime.m */; };
 		5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019731A498531002ED961 /* NSArray+NGRValidator.m */; };
 		5E0019771A498542002ED961 /* NSString+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019761A498542002ED961 /* NSString+NGRValidator.m */; };
-		5E0019791A498A01002ED961 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019781A498A01002ED961 /* NGRValidatorSpec.m */; };
-		5E00197B1A498A0F002ED961 /* NGRPropertyValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */; };
+		5E0019791A498A01002ED961 /* NGRPropertyValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019781A498A01002ED961 /* NGRPropertyValidatorSpec.m */; };
+		5E00197B1A498A0F002ED961 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00197A1A498A0F002ED961 /* NGRValidatorSpec.m */; };
 		5E0019811A499B5F002ED961 /* NSDate+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019801A499B5F002ED961 /* NSDate+NGRValidator.m */; };
 		5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019861A49A82C002ED961 /* NGRPropertyValidator+NSDate.m */; };
 		5E5C09F51A498164002D3E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F41A498164002D3E72 /* main.m */; };
@@ -65,8 +65,8 @@
 		5E0019731A498531002ED961 /* NSArray+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+NGRValidator.m"; path = "NGRValidator/Categories/NSArray+NGRValidator.m"; sourceTree = "<group>"; };
 		5E0019751A498542002ED961 /* NSString+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NGRValidator.h"; path = "NGRValidator/Categories/NSString+NGRValidator.h"; sourceTree = "<group>"; };
 		5E0019761A498542002ED961 /* NSString+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NGRValidator.m"; path = "NGRValidator/Categories/NSString+NGRValidator.m"; sourceTree = "<group>"; };
-		5E0019781A498A01002ED961 /* NGRValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidatorSpec.m; sourceTree = "<group>"; };
-		5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRPropertyValidatorSpec.m; sourceTree = "<group>"; };
+		5E0019781A498A01002ED961 /* NGRPropertyValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRPropertyValidatorSpec.m; sourceTree = "<group>"; };
+		5E00197A1A498A0F002ED961 /* NGRValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidatorSpec.m; sourceTree = "<group>"; };
 		5E00197F1A499B5F002ED961 /* NSDate+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+NGRValidator.h"; path = "NGRValidator/Categories/NSDate+NGRValidator.h"; sourceTree = "<group>"; };
 		5E0019801A499B5F002ED961 /* NSDate+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+NGRValidator.m"; path = "NGRValidator/Categories/NSDate+NGRValidator.m"; sourceTree = "<group>"; };
 		5E0019851A49A82C002ED961 /* NGRPropertyValidator+NSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSDate.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSDate.h"; sourceTree = "<group>"; };
@@ -231,8 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				5E5C0A0C1A498164002D3E72 /* Supporting Files */,
-				5E0019781A498A01002ED961 /* NGRValidatorSpec.m */,
-				5E00197A1A498A0F002ED961 /* NGRPropertyValidatorSpec.m */,
+				5E0019781A498A01002ED961 /* NGRPropertyValidatorSpec.m */,
+				5E00197A1A498A0F002ED961 /* NGRValidatorSpec.m */,
 			);
 			path = NGRValidatorTests;
 			sourceTree = "<group>";
@@ -466,8 +466,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E00197B1A498A0F002ED961 /* NGRPropertyValidatorSpec.m in Sources */,
-				5E0019791A498A01002ED961 /* NGRValidatorSpec.m in Sources */,
+				5E00197B1A498A0F002ED961 /* NGRValidatorSpec.m in Sources */,
+				5E0019791A498A01002ED961 /* NGRPropertyValidatorSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
