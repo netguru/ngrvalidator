@@ -29,7 +29,7 @@
                 
                 #pragma clang diagnostic push
                 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                valid = [target performSelector:selector];
+                valid = (BOOL)[target performSelector:selector];
                 #pragma clang diagnostic pop
             } else {
                 NSAssert(NO, @"[NGValidator] Selector \"%@\" not found in %@ class.", NSStringFromSelector(selector), NSStringFromClass([target class]));
