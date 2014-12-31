@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.1.0'
+pod 'NGRValidator', '~> 0.1.1'
 ```
 and run `pod update` or `pod install`
 
