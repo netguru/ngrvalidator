@@ -16,7 +16,6 @@
         self.clipsToBounds = YES;
         
         _datePicker = [[UIDatePicker alloc] init];
-        _datePicker.datePickerMode = UIDatePickerModeDate;
         [self addSubview:_datePicker];
     }
     return self;

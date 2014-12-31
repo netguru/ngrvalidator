@@ -19,21 +19,38 @@
     return self;
 }
 
+- (instancetype)initWithDefaultDates {
+    self = [super init];
+    if (self) {
+        _enableImmediatelyValidation = NO;
+        _startDate = [self currentDateWithoutSeconds];
+        _endDate = [[self currentDateWithoutSeconds] dateByAddingTimeInterval:60];
+    }
+    return self;
+}
+
 - (NSError *)validate {
     
     NSError *error = nil;
     BOOL success = [NGRValidator validateModel:self error:&error usingRules:^NSArray *{
         return @[NGRValidate(@"title").required().minLength(6).msgTooShort(@"should has at least 6 signs"),
-                 NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should has at least 4 signs").msgTooLong(@"should has at most 30 signs."),
+                 NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
                  NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
                  NGRValidate(@"url").syntax(NGRSyntaxURL),
-                 NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
+                 NGRValidate(@"startDate").required().laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
                  NGRValidate(@"endDate").required().laterThan(self.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
                  NGRValidate(@"termsOfUse").required().trueValue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
     }];
     
     success ? NSLog(@"Event validation succeed") : NSLog(@"Event validation failed because of an error: %@", error.localizedDescription);
     return error;
+}
+
+- (NSDate *)currentDateWithoutSeconds {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute fromDate:[NSDate date]];
+    
+    return [calendar dateFromComponents:dateComponents];;
 }
 
 /**

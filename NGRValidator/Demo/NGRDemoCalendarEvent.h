@@ -19,6 +19,7 @@
 @property (assign, nonatomic) BOOL termsOfUse;
 
 - (NSError *)validate;
+- (instancetype)initWithDefaultDates;
 
 /**
  *  Only for demo purposes:

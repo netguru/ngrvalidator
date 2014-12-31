@@ -52,7 +52,7 @@
     self.aView.tableView.delegate = self;
     self.aView.tableView.dataSource = self;
     [self registerKeyboardNotifications];
-    _event = [[NGRDemoCalendarEvent alloc] init];
+    _event = [[NGRDemoCalendarEvent alloc] initWithDefaultDates];
 }
 
 - (void)dealloc {
@@ -93,18 +93,24 @@
         cell.textField.delegate = self;
     }
     
+    cell.textField.tag = indexPath.row;
+    
     switch (indexPath.row) {
         case kTitleRow:
             cell.textField.placeholder = NSLocalizedString(@"Event title (required)", nil);
+            cell.textField.text = self.event.title;
             break;
         case kLastnameRow:
             cell.textField.placeholder = NSLocalizedString(@"Event owner lastname (required)", nil);
+            cell.textField.text = self.event.creatorLastName;
             break;
         case kEmailRow:
             cell.textField.placeholder = NSLocalizedString(@"Event owner email (required)", nil);
+            cell.textField.text = self.event.email;
             break;
         case kURLRow:
             cell.textField.placeholder = NSLocalizedString(@"Event url", nil);
+            cell.textField.text = self.event.url;
             break;
         default:
             break;
@@ -122,6 +128,8 @@
         cell.textLabel.text = NSLocalizedString(@"I accept terms of use", nil);
         [cell.aSwitch addTarget:self action:@selector(switchValueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
+    
+    cell.aSwitch.on = self.event.termsOfUse;
     return cell;
 }
 
@@ -139,10 +147,12 @@
     switch (indexPath.row) {
         case kStartDateRow:
             cell.textLabel.text = NSLocalizedString(@"Event start date:", nil);
+            cell.datePicker.date = self.event.startDate;
             break;
             
             case kEndDateRow:
             cell.textLabel.text = NSLocalizedString(@"Event end date:", nil);
+            cell.datePicker.date = self.event.endDate;
             break;
             
         default:
@@ -166,16 +176,25 @@
 - (void)validateBarButtonDidClick:(UIBarButtonItem *)button {
     
     NSError *error = [self.event validate];
-    
     if (error) {
         [self showAlertViewWithTitle:NSLocalizedString(@"Validation failed!", nil) message:error.localizedDescription];
     } else {
-        [self showAlertViewWithTitle:NSLocalizedString(@"Validation succeed!", nil) message:NSLocalizedString(@"Now you can do with your event whatever you want, cause you are sure your event passed validation", nil)];
+        [self showAlertViewWithTitle:NSLocalizedString(@"Validation succeed!", nil) message:NSLocalizedString(@"Now you can do with your event whatever you want, cause you are sure your event passed validation. High five!", nil)];
     }
 }
 
 - (void)datePickerDidChangeDate:(UIDatePicker *)picker {
-    NSLog(@"date changed at picker no %ld", picker.tag);
+    switch (picker.tag) {
+        case kStartDateRow:
+            self.event.startDate = picker.date;
+            break;
+        case kEndDateRow:
+            self.event.endDate = picker.date;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)switchValueDidChange:(UISwitch *)aSwitch {
@@ -186,6 +205,20 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.aView endEditing:YES];
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    [self textField:textField textDidChangeToText:nil];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSMutableString *mutableText = [textField.text mutableCopy];
+    [mutableText replaceCharactersInRange:range withString:string];
+    NSString *text = (mutableText.length == 0) ? nil : [mutableText copy];
+    [self textField:textField textDidChangeToText:text];
     return YES;
 }
 
@@ -205,6 +238,27 @@
 
 - (BOOL)isDatePickerCellAtIndePath:(NSIndexPath *)indexPath {
     return (indexPath.row == kStartDateRow || indexPath.row == kEndDateRow);
+}
+
+- (void)textField:(UITextField *)textField textDidChangeToText:(NSString *)text {
+    
+    switch (textField.tag) {
+        case kTitleRow:
+            self.event.title = text;
+            break;
+        case kLastnameRow:
+            self.event.creatorLastName = text;
+            break;
+        case kEmailRow:
+            self.event.email = text;
+            break;
+        case kURLRow:
+            self.event.url = text;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {

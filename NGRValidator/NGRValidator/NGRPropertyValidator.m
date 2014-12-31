@@ -157,7 +157,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     
     //NGPropertyValidator + Syntax
     [self setMessage:@"has invalid syntax." forError:NGRErrorNotEmail];
-    [self setMessage:@"should contains only letters." forError:NGRErrorNotName];
+    [self setMessage:@"should contain only letters." forError:NGRErrorNotName];
     [self setMessage:@"has invalid syntax." forError:NGRErrorNotURL];
     [self setMessage:@"do not match pattern." forError:NGRErrorWrongRegex];
     
