@@ -1,6 +1,6 @@
 # NGRValidator
 
-**NGRValidator** allows you to validate your data in way you want! It's easy to read (even via non-developers), centralized and complex solution to validate your model just in few lines of code. Moreover **NGRValidator** contains default error messages which you can customize as well!
+**NGRValidator** allows you to validate the data in the way you want! It's easy to read (even via non-developers), centralized and complex solution to validate your model just in few lines of code. Moreover, **NGRValidator** contains default error messages which you can customize!
 
 ## Requirements
 
@@ -50,13 +50,13 @@ Let's consider a typical model class used in Objective-C. Imagine you want to cr
 @end
 ```
 Given model has to fulfill following conditions:
-* `title` - obligatory. Should have at least 5 signs.
-* `creatorLastName` - obligatory. Should be at least 4 signs and at moset 30 signs. Also should contains only letters cause it lastname. No digit and special signs allowed!
-* `creatorEmail` - obligatory. Should have email syntax.
-* `url` - optional. When not nil, should have url syntax.
-* `startDate` - obligatory. Should be not earlier than now and not later than `endDate`.
-* `endDate` - obligatory. Should be later than `startDate`.
-* `termsOfUse` - oblligatory. Should be accepted.
+* `title` - obligatory, at least 5 signs;
+* `creatorLastName` - obligatory, at least 4 signs, at most 30 signs, only letters (no digit and special signs allowed);
+* `creatorEmail` - obligatory, email syntax;
+* `url` - optional, url syntax;
+* `startDate` - obligatory, not earlier than now, not later than `endDate`;
+* `endDate` - obligatory, later than `startDate`;
+* `termsOfUse` - oblligatory, should be accepted;
 
 and display appropriate messages when validation rules above fail:
 * `title` - `Title should have at least 5 signs`.
@@ -67,7 +67,7 @@ and display appropriate messages when validation rules above fail:
 * `endDate` - `Event end date cannot be earlier than it's start.`.
 * `termsOfuse` - `You have to accept terms of use.`.
 
-Whew, all that rules and messages will generate lot of code for something so simple! Let's take a look how to implemention in **NGRValidator** looks like:
+Whew, all that rules and messages will generate lot of code for something so simple! Let's take a look how implemention in **NGRValidator** looks like:
 
 ```objc
 CalendarEvent *event = [[CalendarEvent alloc] init];
