@@ -11,7 +11,9 @@
 @interface NSObject (NGRRuntime)
 
 - (NSArray *)ngr_propertiesOfClass:(Class)aClass;
+
 - (NSArray *)ngr_properties;
+
 - (Class)ngr_classOfPropertyNamed:(NSString *)propertyName;
 
 @end

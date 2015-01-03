@@ -38,6 +38,12 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 @property (nonatomic, readonly, copy) NGRPropertyValidator *(^required)();
 
 /**
+ *  Whether the validated property can be empty when is required. Default NO (cannot be empty).
+ *  Refers to NSString, NSAttributedString, NSData, NSArray, NSSet, NSDictionary (and its mutable counterparts).
+ */
+@property (nonatomic, readonly, copy) NGRPropertyValidator *(^allowEmpty)(BOOL);
+
+/**
  *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
  *  Default behaviour: All property validators have same priority and will be invoke in order of NSArray order given in
  *  [NGRValidator validateModel:error:usingRules:] or [NGRValidator validateModel:usingRules:] method.

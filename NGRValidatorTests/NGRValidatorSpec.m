@@ -135,6 +135,22 @@ describe(@"NGRValidator", ^{
         validator.required().msgNil(kErrorMessage);
     });
     
+    test(@"dontAllowEmpty", ^() {
+        return @[rule(@"nil", [NSNull null], 1, [NSNull class]),
+                 rule(@"empty string", @"", 1, [NSString class]),
+                 rule(@"any string", @"foo", 0, [NSString class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.required().msgNil(kErrorMessage);
+    });
+    
+    test(@"allowEmpty", ^() {
+        return @[rule(@"nil", [NSNull null], 1, [NSNull class]),
+                 rule(@"empty string", @"", 0, [NSString class]),
+                 rule(@"any string", @"foo", 0, [NSString class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.required().allowEmpty(YES).msgNil(kErrorMessage);
+    });
+    
     /******************************************************************************
      *                               Strings                                      *
      ******************************************************************************/
@@ -145,6 +161,7 @@ describe(@"NGRValidator", ^{
     }, ^(NGRPropertyValidator *validator) {
         validator.required().decimal().msgNotDecimal(kErrorMessage);
     });
+    
     
     test(@"minLength", ^() {
         return @[rule(@"too short string", @"foo", 1, [NSString class]),

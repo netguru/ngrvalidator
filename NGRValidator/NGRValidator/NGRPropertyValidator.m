@@ -7,6 +7,7 @@
 //
 
 #import "NGRPropertyValidator.h"
+#import "NSObject+NGRValidator.h"
 
 NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;
@@ -18,6 +19,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *messages;
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;
+@property (assign, nonatomic) BOOL allowEmptyProperty;
 
 @end
 
@@ -31,6 +33,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
         _property = property;
         _priority = NGRPropertyValidatorDefaultPriority;
         self.isRequired = NO;
+        self.allowEmptyProperty = NO;
         [self setupMessages];
     }
     return self;
@@ -103,8 +106,20 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     return ^() {
         self.isRequired = YES;
         [self validateClass:nil withName:@"required" validationBlock:^NGRError(id value) {
-            return (!value || [value isKindOfClass:[NSNull class]]) ? NGRErrorRequired : NGRErrorNoone;
+            if (!value || [value isKindOfClass:[NSNull class]]) {
+                return NGRErrorRequired;
+            } else if ([value ngr_isCountable] && !self.allowEmptyProperty) {
+                return ([value ngr_isEmpty]) ? NGRErrorRequired : NGRErrorNoone;
+            }
+            return NGRErrorNoone;
         }];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(BOOL))allowEmpty {
+    return ^(BOOL allowEmptyProperty) {
+        self.allowEmptyProperty = allowEmptyProperty;
         return self;
     };
 }
