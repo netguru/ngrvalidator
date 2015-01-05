@@ -148,7 +148,15 @@ describe(@"NGRValidator", ^{
                  rule(@"empty string", @"", 0, [NSString class]),
                  rule(@"any string", @"foo", 0, [NSString class])];
     }, ^(NGRPropertyValidator *validator) {
-        validator.required().allowEmpty(YES).msgNil(kErrorMessage);
+        validator.required().allowEmpty().msgNil(kErrorMessage);
+    });
+    
+    test(@"allowEmpty with other rules", ^() {
+        return @[rule(@"any string", @"foo", 1, [NSString class]),
+                 rule(@"empty string", @"", 1, [NSString class]),
+                 rule(@"any string", @"foo_bar_baz", 0, [NSString class])];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.required().allowEmpty().minLength(4).msgNil(kErrorMessage).msgTooShort(kErrorMessage);
     });
     
     /******************************************************************************

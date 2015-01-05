@@ -48,6 +48,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 - (NSError *)simpleValidationOfValue:(id)value {
     
     for (NGRValidationRule *validationRule in self.validators) {
+        
         NGRError error = validationRule.validationBlock(value);
         
         if (error == NGRErrorUnexpectedClass) {
@@ -76,12 +77,15 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 
 - (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block {
     __weak typeof(self) weakSelf = self;
-    
+
     [self addValidatonBlockWithName:name block:^NGRError (id value) {
+        
+        BOOL isValueAllowedToBeEmptyOnRequiredRule = weakSelf.allowEmptyProperty && [value ngr_isCountable] && [value ngr_isEmpty] && [name isEqualToString:@"required"];
+        BOOL doesValueExistAndIsNotRequired = !weakSelf.isRequired && !value;
         
         if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
-        } else if (!weakSelf.isRequired && !value) {
+        } else if (doesValueExistAndIsNotRequired || isValueAllowedToBeEmptyOnRequiredRule) {
             return NGRErrorNoone;
         }
         return block(value);
@@ -106,10 +110,12 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     return ^() {
         self.isRequired = YES;
         [self validateClass:nil withName:@"required" validationBlock:^NGRError(id value) {
-            if (!value || [value isKindOfClass:[NSNull class]]) {
+            
+            BOOL doesValueExist = value && ![value isKindOfClass:[NSNull class]];
+            BOOL isValueAllowedToBeEmpty = !self.allowEmptyProperty && [value ngr_isCountable] && [value ngr_isEmpty];
+            
+            if (!doesValueExist || isValueAllowedToBeEmpty) {
                 return NGRErrorRequired;
-            } else if ([value ngr_isCountable] && !self.allowEmptyProperty) {
-                return ([value ngr_isEmpty]) ? NGRErrorRequired : NGRErrorNoone;
             }
             return NGRErrorNoone;
         }];
@@ -117,9 +123,9 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     };
 }
 
-- (NGRPropertyValidator *(^)(BOOL))allowEmpty {
-    return ^(BOOL allowEmptyProperty) {
-        self.allowEmptyProperty = allowEmptyProperty;
+- (NGRPropertyValidator *(^)())allowEmpty {
+    return ^() {
+        self.allowEmptyProperty = YES;
         return self;
     };
 }

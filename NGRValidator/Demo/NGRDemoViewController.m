@@ -217,8 +217,7 @@
     
     NSMutableString *mutableText = [textField.text mutableCopy];
     [mutableText replaceCharactersInRange:range withString:string];
-    NSString *text = (mutableText.length == 0) ? nil : [mutableText copy];
-    [self textField:textField textDidChangeToText:text];
+    [self textField:textField textDidChangeToText:[mutableText copy]];
     return YES;
 }
 
