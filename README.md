@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.1.1'
+pod 'NGRValidator', '~> 0.1.2'
 ```
 and run `pod update` or `pod install`
 
@@ -104,6 +104,7 @@ There are 2 possible ways to validate model:
 
 **NGRValidator** offers many rules which you don't have to code. Let's take a look on them:
 * `required()` - validates if property is nil or not. If isn't `required()` and has any other validation rules attached, like `.syntax(NGRSyntaxURL)` in example above, will be validated only when is not nil. This make you sure if property is not nil should pass applied rules.
+* `allowEmpty()` - validates if property can be empty (means it's length or count is greater than 0) when is required. When is not allowed to be empty (the default behaviour), validator will treat empty property same as `nil`. Setting `allowEmpty` works only when property is also required. Otherwise has no effect. **NOTE:** Refers to `NSString`, `NSAttributedString`, `NSData`, `NSArray`, `NSSet`, `NSDictionary` (and their mutable counterparts).
 
 **NSString**: 
 * `minLength(NSUInteger)` - validates minimum length of NSString (inclusive).
