@@ -23,7 +23,6 @@ git submodule init
 git submodule add --copy link to the repo--
 git submodule update
 ```
-Copy all files from  **NGRValidator** folder.
 
 #### Just download & attach
 This is strongly misadvised as you won't be able to see code updates. Clone or download the source, copy all files from  **NGRValidator** folder.
@@ -189,13 +188,16 @@ First, thank you for contributing!
 
 Here a few guidelines to follow:
 
-- we follow [Ray Wenderlich Style Guide](https://github.com/raywenderlich/objective-c-style-guide).
+- follow [Ray Wenderlich Style Guide](https://github.com/raywenderlich/objective-c-style-guide).
 - write tests
 - make sure the entire test suite passes
 
 ## More Info
 
 Have a question? Need to expand validation rules? Please [open an issue](https://github.com/netguru/ngrvalidator/issues/new)!
+
+## Author
+ Created and maintained by [Patryk Kaczmarek](https://github.com/PatrykKaczmarek).
 
 ##
 Copyright © 2014 [Netguru](https://netguru.co)
