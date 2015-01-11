@@ -50,8 +50,17 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
 }
 
 + (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules {
-    return [self validateModel:model usingRules:rules returnTypeClass:[NSArray class]];
+    NSArray *array = [self validateModel:model usingRules:rules returnTypeClass:[NSArray class]];
+    return ([array count] == 0) ? nil : array;
 }
+
++ (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {
+    
+    NGRPropertyValidator *propertyValidator = [NGRPropertyValidator validatorForProperty:name];
+    if (rules != NULL) rules(propertyValidator);
+    return [propertyValidator simpleValidationOfValue:value];
+}
+
 
 #pragma mark - Private Methods
 

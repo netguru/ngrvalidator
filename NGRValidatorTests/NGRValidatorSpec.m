@@ -36,16 +36,16 @@ describe(@"NGRValidator", ^{
         
         describe([NSString stringWithFormat:@"%@ validator", name], ^{
             
-            __block NGRPropertyValidator *validator = nil;
+            __block NGRPropertyValidator *propertyValidator = nil;
             __block NGRValidationTestModel *model = nil;
             
             beforeEach(^{
                 model = [[NGRValidationTestModel alloc] init];
-                validator = [NGRPropertyValidator validatorForProperty:kValue];
+                propertyValidator = [NGRPropertyValidator validatorForProperty:kValue];
             });
             
             specify(^{
-                [[validator shouldNot] beNil];
+                [[propertyValidator shouldNot] beNil];
             });
             
             for (NSDictionary *rule in rules()) {
@@ -55,13 +55,13 @@ describe(@"NGRValidator", ^{
                     __block BOOL success; __block  NSError *error; __block NSArray *array;
                     
                     beforeEach(^{
-                        configureBlock(validator);
+                        configureBlock(propertyValidator);
                         model.value = rule[kValue];
                         success = NO; error = nil; array = nil;
                     });
                     
                     NSArray *(^rulesBlock)() = ^NSArray *{
-                        return @[validator];
+                        return @[propertyValidator];
                     };
                     
                     if(![rule[kValue] isKindOfClass:rule[kExpectedClass]]) {
@@ -74,6 +74,12 @@ describe(@"NGRValidator", ^{
                             [[theBlock(^{
                                 [NGRValidator validateModel:model usingRules:rulesBlock];
                             }) should] raiseWithName:NSInternalInconsistencyException];
+                            
+                            [[theBlock(^{
+                                [NGRValidator validateValue:rule[kValue] named:rule[kName] usingRules:^(NGRPropertyValidator *validator) {
+                                    configureBlock(validator);
+                                }];
+                            }) should] raiseWithName:NSInternalInconsistencyException];
                         });
                         
                     } else if ([rule[kErrorsNumber] isEqualToNumber:@0]) {
@@ -83,8 +89,14 @@ describe(@"NGRValidator", ^{
                             array = [NGRValidator validateModel:model usingRules:rulesBlock];
                             
                             [[theValue(success) should] beYes];
+                            [[array should] beNil];
                             [[error should] beNil];
-                            [[array should] haveCountOf:[rule[kErrorsNumber] integerValue]];
+                            error = nil;
+                            
+                            error = [NGRValidator validateValue:rule[kValue] named:rule[kName] usingRules:^(NGRPropertyValidator *validator) {
+                                configureBlock(validator);
+                            }];
+                            [[error should] beNil];
                         });
                         
                     } else {
@@ -95,8 +107,16 @@ describe(@"NGRValidator", ^{
                             array = [NGRValidator validateModel:model usingRules:rulesBlock];
                             
                             [[theValue(success) should] beNo];
-                            [[error shouldNot] beNil];
                             [[array should] haveCountOf:[rule[kErrorsNumber] integerValue]];
+                            [[error shouldNot] beNil];
+                            [[error.localizedDescription should] containString:kErrorMessage];
+                            error = nil;
+                            
+                            error = [NGRValidator validateValue:rule[kValue] named:rule[kName] usingRules:^(NGRPropertyValidator *validator) {
+                                configureBlock(validator);
+                            }];
+                            
+                            [[error shouldNot] beNil];
                             [[error.localizedDescription should] containString:kErrorMessage];
                         });
                     }

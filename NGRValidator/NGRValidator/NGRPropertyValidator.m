@@ -46,33 +46,11 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 #pragma mark - Public Methods
 
 - (NSError *)simpleValidationOfValue:(id)value {
-    
-    for (NGRValidationRule *validationRule in self.validators) {
-        
-        NGRError error = validationRule.validationBlock(value);
-        
-        if (error == NGRErrorUnexpectedClass) {
-             NSAssert(NO, @"Parameter %@ is wrong kind of class", value);
-        } else if (error != NGRErrorNoone) {
-            return [self errorWithNGRError:error];
-        }
-    }
-    return nil;
+    return [self validationOfValue:value returnTypeClass:[NSError class]];
 }
 
 - (NSArray *)complexValidationOfValue:(id)value {
-    NSMutableArray *array = [NSMutableArray array];
-    
-    for (NGRValidationRule *validationRule in self.validators) {
-        NGRError error = validationRule.validationBlock(value);
-        
-        if (error == NGRErrorUnexpectedClass) {
-            NSAssert(NO, @"Parameter %@ is wrong kind of class", value);
-        } else if (error != NGRErrorNoone) {
-            [array addObject:[self errorWithNGRError:error]];
-        }
-    }
-    return array;
+    return [self validationOfValue:value returnTypeClass:[NSArray class]];
 }
 
 - (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block {
@@ -139,6 +117,29 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 }
 
 #pragma mark - Private Methods
+
+- (id)validationOfValue:(id)value returnTypeClass:(Class)class {
+    BOOL isSimpleValidation = (class == [NSError class]);
+    NSAssert((class == [NSArray class] || class == [NSError class]), @"Allowed class: NSArray or NSError");
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (NGRValidationRule *validationRule in self.validators) {
+        NGRError error = validationRule.validationBlock(value);
+        
+        if (error == NGRErrorUnexpectedClass) {
+            NSAssert(NO, @"Value \"%@\" for \"%@\" parameter is wrong kind of class", value, self.property);
+            
+        } else if (error != NGRErrorNoone) {
+            if (isSimpleValidation) {
+                return [self errorWithNGRError:error];
+            } else {
+                [array addObject:[self errorWithNGRError:error]];
+            }
+        }
+    }
+    return isSimpleValidation ? nil : [array copy];
+}
 
 - (void)addValidatonBlockWithName:(NSString *)name block:(NGRError (^)(id))block {
     

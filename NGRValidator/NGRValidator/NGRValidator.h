@@ -24,7 +24,18 @@
 extern NGRPropertyValidator * NGRValidate(NSString *property);
 
 /**
- *  Validates given model with selected rules. Returns YES when validation succeeded, NO otherwise.
+ *  Validates single value with given rules.
+ *
+ *  @param value The value which will be validated.
+ *  @param name  The name of validated value. Passing name here same has effect to .localizedName(NSString *) method from NGRPropertyValidator (invoking this method in rules block is unnecessary).
+ *  @param rules The rules block which pass prepared validator as an argument ready to apply validation rules.
+ *
+ *  @return an error if validation will not pass. Otherwise nil.
+ */
++ (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules;
+
+/**
+ *  Validates given model given selected rules. Returns YES when validation succeeded, NO otherwise.
  *
  *  @param model Model within properties are validated
  *  @param error Validation error with decription, nil when validation will pass
@@ -34,11 +45,11 @@ extern NGRPropertyValidator * NGRValidate(NSString *property);
 + (BOOL)validateModel:(NSObject *)model error:(NSError **)error usingRules:(NSArray *(^)())rules;
 
 /**
- *  Validates given model with selected rules. Returns empty array when validation succeeded. If not, array will contains errors.
+ *  Validates given model with given rules. Returns empty array when validation succeeded. If not, array will contains errors.
  *
  *  @param model Model within properties are validated
  *  @param rules An array of validation rules. Every property within a model is validated separately
- *  @return an array of errors. If validation will pass then array is empty.
+ *  @return an array of errors. Nil if validation will pass, otherwise will contain NSError objects.
  */
 + (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules;
 
