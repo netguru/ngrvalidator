@@ -6,9 +6,9 @@
 //
 //
 
-#import "NGRDemoView.h"
+#import "NGRComplexDemoView.h"
 
-@implementation NGRDemoView
+@implementation NGRComplexDemoView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

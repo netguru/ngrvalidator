@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NGRDemoView : UIView
+@interface NGRComplexDemoView : UIView
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (assign, nonatomic) CGFloat keyboardHeight;

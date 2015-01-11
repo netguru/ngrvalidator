@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NGRDemoCalendarEvent : NSObject
+@interface NGRCalendarEvent : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *creatorLastName;

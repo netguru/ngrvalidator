@@ -6,14 +6,14 @@
 //
 //
 
-#import "NGRDemoViewController.h"
-#import "NGRDemoView.h"
+#import "NGRComplexDemoViewController.h"
+#import "NGRComplexDemoView.h"
 
 #import "NGRDemoTextFieldCell.h"
 #import "NGRDemoDatePickerCell.h"
 #import "NGRDemoSwitchCell.h"
 
-#import "NGRDemoCalendarEvent.h"
+#import "NGRCalendarEvent.h"
 
 #define kTitleRow       0
 #define kLastnameRow    1
@@ -24,19 +24,19 @@
 #define kEndDateRow     6
 #define kNumberOfRows   7
 
-@interface NGRDemoViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface NGRComplexDemoViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
-@property (weak, nonatomic) NGRDemoView *aView;
-@property (strong, nonatomic) NGRDemoCalendarEvent *event;
+@property (weak, nonatomic) NGRComplexDemoView *aView;
+@property (strong, nonatomic) NGRCalendarEvent *event;
 
 @end
 
-@implementation NGRDemoViewController
+@implementation NGRComplexDemoViewController
 
 #pragma mark - View Lifecycle Methods
 
 - (void)loadView {
-    NGRDemoView *view = [[NGRDemoView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    NGRComplexDemoView *view = [[NGRComplexDemoView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     self.view = view;
     
@@ -46,13 +46,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Create event", nil);
+    self.navigationItem.title = NSLocalizedString(@"Create event", nil);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Validate!", nil) style:UIBarButtonItemStylePlain target:self action:@selector(validateBarButtonDidClick:)];
     
     self.aView.tableView.delegate = self;
     self.aView.tableView.dataSource = self;
     [self registerKeyboardNotifications];
-    _event = [[NGRDemoCalendarEvent alloc] initWithDefaultDates];
+    _event = [[NGRCalendarEvent alloc] initWithDefaultDates];
 }
 
 - (void)dealloc {

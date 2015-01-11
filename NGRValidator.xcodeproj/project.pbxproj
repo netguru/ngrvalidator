@@ -27,12 +27,18 @@
 		5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C09FF1A498164002D3E72 /* Images.xcassets */; };
 		5E5C0A031A498164002D3E72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5C0A011A498164002D3E72 /* LaunchScreen.xib */; };
 		5E6D99BD1A53827000161808 /* NGRValidationRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99BC1A53827000161808 /* NGRValidationRule.m */; };
-		5E6D99C01A53959500161808 /* NGRDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99BF1A53959500161808 /* NGRDemoViewController.m */; };
-		5E6D99C41A5395C600161808 /* NGRDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C31A5395C600161808 /* NGRDemoView.m */; };
+		5E6D99C01A53959500161808 /* NGRComplexDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99BF1A53959500161808 /* NGRComplexDemoViewController.m */; };
+		5E6D99C41A5395C600161808 /* NGRComplexDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C31A5395C600161808 /* NGRComplexDemoView.m */; };
 		5E6D99C71A53971900161808 /* NGRDemoTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C61A53971900161808 /* NGRDemoTextFieldCell.m */; };
 		5E6D99CA1A539B9400161808 /* NGRDemoDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */; };
 		5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */; };
-		5E9643241A53A2CA003E1773 /* NGRDemoCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9643231A53A2CA003E1773 /* NGRDemoCalendarEvent.m */; };
+		5E9643241A53A2CA003E1773 /* NGRCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */; };
+		5ECAF8751A6311350011181C /* NGRSimpleDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8741A6311350011181C /* NGRSimpleDemoViewController.m */; };
+		5ECAF8791A6311490011181C /* NGRSimpleDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8781A6311490011181C /* NGRSimpleDemoView.m */; };
+		5ECAF87E1A6311BA0011181C /* NGRMediumDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF87D1A6311BA0011181C /* NGRMediumDemoViewController.m */; };
+		5ECAF8821A6311D00011181C /* NGRMediumDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8811A6311D00011181C /* NGRMediumDemoView.m */; };
+		5ECAF8861A6319F70011181C /* NGRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8851A6319F70011181C /* NGRTextField.m */; };
+		5ECAF88D1A631EAC0011181C /* NGRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF88C1A631EAC0011181C /* NGRUser.m */; };
 		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
 /* End PBXBuildFile section */
 
@@ -86,18 +92,30 @@
 		5E5C0A0D1A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E6D99BB1A53827000161808 /* NGRValidationRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRValidationRule.h; path = NGRValidator/NGRValidationRule.h; sourceTree = "<group>"; };
 		5E6D99BC1A53827000161808 /* NGRValidationRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidationRule.m; path = NGRValidator/NGRValidationRule.m; sourceTree = "<group>"; };
-		5E6D99BE1A53959500161808 /* NGRDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoViewController.h; path = Demo/NGRDemoViewController.h; sourceTree = "<group>"; };
-		5E6D99BF1A53959500161808 /* NGRDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoViewController.m; path = Demo/NGRDemoViewController.m; sourceTree = "<group>"; };
-		5E6D99C21A5395C600161808 /* NGRDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoView.h; path = Demo/NGRDemoView.h; sourceTree = "<group>"; };
-		5E6D99C31A5395C600161808 /* NGRDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoView.m; path = Demo/NGRDemoView.m; sourceTree = "<group>"; };
+		5E6D99BE1A53959500161808 /* NGRComplexDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRComplexDemoViewController.h; path = Demo/NGRComplexDemoViewController.h; sourceTree = "<group>"; };
+		5E6D99BF1A53959500161808 /* NGRComplexDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRComplexDemoViewController.m; path = Demo/NGRComplexDemoViewController.m; sourceTree = "<group>"; };
+		5E6D99C21A5395C600161808 /* NGRComplexDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRComplexDemoView.h; path = Demo/NGRComplexDemoView.h; sourceTree = "<group>"; };
+		5E6D99C31A5395C600161808 /* NGRComplexDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRComplexDemoView.m; path = Demo/NGRComplexDemoView.m; sourceTree = "<group>"; };
 		5E6D99C51A53971900161808 /* NGRDemoTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoTextFieldCell.h; path = Demo/NGRDemoTextFieldCell.h; sourceTree = "<group>"; };
 		5E6D99C61A53971900161808 /* NGRDemoTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoTextFieldCell.m; path = Demo/NGRDemoTextFieldCell.m; sourceTree = "<group>"; };
 		5E6D99C81A539B9400161808 /* NGRDemoDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoDatePickerCell.h; path = Demo/NGRDemoDatePickerCell.h; sourceTree = "<group>"; };
 		5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoDatePickerCell.m; path = Demo/NGRDemoDatePickerCell.m; sourceTree = "<group>"; };
 		5E6D99CB1A539BA500161808 /* NGRDemoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoSwitchCell.h; path = Demo/NGRDemoSwitchCell.h; sourceTree = "<group>"; };
 		5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoSwitchCell.m; path = Demo/NGRDemoSwitchCell.m; sourceTree = "<group>"; };
-		5E9643221A53A2CA003E1773 /* NGRDemoCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoCalendarEvent.h; path = Demo/NGRDemoCalendarEvent.h; sourceTree = "<group>"; };
-		5E9643231A53A2CA003E1773 /* NGRDemoCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoCalendarEvent.m; path = Demo/NGRDemoCalendarEvent.m; sourceTree = "<group>"; };
+		5E9643221A53A2CA003E1773 /* NGRCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRCalendarEvent.h; path = Demo/NGRCalendarEvent.h; sourceTree = "<group>"; };
+		5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRCalendarEvent.m; path = Demo/NGRCalendarEvent.m; sourceTree = "<group>"; };
+		5ECAF8731A6311350011181C /* NGRSimpleDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRSimpleDemoViewController.h; path = Demo/NGRSimpleDemoViewController.h; sourceTree = "<group>"; };
+		5ECAF8741A6311350011181C /* NGRSimpleDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRSimpleDemoViewController.m; path = Demo/NGRSimpleDemoViewController.m; sourceTree = "<group>"; };
+		5ECAF8771A6311490011181C /* NGRSimpleDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRSimpleDemoView.h; path = Demo/NGRSimpleDemoView.h; sourceTree = "<group>"; };
+		5ECAF8781A6311490011181C /* NGRSimpleDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRSimpleDemoView.m; path = Demo/NGRSimpleDemoView.m; sourceTree = "<group>"; };
+		5ECAF87C1A6311BA0011181C /* NGRMediumDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMediumDemoViewController.h; path = Demo/NGRMediumDemoViewController.h; sourceTree = "<group>"; };
+		5ECAF87D1A6311BA0011181C /* NGRMediumDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMediumDemoViewController.m; path = Demo/NGRMediumDemoViewController.m; sourceTree = "<group>"; };
+		5ECAF8801A6311D00011181C /* NGRMediumDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMediumDemoView.h; path = Demo/NGRMediumDemoView.h; sourceTree = "<group>"; };
+		5ECAF8811A6311D00011181C /* NGRMediumDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMediumDemoView.m; path = Demo/NGRMediumDemoView.m; sourceTree = "<group>"; };
+		5ECAF8841A6319F70011181C /* NGRTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRTextField.h; path = Demo/NGRTextField.h; sourceTree = "<group>"; };
+		5ECAF8851A6319F70011181C /* NGRTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRTextField.m; path = Demo/NGRTextField.m; sourceTree = "<group>"; };
+		5ECAF88B1A631EAC0011181C /* NGRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRUser.h; path = Demo/NGRUser.h; sourceTree = "<group>"; };
+		5ECAF88C1A631EAC0011181C /* NGRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRUser.m; path = Demo/NGRUser.m; sourceTree = "<group>"; };
 		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,9 +271,10 @@
 		5E6D99C11A53959900161808 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				5E9643281A53A2F4003E1773 /* Model */,
-				5E9643261A53A2D7003E1773 /* Controllers */,
-				5E9643251A53A2D0003E1773 /* Cells */,
+				5ECAF88A1A631E480011181C /* Helpers */,
+				5ECAF8761A63113A0011181C /* Simple */,
+				5ECAF87F1A6311BD0011181C /* Medium */,
+				5ECAF87B1A6311510011181C /* Complex */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -273,21 +292,11 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		5E9643261A53A2D7003E1773 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				5E6D99BE1A53959500161808 /* NGRDemoViewController.h */,
-				5E6D99BF1A53959500161808 /* NGRDemoViewController.m */,
-				5E9643271A53A2DF003E1773 /* View */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
 		5E9643271A53A2DF003E1773 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5E6D99C21A5395C600161808 /* NGRDemoView.h */,
-				5E6D99C31A5395C600161808 /* NGRDemoView.m */,
+				5E6D99C21A5395C600161808 /* NGRComplexDemoView.h */,
+				5E6D99C31A5395C600161808 /* NGRComplexDemoView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -295,8 +304,101 @@
 		5E9643281A53A2F4003E1773 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5E9643221A53A2CA003E1773 /* NGRDemoCalendarEvent.h */,
-				5E9643231A53A2CA003E1773 /* NGRDemoCalendarEvent.m */,
+				5E9643221A53A2CA003E1773 /* NGRCalendarEvent.h */,
+				5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5ECAF8761A63113A0011181C /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF8871A631D720011181C /* Controller */,
+			);
+			name = Simple;
+			sourceTree = "<group>";
+		};
+		5ECAF87A1A63114C0011181C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF8771A6311490011181C /* NGRSimpleDemoView.h */,
+				5ECAF8781A6311490011181C /* NGRSimpleDemoView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5ECAF87B1A6311510011181C /* Complex */ = {
+			isa = PBXGroup;
+			children = (
+				5E9643281A53A2F4003E1773 /* Model */,
+				5ECAF8891A631D860011181C /* Controller */,
+			);
+			name = Complex;
+			sourceTree = "<group>";
+		};
+		5ECAF87F1A6311BD0011181C /* Medium */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF88E1A631EB60011181C /* Model */,
+				5ECAF8881A631D7C0011181C /* Controller */,
+			);
+			name = Medium;
+			sourceTree = "<group>";
+		};
+		5ECAF8831A6311D30011181C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF8801A6311D00011181C /* NGRMediumDemoView.h */,
+				5ECAF8811A6311D00011181C /* NGRMediumDemoView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5ECAF8871A631D720011181C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF8731A6311350011181C /* NGRSimpleDemoViewController.h */,
+				5ECAF8741A6311350011181C /* NGRSimpleDemoViewController.m */,
+				5ECAF87A1A63114C0011181C /* View */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5ECAF8881A631D7C0011181C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF87C1A6311BA0011181C /* NGRMediumDemoViewController.h */,
+				5ECAF87D1A6311BA0011181C /* NGRMediumDemoViewController.m */,
+				5ECAF8831A6311D30011181C /* View */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5ECAF8891A631D860011181C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D99BE1A53959500161808 /* NGRComplexDemoViewController.h */,
+				5E6D99BF1A53959500161808 /* NGRComplexDemoViewController.m */,
+				5E9643251A53A2D0003E1773 /* Cells */,
+				5E9643271A53A2DF003E1773 /* View */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5ECAF88A1A631E480011181C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF8841A6319F70011181C /* NGRTextField.h */,
+				5ECAF8851A6319F70011181C /* NGRTextField.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		5ECAF88E1A631EB60011181C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5ECAF88B1A631EAC0011181C /* NGRUser.h */,
+				5ECAF88C1A631EAC0011181C /* NGRUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -450,19 +552,25 @@
 				5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */,
 				5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */,
 				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
+				5ECAF88D1A631EAC0011181C /* NGRUser.m in Sources */,
 				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
 				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,
+				5ECAF8861A6319F70011181C /* NGRTextField.m in Sources */,
 				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
 				5E4A2BB51A5788CF00744E93 /* NSObject+NGRValidator.m in Sources */,
-				5E6D99C01A53959500161808 /* NGRDemoViewController.m in Sources */,
+				5ECAF8821A6311D00011181C /* NGRMediumDemoView.m in Sources */,
+				5E6D99C01A53959500161808 /* NGRComplexDemoViewController.m in Sources */,
 				5E6D99C71A53971900161808 /* NGRDemoTextFieldCell.m in Sources */,
 				5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */,
-				5E9643241A53A2CA003E1773 /* NGRDemoCalendarEvent.m in Sources */,
+				5ECAF8791A6311490011181C /* NGRSimpleDemoView.m in Sources */,
+				5E9643241A53A2CA003E1773 /* NGRCalendarEvent.m in Sources */,
 				5E0019771A498542002ED961 /* NSString+NGRValidator.m in Sources */,
 				5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */,
 				5E6D99CA1A539B9400161808 /* NGRDemoDatePickerCell.m in Sources */,
 				5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */,
-				5E6D99C41A5395C600161808 /* NGRDemoView.m in Sources */,
+				5ECAF8751A6311350011181C /* NGRSimpleDemoViewController.m in Sources */,
+				5E6D99C41A5395C600161808 /* NGRComplexDemoView.m in Sources */,
+				5ECAF87E1A6311BA0011181C /* NGRMediumDemoViewController.m in Sources */,
 				5E5C09F51A498164002D3E72 /* main.m in Sources */,
 				5E0019681A4984E7002ED961 /* NGRPropertyValidator+NSString.m in Sources */,
 				5E0019811A499B5F002ED961 /* NSDate+NGRValidator.m in Sources */,

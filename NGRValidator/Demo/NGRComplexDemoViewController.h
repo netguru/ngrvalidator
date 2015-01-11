@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NGRDemoViewController : UIViewController
+@interface NGRComplexDemoViewController : UIViewController
 
 @end

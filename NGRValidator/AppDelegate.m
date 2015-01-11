@@ -7,12 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "NGRDemoCalendarEvent.h"
-#import "NGRDemoViewController.h"
+#import "NGRCalendarEvent.h"
 
-@interface AppDelegate ()
-
-@end
+#import "NGRSimpleDemoViewController.h"
+#import "NGRMediumDemoViewController.h"
+#import "NGRComplexDemoViewController.h"
 
 @implementation AppDelegate
 
@@ -26,10 +25,23 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    NGRDemoViewController *controller = [[NGRDemoViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    self.window.rootViewController = navigationController;
+    NGRSimpleDemoViewController *simpleDemoViewController = [[NGRSimpleDemoViewController alloc] init];
+    UINavigationController *simpleNavigationController = [[UINavigationController alloc] initWithRootViewController:simpleDemoViewController];
     
+    NGRMediumDemoViewController *mediumDemoViewController = [[NGRMediumDemoViewController alloc] init];
+    UINavigationController *mediumNavigationController = [[UINavigationController alloc] initWithRootViewController:mediumDemoViewController];
+    
+    NGRComplexDemoViewController *complexDemoViewController = [[NGRComplexDemoViewController alloc] init];
+    UINavigationController *complexNavigationController = [[UINavigationController alloc] initWithRootViewController:complexDemoViewController];
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[simpleNavigationController, mediumNavigationController, complexNavigationController];
+    
+    [tabBarController.tabBar.items[0] setTitle:NSLocalizedString(@"Simple", nil)];
+    [tabBarController.tabBar.items[1] setTitle:NSLocalizedString(@"Medium", nil)];
+    [tabBarController.tabBar.items[2] setTitle:NSLocalizedString(@"Complex", nil)];
+    
+    self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -39,7 +51,7 @@
  *  It's recommended to set breakpoint at event object initializing to improve readability of log statements
  */
 - (void)story {
-    NGRDemoCalendarEvent *event = [[NGRDemoCalendarEvent alloc] init];
+    NGRCalendarEvent *event = [[NGRCalendarEvent alloc] init];
     event.enableImmediatelyValidation = YES;
     
     //Let's start validation story! First property (title) given in 'usingRules' block will be validated:

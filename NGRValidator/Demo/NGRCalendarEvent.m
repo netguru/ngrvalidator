@@ -6,10 +6,10 @@
 //
 //
 
-#import "NGRDemoCalendarEvent.h"
+#import "NGRCalendarEvent.h"
 #import "NGRValidator.h"
 
-@implementation NGRDemoCalendarEvent
+@implementation NGRCalendarEvent
 
 - (instancetype)init {
     self = [super init];
