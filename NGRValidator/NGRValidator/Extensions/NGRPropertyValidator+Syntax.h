@@ -21,24 +21,24 @@ typedef NS_ENUM(NSInteger, NGRSyntax) {
 /**
  *  Validates that the NSString has given syntax.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^syntax)(NGRSyntax);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^syntax)(NGRSyntax);
 
 
 /**
  *  Validates that the NSString match given regex.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^regex)(NSRegularExpression *);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^regex)(NSRegularExpression *);
 
 #pragma mark - Messaging
 
 /**
  *  User-defined error message used when validated property has invalid syntax.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgWrongSyntax)(NGRSyntax syntax, NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgWrongSyntax)(NGRSyntax syntax, NSString *message);
 
 /**
  *  User-defined error message used when validated property do not match given regex.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgWrongRegex)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgWrongRegex)(NSString *message);
 
 @end

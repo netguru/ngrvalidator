@@ -15,53 +15,53 @@
 /**
  *  Validates if NSDate property is earlier than given date (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^earlierThan)(NSDate *date);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^earlierThan)(NSDate *date);
 
 /**
  *  Validates if NSDate property is earlier than or equal to given date (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^earlierThanOrEqualTo)(NSDate *date);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^earlierThanOrEqualTo)(NSDate *date);
 
 /**
  *  Validates if NSDate property is later than given date (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^laterThan)(NSDate *date);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^laterThan)(NSDate *date);
 
 /**
  *  Validates if NSDate property is later than or equal to given date (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^laterThanOrEqualTo)(NSDate *date);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^laterThanOrEqualTo)(NSDate *date);
 
 /**
  *  Validates if NSDate property is between given dates. Inclusive parameter specify inclusiveness of comparison.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^betweenDates)(NSDate *fromDate, NSDate *toDate, BOOL inclusive);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^betweenDates)(NSDate *fromDate, NSDate *toDate, BOOL inclusive);
 
 #pragma mark - Messaging
 
 /**
  *  User-defined error message used when validated property is not later than compared one.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotLaterThan)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotLaterThan)(NSString *message);
 
 /**
  *  User-defined error message used when validated property is not earlier than compared one.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotEarlierThan)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotEarlierThan)(NSString *message);
 
 /**
  *  User-defined error message used when validated property is not later than or equal to compared one.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotLaterThanOrEqualTo)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotLaterThanOrEqualTo)(NSString *message);
 
 /**
  *  User-defined error message used when validated property is not earlier than or equal to compared one.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotEarlierThanOrEqualTo)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotEarlierThanOrEqualTo)(NSString *message);
 
 /**
  *  User-defined error message used when validated property is not between dates.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotBetweenDates)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotBetweenDates)(NSString *message);
 
 @end

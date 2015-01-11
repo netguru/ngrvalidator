@@ -30,12 +30,12 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  * Localized name of validated property. Used in localized description of error if has been set. (default: nil).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^localizedName)(NSString *name);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^localizedName)(NSString *name);
 
 /**
  *  Validates that the NSObject is nil or not.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^required)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^required)();
 
 /**
  *  Whether the validated property can be empty (means its length or count is greater than 0) when is required. (default: cannot be empty)
@@ -43,14 +43,14 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  Setting allowEmpty works only when property is also required. Otherwise has no effect.
  *  Refers to NSString, NSAttributedString, NSData, NSArray, NSSet, NSDictionary (and its mutable counterparts).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^allowEmpty)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^allowEmpty)();
 
 /**
  *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
  *  Default behaviour: All property validators have same priority and will be invoked in order of NSArray order given in
  *  [NGRValidator validateModel:error:usingRules:] or [NGRValidator validateModel:usingRules:] method.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^order)(NSUInteger);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^order)(NSUInteger);
 
 /**
  *  Priority of property validator. Default equal to NGRPropertyValidatorDefaultPriority (100).

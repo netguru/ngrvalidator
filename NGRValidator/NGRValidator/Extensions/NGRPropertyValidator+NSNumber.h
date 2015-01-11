@@ -15,58 +15,58 @@
 /**
  *  Validates lower limit of NSNumber (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^min)(float min);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^min)(float min);
 
 /**
  *  Validates upper limit of NSNumber (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^max)(float max);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^max)(float max);
 
 /**
  *  Validates minimum and maximum value of NSSNumber (inclusive).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^range)(float min, float max);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^range)(float min, float max);
 
 /**
  *  Validates exact value of NSNumber.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^exact)(float exact);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^exact)(float exact);
 
 /**
  *  Validates if NSNumber represents false status.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^falseValue)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^falseValue)();
 
 /**
  *  Validates if NSNumber represents true status.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^trueValue)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^trueValue)();
 
 #pragma mark - Messaging
 
 /**
  *  User-defined error message used when validated property value is too small.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgTooSmall)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgTooSmall)(NSString *message);
 
 /**
  *  User-defined error message used when validated property value is too big.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgTooBig)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgTooBig)(NSString *message);
 
 /**
  *  User-defined error message used when validated property hasn't exact value.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotExact)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotExact)(NSString *message);
 
 /**
  *  User-defined error message used when validated property value isn't false.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotFalse)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotFalse)(NSString *message);
 
 /**
  *  User-defined error message used when validated property value isn't true.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNotTrue)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotTrue)(NSString *message);
 
 @end

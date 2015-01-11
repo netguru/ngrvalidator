@@ -19,13 +19,13 @@
  *  @param target   The target specyfing where to search implementation of given selector.
  *  @param message  The message of an error returned when validation will fail.
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^condition)(id target, SEL selector, NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^condition)(id target, SEL selector, NSString *message);
 
 #pragma mark - Messaging
 
 /**
  *  User-defined error message used when the property is nil (default: cannot be nil).
  */
-@property (nonatomic, readonly, copy) NGRPropertyValidator *(^msgNil)(NSString *message);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNil)(NSString *message);
 
 @end
