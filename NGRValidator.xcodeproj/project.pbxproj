@@ -39,6 +39,7 @@
 		5ECAF8821A6311D00011181C /* NGRMediumDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8811A6311D00011181C /* NGRMediumDemoView.m */; };
 		5ECAF8861A6319F70011181C /* NGRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8851A6319F70011181C /* NGRTextField.m */; };
 		5ECAF88D1A631EAC0011181C /* NGRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF88C1A631EAC0011181C /* NGRUser.m */; };
+		5ECAF8941A6343960011181C /* UIViewController+NGRDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8931A6343960011181C /* UIViewController+NGRDemo.m */; };
 		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,8 @@
 		5ECAF8851A6319F70011181C /* NGRTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRTextField.m; path = Demo/NGRTextField.m; sourceTree = "<group>"; };
 		5ECAF88B1A631EAC0011181C /* NGRUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRUser.h; path = Demo/NGRUser.h; sourceTree = "<group>"; };
 		5ECAF88C1A631EAC0011181C /* NGRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRUser.m; path = Demo/NGRUser.m; sourceTree = "<group>"; };
+		5ECAF8921A6343960011181C /* UIViewController+NGRDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+NGRDemo.h"; path = "Demo/UIViewController+NGRDemo.h"; sourceTree = "<group>"; };
+		5ECAF8931A6343960011181C /* UIViewController+NGRDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+NGRDemo.m"; path = "Demo/UIViewController+NGRDemo.m"; sourceTree = "<group>"; };
 		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 			children = (
 				5ECAF8841A6319F70011181C /* NGRTextField.h */,
 				5ECAF8851A6319F70011181C /* NGRTextField.m */,
+				5ECAF8921A6343960011181C /* UIViewController+NGRDemo.h */,
+				5ECAF8931A6343960011181C /* UIViewController+NGRDemo.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,
 				5ECAF8861A6319F70011181C /* NGRTextField.m in Sources */,
 				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
+				5ECAF8941A6343960011181C /* UIViewController+NGRDemo.m in Sources */,
 				5E4A2BB51A5788CF00744E93 /* NSObject+NGRValidator.m in Sources */,
 				5ECAF8821A6311D00011181C /* NGRMediumDemoView.m in Sources */,
 				5E6D99C01A53959500161808 /* NGRComplexDemoViewController.m in Sources */,

@@ -9,6 +9,8 @@
 #import "NGRComplexDemoViewController.h"
 #import "NGRComplexDemoView.h"
 
+#import "UIViewController+NGRDemo.h"
+
 #import "NGRDemoTextFieldCell.h"
 #import "NGRDemoDatePickerCell.h"
 #import "NGRDemoSwitchCell.h"
@@ -174,13 +176,8 @@
 #pragma mark - UIControl Methods
 
 - (void)validateBarButtonDidClick:(UIBarButtonItem *)button {
-    
     NSError *error = [self.event validate];
-    if (error) {
-        [self showAlertViewWithTitle:NSLocalizedString(@"Validation failed!", nil) message:error.localizedDescription];
-    } else {
-        [self showAlertViewWithTitle:NSLocalizedString(@"Validation succeed!", nil) message:NSLocalizedString(@"Now you can do with your event whatever you want, cause you are sure your event passed validation. High five!", nil)];
-    }
+    [self showAlertViewWithError:error];
 }
 
 - (void)datePickerDidChangeDate:(UIDatePicker *)picker {
@@ -258,10 +255,6 @@
         default:
             break;
     }
-}
-
-- (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
-    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil, nil] show];
 }
 
 - (void)registerKeyboardNotifications {

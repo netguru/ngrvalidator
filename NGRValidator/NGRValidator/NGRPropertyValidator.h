@@ -25,7 +25,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  *  Name of validated property.
  */
-@property (strong, readonly, nonatomic) NSString *property;
+@property (strong, nonatomic, readonly) NSString *property;
 
 /**
  * Localized name of validated property. Used in localized description of error if has been set. (default: nil).
@@ -51,6 +51,22 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  [NGRValidator validateModel:error:usingRules:] or [NGRValidator validateModel:usingRules:] method.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^order)(NSUInteger);
+
+/**
+ *  Sets scenarios which property validator has to conform. Do not use if property should be valid in every scenario.
+ *  Remember to pass scenario names as NSStrings.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^onScenarios)(NSArray *scenarios);
+
+/**
+ *  A scenarios which property validator conforms. If nil, property validator will be valid in every scenario.
+ */
+@property (strong, nonatomic, readonly) NSMutableArray *scenarios;
+
+/**
+ *  Describes scenario used during validation process.
+ */
+@property (strong, nonatomic) NSString *scenario;
 
 /**
  *  Priority of property validator. Default equal to NGRPropertyValidatorDefaultPriority (100).

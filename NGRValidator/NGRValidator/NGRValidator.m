@@ -39,21 +39,6 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
 
 #pragma mark - Public Methods
 
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error usingRules:(NSArray *(^)())rules {
-    
-    NSError *validationError = [self validateModel:model usingRules:rules returnTypeClass:[NSError class]];
-    if (validationError && *error == NULL) {
-        *error = validationError;
-        return NO;
-    }
-    return YES;
-}
-
-+ (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules {
-    NSArray *array = [self validateModel:model usingRules:rules returnTypeClass:[NSArray class]];
-    return ([array count] == 0) ? nil : array;
-}
-
 + (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {
     
     NGRPropertyValidator *propertyValidator = [NGRPropertyValidator validatorForProperty:name];
@@ -61,10 +46,32 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
     return [propertyValidator simpleValidationOfValue:value];
 }
 
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
+    
+    NSError *validationError = [self validateModel:model usingRules:rules scenario:scenario returnTypeClass:[NSError class]];
+    if (validationError && *error == NULL) {
+        *error = validationError;
+        return NO;
+    }
+    return YES;
+}
+
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error usingRules:(NSArray *(^)())rules {
+    return [self validateModel:model error:error scenario:nil usingRules:rules];
+}
+
++ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
+    NSArray *array = [self validateModel:model usingRules:rules scenario:scenario returnTypeClass:[NSArray class]];
+    return ([array count] == 0) ? nil : array;
+}
+
++ (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules {
+    return [self validateModel:model scenario:nil usingRules:rules];
+}
 
 #pragma mark - Private Methods
 
-+ (id)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules returnTypeClass:(Class)class {
++ (id)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules scenario:(NSString *)scenario returnTypeClass:(Class)class {
     
     BOOL throwFirstError = NO;
     if (class == [NSArray class]) throwFirstError = NO;
@@ -80,6 +87,7 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
     }
     
     for (NGRPropertyValidator *validator in array) {
+        validator.scenario = scenario;
         
         [self existsPropertyInValidator:validator ofModel:model];
         

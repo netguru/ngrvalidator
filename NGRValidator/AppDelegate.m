@@ -23,8 +23,6 @@
         [self story];
     }
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     NGRSimpleDemoViewController *simpleDemoViewController = [[NGRSimpleDemoViewController alloc] init];
     UINavigationController *simpleNavigationController = [[UINavigationController alloc] initWithRootViewController:simpleDemoViewController];
     
@@ -41,6 +39,7 @@
     [tabBarController.tabBar.items[1] setTitle:NSLocalizedString(@"Medium", nil)];
     [tabBarController.tabBar.items[2] setTitle:NSLocalizedString(@"Complex", nil)];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

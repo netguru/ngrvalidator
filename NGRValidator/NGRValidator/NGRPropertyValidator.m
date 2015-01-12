@@ -8,6 +8,8 @@
 
 #import "NGRPropertyValidator.h"
 #import "NSObject+NGRValidator.h"
+#import "NSArray+NGRValidator.h"
+#import "NSString+NGRValidator.h"
 
 NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;
@@ -17,6 +19,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 
 @property (strong, nonatomic, readwrite) NSMutableArray *validators;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *messages;
+@property (strong, nonatomic, readwrite) NSMutableArray *scenarios;
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;
 @property (assign, nonatomic) BOOL allowEmptyProperty;
@@ -70,6 +73,13 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     }];
 }
 
+- (NGRPropertyValidator *(^)(NSArray *))onScenarios {
+    return ^(NSArray *scenarios){
+        self.scenarios = [scenarios mutableCopy];
+        return self;
+    };
+}
+
 - (NGRPropertyValidator *(^)(NSUInteger))order {
     return ^(NSUInteger priority){
         _priority = priority;
@@ -119,12 +129,18 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 #pragma mark - Private Methods
 
 - (id)validationOfValue:(id)value returnTypeClass:(Class)class {
+    
+    if (![self shouldValidate]) {
+        return nil;
+    }
+    
     BOOL isSimpleValidation = (class == [NSError class]);
     NSAssert((class == [NSArray class] || class == [NSError class]), @"Allowed class: NSArray or NSError");
     
     NSMutableArray *array = [NSMutableArray array];
     
     for (NGRValidationRule *validationRule in self.validators) {
+        
         NGRError error = validationRule.validationBlock(value);
         
         if (error == NGRErrorUnexpectedClass) {
@@ -141,18 +157,31 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     return isSimpleValidation ? nil : [array copy];
 }
 
+- (NSString *)description {
+    NSString *scenarios = [self.scenarios componentsJoinedByString:@","];
+    return [NSString stringWithFormat:@"<%@: %p, property name: %@, scenario: %@, scenarios(%lu): %@, rules(%lu): %@>", NSStringFromClass([self class]), self, self.property, self.scenario, (unsigned long)[self.scenarios count], scenarios, (unsigned long)[self.validators count], [self validatorsDescription]];
+}
+
 - (void)addValidatonBlockWithName:(NSString *)name block:(NGRError (^)(id))block {
     
-    if (!self.validators) self.validators = [NSMutableArray array];
+    if (!self.validators) _validators = [NSMutableArray array];
     
     NGRValidationRule *validatorBlock = [[NGRValidationRule alloc] initWithName:name block:block];
     [self.validators addObject:validatorBlock];
 }
 
 - (NSError *)errorWithNGRError:(NGRError)error {
-    NSString *propertyName = (self.localizedPropertyName) ?: [self.property capitalizedString];
+    NSString *propertyName = (self.localizedPropertyName) ?: [self.property ngr_stringByCapitalizeFirstLetter];
     NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self messageForError:error]];
     return [NSError errorWithDomain:NGRValidatorDomain code:NGRValidationInconsistencyCode userInfo:@{NSLocalizedDescriptionKey : description}];
+}
+
+- (BOOL)shouldValidate {
+    if (!self.scenarios || !self.scenario) {
+        return YES;
+    }
+    //only reached when self.scenario && self.scenarios :
+    return [self.scenarios ngr_containsString:self.scenario];
 }
 
 - (void)setupMessages {
@@ -189,6 +218,20 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     [self setMessage:@"isn't earlier than or equal to compared date." forError:NGRErrorNotEarlierThanOrEqualTo];
     [self setMessage:@"isn't later than or equal to compared date." forError:NGRErrorNotLaterThanOrEqualTo];
     [self setMessage:@"isn't between given dates." forError:NGRErrorNotBetweenDates];
+}
+
+- (NSString *)validatorsDescription {
+    NSMutableString *validators = [NSMutableString string];
+    
+    for (NGRValidationRule *rule in self.validators) {
+        NSInteger index = [self.validators indexOfObject:rule];
+        if (index == [self.validators count] - 1) {
+            [validators appendFormat:@"%@", rule.name];
+        } else {
+            [validators appendFormat:@"%@, ", rule.name];
+        }
+    }
+    return [validators copy];
 }
 
 @end

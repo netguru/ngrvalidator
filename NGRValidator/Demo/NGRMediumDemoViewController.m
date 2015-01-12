@@ -8,6 +8,7 @@
 
 #import "NGRMediumDemoViewController.h"
 #import "NGRMediumDemoView.h"
+#import "UIViewController+NGRDemo.h"
 #import "NGRUser.h"
 
 @interface NGRMediumDemoViewController () <UITextFieldDelegate>
@@ -56,16 +57,7 @@
     
     NGRUserScenario scenario = (self.aView.segmentedControl.selectedSegmentIndex == 0) ? NGRUserScenarioSignIn : NGRUserScenarioPasswordChange;
     NSError *error = [self.user validateWithScenario:scenario];
-    
-    if (error) {
-        [self showAlertViewWithTitle:NSLocalizedString(@"Validation failed!", nil) message:error.localizedDescription];
-    } else {
-        [self showAlertViewWithTitle:NSLocalizedString(@"Validation succeed!", nil) message:NSLocalizedString(@"Now you can do with your event whatever you want, cause you are sure your event passed validation. High five!", nil)];
-    }
-}
-
-- (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message {
-    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil, nil] show];
+    [self showAlertViewWithError:error];
 }
 
 @end

@@ -44,6 +44,8 @@ extern NGRPropertyValidator * NGRValidate(NSString *property);
  */
 + (BOOL)validateModel:(NSObject *)model error:(NSError **)error usingRules:(NSArray *(^)())rules;
 
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules;
+
 /**
  *  Validates given model with given rules. Returns empty array when validation succeeded. If not, array will contains errors.
  *
@@ -52,5 +54,7 @@ extern NGRPropertyValidator * NGRValidate(NSString *property);
  *  @return an array of errors. Nil if validation will pass, otherwise will contain NSError objects.
  */
 + (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules;
+
++ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules;
 
 @end

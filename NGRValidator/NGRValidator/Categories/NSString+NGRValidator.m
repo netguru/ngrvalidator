@@ -12,6 +12,13 @@
 
 #pragma mark - Public Methods
 
+- (NSString *)ngr_stringByCapitalizeFirstLetter {
+    if (self.length > 0) {
+        return [self stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[self substringToIndex:1] uppercaseString]];
+    }
+    return [self capitalizedString];
+}
+
 - (BOOL)ngr_isEmail {
     return [self evaluatePattern:@".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*"];
 }

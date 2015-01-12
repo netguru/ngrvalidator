@@ -31,20 +31,26 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    CGFloat height = [self isLandscape] ? 33.f : 44.f;
+    
     self.segmentedControl.frame = [self frameAtMinYStartPoint:0.f height:30.f];
-    self.passwordTextField.frame = [self frameAtMinYStartPoint:CGRectGetMaxY(self.segmentedControl.frame) height:44.f];
-    self.repeatedPasswordTextField.frame = [self frameAtMinYStartPoint:CGRectGetMaxY(self.passwordTextField.frame) height:44.f];
+    self.passwordTextField.frame = [self frameAtMinYStartPoint:CGRectGetMaxY(self.segmentedControl.frame) height:height];
+    self.repeatedPasswordTextField.frame = [self frameAtMinYStartPoint:CGRectGetMaxY(self.passwordTextField.frame) height:height];
 }
 
 - (CGRect)frameAtMinYStartPoint:(CGFloat)y height:(CGFloat)height {
     
     CGRect rect = self.bounds;
-    CGFloat margin = 10.f;
+    CGFloat margin = [self isLandscape] ? 6.f : 10.f;
     return CGRectMake(margin,
                       y + margin,
                       CGRectGetWidth(rect) - 2.f * margin,
                       height);
 
+}
+
+- (BOOL)isLandscape {
+    return UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
 }
 
 @end
