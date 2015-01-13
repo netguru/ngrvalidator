@@ -1,6 +1,6 @@
 # NGRValidator
 
-**NGRValidator** allows you to validate the data in the way you want! It's easy to read (even via non-developers), centralized and complex solution to validate your model just in few lines of code. Moreover, **NGRValidator** contains default error messages which you can customize!
+**NGRValidator** allows you to validate the data in the way you want! It's easy to read (even for non-developers), centralized and complex solution to validate your model just in a few lines of code. Moreover, **NGRValidator** contains default error messages which you can customize!
 
 ## Requirements
 
