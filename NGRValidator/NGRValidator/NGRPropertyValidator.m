@@ -198,6 +198,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     [self setMessage:@"should be decimal." forError:NGRErrorNotDecimal];
     [self setMessage:@"is of the wrong length." forError:NGRErrorNotExactLength];
     [self setMessage:@"is not repeated exactly." forError:NGRErrorNotMatch];
+    [self setMessage:@"does not differ." forError:NGRErrorNotDiffer];
     
     //NGPropertyValidator + NSNumber
     [self setMessage:@"is too small." forError:NGRErrorTooSmall];

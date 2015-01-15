@@ -38,6 +38,11 @@
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^match)(NSString *string);
 
 /**
+ *  Validates that the NSString is different than another string
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^differ)(NSString *string);
+
+/**
  *  Validates that the NSString contains only decimal signs.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^decimal)();
@@ -45,27 +50,32 @@
 #pragma mark - Messaging
 
 /**
- *  User-defined error message used when validated property length is too short.
+ *  User-defined error message used when validated string length is too short.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgTooShort)(NSString *message);
 
 /**
- *  User-defined error message used when validated property length is too long.
+ *  User-defined error message used when validated string length is too long.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgTooLong)(NSString *message);
 
 /**
- *  User-defined error message used when validated property hasn't exact length.
+ *  User-defined error message used when validated string hasn't exact length.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotExactLength)(NSString *message);
 
 /**
- *  User-defined error message used when validated property doesn't match another string.
+ *  User-defined error message used when validated string doesn't match another string.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotMatch)(NSString *message);
 
 /**
- *  User-defined error message used when validated property is not decimal.
+ *  User-defined error message used when validated string doesn't differ from another string.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotDiffer)(NSString *message);
+
+/**
+ *  User-defined error message used when validated string is not decimal.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotDecimal)(NSString *message);
 

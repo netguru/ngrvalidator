@@ -35,8 +35,8 @@ describe(@"NGPropertyValidator", ^{
         [[theValue(propertyValidator.property) should] equal:theValue(kPropertyName)];
     });
     
-    it(@"should have exactly 21 messages", ^{
-        [[propertyValidator.messages should] haveCountOf:21];
+    it(@"should have exactly 22 messages", ^{
+        [[propertyValidator.messages should] haveCountOf:22];
     });
     
     typedef void (^NGPropertyErrorBlock)(NSString *, NGRError, NGRPropertyValidator *);
@@ -61,6 +61,7 @@ describe(@"NGPropertyValidator", ^{
     testMessage(@"too long", NGRErrorTooLong, validator.msgTooLong(KBlockMessage));
     testMessage(@"not exact length", NGRErrorNotExactLength, validator.msgNotExactLength(KBlockMessage));
     testMessage(@"doesnt match", NGRErrorNotMatch, validator.msgNotMatch(KBlockMessage));
+    testMessage(@"doesnt match", NGRErrorNotDiffer, validator.msgNotDiffer(KBlockMessage));
     
     //NGRPropertyValidator + NSNumber
     testMessage(@"isnt false", NGRErrorNotTrue, validator.msgNotTrue(KBlockMessage));

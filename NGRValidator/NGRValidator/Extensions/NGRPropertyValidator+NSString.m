@@ -71,6 +71,15 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
     };
 }
 
+- (NGRPropertyValidator *(^)(NSString *))differ {
+    return ^(NSString *stringToMatch) {
+        [self validateStringWithName:@"differ" block:^NGRError(NSString *string) {
+            return ![string isEqualToString:stringToMatch] ? NGRErrorNoone : NGRErrorNotDiffer;
+        }];
+        return self;
+    };
+}
+
 - (NGRPropertyValidator *(^)())decimal {
     return ^() {
         [self validateStringWithName:@"decimal" block:^NGRError(NSString *string) {
@@ -106,6 +115,13 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 - (NGRPropertyValidator *(^)(NSString *))msgNotMatch {
     return ^(NSString *message) {
         [self setMessage:message forError:NGRErrorNotMatch];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSString *))msgNotDiffer {
+    return ^(NSString *message) {
+        [self setMessage:message forError:NGRErrorNotDiffer];
         return self;
     };
 }

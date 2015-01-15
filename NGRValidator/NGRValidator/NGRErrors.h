@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, NGRError) {
     NGRErrorNotDecimal,
     NGRErrorNotExactLength,
     NGRErrorNotMatch,
+    NGRErrorNotDiffer,
     
     //NGRPropertyValidator + NSNumber
     NGRErrorTooSmall,

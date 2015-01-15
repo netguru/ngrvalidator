@@ -286,6 +286,20 @@ describe(@"NGRValidator", ^{
         validator.required().lengthRange(2, 4).msgTooShort(kErrorMessage).msgTooLong(kErrorMessage);
     });
     
+    test(@"match", ^() {
+        return @[rule(@"different string", @"bar", 1, [NSString class], nil, nil),
+                 rule(@"same string", @"foo", 0, [NSString class], nil, nil)];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.required().match(@"foo").msgNotMatch(kErrorMessage);
+    });
+    
+    test(@"differ", ^() {
+        return @[rule(@"same string", @"foo", 1, [NSString class], nil, nil),
+                 rule(@"different string", @"bar", 0, [NSString class], nil, nil)];
+    }, ^(NGRPropertyValidator *validator) {
+        validator.required().differ(@"foo").msgNotDiffer(kErrorMessage);
+    });
+    
     /******************************************************************************
      *                                Numbers                                     *
      ******************************************************************************/
