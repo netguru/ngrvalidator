@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.2.1'
+pod 'NGRValidator', '~> 0.2.2'
 ```
 and run `pod update` or `pod install`
 
@@ -88,7 +88,7 @@ Let's take it one step further. Consider this model should be used both for logi
     [NGRValidator validateModel:self error:&error scenario:scenario usingRules:^NSArray *{
         return @[NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
                  NGRValidate(@"password").required().minLength(5),
-                 NGRValidate(@"newPassword").required().minLength(5).notMatch(self.password).onScenarios(@[@"changePassword"]),
+                 NGRValidate(@"newPassword").required().minLength(5).differ(self.password).onScenarios(@[@"changePassword"]),
                  NGRValidate(@"repeatedNewPassword").required().match(self.newPassword).onScenarios(@[@"changePassword"])];
     }];
     return error;
@@ -129,7 +129,7 @@ There are 3 general methods of validation:
 * `lengthRange(NSUInteger, NSUInteger)` - validates minimum and maximum length of NSString (inclusive).
 * `exactLength(NSUInteger)` - validates exact length of NSString (inclusive).
 * `match(NSString *)` - validates that the NSString match another string.
-* `notMatch(NSString *)` - validates that the NSString do not match another string.
+* `differ(NSString *)` - validates that the NSString is different than another string.
 * `decimal()` - validates that the NSString contains only decimal signs.
 
 **Syntax**: 
@@ -156,11 +156,11 @@ There are 3 general methods of validation:
 
 ## Scenarios
 
-Scenarios allows you to keep same model across all possible actions. Sometimes some properties should be obligatory on one action and optional on another. Scenarios makes model validtion more flexible and centralized without any conditional statements. If property should conform specified scenario(s) pass `NSArray` of scenarios using:
+Scenarios allows you to keep same model across all possible actions. Sometimes some properties should be obligatory for one action and optional for another. Scenarios makes model validtion more flexible and centralize without any conditional statements. If property should conform specified scenario(s) pass `NSArray` of scenarios using:
 ```objc
 onScenarios(NSArray *)
 ```
-Property which doesn't conform any scenario, will be validated on every scenario.
+Property which doesn't conform any scenario, will be validated on every scenario. Remember to pass scenario names as `NSString`s
 
 ## Validation messages
 Although **NGRValidator** contains default error messages for each validation, it is possible to customize them as well. Any [validation rule](https://github.com/netguru/ngrvalidator#validation-rules) has its message counterpart ans starts with `msg` prefix:
@@ -173,7 +173,7 @@ Although **NGRValidator** contains default error messages for each validation, i
 |`lengthRange(NSUInteger, NSUInteger)`|`msgTooShort(NSString *)` and `msgTooLong(NSString *)` |is too short. `or` is too long.|
 |`exactLength(NSUInteger)`|`msgNotExactLength(NSString *)`|is of the wrong length.|
 |`match(NSString *)`|`msgNotMatch(NSString *)`|is not repeated exactly.|
-|`notMatch(NSString *)`|`msgMatch(NSString *)`|should be different.|
+|`differ(NSString *)`|`msgNotDiffer(NSString *)`|does not differ.|
 |`decimal()`|`msgNotDecimal(NSString *)`|should be decimal.|
 |`min(float)`|`msgTooSmall(NSString *)`|is too small.|
 |`max(float)`|`msgTooBig(NSString *)`|is too big.|
@@ -203,7 +203,7 @@ will change every error localized description applied to this property. Message 
 
 ## Advanced model object validation
 
-Let's consider a typical model class used in Objective-C. Imagine you want to create a calendar event which model is defined like below:
+Let's consider a more complex example. Imagine you want to create a calendar event which model is defined like below:
 
 ```objc
 @interface CalendarEvent : NSObject
