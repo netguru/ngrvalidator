@@ -25,14 +25,9 @@ typedef NS_ENUM(NSInteger, NGRSyntax) {
 
 
 /**
- *  Validates that the NSString matches given regex.
+ *  Validates that the NSString matches given regex pattern with options.
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^regex)(NSRegularExpression *);
-
-/**
- *  Validates that the NSString matches the given regex pattern string.
- */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^regexPattern)(NSString *);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^regex)(NSString *, NSRegularExpressionOptions);
 
 #pragma mark - Messaging
 
