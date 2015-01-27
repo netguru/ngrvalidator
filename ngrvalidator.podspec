@@ -7,7 +7,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ngrvalidator"
-  s.version      = "0.2.2"
+  s.version      = "0.3.0"
   s.summary      = "Simple validator for iOS."
 
   s.description  = "NGRValidator allows you to validate your data in way you want! It's easy to read (even via non-developers), centralized and complex solution to validate your model just in few lines of code!"

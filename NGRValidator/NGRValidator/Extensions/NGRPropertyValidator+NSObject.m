@@ -25,14 +25,14 @@
                 
                 NSMethodSignature *signature = [[target class] instanceMethodSignatureForSelector:selector];
                 BOOL returnsBoolean = strcmp (signature.methodReturnType, @encode(BOOL)) == 0;
-                NSAssert(returnsBoolean, @"[NGValidator] Custom validation method has to return BOOL.");
+                NSAssert(returnsBoolean, @"[NGRValidator] Custom validation method has to return BOOL.");
                 
                 #pragma clang diagnostic push
                 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
                 valid = (BOOL)[target performSelector:selector];
                 #pragma clang diagnostic pop
             } else {
-                NSAssert(NO, @"[NGValidator] Selector \"%@\" not found in %@ class.", NSStringFromSelector(selector), NSStringFromClass([target class]));
+                NSAssert(NO, @"[NGRValidator] Selector \"%@\" not found in %@ class.", NSStringFromSelector(selector), NSStringFromClass([target class]));
             }
             return valid ? NGRErrorNoone : NGRErrorCustomCondition;
         }];
