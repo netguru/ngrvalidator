@@ -48,10 +48,11 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
     };
 }
 
-- (NGRPropertyValidator *(^)(NSRegularExpression *))regex {
-    return ^(NSRegularExpression *aRegex) {
+- (NGRPropertyValidator *(^)(NSString *, NSRegularExpressionOptions))regex {
+    return ^(NSString *pattern, NSRegularExpressionOptions options) {
         [self validateSyntaxWithName:@"regex" block:^NGRError(NSString *string) {
-            NSUInteger matches = [aRegex numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:options error:nil];
+            NSUInteger matches = [regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
             return (matches == 1) ? NGRErrorNoone : NGRErrorWrongRegex;
         }];
         return self;

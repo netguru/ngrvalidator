@@ -362,12 +362,10 @@ describe(@"NGRValidator", ^{
     });
     
     test(@"regex", ^() {
-        return @[rule(@"wrong regex syntax", @"foo", 1, [NSString class], nil, nil),
-                 rule(@"valid regex syntax", @"bar", 0, [NSString class], nil, nil)];
+        return @[rule(@"wrong regex syntax", @"b4z", 1, [NSString class], nil, nil),
+                 rule(@"valid regex syntax", @"QUX", 0, [NSString class], nil, nil)];
     }, ^(NGRPropertyValidator *validator) {
-        NSString *pattern = @"b[a-z]";
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
-        validator.required().regex(regex).msgWrongRegex(kErrorMessage);
+        validator.required().regex(@"q.*", NSRegularExpressionCaseInsensitive).msgWrongRegex(kErrorMessage);
     });
     
     test(@"syntax URL", ^() {
