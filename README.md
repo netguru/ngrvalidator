@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.2.2'
+pod 'NGRValidator', '~> 0.3.0'
 ```
 and run `pod update` or `pod install`
 
@@ -137,7 +137,7 @@ There are 3 general methods of validation:
     - `NGRSyntaxEmail` - validates email syntax.
     - `NGRSyntaxName` - validates if given string contains only alphabetic signs.
     - `NGRSyntaxURL` - validates syntax of URL.
-* `regex(NSRegularExpression *)` - validates that the NSString match given regex.
+* `regex(NSString *, NSRegularExpressionOptions)` - validates that the NSString match given regex pattern with options.
 
 **NSNumber**: 
 * `min(float)` - validates lower limit of NSNumber (inclusive).
@@ -184,7 +184,7 @@ Although **NGRValidator** contains default error messages for each validation, i
 |`syntax(NGRSyntaxEmail)`|`msgWrongSyntax(NGRSyntaxEmail, NSString *)`|has invalid syntax.|
 |`syntax(NGRSyntaxName)`|`msgWrongSyntax(NGRSyntaxName, NSString *)`|should contain only letters.|
 |`syntax(NGRSyntaxURL)`|`msgWrongSyntax(NGRSyntaxURL, NSString *)`|has invalid syntax.|
-|`regex(NSRegularExpression *)`|`msgWrongRegex(NSString *)`|do not match pattern.|
+|`regex(NSString *, NSRegularExpressionOptions)`|`msgWrongRegex(NSString *)`|do not match pattern.|
 |`earlierThan(NSDate *)`|`msgNotTrue(msgNotEarlierThan *)`|isn't earlier than compared date.|
 |`earlierThanOrEqualTo(NSDate *)`|`msgNotEarlierThanOrEqualTo(NSString *)`|isn't earlier than or equal to compared date.|
 |`laterThan(NSDate *)`|`msgNotLaterThan(NSString *)`|isn't later than compared date.|
@@ -275,6 +275,9 @@ Here a few guidelines to follow:
 - follow [Ray Wenderlich Style Guide](https://github.com/raywenderlich/objective-c-style-guide).
 - write tests
 - make sure the entire test suite passes
+
+## Change Log
+- 0.3.0 - Make `regex()` validator accept pattern and options, not a regex object.
 
 ## More Info
 
