@@ -369,6 +369,14 @@ describe(@"NGRValidator", ^{
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:NULL];
         validator.required().regex(regex).msgWrongRegex(kErrorMessage);
     });
+
+    test(@"regex pattern", ^() {
+        return @[rule(@"wrong regex syntax", @"baz", 1, [NSString class], nil, nil),
+                 rule(@"valid regex syntax", @"qux", 0, [NSString class], nil, nil)];
+    }, ^(NGRPropertyValidator *validator) {
+        NSString *pattern = @"q.*";
+        validator.required().regexPattern(pattern).msgWrongRegex(kErrorMessage);
+    });
     
     test(@"syntax URL", ^() {
         return @[rule(@"wrong url syntax", @"http://bar", 1, [NSString class], nil, nil),

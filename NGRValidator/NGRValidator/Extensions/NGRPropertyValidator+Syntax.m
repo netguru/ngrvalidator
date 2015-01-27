@@ -58,6 +58,19 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
     };
 }
 
+- (NGRPropertyValidator *(^)(NSString *))regexPattern {
+    return ^(NSString *pattern) {
+        [self validateSyntaxWithName:@"regex" block:^NGRError(NSString *string) {
+            NSError *regexError = nil;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&regexError];
+            if (regexError != nil) return NGRErrorWrongRegex;
+            NSUInteger matches = [regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
+            return (matches == 1) ? NGRErrorNoone : NGRErrorWrongRegex;
+        }];
+        return self;
+    };
+}
+
 #pragma mark - Messaging
 
 - (NGRPropertyValidator *(^)(NSString *))msgWrongRegex {
