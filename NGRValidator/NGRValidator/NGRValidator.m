@@ -34,21 +34,29 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
 }
 
 + (NGRValidator *)validator {
-    return [[[self class] alloc] init];
+    return [[self alloc] init];
 }
 
 #pragma mark - Public Methods
 
 + (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {
     
+    if (rules == NULL) {
+        return nil;
+    }
+    
     NGRPropertyValidator *propertyValidator = [NGRPropertyValidator validatorForProperty:name];
-    if (rules != NULL) rules(propertyValidator);
+    rules(propertyValidator);
     return [propertyValidator simpleValidationOfValue:value];
 }
 
 + (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
     
-    NSError *validationError = [self validateModel:model usingRules:rules scenario:scenario returnTypeClass:[NSError class]];
+    if (rules == NULL) {
+        return NO;
+    }
+    
+    NSError *validationError = [self validateModel:model tillFirstError:YES usingRules:rules scenario:scenario];
     if (validationError && *error == NULL) {
         *error = validationError;
         return NO;
@@ -61,7 +69,12 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
 }
 
 + (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
-    NSArray *array = [self validateModel:model usingRules:rules scenario:scenario returnTypeClass:[NSArray class]];
+    
+    if (rules == NULL) {
+        return nil;
+    }
+    
+    NSArray *array = [self validateModel:model tillFirstError:NO usingRules:rules scenario:scenario];
     return ([array count] == 0) ? nil : array;
 }
 
@@ -71,45 +84,37 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
 
 #pragma mark - Private Methods
 
-+ (id)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules scenario:(NSString *)scenario returnTypeClass:(Class)class {
-    
-    BOOL throwFirstError = NO;
-    if (class == [NSArray class]) throwFirstError = NO;
-    else if (class == [NSError class]) throwFirstError = YES;
-    else NSAssert(NO, @"Allowed class: NSArray or NSError");
++ (id)validateModel:(NSObject *)model tillFirstError:(BOOL)tillFirstError usingRules:(NSArray *(^)())rules scenario:(NSString *)scenario {
     
     NSArray *array = [rules() ngr_sortedArrayByPriority];
     NSArray *properties = [model ngr_properties];
     NSMutableArray *errors = [NSMutableArray array];
     
     if (array.count == 0) {
-        NSLog(@"%@", [NSString stringWithFormat:@"Lack of validation rules. Are you sure you don't want to define rules for %@ model", [model class]]);
+        NSLog(@"%@", [NSString stringWithFormat:@"Lack of validation rules in %@ model. Validation couldn't be processed.", [model class]]);
     }
     
     for (NGRPropertyValidator *validator in array) {
         validator.scenario = scenario;
         
-        [self existsPropertyInValidator:validator ofModel:model];
+        [self checkPresenceOfPropertyInValidator:validator model:model];
         
         if (![properties ngr_containsString:validator.property]) {
             NSLog(@"Property named '%@' wasn't found in %@ class. Property validation skipped.", validator.property, [model class]);
         } else {
             id value = [model valueForKey:validator.property];
             
-            if (throwFirstError) {
-                NSError *validationError = [validator simpleValidationOfValue:value];
-                if (validationError) {
-                    return validationError;
-                }
+            if (tillFirstError) {
+                return [validator simpleValidationOfValue:value];
             } else {
                 [errors addObjectsFromArray:[validator complexValidationOfValue:value]];
             }
         }
     }
-    return throwFirstError ? nil : [errors copy];
+    return tillFirstError ? nil : [errors copy];
 }
 
-+ (void)existsPropertyInValidator:(NGRPropertyValidator *)validator ofModel:(NSObject *)model {
++ (void)checkPresenceOfPropertyInValidator:(NGRPropertyValidator *)validator model:(NSObject *)model {
     // Tricky part:
     // Compiler doesn't show warnings if any validation block call isn't ended with parentheses
     // Catch an exception and inform user about possible reason
