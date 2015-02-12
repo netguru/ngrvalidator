@@ -1,10 +1,13 @@
 PODS:
-  - Kiwi (2.3.1)
+  - Expecta (0.3.1)
+  - Specta (0.3.2)
 
 DEPENDENCIES:
-  - Kiwi
+  - Expecta
+  - Specta
 
 SPEC CHECKSUMS:
-  Kiwi: 73e1400209055ee9c8ba78c6012b6b642d0fb9f7
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  Specta: 698a58ffa5ec948327d3b92eab50ca58d7f4fbe8
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0.beta.2

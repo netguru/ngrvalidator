@@ -4,37 +4,16 @@
 //
 //  Created by Patryk Kaczmarek on 23.12.2014.
 //
-//
 
 #import "NGRValidator.h"
 #import "NSArray+NGRValidator.h"
 #import "NSObject+NGRRuntime.h"
 #import "NSArray+NGRValidator.h"
 
-@interface NGRValidator ()
-
-@property (strong, nonatomic) NSMutableArray *validators;
-
-@end
-
 @implementation NGRValidator
 
 inline NGRPropertyValidator * NGRValidate(NSString *property) {
     return [NGRPropertyValidator validatorForProperty:property];
-}
-
-#pragma mark - Initializers
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        _validators = [NSMutableArray array];
-    }
-    return self;
-}
-
-+ (NGRValidator *)validator {
-    return [[self alloc] init];
 }
 
 #pragma mark - Public Methods

@@ -1,0 +1,20 @@
+//
+//  Unit-Tests-Prefix.pch
+//  NGRValidator
+//
+//  Created by Patryk Kaczmarek on 11.02.2015.
+//
+//
+
+#ifdef __OBJC__
+
+    #define EXP_SHORTHAND
+
+    #import <Expecta/Expecta.h>
+    #import <Specta/Specta.h>
+
+    #import "NGRValidator.h"
+    #import "NGRPropertyValidator.h"
+    #import "NGRTestModel.h"
+
+#endif
