@@ -1,3 +1,4 @@
+#
 #  NGRValidator
 #
 #  Created by Patryk Kaczmarek on 29.12.2014.
@@ -19,7 +20,9 @@ Pod::Spec.new do |s|
   s.source        = { :git => 'https://github.com/netguru/ngrvalidator.git', :tag => s.version.to_s }
 
   s.platform      = :ios, '7.0'
-  s.source_files  = 'NGRValidator/NGRValidator/**/*.{h,m}'
   s.requires_arc  = true
+
+  s.source_files  = 'NGRValidator/NGRValidator/**/*.{h,m}'
+  s.header_dir    = 'NGRValidator'
 
 end
