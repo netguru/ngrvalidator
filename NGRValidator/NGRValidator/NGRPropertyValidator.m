@@ -17,7 +17,9 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 
 @interface NGRPropertyValidator ()
 
-@property (strong, nonatomic, readwrite) NSMutableArray *validators;
+- (instancetype)initWithProperty:(NSString *)property NS_DESIGNATED_INITIALIZER;
+
+@property (strong, nonatomic, readwrite) NSMutableArray *validationRules;
 @property (strong, nonatomic, readwrite) NSMutableDictionary *messages;
 @property (strong, nonatomic, readwrite) NSMutableArray *scenarios;
 @property (strong, nonatomic) NSString *localizedPropertyName;
@@ -43,7 +45,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 }
 
 + (NGRPropertyValidator *)validatorForProperty:(NSString *)property {
-    return [[[self class] alloc] initWithProperty:property];
+    return [[self alloc] initWithProperty:property];
 }
 
 #pragma mark - Public Methods
@@ -139,7 +141,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     
     NSMutableArray *array = [NSMutableArray array];
     
-    for (NGRValidationRule *validationRule in self.validators) {
+    for (NGRValidationRule *validationRule in self.validationRules) {
         
         NGRError error = validationRule.validationBlock(value);
         
@@ -157,17 +159,12 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     return isSimpleValidation ? nil : [array copy];
 }
 
-- (NSString *)description {
-    NSString *scenarios = [self.scenarios componentsJoinedByString:@","];
-    return [NSString stringWithFormat:@"<%@: %p, property name: %@, scenario: %@, scenarios(%lu): %@, rules(%lu): %@>", NSStringFromClass([self class]), self, self.property, self.scenario, (unsigned long)[self.scenarios count], scenarios, (unsigned long)[self.validators count], [self validatorsDescription]];
-}
-
 - (void)addValidatonBlockWithName:(NSString *)name block:(NGRError (^)(id))block {
     
-    if (!self.validators) _validators = [NSMutableArray array];
+    if (!self.validationRules) _validationRules = [NSMutableArray array];
     
     NGRValidationRule *validatorBlock = [[NGRValidationRule alloc] initWithName:name block:block];
-    [self.validators addObject:validatorBlock];
+    [self.validationRules addObject:validatorBlock];
 }
 
 - (NSError *)errorWithNGRError:(NGRError)error {
@@ -221,12 +218,19 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     [self setMessage:@"isn't between given dates." forError:NGRErrorNotBetweenDates];
 }
 
+# pragma mark - Overwritten methods
+
+- (NSString *)description {
+    NSString *scenarios = [self.scenarios componentsJoinedByString:@","];
+    return [NSString stringWithFormat:@"<%@: %p, property name: %@, scenario: %@, scenarios(%lu): %@, rules(%lu): %@>", NSStringFromClass([self class]), self, self.property, self.scenario, (unsigned long)[self.scenarios count], scenarios, (unsigned long)[self.validationRules count], [self validatorsDescription]];
+}
+
 - (NSString *)validatorsDescription {
     NSMutableString *validators = [NSMutableString string];
     
-    for (NGRValidationRule *rule in self.validators) {
-        NSInteger index = [self.validators indexOfObject:rule];
-        if (index == [self.validators count] - 1) {
+    for (NGRValidationRule *rule in self.validationRules) {
+        NSInteger index = [self.validationRules indexOfObject:rule];
+        if (index == [self.validationRules count] - 1) {
             [validators appendFormat:@"%@", rule.name];
         } else {
             [validators appendFormat:@"%@, ", rule.name];

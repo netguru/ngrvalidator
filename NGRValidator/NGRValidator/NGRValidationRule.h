@@ -13,7 +13,7 @@ typedef NGRError (^NGRValidationBlock)(id);
 
 @interface NGRValidationRule : NSObject
 
-- (instancetype)initWithName:(NSString *)name block:(NGRValidationBlock)block;
+- (instancetype)initWithName:(NSString *)name block:(NGRValidationBlock)block NS_DESIGNATED_INITIALIZER;
 
 @property (strong, readonly, nonatomic) NSString *name;
 

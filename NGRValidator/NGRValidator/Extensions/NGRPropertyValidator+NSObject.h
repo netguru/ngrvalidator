@@ -10,17 +10,6 @@
 
 @interface NGRPropertyValidator (NSObject)
 
-#pragma mark - Rules
-
-/**
- *  Validates property with user-defined condition.
- *
- *  @param selector The selector which implements custom validation. Selector has to return BOOL. Otherwise an exception will raise.
- *  @param target   The target specyfing where to search implementation of given selector.
- *  @param message  The message of an error returned when validation will fail.
- */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^condition)(id target, SEL selector, NSString *message);
-
 #pragma mark - Messaging
 
 /**

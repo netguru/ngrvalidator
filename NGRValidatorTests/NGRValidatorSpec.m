@@ -6,129 +6,92 @@
 //
 //
 
-typedef NSDictionary * (^NGRDataWrapper)(NGRTestModel *, NSArray *(^)());
-
-// data keys:
-NSString *const NGRPropertyValidatorKey = @"NGRPropertyValidatorKey";
-NSString *const NGRModelKey = @"NGRModelKey";
-NSString *const NGRRulesKey = @"NGRRulesKey";
-
-// behaviours:
-NSString *const NGRSuccessBehaviour = @"NGRSuccessBehaviour";
-NSString *const NGRFailureBehaviour = @"NGRFailureBehaviour";
-NSString *const NGRAssertBehaviour = @"NGRAssertBehaviour";
-
-SharedExamplesBegin(NGRValidatorSharedExamples)
-
-sharedExamplesFor(NGRSuccessBehaviour, ^(NSDictionary *data) {
-    
-    __block NSError *error = nil;
-    __block NSArray *array = nil;
-    __block BOOL success = NO;
-    
-    afterEach(^{
-        error = nil; array = nil; success = NO;
-    });
-    
-    it(@"should succeed.", ^{
-        success = [NGRValidator validateModel:data[NGRModelKey] error:&error usingRules:data[NGRRulesKey]];
-        expect(success).to.beTruthy();
-        expect(error).to.beNil();
-    });
-    
-    it(@"should succeed.", ^{
-        array = [NGRValidator validateModel:data[NGRModelKey] usingRules:data[NGRRulesKey]];
-        expect(array).to.beNil();
-    });
-});
-
-sharedExamplesFor(NGRFailureBehaviour, ^(NSDictionary *data) {
-    
-    __block NSError *error = nil;
-    __block NSArray *array = nil;
-    __block BOOL success = NO;
-    
-    afterEach(^{
-        error = nil; array = nil; success = NO;
-    });
-    
-    it(@"should fail.", ^{
-        success = [NGRValidator validateModel:data[NGRModelKey] error:&error usingRules:data[NGRRulesKey]];
-        expect(success).to.beFalsy();
-        expect(error).toNot.beNil();
-    });
-    
-    it(@"should fail.", ^{
-        array = [NGRValidator validateModel:data[NGRModelKey] usingRules:data[NGRRulesKey]];
-        expect(array).to.haveCountOf(1);
-    });
-});
-
-sharedExamplesFor(NGRAssertBehaviour, ^(NSDictionary *data) {
-    
-    it(@"should raise an exception.", ^{
-        expect(^{
-            [NGRValidator validateModel:data[NGRModelKey] error:NULL usingRules:data[NGRRulesKey]];
-        }).to.raise(NSInternalInconsistencyException);
-    });
-    
-    it(@"should raise an exception.", ^{
-        expect(^{
-            [NGRValidator validateModel:data[NGRModelKey] usingRules:data[NGRRulesKey]];
-        }).to.raise(NSInternalInconsistencyException);
-    });
-});
-
-SharedExamplesEnd
-
 SpecBegin(NGRValidatorSpec)
 
-describe(@"NGRValidator", ^{
+describe(@"NGRValidator class", ^{
     
-    NGRDataWrapper wrapData = ^(NGRTestModel *model, NSArray *(^rules)()) {
-        return @{NGRRulesKey : rules,
-                 NGRModelKey : model};;
-    };
+    /*****************************        Strings       *********************************/
     
-    __block NGRTestModel *model;
-
-    beforeEach(^{
-        model = [[NGRTestModel alloc] init];
-    });
-    
-    afterEach(^{
-        model = nil;
-    });
-    
-    itShouldBehaveLike(NGRSuccessBehaviour, ^{
-        model.string = @"example@example.com";
-
-        return wrapData(model, ^() {
-            return @[NGRValidate(@"string").required()];
-        });
-    });
-    
-    itShouldBehaveLike(NGRSuccessBehaviour, ^{
-        model.string = @"example@example.com";
+    describe(@"with NSString", ^{
         
-        return wrapData(model, ^() {
-            return @[NGRValidate(@"foo").required()];
+        testDescriptor = @"decimal validator";
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"123456", @"123foo", 1, ^(NGRPropertyValidator *validator) {
+                return validator.decimal().msgNotDecimal(msg);
+            });
+        });
+        
+        testDescriptor = @"minLength validator";
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"foo_bar_baz", @"foo", 1, ^(NGRPropertyValidator *validator) {
+                return validator.minLength(5).msgTooShort(msg);
+            });
+        });
+        
+        testDescriptor = @"maxLength validator";
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"foo", @"foo_bar_baz", 1, ^(NGRPropertyValidator *validator) {
+                return validator.maxLength(5).msgTooLong(msg);
+            });
+        });
+        
+        testDescriptor = @"exactLength validator"; //testing too short string
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"_foo_", @"foo", 1, ^(NGRPropertyValidator *validator) {
+                return validator.exactLength(5).msgNotExactLength(msg);
+            });
+        });
+        
+        testDescriptor = @"exactLength validator (2nd)"; //testing too long string
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"_foo_", @"foo_bar", 1, ^(NGRPropertyValidator *validator) {
+                return validator.exactLength(5).msgNotExactLength(msg);
+            });
+        });
+        
+        testDescriptor = @"lengthRange validator"; //testing too short string
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"foo", @"f", 1, ^(NGRPropertyValidator *validator) {
+                return validator.lengthRange(2, 4).msgTooShort(msg).msgTooLong(msg);
+            });
+        });
+        
+        testDescriptor = @"lengthRange validator (2nd)"; //testing too long string
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"foo", @"foo_bar", 1, ^(NGRPropertyValidator *validator) {
+                return validator.lengthRange(2, 4).msgTooShort(msg).msgTooLong(msg);
+            });
+        });
+        
+        testDescriptor = @"match validator";
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"foo", @"bar", 1, ^(NGRPropertyValidator *validator) {
+                return validator.match(@"foo").msgNotMatch(msg);
+            });
+        });
+        
+        testDescriptor = @"differ validator";
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@"bar", @"foo", 1, ^(NGRPropertyValidator *validator) {
+                return validator.differ(@"foo").msgNotDiffer(msg);
+            });
         });
     });
     
-    itShouldBehaveLike(NGRFailureBehaviour, ^{
-        return wrapData(model, ^() {
-            return @[NGRValidate(@"string").required()];
+    /*****************************        Numbers       *********************************/
+    
+    describe(@"with NSNumber", ^{
+        
+        testDescriptor = @"min validator";
+        itShouldBehaveLike(NGRBehavior, ^{
+            return wrapData(@100, @10, 1, ^(NGRPropertyValidator *validator) {
+                return validator.min(50.f).msgTooSmall(msg);
+            });
         });
     });
     
-    itShouldBehaveLike(NGRAssertBehaviour, ^{
-        model.anID = @10;
-
-        return wrapData(model, ^() {
-            return @[NGRValidate(@"anID").required().decimal()];
-        });
-    });
+    
 });
 
 SpecEnd
+

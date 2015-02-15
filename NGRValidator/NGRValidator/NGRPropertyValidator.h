@@ -47,7 +47,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
 /**
  *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
- *  Default behaviour: All property validators have same priority and will be invoked in order of NSArray order given in
+ *  Default Behavior: All property validators have same priority and will be invoked in order of NSArray order given in
  *  [NGRValidator validateModel:error:usingRules:] or [NGRValidator validateModel:usingRules:] method.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^order)(NSUInteger);

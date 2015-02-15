@@ -15,6 +15,11 @@
 
     #import "NGRValidator.h"
     #import "NGRPropertyValidator.h"
-    #import "NGRTestModel.h"
+    #import "NGRValidationRule.h"
+    #import "NSArray+NGRValidator.h"
+
+    #import "NGRBehaviorKeys.h"
+
+    #import "EXPMatchers+NGRValidator.h"
 
 #endif
