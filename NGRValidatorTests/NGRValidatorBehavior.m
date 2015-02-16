@@ -14,7 +14,7 @@
 
 SharedExamplesBegin(CRVAssetTypeBehavior)
 
-sharedExamplesFor(NGRBehavior, ^(NSDictionary *data) {
+sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
     
     __block NSError *error; __block NSArray *array; __block BOOL success;
     __block NGRTestModel *model; __block NSArray *(^rules)(); __block NGRPropertyValidator *propertyValidator;
@@ -28,12 +28,12 @@ sharedExamplesFor(NGRBehavior, ^(NSDictionary *data) {
     });
     
     afterEach(^{
-        model = nil; rules = nil; error = nil; array = nil;
+        model = nil; rules = nil; error = nil; array = nil; cleanTestDescriptor();
     });
     
-    describe(testDescriptor, ^{
+    describe(validatorDescriptor, ^{
 
-        it(@"with valid value, should succeed.", ^{
+        it([NSString stringWithFormat:@"with %@, should succeed.", successDescriptor], ^{
             
             success = NO;
             model.value = data[NGRValidValueKey];
@@ -46,7 +46,7 @@ sharedExamplesFor(NGRBehavior, ^(NSDictionary *data) {
             expect(array).to.beNil();
         });
         
-        it(@"with invalid value, should fail.", ^{
+        it([NSString stringWithFormat:@"with %@, should fail.", failureDescriptor], ^{
             
             success = YES;
             model.value = data[NGRInvalidValueKey];

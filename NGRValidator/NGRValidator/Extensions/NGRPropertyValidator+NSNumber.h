@@ -35,12 +35,12 @@
 /**
  *  Validates if NSNumber represents false status.
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^falseValue)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^beFalse)();
 
 /**
  *  Validates if NSNumber represents true status.
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^trueValue)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^beTrue)();
 
 #pragma mark - Messaging
 

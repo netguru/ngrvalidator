@@ -61,7 +61,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
     };
 }
 
-- (NGRPropertyValidator *(^)())falseValue {
+- (NGRPropertyValidator *(^)())beFalse {
     return ^() {
         [self validateNumberWithName:@"false value" block:^NGRError(NSNumber *number) {
             return ([number isEqualToNumber:@NO]) ? NGRErrorNoone : NGRErrorNotFalse;
@@ -70,7 +70,7 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
     };
 }
 
-- (NGRPropertyValidator *(^)())trueValue {
+- (NGRPropertyValidator *(^)())beTrue {
     return ^() {
         [self validateNumberWithName:@"true value" block:^NGRError(NSNumber *number) {
             return ([number isEqualToNumber:@YES]) ? NGRErrorNoone : NGRErrorNotTrue;

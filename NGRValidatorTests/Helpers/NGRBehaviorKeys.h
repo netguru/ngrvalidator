@@ -8,9 +8,15 @@
 
 
 // helpers:
-extern NSString *testDescriptor;
 extern NSString *const msg;
+extern NSString *validatorDescriptor;
+extern NSString *successDescriptor;
+extern NSString *failureDescriptor;
+
+// blocks:
 extern NSDictionary * (^wrapData)(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidator *(^)(NGRPropertyValidator *validator));
+extern void (^testDescriptor)(NSString *, NSString *, NSString *);
+extern void (^cleanTestDescriptor)(void);
 
 // data keys:
 extern NSString *const NGRValidatorKey;
@@ -19,4 +25,4 @@ extern NSString *const NGRInvalidValueKey;
 extern NSString *const NGRErrorCountKey;
 
 // behaviors:
-extern NSString *const NGRBehavior;
+extern NSString *const NGRValueBehavior;
