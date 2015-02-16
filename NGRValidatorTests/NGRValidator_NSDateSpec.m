@@ -1,14 +1,14 @@
 //
-//  NGRPropertyValidatorSpec.m
+//  NGRValidatorSpec.m
 //  NGRValidator
 //
 //  Created by Patryk Kaczmarek on 11.02.2015.
 //
 //
 
-SpecBegin(NGRPropertyValidatorSpec)
+SpecBegin(NGRValidator_NSDateSpec)
 
-describe(@"NGRPropertyValidator", ^{
+describe(@"NSDate validation", ^{
     
     pending(@"soon");
     

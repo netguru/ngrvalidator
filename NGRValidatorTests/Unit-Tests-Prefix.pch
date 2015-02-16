@@ -20,6 +20,4 @@
 
     #import "NGRBehaviorKeys.h"
 
-    #import "EXPMatchers+NGRValidator.h"
-
 #endif

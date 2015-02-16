@@ -22,6 +22,8 @@
 		5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */; };
 		5E2EBFB91A924ED300AFDBCD /* NGRValidator_NSStringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFB81A924ED300AFDBCD /* NGRValidator_NSStringSpec.m */; };
 		5E2EBFBB1A924F7000AFDBCD /* NGRValidator_NSNumberSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFBA1A924F7000AFDBCD /* NGRValidator_NSNumberSpec.m */; };
+		5E2EBFBD1A92752A00AFDBCD /* NGRValidator_NSDateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFBC1A92752A00AFDBCD /* NGRValidator_NSDateSpec.m */; };
+		5E2EBFBF1A92754400AFDBCD /* NGRValidator_SyntaxSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFBE1A92754400AFDBCD /* NGRValidator_SyntaxSpec.m */; };
 		5E4A2BB51A5788CF00744E93 /* NSObject+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A2BB41A5788CF00744E93 /* NSObject+NGRValidator.m */; };
 		5E5C09F51A498164002D3E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F41A498164002D3E72 /* main.m */; };
 		5E5C09F81A498164002D3E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F71A498164002D3E72 /* AppDelegate.m */; };
@@ -84,6 +86,8 @@
 		5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = NGRBehaviorKeys.m; path = Helpers/NGRBehaviorKeys.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5E2EBFB81A924ED300AFDBCD /* NGRValidator_NSStringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NGRValidator_NSStringSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5E2EBFBA1A924F7000AFDBCD /* NGRValidator_NSNumberSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidator_NSNumberSpec.m; sourceTree = "<group>"; };
+		5E2EBFBC1A92752A00AFDBCD /* NGRValidator_NSDateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidator_NSDateSpec.m; sourceTree = "<group>"; };
+		5E2EBFBE1A92754400AFDBCD /* NGRValidator_SyntaxSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidator_SyntaxSpec.m; sourceTree = "<group>"; };
 		5E4A2BB31A5788CF00744E93 /* NSObject+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NGRValidator.h"; path = "NGRValidator/Categories/NSObject+NGRValidator.h"; sourceTree = "<group>"; };
 		5E4A2BB41A5788CF00744E93 /* NSObject+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NGRValidator.m"; path = "NGRValidator/Categories/NSObject+NGRValidator.m"; sourceTree = "<group>"; };
 		5E5C09EF1A498164002D3E72 /* NGRValidator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NGRValidator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +269,8 @@
 				5EEF83C41A8C0C6C00847CE1 /* Helpers */,
 				5E2EBFB81A924ED300AFDBCD /* NGRValidator_NSStringSpec.m */,
 				5E2EBFBA1A924F7000AFDBCD /* NGRValidator_NSNumberSpec.m */,
+				5E2EBFBC1A92752A00AFDBCD /* NGRValidator_NSDateSpec.m */,
+				5E2EBFBE1A92754400AFDBCD /* NGRValidator_SyntaxSpec.m */,
 				5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */,
 				5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */,
 			);
@@ -605,7 +611,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */,
+				5E2EBFBF1A92754400AFDBCD /* NGRValidator_SyntaxSpec.m in Sources */,
 				5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */,
+				5E2EBFBD1A92752A00AFDBCD /* NGRValidator_NSDateSpec.m in Sources */,
 				5E1E5D6D1A8D6A4800AE16A1 /* NGRValidatorBehavior.m in Sources */,
 				5E2EBFB91A924ED300AFDBCD /* NGRValidator_NSStringSpec.m in Sources */,
 				5E2EBFBB1A924F7000AFDBCD /* NGRValidator_NSNumberSpec.m in Sources */,
