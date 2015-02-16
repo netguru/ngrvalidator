@@ -12,10 +12,12 @@ NSString *const NGRValidatorKey = @"NGRValidatorKey";
 NSString *const NGRValidValueKey = @"NGRValidValue";
 NSString *const NGRInvalidValueKey = @"NGRInvalidValue";
 NSString *const NGRErrorCountKey = @"NGRErrorCountKey";
+NSString *const NGRScenarioKey = @"NGRScenarioKey";
 
 // behaviors:
 NSString *const NGRValueBehavior = @"using";
 NSString *const NGRAssertBehavior = @"Assertion test";
+NSString *const NGRScenarioBehavior = @"Scenario test";
 
 // helpers:
 NSString *validatorDescriptor;

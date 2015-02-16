@@ -1,5 +1,5 @@
 //
-//  NGRValidatorSpec.m
+//  NGRValidator_ScenarioSpec.m
 //  NGRValidator
 //
 //  Created by Patryk Kaczmarek on 11.02.2015.

@@ -24,7 +24,9 @@ extern NSString *const NGRValidatorKey;
 extern NSString *const NGRValidValueKey;
 extern NSString *const NGRInvalidValueKey;
 extern NSString *const NGRErrorCountKey;
+extern NSString *const NGRScenarioKey;
 
 // behaviors:
 extern NSString *const NGRValueBehavior;
 extern NSString *const NGRAssertBehavior;
+extern NSString *const NGRScenarioBehavior;
