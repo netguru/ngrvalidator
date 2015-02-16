@@ -15,8 +15,9 @@ extern NSString *failureDescriptor;
 
 // blocks:
 extern NSDictionary * (^wrapData)(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidator *(^)(NGRPropertyValidator *validator));
-extern void (^testDescriptor)(NSString *, NSString *, NSString *);
-extern void (^cleanTestDescriptor)(void);
+extern NSDictionary * (^wrapAssertData)(id value, NGRPropertyValidator *(^)(NGRPropertyValidator *validator));
+extern void (^testDescriptor)(NSString *testDescription, NSString *successDescription, NSString *failureDescription);
+extern void (^cleanDescriptors)(void);
 
 // data keys:
 extern NSString *const NGRValidatorKey;
@@ -26,3 +27,4 @@ extern NSString *const NGRErrorCountKey;
 
 // behaviors:
 extern NSString *const NGRValueBehavior;
+extern NSString *const NGRAssertBehavior;

@@ -12,7 +12,7 @@
 
 @implementation NGRTestModel @end
 
-SharedExamplesBegin(CRVAssetTypeBehavior)
+SharedExamplesBegin(NGRValidatorBehavior)
 
 sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
     
@@ -21,14 +21,14 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
     
     beforeEach(^{
         model = [[NGRTestModel alloc] init];
+        propertyValidator = data[NGRValidatorKey];
         rules = ^NSArray *{
-            return @[data[NGRValidatorKey]];
+            return @[propertyValidator];
         };
-        propertyValidator = [rules() firstObject];
     });
     
     afterEach(^{
-        model = nil; rules = nil; error = nil; array = nil; cleanTestDescriptor();
+        model = nil; rules = nil; error = nil; array = nil; cleanDescriptors();
     });
     
     describe(validatorDescriptor, ^{
@@ -38,12 +38,23 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             success = NO;
             model.value = data[NGRValidValueKey];
             
+            // 1st
             success = [NGRValidator validateModel:model error:&error usingRules:rules];
             expect(success).to.beTruthy();
             expect(error).to.beNil();
             
+            // 2nd
             array = [NGRValidator validateModel:model usingRules:rules];
             expect(array).to.beNil();
+            
+            // 3rd
+            error = nil;
+            error = [NGRValidator validateValue:model.value named:@"value" usingRules:^(NGRPropertyValidator *validator) {
+                [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
+                [validator setValue:propertyValidator.messages forKey:@"messages"];
+            }];
+            expect(error).to.beNil();
+
         });
         
         it([NSString stringWithFormat:@"with %@, should fail.", failureDescriptor], ^{
@@ -51,19 +62,67 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             success = YES;
             model.value = data[NGRInvalidValueKey];
             
+            // 1st
             success = [NGRValidator validateModel:model error:&error usingRules:rules];
             expect(success).to.beFalsy();
             expect(error).toNot.beNil();
             expect(error.localizedDescription).to.contain(msg);
             
+            // 2nd
             array = [NGRValidator validateModel:model usingRules:rules];
             expect(array).to.haveCountOf([data[NGRErrorCountKey] integerValue]);
             for (NSError *error in array) {
                 expect(error.localizedDescription).to.contain(msg);
             }
+            
+            // 3rd
+            error = nil;
+            error = [NGRValidator validateValue:model.value named:@"value" usingRules:^(NGRPropertyValidator *validator) {
+                [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
+                [validator setValue:propertyValidator.messages forKey:@"messages"];
+            }];
+            expect(error).toNot.beNil();
+            expect(error.localizedDescription).to.contain(msg);
         });
     });
     
 });
 
+sharedExamplesFor(NGRAssertBehavior, ^(NSDictionary *data) {
+    
+    __block NSError *error; __block NSArray *(^rules)();
+    __block NGRTestModel *model; __block NGRPropertyValidator *propertyValidator;
+    
+    beforeEach(^{
+        model = [[NGRTestModel alloc] init];
+        model.value = data[NGRValidValueKey];
+        propertyValidator = data[NGRValidatorKey];
+        rules = ^NSArray *{
+            return @[propertyValidator];
+        };
+    });
+    
+    afterEach(^{
+        model = nil; rules = nil; error = nil; cleanDescriptors();
+    });
+        
+    it(failureDescriptor, ^{
+        expect(^{
+            [NGRValidator validateModel:model error:&error usingRules:rules];
+        }).to.raise(NSInternalInconsistencyException);
+        
+        expect(^{
+            [NGRValidator validateModel:model usingRules:rules];
+        }).to.raise(NSInternalInconsistencyException);
+        
+        expect(^{
+            [NGRValidator validateValue:model.value named:nil usingRules:^(NGRPropertyValidator *validator) {
+                [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
+                [validator setValue:propertyValidator.messages forKey:@"messages"];
+            }];
+        }).to.raise(NSInternalInconsistencyException);
+    });
+});
+
 SharedExamplesEnd
+
