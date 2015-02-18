@@ -88,6 +88,86 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
     
 });
 
+sharedExamplesFor(NGRScenarioSuccessBehavior, ^(NSDictionary *data) {
+    
+    __block NSError *error; __block NSArray *array; __block BOOL success;
+    __block NGRTestModel *model; __block NSArray *(^rules)(); __block NGRPropertyValidator *propertyValidator;
+    __block NSString *scenario;
+    
+    beforeEach(^{
+        scenario = data[NGRScenarioKey];
+        model = [[NGRTestModel alloc] init];
+        propertyValidator = data[NGRValidatorKey];
+        rules = ^NSArray *{
+            return @[propertyValidator];
+        };
+    });
+    
+    afterEach(^{
+        model = nil; rules = nil; error = nil; array = nil; scenario = nil; cleanDescriptors();
+    });
+    
+    describe(validatorDescriptor, ^{
+        
+        it([NSString stringWithFormat:@"with %@, should succeed.", successDescriptor], ^{
+            
+            success = NO;
+            model.value = data[NGRValidValueKey];
+            
+            // 1st
+            success = [NGRValidator validateModel:model error:&error scenario:scenario usingRules:rules];
+            expect(success).to.beTruthy();
+            expect(error).to.beNil();
+            
+            // 2nd
+            array = [NGRValidator validateModel:model scenario:scenario usingRules:rules];
+            expect(array).to.beNil();
+        });
+    });
+});
+
+sharedExamplesFor(NGRScenarioFailureBehavior, ^(NSDictionary *data) {
+    
+    __block NSError *error; __block NSArray *array; __block BOOL success;
+    __block NGRTestModel *model; __block NSArray *(^rules)(); __block NGRPropertyValidator *propertyValidator;
+    __block NSString *scenario;
+    
+    beforeEach(^{
+        scenario = data[NGRScenarioKey];
+        model = [[NGRTestModel alloc] init];
+        propertyValidator = data[NGRValidatorKey];
+        rules = ^NSArray *{
+            return @[propertyValidator];
+        };
+    });
+    
+    afterEach(^{
+        model = nil; rules = nil; error = nil; array = nil; scenario = nil; cleanDescriptors();
+    });
+    
+    describe(validatorDescriptor, ^{
+    
+        it([NSString stringWithFormat:@"with %@, should fail.", failureDescriptor], ^{
+            
+            success = YES;
+            model.value = data[NGRValidValueKey];
+            
+            // 1st
+            success = [NGRValidator validateModel:model error:&error scenario:scenario usingRules:rules];
+            expect(success).to.beFalsy();
+            expect(error).toNot.beNil();
+            expect(error.localizedDescription).to.contain(msg);
+            
+            // 2nd
+            array = [NGRValidator validateModel:model scenario:scenario usingRules:rules];
+            expect(array).to.haveCountOf([data[NGRErrorCountKey] integerValue]);
+            for (NSError *error in array) {
+                expect(error.localizedDescription).to.contain(msg);
+            }
+        });
+    });
+});
+
 sharedExamplesFor(NGRAssertBehavior, ^(NSDictionary *data) {
     
     __block NSError *error; __block NSArray *(^rules)();

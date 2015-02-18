@@ -6,6 +6,7 @@
 //
 //
 
+typedef NGRPropertyValidator * (^NGRPropertyValidatorBlock)(NGRPropertyValidator *validator);
 
 // helpers:
 extern NSString *const msg;
@@ -14,8 +15,9 @@ extern NSString *successDescriptor;
 extern NSString *failureDescriptor;
 
 // blocks:
-extern NSDictionary * (^wrapData)(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidator *(^)(NGRPropertyValidator *validator));
-extern NSDictionary * (^wrapAssertData)(id value, NGRPropertyValidator *(^)(NGRPropertyValidator *validator));
+extern NSDictionary * (^wrapDataWithScenario)(id value, NSString *scenario, NSInteger errorCount, NGRPropertyValidatorBlock block);
+extern NSDictionary * (^wrapData)(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidatorBlock block);
+extern NSDictionary * (^wrapAssertData)(id value, NGRPropertyValidatorBlock block);
 extern void (^testDescriptor)(NSString *testDescription, NSString *successDescription, NSString *failureDescription);
 extern void (^cleanDescriptors)(void);
 
@@ -29,4 +31,7 @@ extern NSString *const NGRScenarioKey;
 // behaviors:
 extern NSString *const NGRValueBehavior;
 extern NSString *const NGRAssertBehavior;
-extern NSString *const NGRScenarioBehavior;
+extern NSString *const NGRScenarioSuccessBehavior;
+extern NSString *const NGRScenarioFailureBehavior;
+
+

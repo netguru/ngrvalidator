@@ -17,7 +17,8 @@ NSString *const NGRScenarioKey = @"NGRScenarioKey";
 // behaviors:
 NSString *const NGRValueBehavior = @"using";
 NSString *const NGRAssertBehavior = @"Assertion test";
-NSString *const NGRScenarioBehavior = @"Scenario test";
+NSString *const NGRScenarioSuccessBehavior = @"success behavior";
+NSString *const NGRScenarioFailureBehavior = @"failure behavior";
 
 // helpers:
 NSString *validatorDescriptor;
@@ -25,7 +26,7 @@ NSString *successDescriptor;
 NSString *failureDescriptor;
 NSString *const msg = @"foo";
 
-NSDictionary * (^wrapData)(id, id, NSInteger, NGRPropertyValidator *(^)(NGRPropertyValidator *)) = ^(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidator *(^block)(NGRPropertyValidator *validator)) {
+NSDictionary * (^wrapData)(id, id, NSInteger, NGRPropertyValidatorBlock) = ^(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidatorBlock block) {
     
     NSMutableDictionary *dictionary = [@{NGRValidatorKey : block(NGRValidate(@"value")),
                                          NGRErrorCountKey : @(errorCount)} mutableCopy];
@@ -39,7 +40,15 @@ NSDictionary * (^wrapData)(id, id, NSInteger, NGRPropertyValidator *(^)(NGRPrope
     return [dictionary copy];
 };
 
-NSDictionary * (^wrapAssertData)(id, NGRPropertyValidator *(^)(NGRPropertyValidator *)) = ^(id value, NGRPropertyValidator *(^block)(NGRPropertyValidator *validator)) {
+NSDictionary * (^wrapDataWithScenario)(id, NSString *, NSInteger, NGRPropertyValidatorBlock) = ^(id value, NSString *scenario, NSInteger errorCount, NGRPropertyValidatorBlock block) {
+
+    return @{NGRValidatorKey : block(NGRValidate(@"value")),
+             NGRErrorCountKey : @(errorCount),
+             NGRScenarioKey : scenario,
+             NGRValidValueKey : value};
+};
+
+NSDictionary * (^wrapAssertData)(id, NGRPropertyValidatorBlock) = ^(id value, NGRPropertyValidatorBlock block) {
     
     return @{NGRValidatorKey : block(NGRValidate(@"value")),
              NGRValidValueKey : value};
