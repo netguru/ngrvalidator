@@ -1,5 +1,5 @@
 //
-//  NGRValidator_NSStringSpec.m
+//  NGRValidator+NSStringSpec.m
 //  NGRValidator
 //
 //  Created by Patryk Kaczmarek on 11.02.2015.

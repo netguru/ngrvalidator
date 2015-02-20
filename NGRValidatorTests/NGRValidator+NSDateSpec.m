@@ -1,5 +1,5 @@
 //
-//  NGRValidator_NSDateSpec.m
+//  NGRValidator+NSDateSpec.m
 //  NGRValidator
 //
 //  Created by Patryk Kaczmarek on 11.02.2015.

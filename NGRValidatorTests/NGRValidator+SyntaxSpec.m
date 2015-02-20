@@ -1,5 +1,5 @@
 //
-//  NGRValidator_SyntaxSpec.m
+//  NGRValidator+SyntaxSpec.m
 //  NGRValidator
 //
 //  Created by Patryk Kaczmarek on 11.02.2015.

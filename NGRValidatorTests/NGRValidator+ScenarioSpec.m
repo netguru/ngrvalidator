@@ -1,13 +1,13 @@
 //
-//  NGRValidator_ScenarioSpec.m
+//  NGRValidator+ScenarioSpec.m
 //  NGRValidator
 //
 //  Created by Patryk Kaczmarek on 11.02.2015.
 //
 //
 
-static NSString *const NGRFirstScenario = @"NGRFirstScenario";
-static NSString *const NGRSecondScenario = @"NGRSecondScenario";
+static NSString *const NGRFirstScenario = @"Fixture 1st Scenario";
+static NSString *const NGRSecondScenario = @"Fixture 2nd Scenario";
 
 SpecBegin(NGRValidator_ScenarioSpec)
 
