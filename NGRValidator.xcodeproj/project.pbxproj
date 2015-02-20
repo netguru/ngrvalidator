@@ -35,6 +35,7 @@
 		5E6D99C71A53971900161808 /* NGRDemoTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C61A53971900161808 /* NGRDemoTextFieldCell.m */; };
 		5E6D99CA1A539B9400161808 /* NGRDemoDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */; };
 		5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */; };
+		5E92F29E1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */; };
 		5E9643241A53A2CA003E1773 /* NGRCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */; };
 		5EA4DF8F1A9296DA00C537F2 /* NGRValidator_ScenarioSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4DF8E1A9296DA00C537F2 /* NGRValidator_ScenarioSpec.m */; };
 		5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4DF901A9296F800C537F2 /* NGRValidatorSpec.m */; };
@@ -113,6 +114,7 @@
 		5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoDatePickerCell.m; path = Demo/NGRDemoDatePickerCell.m; sourceTree = "<group>"; };
 		5E6D99CB1A539BA500161808 /* NGRDemoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoSwitchCell.h; path = Demo/NGRDemoSwitchCell.h; sourceTree = "<group>"; };
 		5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoSwitchCell.m; path = Demo/NGRDemoSwitchCell.m; sourceTree = "<group>"; };
+		5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidationRuleSpec.m; sourceTree = "<group>"; };
 		5E9643221A53A2CA003E1773 /* NGRCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRCalendarEvent.h; path = Demo/NGRCalendarEvent.h; sourceTree = "<group>"; };
 		5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRCalendarEvent.m; path = Demo/NGRCalendarEvent.m; sourceTree = "<group>"; };
 		5EA4DF8E1A9296DA00C537F2 /* NGRValidator_ScenarioSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidator_ScenarioSpec.m; sourceTree = "<group>"; };
@@ -278,7 +280,7 @@
 				5E2EBFBE1A92754400AFDBCD /* NGRValidator_SyntaxSpec.m */,
 				5EA4DF8E1A9296DA00C537F2 /* NGRValidator_ScenarioSpec.m */,
 				5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */,
-				5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */,
+				5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */,
 			);
 			path = NGRValidatorTests;
 			sourceTree = "<group>";
@@ -432,6 +434,7 @@
 		5EEF83C41A8C0C6C00847CE1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */,
 				5E1E5D6E1A8D6B6000AE16A1 /* NGRBehaviorKeys.h */,
 				5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */,
 			);
@@ -621,6 +624,7 @@
 				5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */,
 				5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */,
 				5E2EBFBD1A92752A00AFDBCD /* NGRValidator_NSDateSpec.m in Sources */,
+				5E92F29E1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m in Sources */,
 				5E1E5D6D1A8D6A4800AE16A1 /* NGRValidatorBehavior.m in Sources */,
 				5E2EBFB91A924ED300AFDBCD /* NGRValidator_NSStringSpec.m in Sources */,
 				5E2EBFBB1A924F7000AFDBCD /* NGRValidator_NSNumberSpec.m in Sources */,
