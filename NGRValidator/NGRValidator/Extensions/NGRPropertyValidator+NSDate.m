@@ -112,7 +112,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *mainDate);
 #pragma mark - Private Methods
 - (void)checkArgument:(id)argument {
     if (!argument) {
-//        NSLog(@"[WARNING] A date which is %@ compared to, is nil", self.property);
+        NSLog(@"[WARNING] A date which is %@ compared to, is nil", self.property);
     }
 }
 
