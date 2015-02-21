@@ -14,7 +14,7 @@
 
 - (NGRPropertyValidator *(^)(NSString *))msgNil {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorRequired];
+        [self.messages setMessage:message forError:NGRErrorRequired];
         return self;
     };
 }

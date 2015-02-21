@@ -1,13 +1,13 @@
 //
-//  NGRErrors.h
+//  NGRTypedefs.h
 //  NGRValidator
 //
-//  Created by Patryk Kaczmarek on 23.12.2014.
+//  Created by Patryk Kaczmarek on 21.02.2015.
 //
 //
 
-#ifndef NGRValidator_NGRErrors_h
-#define NGRValidator_NGRErrors_h
+#ifndef NGRValidator_NGRTypedefs_h
+#define NGRValidator_NGRTypedefs_h
 
 typedef NS_ENUM(NSInteger, NGRError) {
     NGRErrorNoone,
@@ -45,5 +45,7 @@ typedef NS_ENUM(NSInteger, NGRError) {
     NGRErrorNotLaterThanOrEqualTo,
     NGRErrorNotBetweenDates,
 };
+
+typedef NGRError (^NGRValidationBlock)(id);
 
 #endif

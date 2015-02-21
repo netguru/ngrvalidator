@@ -93,42 +93,42 @@ typedef NGRError (^NGRStringValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSString *))msgTooShort {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorTooShort];
+        [self.messages setMessage:message forError:NGRErrorTooShort];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgTooLong {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorTooLong];
+        [self.messages setMessage:message forError:NGRErrorTooLong];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotExactLength {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotExactLength];
+        [self.messages setMessage:message forError:NGRErrorNotExactLength];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotMatch {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotMatch];
+        [self.messages setMessage:message forError:NGRErrorNotMatch];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotDiffer {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotDiffer];
+        [self.messages setMessage:message forError:NGRErrorNotDiffer];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotDecimal {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotDecimal];
+        [self.messages setMessage:message forError:NGRErrorNotDecimal];
         return self;
     };
 }

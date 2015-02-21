@@ -11,16 +11,16 @@
 #import "NSArray+NGRValidator.h"
 #import "NSString+NGRValidator.h"
 
+#import "NGRValidationRule.h"
+
 NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;
 NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 
 @interface NGRPropertyValidator ()
 
-- (instancetype)initWithProperty:(NSString *)property NS_DESIGNATED_INITIALIZER;
-
 @property (strong, nonatomic, readwrite) NSMutableArray *validationRules;
-@property (strong, nonatomic, readwrite) NSMutableDictionary *messages;
+@property (strong, nonatomic, readwrite) NGRMessages *messages;
 @property (strong, nonatomic, readwrite) NSMutableArray *scenarios;
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;
@@ -37,25 +37,22 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     if (self) {
         _property = property;
         _priority = NGRPropertyValidatorDefaultPriority;
-        self.isRequired = NO;
-        self.allowEmptyProperty = NO;
-        [self setupMessages];
+        _messages = [[NGRMessages alloc] init];
+        _validationRules = [NSMutableArray array];
+        _isRequired = NO;
+        _allowEmptyProperty = NO;
     }
     return self;
-}
-
-+ (NGRPropertyValidator *)validatorForProperty:(NSString *)property {
-    return [[self alloc] initWithProperty:property];
 }
 
 #pragma mark - Public Methods
 
 - (NSError *)simpleValidationOfValue:(id)value {
-    return [self validationOfValue:value returnTypeClass:[NSError class]];
+    return [self validateValue:value usingSimpleValidation:YES];
 }
 
 - (NSArray *)complexValidationOfValue:(id)value {
-    return [self validationOfValue:value returnTypeClass:[NSArray class]];
+    return [self validateValue:value usingSimpleValidation:NO];
 }
 
 - (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block {
@@ -120,24 +117,13 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     };
 }
 
-- (void)setMessage:(NSString *)message forError:(NGRError)error {
-    self.messages[@(error)] = message;
-}
-
-- (NSString *)messageForError:(NGRError)error {
-    return self.messages[@(error)];
-}
-
 #pragma mark - Private Methods
 
-- (id)validationOfValue:(id)value returnTypeClass:(Class)class {
+- (id)validateValue:(id)value usingSimpleValidation:(BOOL)simpleValidation {
     
     if (![self shouldValidate]) {
         return nil;
     }
-    
-    BOOL isSimpleValidation = (class == [NSError class]);
-    NSAssert((class == [NSArray class] || class == [NSError class]), @"Allowed class: NSArray or NSError");
     
     NSMutableArray *array = [NSMutableArray array];
     
@@ -149,27 +135,25 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
             NSAssert(NO, @"Value \"%@\" for \"%@\" parameter is wrong kind of class", value, self.property);
             
         } else if (error != NGRErrorNoone) {
-            if (isSimpleValidation) {
+            if (simpleValidation) {
                 return [self errorWithNGRError:error];
             } else {
                 [array addObject:[self errorWithNGRError:error]];
             }
         }
     }
-    return isSimpleValidation ? nil : [array copy];
+    return simpleValidation ? nil : [array copy];
 }
 
 - (void)addValidatonBlockWithName:(NSString *)name block:(NGRError (^)(id))block {
     
-    if (!self.validationRules) _validationRules = [NSMutableArray array];
-    
-    NGRValidationRule *validatorBlock = [[NGRValidationRule alloc] initWithName:name block:block];
-    [self.validationRules addObject:validatorBlock];
+    NGRValidationRule *validatorRule = [[NGRValidationRule alloc] initWithName:name block:block];
+    [self.validationRules addObject:validatorRule];
 }
 
 - (NSError *)errorWithNGRError:(NGRError)error {
     NSString *propertyName = (self.localizedPropertyName) ?: [self.property ngr_stringByCapitalizeFirstLetter];
-    NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self messageForError:error]];
+    NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self.messages messageForError:error]];
     return [NSError errorWithDomain:NGRValidatorDomain code:NGRValidationInconsistencyCode userInfo:@{NSLocalizedDescriptionKey : description}];
 }
 
@@ -179,43 +163,6 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     }
     //only reached when self.scenario && self.scenarios :
     return [self.scenarios ngr_containsString:self.scenario];
-}
-
-- (void)setupMessages {
-    
-    if (!self.messages) _messages = [NSMutableDictionary dictionary];
-    
-    //NGPropertyValidator + NSObject
-    [self setMessage:@"is required." forError:NGRErrorRequired];
-    [self setMessage:@"custom condition was not fulfilled." forError:NGRErrorCustomCondition];
-    
-    //NGPropertyValidator + NSString
-    [self setMessage:@"is too long." forError:NGRErrorTooLong];
-    [self setMessage:@"is too short." forError:NGRErrorTooShort];
-    [self setMessage:@"should be decimal." forError:NGRErrorNotDecimal];
-    [self setMessage:@"is of the wrong length." forError:NGRErrorNotExactLength];
-    [self setMessage:@"is not repeated exactly." forError:NGRErrorNotMatch];
-    [self setMessage:@"does not differ." forError:NGRErrorNotDiffer];
-    
-    //NGPropertyValidator + NSNumber
-    [self setMessage:@"is too small." forError:NGRErrorTooSmall];
-    [self setMessage:@"is too big." forError:NGRErrorTooBig];
-    [self setMessage:@"isn't exact." forError:NGRErrorNotExact];
-    [self setMessage:@"isn't false." forError:NGRErrorNotFalse];
-    [self setMessage:@"isn't true." forError:NGRErrorNotTrue];
-    
-    //NGPropertyValidator + Syntax
-    [self setMessage:@"has invalid syntax." forError:NGRErrorNotEmail];
-    [self setMessage:@"should contain only letters." forError:NGRErrorNotName];
-    [self setMessage:@"has invalid syntax." forError:NGRErrorNotURL];
-    [self setMessage:@"do not match pattern." forError:NGRErrorWrongRegex];
-    
-    //NGPropertyValidator + Compare
-    [self setMessage:@"isn't earlier than compared date." forError:NGRErrorNotEarlierThan];
-    [self setMessage:@"isn't later than compared date." forError:NGRErrorNotLaterThan];
-    [self setMessage:@"isn't earlier than or equal to compared date." forError:NGRErrorNotEarlierThanOrEqualTo];
-    [self setMessage:@"isn't later than or equal to compared date." forError:NGRErrorNotLaterThanOrEqualTo];
-    [self setMessage:@"isn't between given dates." forError:NGRErrorNotBetweenDates];
 }
 
 # pragma mark - Overwritten methods

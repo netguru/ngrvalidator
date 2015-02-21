@@ -13,7 +13,7 @@ describe(@"NGRPropertyValidator+NSStringSpec", ^{
     __block NGRPropertyValidator *sut;
     
     beforeEach(^{
-        sut = [NGRPropertyValidator validatorForProperty:@"Fixture Value"];
+        sut = [[NGRPropertyValidator alloc] initWithProperty:@"Fixture Value"];
     });
     
     afterEach(^{

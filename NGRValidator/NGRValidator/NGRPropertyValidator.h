@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NGRErrors.h"
-#import "NGRValidationRule.h"
+#import "NGRMessages.h"
 
 extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
@@ -20,7 +19,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  @param property Name of property given as NSString.
  *  @return Instance of NGPropertyValidator used to specify next validation rules.
  */
-+ (NGRPropertyValidator *)validatorForProperty:(NSString *)property;
+- (instancetype)initWithProperty:(NSString *)property NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Name of validated property.
@@ -47,13 +46,12 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
 /**
  *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
- *  Default Behavior: All property validators have same priority and will be invoked in order of NSArray order given in
- *  [NGRValidator validateModel:error:usingRules:] or [NGRValidator validateModel:usingRules:] method.
+ *  Default: All property validators have same priority and will be invoked in order of NSArray order returned in usingRules: block.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^order)(NSUInteger);
 
 /**
- *  Sets scenarios which property validator has to conform. Do not use if property should be valid in every scenario.
+ *  Sets scenarios which property validator has to conform. Do not use if property should be validate in every scenario.
  *  Remember to pass scenario names as NSStrings.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^onScenarios)(NSArray *scenarios);
@@ -81,23 +79,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  * Dictionary of error - message pairs.
  */
-@property (strong, nonatomic, readonly) NSMutableDictionary *messages;
-
-/**
- *  Sets a message for the given error.
- *
- *  @param message  The message you want to set.
- *  @param error    The error, for which you want to set the message.
- */
-- (void)setMessage:(NSString *)message forError:(NGRError)error;
-
-/**
- *  Retrieve message for given error.
- *
- *  @param error The error specifying which message should be returned.
- *  @return The message fo given error.
- */
-- (NSString *)messageForError:(NGRError)error;
+@property (strong, nonatomic, readonly) NGRMessages *messages;
 
 /**
  *  Validates property to first error.

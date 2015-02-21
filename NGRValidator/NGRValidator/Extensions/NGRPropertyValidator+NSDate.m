@@ -76,35 +76,35 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *mainDate);
 
 - (NGRPropertyValidator *(^)(NSString *message))msgNotEarlierThan {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotEarlierThan];
+        [self.messages setMessage:message forError:NGRErrorNotEarlierThan];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *message))msgNotLaterThan {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotLaterThan];
+        [self.messages setMessage:message forError:NGRErrorNotLaterThan];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *message))msgNotEarlierThanOrEqualTo {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotEarlierThanOrEqualTo];
+        [self.messages setMessage:message forError:NGRErrorNotEarlierThanOrEqualTo];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *message))msgNotLaterThanOrEqualTo {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotLaterThanOrEqualTo];
+        [self.messages setMessage:message forError:NGRErrorNotLaterThanOrEqualTo];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotBetweenDates {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotBetweenDates];
+        [self.messages setMessage:message forError:NGRErrorNotBetweenDates];
         return self;
     };
 }
@@ -112,7 +112,7 @@ typedef NGRError (^NGRDateValidationBlock)(NSDate *mainDate);
 #pragma mark - Private Methods
 - (void)checkArgument:(id)argument {
     if (!argument) {
-        NSLog(@"[WARNING] A date which is %@ compared to, is nil", self.property);
+//        NSLog(@"[WARNING] A date which is %@ compared to, is nil", self.property);
     }
 }
 

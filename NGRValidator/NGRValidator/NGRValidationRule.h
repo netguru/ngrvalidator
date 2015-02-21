@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NGRErrors.h"
-
-typedef NGRError (^NGRValidationBlock)(id);
+#import "NGRTypedefs.h"
 
 @interface NGRValidationRule : NSObject
 

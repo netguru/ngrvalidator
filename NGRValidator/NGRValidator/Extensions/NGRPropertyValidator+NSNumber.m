@@ -83,35 +83,35 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(NSString *))msgTooSmall {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorTooSmall];
+        [self.messages setMessage:message forError:NGRErrorTooSmall];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgTooBig {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorTooBig];
+        [self.messages setMessage:message forError:NGRErrorTooBig];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotExact {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotExact];
+        [self.messages setMessage:message forError:NGRErrorNotExact];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotTrue {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotTrue];
+        [self.messages setMessage:message forError:NGRErrorNotTrue];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotFalse {
     return ^(NSString *message) {
-        [self setMessage:message forError:NGRErrorNotFalse];
+        [self.messages setMessage:message forError:NGRErrorNotFalse];
         return self;
     };
 }

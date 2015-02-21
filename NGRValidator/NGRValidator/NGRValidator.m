@@ -13,7 +13,7 @@
 @implementation NGRValidator
 
 inline NGRPropertyValidator * NGRValidate(NSString *property) {
-    return [NGRPropertyValidator validatorForProperty:property];
+    return [[NGRPropertyValidator alloc] initWithProperty:property];
 }
 
 #pragma mark - Public Methods
@@ -24,7 +24,7 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
         return nil;
     }
     
-    NGRPropertyValidator *propertyValidator = [NGRPropertyValidator validatorForProperty:name];
+    NGRPropertyValidator *propertyValidator = [[NGRPropertyValidator alloc] initWithProperty:name];
     rules(propertyValidator);
     return [propertyValidator simpleValidationOfValue:value];
 }
