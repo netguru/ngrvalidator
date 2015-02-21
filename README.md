@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.3.1'
+pod 'NGRValidator', '~> 0.4.0'
 ```
 and run `pod update` or `pod install`
 
@@ -144,8 +144,8 @@ There are 3 general methods of validation:
 * `max(float)` - validates upper limit of NSNumber (inclusive).
 * `range(float, float)` - validates minimum and maximum value of NSSNumber (inclusive).
 * `exact(float)` - validates exact value of NSNumber.
-* `falseValue()` - validates if NSNumber represents false status.
-* `trueValue()` - validates if NSNumber represents true status.
+* `beFalse()` - validates if NSNumber represents false status.
+* `beTrue()` - validates if NSNumber represents true status.
 
 **NSDate**:
 * `earlierThan(NSDate *)` - validates if NSDate property is earlier than given date (inclusive).
@@ -179,8 +179,8 @@ Although **NGRValidator** contains default error messages for each validation, i
 |`max(float)`|`msgTooBig(NSString *)`|is too big.|
 |`range(float, float)`|`msgTooSmall(NSString *)` and `msgTooBig(NSString *)`|is too small. `or` is too big.|
 |`exact(float)`|`msgNotExact(NSString *)`|isn't exact.|
-|`falseValue()`|`msgNotFalse(NSString *)`|isn't false.|
-|`trueValue()`|`msgNotTrue(NSString *)`|isn't true.|
+|`beFalse()`|`msgNotFalse(NSString *)`|isn't false.|
+|`beTrue()`|`msgNotTrue(NSString *)`|isn't true.|
 |`syntax(NGRSyntaxEmail)`|`msgWrongSyntax(NGRSyntaxEmail, NSString *)`|has invalid syntax.|
 |`syntax(NGRSyntaxName)`|`msgWrongSyntax(NGRSyntaxName, NSString *)`|should contain only letters.|
 |`syntax(NGRSyntaxURL)`|`msgWrongSyntax(NGRSyntaxURL, NSString *)`|has invalid syntax.|
@@ -250,7 +250,7 @@ NSError *error = nil;
                  NGRValidate(@"url").syntax(NGRSyntaxURL),
                  NGRValidate(@"startDate").required().laterThanOrEqualTo([NSDate date]).earlierThan(event.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
                  NGRValidate(@"endDate").required().laterThan(event.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
-                 NGRValidate(@"termsOfUse").required().trueValue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
+                 NGRValidate(@"termsOfUse").required().beTrue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
     }];
 
 error ? NSLog(@"Validation failed with error: %@", error) : NSLog(@"Validation succeed");
@@ -277,6 +277,7 @@ Here a few guidelines to follow:
 - make sure the entire test suite passes
 
 ## Change Log
+- 0.4.0 - Syntax changes: `trueValue()` and `falseValue()` become `beTrue()` and `beFalse()`.
 - 0.3.1 - Fixed issue with passing nil to blocks.
 - 0.3.0 - Make `regex()` validator accept pattern and options, not a regex object.
 
