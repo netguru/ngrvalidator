@@ -7,11 +7,12 @@
 //
 
 #import "NGRPropertyValidator.h"
+#import "NGRValidationRule.h"
+
 #import "NSObject+NGRValidator.h"
 #import "NSArray+NGRValidator.h"
 #import "NSString+NGRValidator.h"
 
-#import "NGRValidationRule.h"
 
 NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;

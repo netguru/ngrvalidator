@@ -24,7 +24,6 @@
 		5E2EBFBB1A924F7000AFDBCD /* NGRValidator+NSNumberSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFBA1A924F7000AFDBCD /* NGRValidator+NSNumberSpec.m */; };
 		5E2EBFBD1A92752A00AFDBCD /* NGRValidator+NSDateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFBC1A92752A00AFDBCD /* NGRValidator+NSDateSpec.m */; };
 		5E2EBFBF1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFBE1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m */; };
-		5E3530DB1A98B3C1006978A0 /* NGRPropertyValidator+Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3530DA1A98B3C1006978A0 /* NGRPropertyValidator+Collection.m */; };
 		5E3530DE1A98BB5C006978A0 /* NGRMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3530DD1A98BB5C006978A0 /* NGRMessages.m */; };
 		5E4A2BB51A5788CF00744E93 /* NSObject+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4A2BB41A5788CF00744E93 /* NSObject+NGRValidator.m */; };
 		5E5C09F51A498164002D3E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5C09F41A498164002D3E72 /* main.m */; };
@@ -93,8 +92,6 @@
 		5E2EBFBA1A924F7000AFDBCD /* NGRValidator+NSNumberSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NSNumberSpec.m"; sourceTree = "<group>"; };
 		5E2EBFBC1A92752A00AFDBCD /* NGRValidator+NSDateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NSDateSpec.m"; sourceTree = "<group>"; };
 		5E2EBFBE1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+SyntaxSpec.m"; sourceTree = "<group>"; };
-		5E3530D91A98B3C1006978A0 /* NGRPropertyValidator+Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+Collection.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+Collection.h"; sourceTree = "<group>"; };
-		5E3530DA1A98B3C1006978A0 /* NGRPropertyValidator+Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+Collection.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+Collection.m"; sourceTree = "<group>"; };
 		5E3530DC1A98BB5C006978A0 /* NGRMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMessages.h; path = NGRValidator/NGRMessages.h; sourceTree = "<group>"; };
 		5E3530DD1A98BB5C006978A0 /* NGRMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMessages.m; path = NGRValidator/NGRMessages.m; sourceTree = "<group>"; };
 		5E3530DF1A98C0C6006978A0 /* NGRTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRTypedefs.h; path = NGRValidator/NGRTypedefs.h; sourceTree = "<group>"; };
@@ -232,8 +229,6 @@
 				5E00196D1A498502002ED961 /* NGRPropertyValidator+Syntax.m */,
 				5E0019851A49A82C002ED961 /* NGRPropertyValidator+NSDate.h */,
 				5E0019861A49A82C002ED961 /* NGRPropertyValidator+NSDate.m */,
-				5E3530D91A98B3C1006978A0 /* NGRPropertyValidator+Collection.h */,
-				5E3530DA1A98B3C1006978A0 /* NGRPropertyValidator+Collection.m */,
 			);
 			name = "NGRPropertyValidator Extensions";
 			sourceTree = "<group>";
@@ -618,7 +613,6 @@
 				5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */,
 				5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */,
 				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
-				5E3530DB1A98B3C1006978A0 /* NGRPropertyValidator+Collection.m in Sources */,
 				5ECAF88D1A631EAC0011181C /* NGRUser.m in Sources */,
 				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
 				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,

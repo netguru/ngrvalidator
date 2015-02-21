@@ -84,7 +84,10 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
             id value = [model valueForKey:validator.property];
             
             if (tillFirstError) {
-                return [validator simpleValidationOfValue:value];
+                NSError *validationError = [validator simpleValidationOfValue:value];
+                if (validationError) {
+                    return validationError;
+                }
             } else {
                 [errors addObjectsFromArray:[validator complexValidationOfValue:value]];
             }
