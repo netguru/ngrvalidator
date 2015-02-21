@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.3.0'
+pod 'NGRValidator', '~> 0.3.1'
 ```
 and run `pod update` or `pod install`
 
@@ -206,7 +206,7 @@ will change every error localized description applied to this property. Message 
 Let's consider a more complex example. Imagine you want to create a calendar event which model is defined like below:
 
 ```objc
-@interface CalendarEvent : NSObject
+@interface NGRCalendarEvent : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *creatorLastName;
@@ -239,7 +239,7 @@ and display appropriate messages when validation rules above fail:
 Whew, all that rules and messages will generate lot of code for something so simple! Let's take a look how implemention in **NGRValidator** looks like:
 
 ```objc
-CalendarEvent *event = [[CalendarEvent alloc] init];
+NGRCalendarEvent *event = [[NGRCalendarEvent alloc] init];
 // set properties from user input
 
 NSError *error = nil;
@@ -277,6 +277,7 @@ Here a few guidelines to follow:
 - make sure the entire test suite passes
 
 ## Change Log
+- 0.3.1 - Fixed issue with passing nil to blocks.
 - 0.3.0 - Make `regex()` validator accept pattern and options, not a regex object.
 
 ## More Info
