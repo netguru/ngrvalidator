@@ -12,7 +12,7 @@
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'NGRValidator', '~> 0.4.1'
+pod 'NGRValidator', '~> 0.4.2'
 ```
 and run `pod update` or `pod install`
 
@@ -277,6 +277,7 @@ Here a few guidelines to follow:
 - make sure the entire test suite passes
 
 ## Change Log
+- 0.4.2 - Fixed issue with passing error as `nil` rather than NULL reference `*error`;
 - 0.4.1 - Fixed bug occurring when multiplie scenarios were given.
 - 0.4.0 - Syntax changes: `trueValue()` and `falseValue()` become `beTrue()` and `beFalse()`.
 - 0.3.1 - Fixed issue with passing nil to blocks.

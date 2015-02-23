@@ -36,8 +36,8 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
     }
     
     NSError *validationError = [self validateModel:model tillFirstError:YES usingRules:rules scenario:scenario];
-    if (validationError && *error == NULL) {
-        *error = validationError;
+    if (validationError && error) {
+        if (*error == NULL) *error = validationError;
         return NO;
     }
     return YES;
