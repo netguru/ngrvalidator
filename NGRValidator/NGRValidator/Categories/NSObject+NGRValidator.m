@@ -10,6 +10,8 @@
 
 @implementation NSObject (NGRValidator)
 
+#pragma mark - Public
+
 - (BOOL)ngr_isEmpty {
     
     if ([self respondsToSelector:@selector(count)]) {

@@ -230,7 +230,7 @@
     [self.aView setNeedsLayout];
 }
 
-#pragma mark - Private Methods
+#pragma mark - Private
 
 - (BOOL)isDatePickerCellAtIndePath:(NSIndexPath *)indexPath {
     return (indexPath.row == kStartDateRow || indexPath.row == kEndDateRow);

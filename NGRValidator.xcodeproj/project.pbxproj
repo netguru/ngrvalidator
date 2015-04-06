@@ -37,7 +37,6 @@
 		5E6D99CA1A539B9400161808 /* NGRDemoDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */; };
 		5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */; };
 		5E92F29E1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */; };
-		5E92F2A21A97F01B00BDAEBC /* NGRPropertyValidator+NSStringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E92F2A11A97F01B00BDAEBC /* NGRPropertyValidator+NSStringSpec.m */; };
 		5E9643241A53A2CA003E1773 /* NGRCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */; };
 		5EA4DF8F1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */; };
 		5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4DF901A9296F800C537F2 /* NGRValidatorSpec.m */; };
@@ -49,6 +48,7 @@
 		5ECAF8861A6319F70011181C /* NGRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8851A6319F70011181C /* NGRTextField.m */; };
 		5ECAF88D1A631EAC0011181C /* NGRUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF88C1A631EAC0011181C /* NGRUser.m */; };
 		5ECAF8941A6343960011181C /* UIViewController+NGRDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8931A6343960011181C /* UIViewController+NGRDemo.m */; };
+		5EEE70ED1AD318C5005D5042 /* NGRMessagesSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEE70EC1AD318C5005D5042 /* NGRMessagesSpec.m */; };
 		5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */; };
 		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
 /* End PBXBuildFile section */
@@ -120,7 +120,6 @@
 		5E6D99CB1A539BA500161808 /* NGRDemoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoSwitchCell.h; path = Demo/NGRDemoSwitchCell.h; sourceTree = "<group>"; };
 		5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoSwitchCell.m; path = Demo/NGRDemoSwitchCell.m; sourceTree = "<group>"; };
 		5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidationRuleSpec.m; sourceTree = "<group>"; };
-		5E92F2A11A97F01B00BDAEBC /* NGRPropertyValidator+NSStringSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRPropertyValidator+NSStringSpec.m"; sourceTree = "<group>"; };
 		5E9643221A53A2CA003E1773 /* NGRCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRCalendarEvent.h; path = Demo/NGRCalendarEvent.h; sourceTree = "<group>"; };
 		5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRCalendarEvent.m; path = Demo/NGRCalendarEvent.m; sourceTree = "<group>"; };
 		5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+ScenarioSpec.m"; sourceTree = "<group>"; };
@@ -141,6 +140,7 @@
 		5ECAF88C1A631EAC0011181C /* NGRUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRUser.m; path = Demo/NGRUser.m; sourceTree = "<group>"; };
 		5ECAF8921A6343960011181C /* UIViewController+NGRDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+NGRDemo.h"; path = "Demo/UIViewController+NGRDemo.h"; sourceTree = "<group>"; };
 		5ECAF8931A6343960011181C /* UIViewController+NGRDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+NGRDemo.m"; path = "Demo/UIViewController+NGRDemo.m"; sourceTree = "<group>"; };
+		5EEE70EC1AD318C5005D5042 /* NGRMessagesSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRMessagesSpec.m; sourceTree = "<group>"; };
 		5EEF83BE1A8C08AD00847CE1 /* Unit-Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "Unit-Tests-Prefix.pch"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRPropertyValidatorSpec.m; sourceTree = "<group>"; };
 		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,9 +283,10 @@
 			children = (
 				5E5C0A0C1A498164002D3E72 /* Supporting Files */,
 				5EEF83C41A8C0C6C00847CE1 /* Helpers */,
+				5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */,
 				5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */,
+				5EEE70EC1AD318C5005D5042 /* NGRMessagesSpec.m */,
 				5E92F29F1A97EFF000BDAEBC /* NGRValidator */,
-				5E92F2A01A97EFF800BDAEBC /* NGRPropertyValidator */,
 			);
 			path = NGRValidatorTests;
 			sourceTree = "<group>";
@@ -321,15 +322,6 @@
 				5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */,
 			);
 			name = NGRValidator;
-			sourceTree = "<group>";
-		};
-		5E92F2A01A97EFF800BDAEBC /* NGRPropertyValidator */ = {
-			isa = PBXGroup;
-			children = (
-				5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */,
-				5E92F2A11A97F01B00BDAEBC /* NGRPropertyValidator+NSStringSpec.m */,
-			);
-			name = NGRPropertyValidator;
 			sourceTree = "<group>";
 		};
 		5E9643251A53A2D0003E1773 /* Cells */ = {
@@ -649,9 +641,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E92F2A21A97F01B00BDAEBC /* NGRPropertyValidator+NSStringSpec.m in Sources */,
 				5EC4860F1AD2F9DB001C7DBB /* NGRTestModel.m in Sources */,
 				5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */,
+				5EEE70ED1AD318C5005D5042 /* NGRMessagesSpec.m in Sources */,
 				5E2EBFBF1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m in Sources */,
 				5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */,
 				5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */,

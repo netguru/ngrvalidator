@@ -11,6 +11,8 @@
 
 @implementation NSObject (NGRRuntime)
 
+#pragma mark - Public
+
 - (NSArray *)ngr_runtimePropertiesOfClass:(Class)aClass {
     
     uint count;

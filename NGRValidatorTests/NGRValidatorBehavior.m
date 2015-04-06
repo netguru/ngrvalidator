@@ -48,7 +48,6 @@ sharedExamplesFor(NGRMultiplePropertiesBehavior, ^(NSDictionary *data) {
             expect(array).toNot.beNil();
         }
     });
-    
 });
 
 sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {

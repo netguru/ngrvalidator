@@ -11,6 +11,8 @@
 
 @implementation NSArray (NGRValidator)
 
+#pragma mark - Public
+
 - (BOOL)ngr_containsString:(NSString *)string {
     for (NSString *str in self) {
         if ([str isEqualToString:string]) {

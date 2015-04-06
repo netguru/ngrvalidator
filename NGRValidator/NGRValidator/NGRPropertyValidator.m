@@ -13,7 +13,6 @@
 #import "NSArray+NGRValidator.h"
 #import "NSString+NGRValidator.h"
 
-
 NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
 NSInteger const NGRValidationInconsistencyCode = 10000;
 NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
@@ -46,7 +45,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     return self;
 }
 
-#pragma mark - Public Methods
+#pragma mark - Public
 
 - (NSError *)simpleValidationOfValue:(id)value {
     return [self validateValue:value usingSimpleValidation:YES];
@@ -118,7 +117,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     };
 }
 
-#pragma mark - Private Methods
+#pragma mark - Private
 
 - (id)validateValue:(id)value usingSimpleValidation:(BOOL)simpleValidation {
     
@@ -162,11 +161,11 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     if (!self.scenarios || !self.scenario) {
         return YES;
     }
-    //only reached when self.scenario && self.scenarios :
+    //only reached when self.scenario && self.scenarios:
     return [self.scenarios ngr_containsString:self.scenario];
 }
 
-# pragma mark - Overwritten methods
+#pragma mark - Overwritten methods
 
 - (NSString *)description {
     NSString *scenarios = [self.scenarios componentsJoinedByString:@","];
@@ -177,12 +176,8 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     NSMutableString *validators = [NSMutableString string];
     
     for (NGRValidationRule *rule in self.validationRules) {
-        NSInteger index = [self.validationRules indexOfObject:rule];
-        if (index == [self.validationRules count] - 1) {
-            [validators appendFormat:@"%@", rule.name];
-        } else {
-            [validators appendFormat:@"%@, ", rule.name];
-        }
+        BOOL isLastRule = [rule isEqual:self.validationRules.lastObject];
+        [validators appendFormat:@"%@%@", rule.name, isLastRule ? @"" : @", "];
     }
     return [validators copy];
 }

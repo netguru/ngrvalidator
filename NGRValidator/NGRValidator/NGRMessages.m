@@ -25,6 +25,8 @@
     return self;
 }
 
+#pragma mark - Public
+
 - (void)setMessage:(NSString *)message forError:(NGRError)error {
     self.messages[@(error)] = message;
 }
@@ -32,6 +34,8 @@
 - (NSString *)messageForError:(NGRError)error {
     return self.messages[@(error)];
 }
+
+#pragma mark - Private
 
 - (void)setupMessages {
     

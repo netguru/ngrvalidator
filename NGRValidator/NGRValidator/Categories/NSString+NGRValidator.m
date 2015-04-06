@@ -10,7 +10,7 @@
 
 @implementation NSString (NGRValidator)
 
-#pragma mark - Public Methods
+#pragma mark - Public
 
 - (NSString *)ngr_stringByCapitalizeFirstLetter {
     if (self.length > 0) {
@@ -35,7 +35,7 @@
     return [self evaluateAllowedCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
 }
 
-#pragma mark - Private Methods
+#pragma mark - Private
 
 - (BOOL)evaluatePattern:(NSString *)pattern {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];

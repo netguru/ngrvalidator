@@ -10,6 +10,8 @@
 
 @implementation NSDate (NGRValidator)
 
+#pragma mark - Public
+
 - (BOOL)ngr_isBetweenFirstDate:(NSDate *)firstDate lastDate:(NSDate *)lastDate inclusive:(BOOL)inclusive {
     if (inclusive) {
         return !([self compare:firstDate] == NSOrderedAscending) && !([self compare:lastDate] == NSOrderedDescending);

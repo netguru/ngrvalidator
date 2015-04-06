@@ -16,7 +16,7 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
     return [[NGRPropertyValidator alloc] initWithProperty:property];
 }
 
-#pragma mark - Public Methods
+#pragma mark - Public
 
 + (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {
     
@@ -63,7 +63,7 @@ inline NGRPropertyValidator * NGRValidate(NSString *property) {
     return [self validateModel:model scenario:nil usingRules:rules];
 }
 
-#pragma mark - Private Methods
+#pragma mark - Private
 
 + (id)validateModel:(NSObject *)model tillFirstError:(BOOL)tillFirstError usingRules:(NSArray *(^)())rules scenario:(NSString *)scenario {
     
