@@ -20,7 +20,7 @@ describe(@"Syntax validation", ^{
     testDescriptor(@"syntax URL validator", @"valid url syntax", @"invalid url syntax");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@"http://www.google.com", @"http://bar", 1, ^(NGRPropertyValidator *validator) {
-            return validator.syntax(NGRSyntaxURL).msgWrongSyntax(NGRSyntaxURL, msg);
+            return validator.syntax(NGRSyntaxHTTP).msgWrongSyntax(NGRSyntaxHTTP, msg);
         });
     });
     

@@ -61,7 +61,7 @@
     //NGPropertyValidator + Syntax
     [self setMessage:@"has invalid syntax." forError:NGRErrorNotEmail];
     [self setMessage:@"should contain only letters." forError:NGRErrorNotName];
-    [self setMessage:@"has invalid syntax." forError:NGRErrorNotURL];
+    [self setMessage:@"has invalid syntax." forError:NGRErrorNotHTTP];
     [self setMessage:@"do not match pattern." forError:NGRErrorWrongRegex];
     
     //NGPropertyValidator + Compare

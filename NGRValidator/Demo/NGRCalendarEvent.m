@@ -36,7 +36,7 @@
         return @[NGRValidate(@"title").required().minLength(6).msgTooShort(@"should have at least 6 signs"),
                  NGRValidate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
                  NGRValidate(@"email").required().syntax(NGRSyntaxEmail),
-                 NGRValidate(@"url").syntax(NGRSyntaxURL),
+                 NGRValidate(@"url").syntax(NGRSyntaxHTTP),
                  NGRValidate(@"startDate").required().laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
                  NGRValidate(@"endDate").required().laterThan(self.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
                  NGRValidate(@"termsOfUse").required().beTrue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];

@@ -40,7 +40,6 @@
     return [self ngr_propertiesOfClass:[self class]];
 }
 
-
 - (Class)ngr_classOfPropertyNamed:(NSString *)propertyName {
     
     Class propertyClass = nil;

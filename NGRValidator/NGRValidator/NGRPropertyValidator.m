@@ -60,12 +60,13 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 
     [self addValidatonBlockWithName:name block:^NGRError (id value) {
         
-        BOOL isValueAllowedToBeEmptyOnRequiredRule = weakSelf.allowEmptyProperty && [value ngr_isCountable] && [value ngr_isEmpty] && [name isEqualToString:@"required"];
+        BOOL isRequiredRule = [name isEqualToString:@"required"];
+        BOOL isValueAllowedToBeEmpty = weakSelf.allowEmptyProperty && [value ngr_isCountable] && isRequiredRule;
         BOOL doesValueExistAndIsNotRequired = !weakSelf.isRequired && !value;
         
         if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
-        } else if (doesValueExistAndIsNotRequired || isValueAllowedToBeEmptyOnRequiredRule) {
+        } else if (doesValueExistAndIsNotRequired || isValueAllowedToBeEmpty) {
             return NGRErrorNoone;
         }
         return block(value);
@@ -99,9 +100,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
         [self validateClass:nil withName:@"required" validationBlock:^NGRError(id value) {
             
             BOOL doesValueExist = value && ![value isKindOfClass:[NSNull class]];
-            BOOL isValueAllowedToBeEmpty = !self.allowEmptyProperty && [value ngr_isCountable] && [value ngr_isEmpty];
-            
-            if (!doesValueExist || isValueAllowedToBeEmpty) {
+            if (!doesValueExist || [value ngr_isEmpty]) {
                 return NGRErrorRequired;
             }
             return NGRErrorNoone;

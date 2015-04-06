@@ -21,24 +21,38 @@ describe(@"NGRValidatorSpec", ^{
     
     /** Emptiness and requirements test: **/
     
-    testDescriptor(@"required validator", @"any value", @"nil");
+    testDescriptor(@"required validator", @"any value with count selector", @"nil");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@"foo", nil, 1, ^(NGRPropertyValidator *validator) {
-            return validator.required().msgNil(msg);;
+            return validator.required().msgNil(msg);
         });
     });
     
-    testDescriptor(@"required validator", @"any value", @"nil");
-    itShouldBehaveLike(NGRValueBehavior, ^{
-        return wrapData(@"foo", nil, 1, ^(NGRPropertyValidator *validator) {
-            return validator.required().msgNil(msg);;
-        });
-    });
-    
-    testDescriptor(@"required, allowEmpty validator", @"empty value", @"nil");
+    testDescriptor(@"required, allowEmpty validator", @"empty value with count selector", @"nil");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@"", nil, 1, ^(NGRPropertyValidator *validator) {
-            return validator.required().allowEmpty().msgNil(msg);;
+            return validator.required().allowEmpty().msgNil(msg);
+        });
+    });
+    
+    testDescriptor(@"required validator", @"any value with length selector", @"nil");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@[@"foo"], nil, 1, ^(NGRPropertyValidator *validator) {
+            return validator.required().msgNil(msg);
+        });
+    });
+    
+    testDescriptor(@"required, allowEmpty validator", @"empty value with length selector", @"nil");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@[], nil, 1, ^(NGRPropertyValidator *validator) {
+            return validator.required().allowEmpty().msgNil(msg);
+        });
+    });
+    
+    testDescriptor(@"required, allowEmpty validator", @"any not countable value", @"nil");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData([NSSortDescriptor new], nil, 1, ^(NGRPropertyValidator *validator) {
+            return validator.required().msgNil(msg);
         });
     });
     

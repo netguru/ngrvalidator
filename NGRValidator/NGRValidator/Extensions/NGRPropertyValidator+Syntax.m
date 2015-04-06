@@ -35,9 +35,9 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
                     return [string ngr_isName] ? NGRErrorNoone : NGRErrorNotName;
                 }]; break;
                 
-            case NGRSyntaxURL:
+            case NGRSyntaxHTTP:
                 [self validateSyntaxWithName:@"syntax: URL" block:^NGRError(NSString *string) {
-                    return [string ngr_isURL] ? NGRErrorNoone : NGRErrorNotURL;
+                    return [string ngr_isURL] ? NGRErrorNoone : NGRErrorNotHTTP;
                 }]; break;
                 
             default:
@@ -81,8 +81,8 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
             return NGRErrorNotEmail;
         case NGRSyntaxName:
             return NGRErrorNotName;
-        case NGRSyntaxURL:
-            return NGRErrorNotURL;
+        case NGRSyntaxHTTP:
+            return NGRErrorNotHTTP;
             
         default:
             return NGRErrorNoone;
