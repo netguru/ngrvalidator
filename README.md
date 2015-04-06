@@ -1,4 +1,6 @@
-# NGRValidator
+<p align="center" >
+  <img src="https://raw.github.com/netguru/ngrvalidator/master/Documents/github_header.png" alt="NGRValidator" title="NGRValidator">
+</p>
 
 **NGRValidator** allows you to validate the data in the way you want! It's easy to read (even for non-developers), centralized and complex solution to validate your model just in a few lines of code. Moreover, **NGRValidator** contains default error messages which you can customize!
 
