@@ -1,0 +1,13 @@
+//
+//  NGRValidator.h
+//  NGRValidator
+//
+//  Created by Patryk Kaczmarek on 07/04/15.
+//
+//
+
+#ifdef __OBJC__
+
+    #define VALIDATOR_SHORTHAND
+
+#endif

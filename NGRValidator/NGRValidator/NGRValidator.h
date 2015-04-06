@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NGRTypedefs.h"
+
 #import "NGRPropertyValidator+NSString.h"
 #import "NGRPropertyValidator+NSObject.h"
 #import "NGRPropertyValidator+NSNumber.h"
@@ -14,14 +16,6 @@
 #import "NGRPropertyValidator+NSDate.h"
 
 @interface NGRValidator : NSObject
-
-/**
- *  Defines validated property and initialize validation
- *
- *  @param  property Name of property given as NSString.
- *  @return instance of NGPropertyValidator used to specify next validation rules
- */
-extern NGRPropertyValidator * NGRValidate(NSString *property);
 
 /**
  *  Validates single value with given rules.

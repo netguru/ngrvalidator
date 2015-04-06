@@ -12,10 +12,6 @@
 
 @implementation NGRValidator
 
-inline NGRPropertyValidator * NGRValidate(NSString *property) {
-    return [[NGRPropertyValidator alloc] initWithProperty:property];
-}
-
 #pragma mark - Public
 
 + (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {

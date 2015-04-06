@@ -119,6 +119,7 @@
 		5E6D99C91A539B9400161808 /* NGRDemoDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoDatePickerCell.m; path = Demo/NGRDemoDatePickerCell.m; sourceTree = "<group>"; };
 		5E6D99CB1A539BA500161808 /* NGRDemoSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRDemoSwitchCell.h; path = Demo/NGRDemoSwitchCell.h; sourceTree = "<group>"; };
 		5E6D99CC1A539BA500161808 /* NGRDemoSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRDemoSwitchCell.m; path = Demo/NGRDemoSwitchCell.m; sourceTree = "<group>"; };
+		5E8AFF671AD3484200FB73CD /* NGRValidator.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRValidator.pch; sourceTree = "<group>"; };
 		5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidationRuleSpec.m; sourceTree = "<group>"; };
 		5E9643221A53A2CA003E1773 /* NGRCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRCalendarEvent.h; path = Demo/NGRCalendarEvent.h; sourceTree = "<group>"; };
 		5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRCalendarEvent.m; path = Demo/NGRCalendarEvent.m; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 			children = (
 				5E5C09F31A498164002D3E72 /* Info.plist */,
 				5E5C09F41A498164002D3E72 /* main.m */,
+				5E8AFF671AD3484200FB73CD /* NGRValidator.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -767,6 +769,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NGRValidator/NGRValidator.pch;
 				INFOPLIST_FILE = NGRValidator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -783,6 +787,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NGRValidator/NGRValidator.pch;
 				INFOPLIST_FILE = NGRValidator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
