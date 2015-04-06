@@ -37,8 +37,6 @@ describe(@"Syntax validation", ^{
             return validator.regex(@"q.*", NSRegularExpressionCaseInsensitive).msgWrongRegex(msg);
         });
     });
-    
 });
 
 SpecEnd
-

@@ -72,12 +72,6 @@ describe(@"NSString validation", ^{
             return validator.differ(@"foo").msgNotDiffer(msg);
         });
     });
-
-    
-    
-    
-    
 });
 
 SpecEnd
-

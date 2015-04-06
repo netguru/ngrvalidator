@@ -19,6 +19,7 @@ NSString *const NGRValueBehavior = @"using";
 NSString *const NGRAssertBehavior = @"Assertion test";
 NSString *const NGRScenarioSuccessBehavior = @"success behavior";
 NSString *const NGRScenarioFailureBehavior = @"failure behavior";
+NSString *const NGRMultiplePropertiesBehavior = @"multiple properties behavior";
 
 // helpers:
 NSString *validatorDescriptor;
@@ -52,6 +53,14 @@ NSDictionary * (^wrapAssertData)(id, NGRPropertyValidatorBlock) = ^(id value, NG
     
     return @{NGRValidatorKey : block(NGRValidate(@"value")),
              NGRValidValueKey : value};
+};
+
+NSDictionary * (^wrapDataForMultipleProperties)(NGRTestModel *, NSArray *, BOOL) = ^(NGRTestModel *model, NSArray *rules, BOOL success) {
+    
+    return @{@"model" : model,
+             @"rules" : rules,
+             @"success" : @(success)};
+    
 };
 
 void (^testDescriptor)(NSString *, NSString *, NSString *) = ^(NSString *validatorDescription, NSString *successDescription, NSString *failureDescription) {

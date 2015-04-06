@@ -55,10 +55,8 @@ describe(@"NGRPropertyValidator+NSStringSpec", ^{
                 expect(rule.validationBlock(@"foo_bar_baz")).to.equal(NGRErrorNoone);
             });
             
-            
         });
     });
 });
 
 SpecEnd
-

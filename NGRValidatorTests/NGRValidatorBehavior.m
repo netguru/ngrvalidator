@@ -6,13 +6,50 @@
 //
 //
 
-@interface NGRTestModel : NSObject
-@property (strong, nonatomic) id value;
-@end
-
-@implementation NGRTestModel @end
-
 SharedExamplesBegin(NGRValidatorBehavior)
+
+sharedExamplesFor(NGRMultiplePropertiesBehavior, ^(NSDictionary *data) {
+    
+    __block NSArray *(^rules)(); __block BOOL success; __block NGRTestModel *model;
+    
+    beforeEach(^{
+        model = data[@"model"];
+        success = ((NSNumber *)data[@"success"]).boolValue;
+        rules = ^NSArray *{
+            return data[@"rules"];
+        };
+    });
+    
+    afterEach(^{
+        model = nil; rules = nil; cleanDescriptors();
+    });
+    
+    it(validatorDescriptor, ^{
+        
+        NSError *error; NSArray *array;
+        
+        // 1st
+        BOOL localSuccess = [NGRValidator validateModel:model error:&error usingRules:rules];
+        
+        if (success) {
+            expect(localSuccess).to.beTruthy();
+            expect(error).to.beNil();
+        } else {
+            expect(localSuccess).to.beFalsy();
+            expect(error).toNot.beNil();
+        }
+        
+        // 2nd
+        array = [NGRValidator validateModel:model usingRules:rules];
+        
+        if (success) {
+            expect(array).to.beNil();
+        } else {
+            expect(array).toNot.beNil();
+        }
+    });
+    
+});
 
 sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
     
@@ -54,7 +91,6 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
             }];
             expect(error).to.beNil();
-
         });
         
         it([NSString stringWithFormat:@"with %@, should fail.", failureDescriptor], ^{
@@ -85,7 +121,6 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             expect(error.localizedDescription).to.contain(msg);
         });
     });
-    
 });
 
 sharedExamplesFor(NGRScenarioSuccessBehavior, ^(NSDictionary *data) {
@@ -205,4 +240,3 @@ sharedExamplesFor(NGRAssertBehavior, ^(NSDictionary *data) {
 });
 
 SharedExamplesEnd
-

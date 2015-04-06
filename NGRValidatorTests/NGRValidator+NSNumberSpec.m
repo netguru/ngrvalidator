@@ -93,8 +93,6 @@ describe(@"NSNumber validation", ^{
             return validator.beFalse().msgNotFalse(msg);
         });
     });
-
 });
 
 SpecEnd
-

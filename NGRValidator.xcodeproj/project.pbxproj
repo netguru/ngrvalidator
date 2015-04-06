@@ -41,6 +41,7 @@
 		5E9643241A53A2CA003E1773 /* NGRCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */; };
 		5EA4DF8F1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */; };
 		5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4DF901A9296F800C537F2 /* NGRValidatorSpec.m */; };
+		5EC4860F1AD2F9DB001C7DBB /* NGRTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC4860E1AD2F9DB001C7DBB /* NGRTestModel.m */; };
 		5ECAF8751A6311350011181C /* NGRSimpleDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8741A6311350011181C /* NGRSimpleDemoViewController.m */; };
 		5ECAF8791A6311490011181C /* NGRSimpleDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF8781A6311490011181C /* NGRSimpleDemoView.m */; };
 		5ECAF87E1A6311BA0011181C /* NGRMediumDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECAF87D1A6311BA0011181C /* NGRMediumDemoViewController.m */; };
@@ -124,6 +125,8 @@
 		5E9643231A53A2CA003E1773 /* NGRCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRCalendarEvent.m; path = Demo/NGRCalendarEvent.m; sourceTree = "<group>"; };
 		5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+ScenarioSpec.m"; sourceTree = "<group>"; };
 		5EA4DF901A9296F800C537F2 /* NGRValidatorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRValidatorSpec.m; sourceTree = "<group>"; };
+		5EC4860D1AD2F9DB001C7DBB /* NGRTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRTestModel.h; path = Helpers/NGRTestModel.h; sourceTree = "<group>"; };
+		5EC4860E1AD2F9DB001C7DBB /* NGRTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRTestModel.m; path = Helpers/NGRTestModel.m; sourceTree = "<group>"; };
 		5ECAF8731A6311350011181C /* NGRSimpleDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRSimpleDemoViewController.h; path = Demo/NGRSimpleDemoViewController.h; sourceTree = "<group>"; };
 		5ECAF8741A6311350011181C /* NGRSimpleDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRSimpleDemoViewController.m; path = Demo/NGRSimpleDemoViewController.m; sourceTree = "<group>"; };
 		5ECAF8771A6311490011181C /* NGRSimpleDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRSimpleDemoView.h; path = Demo/NGRSimpleDemoView.h; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 				5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */,
 				5E1E5D6E1A8D6B6000AE16A1 /* NGRBehaviorKeys.h */,
 				5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */,
+				5EC4860D1AD2F9DB001C7DBB /* NGRTestModel.h */,
+				5EC4860E1AD2F9DB001C7DBB /* NGRTestModel.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -645,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E92F2A21A97F01B00BDAEBC /* NGRPropertyValidator+NSStringSpec.m in Sources */,
+				5EC4860F1AD2F9DB001C7DBB /* NGRTestModel.m in Sources */,
 				5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */,
 				5E2EBFBF1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m in Sources */,
 				5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */,

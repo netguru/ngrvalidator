@@ -19,5 +19,6 @@
     #import "NSArray+NGRValidator.h"
 
     #import "NGRBehaviorKeys.h"
+    #import "NGRTestModel.h"
 
 #endif

@@ -65,7 +65,25 @@ describe(@"NGRValidatorSpec", ^{
         });
     });
     
+    /** 2 properties in model test **/
+    
+    validatorDescriptor = @"when 2 properties do not match eachother, should fail.";
+    itShouldBehaveLike(NGRMultiplePropertiesBehavior, ^{
+        NGRTestModel *sut = [[NGRTestModel alloc] initWithValue:@"12345" secondValue:@"1234567"];
+        NSArray *rules = @[NGRValidate(@"value").required().minLength(5),
+                           NGRValidate(@"secondValue").required().match(sut.value)];
+
+        return wrapDataForMultipleProperties(sut, rules, NO);
+    });
+    
+    validatorDescriptor = @"when 2 properties match eachother, should succeed.";
+    itShouldBehaveLike(NGRMultiplePropertiesBehavior, ^{
+        NGRTestModel *sut = [[NGRTestModel alloc] initWithValue:@"12345" secondValue:@"12345"];
+        NSArray *rules = @[NGRValidate(@"value").required().minLength(5),
+                           NGRValidate(@"secondValue").required().match(sut.value)];
+
+        return wrapDataForMultipleProperties(sut, rules, YES);
+    });
 });
 
 SpecEnd
-

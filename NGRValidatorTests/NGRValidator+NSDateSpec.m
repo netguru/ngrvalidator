@@ -59,8 +59,6 @@ describe(@"NSDate validation", ^{
             return validator.betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date2, NO).msgNotBetweenDates(msg);
         });
     });
-    
 });
 
 SpecEnd
-
