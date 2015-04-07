@@ -33,13 +33,13 @@
     
     NSError *error = nil;
     BOOL success = [NGRValidator validateModel:self error:&error usingRules:^NSArray *{
-        return @[validate(@"title").required().minLength(6).msgTooShort(@"should have at least 6 signs"),
-                 validate(@"creatorLastName").required().lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
-                 validate(@"email").required().syntax(NGRSyntaxEmail),
-                 validate(@"url").syntax(NGRSyntaxHTTP),
-                 validate(@"startDate").required().laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
-                 validate(@"endDate").required().laterThan(self.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
-                 validate(@"termsOfUse").required().beTrue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
+        return @[validate(@"title").is.required().to.have.minLength(6).msgTooShort(@"should have at least 6 signs"),
+                 validate(@"creatorLastName").is.required().to.have.lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
+                 validate(@"email").is.required().to.have.syntax(NGRSyntaxEmail),
+                 validate(@"url").should.have.syntax(NGRSyntaxHTTP),
+                 validate(@"startDate").is.required().to.be.laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
+                 validate(@"endDate").is.required().to.be.laterThan(self.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
+                 validate(@"termsOfUse").is.required().to.beTrue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
     }];
     
     success ? NSLog(@"Event validation succeed") : NSLog(@"Event validation failed because of an error: %@", error.localizedDescription);

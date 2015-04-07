@@ -51,7 +51,7 @@
 - (void)validateBarButtonDidClick:(UIBarButtonItem *)button {
     
     NSError *error = [NGRValidator validateValue:self.aView.textField.text named:NSLocalizedString(@"E-mail address", nil) usingRules:^(NGRPropertyValidator *validator) {
-        validator.required().syntax(NGRSyntaxEmail);
+        validator.is.required().to.have.syntax(NGRSyntaxEmail);
     }];
     
     [self showAlertViewWithError:error];

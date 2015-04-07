@@ -18,8 +18,8 @@ NSString * const NGRUserSignInScenario = @"signIn";
     
     NSError *error = nil;
     [NGRValidator validateModel:self error:&error scenario:[self stringFromScenario:scenario] usingRules:^NSArray *{
-        return @[validate(@"password").required().minLength(5).msgTooShort(@"should have at least 5 signs"),
-                 validate(@"repeatedPassword").required().match(self.password).onScenarios(@[NGRUserChangePassScenario]).localizedName(@"New password")];
+        return @[validate(@"password").is.required().to.have.minLength(5).msgTooShort(@"should have at least 5 signs"),
+                 validate(@"repeatedPassword").is.required().to.match(self.password).onScenarios(@[NGRUserChangePassScenario]).localizedName(@"New password")];
     }];
     return error;
 }
