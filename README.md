@@ -2,36 +2,12 @@
   <img src="https://raw.github.com/netguru/ngrvalidator/master/Documents/github_header.png" alt="NGRValidator" title="NGRValidator">
 </p>
 
+[![Circle CI](https://circleci.com/gh/netguru/ngrvalidator/tree/master.svg?style=svg)](https://circleci.com/gh/netguru/ngrvalidator/tree/master)
+[![Platform](https://cocoapod-badges.herokuapp.com/p/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
+[![Version](https://cocoapod-badges.herokuapp.com/v/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
+
 **NGRValidator** allows you to validate the data in the way you want! It's easy to read (even for non-developers), centralized and complex solution to validate your model just in a few lines of code. Moreover, **NGRValidator** contains default error messages which you can customize!
-
-## Requirements
-
-- iOS 7.0+ SDK
-- CocoaPods 0.35.0 (use `gem install cocoapods` to grab it!)
-
-## Installation:
-#### Installation with CocoaPods
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
-
-```rb
-pod 'NGRValidator', '~> 0.4.2'
-```
-and run `pod update` or `pod install`
-
-#### Submodule
-In your projects git folder type:
-```bash
-git submodule init
-git submodule add --copy link to the repo--
-git submodule update
-```
-
-#### Just download & attach
-This is strongly misadvised as you won't be able to see code updates. Clone or download the source, copy all files from  **NGRValidator** folder.
-
-## Configuration
-
-Use `#import "NGRValidator"` whenever you want to use it.
 
 ## Why use NGRValidator?
 
@@ -101,6 +77,35 @@ Let's take it one step further. Consider this model should be used both for logi
 
 That's it! All validation requirements in one place. 
 Continue reading to learn more about [rules](https://github.com/netguru/ngrvalidator#validation-rules), [scenarios](https://github.com/netguru/ngrvalidator#scenarios) and [messaging](https://github.com/netguru/ngrvalidator#validation-messages).
+
+## Requirements
+
+- iOS 7.0+ SDK
+- CocoaPods 0.35.0 (use `gem install cocoapods` to grab it!)
+
+## Installation:
+#### Installation with CocoaPods
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
+
+```rb
+pod 'NGRValidator', '~> 0.4.2'
+```
+and run `pod update` or `pod install`
+
+#### Submodule
+In your projects git folder type:
+```bash
+git submodule init
+git submodule add --copy link to the repo--
+git submodule update
+```
+
+#### Just download & attach
+This is strongly misadvised as you won't be able to see code updates. Clone or download the source, copy all files from  **NGRValidator** folder.
+
+## Configuration
+
+Use `#import "NGRValidator"` whenever you want to use it.
 
 ## Invoking validation
 
