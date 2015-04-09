@@ -1,0 +1,25 @@
+#
+#  circle.yml
+#
+#  Copyright (c) 2015 Netguru Sp. z o.o. All rights reserved.
+#
+
+machine:
+  environment:
+    BUNDLE_ID: "com.netguru.NGRValidator"
+    XCODE_SCHEME: "NGRValidator"
+    XCODE_WORKSPACE: "NGRValidator.xcworkspace"
+    XCODE_INFOPLIST_PATH: "NGRValidator/Info.plist"
+
+dependencies:
+  cache_directories:
+    - "Pods"
+    - "Configuration"
+    - "vendor/bundle"
+  override:
+    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 
+    - bundle exec pod install
+
+test:
+  override:
+    - bundle exec rake test-unit
