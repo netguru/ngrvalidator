@@ -7,6 +7,7 @@
 //
 
 #import "NGRMessages.h"
+#import "NGRConstants.h"
 
 @interface NGRMessages ()
 
@@ -27,12 +28,12 @@
 
 #pragma mark - Public
 
-- (void)setMessage:(NSString *)message forError:(NGRError)error {
-    self.messages[@(error)] = message;
+- (void)setMessage:(NSString *)message forKey:(NGRMsgKey *)key {
+    self.messages[key] = message;
 }
 
-- (NSString *)messageForError:(NGRError)error {
-    return self.messages[@(error)];
+- (NSString *)messageForKey:(NGRMsgKey *)key {
+    return self.messages[key];
 }
 
 #pragma mark - Private
@@ -40,36 +41,35 @@
 - (void)setupMessages {
     
     //NGPropertyValidator + NSObject
-    [self setMessage:@"is required." forError:NGRErrorRequired];
-    [self setMessage:@"custom condition was not fulfilled." forError:NGRErrorCustomCondition];
+    [self setMessage:@"is required." forKey:MSGRequired];
     
     //NGPropertyValidator + NSString
-    [self setMessage:@"is too long." forError:NGRErrorTooLong];
-    [self setMessage:@"is too short." forError:NGRErrorTooShort];
-    [self setMessage:@"should be decimal." forError:NGRErrorNotDecimal];
-    [self setMessage:@"is of the wrong length." forError:NGRErrorNotExactLength];
-    [self setMessage:@"is not repeated exactly." forError:NGRErrorNotMatch];
-    [self setMessage:@"does not differ." forError:NGRErrorNotDiffer];
+    [self setMessage:@"is too long." forKey:MSGTooLong];
+    [self setMessage:@"is too short." forKey:MSGTooShort];
+    [self setMessage:@"should be decimal." forKey:MSGNotDecimal];
+    [self setMessage:@"is of the wrong length." forKey:MSGNotExactLength];
+    [self setMessage:@"is not repeated exactly." forKey:MSGNotMatch];
+    [self setMessage:@"does not differ." forKey:MSGNotDiffer];
     
     //NGPropertyValidator + NSNumber
-    [self setMessage:@"is too small." forError:NGRErrorTooSmall];
-    [self setMessage:@"is too big." forError:NGRErrorTooBig];
-    [self setMessage:@"isn't exact." forError:NGRErrorNotExact];
-    [self setMessage:@"isn't false." forError:NGRErrorNotFalse];
-    [self setMessage:@"isn't true." forError:NGRErrorNotTrue];
+    [self setMessage:@"is too small." forKey:MSGTooSmall];
+    [self setMessage:@"is too big." forKey:MSGTooBig];
+    [self setMessage:@"isn't exact." forKey:MSGNotExact];
+    [self setMessage:@"isn't false." forKey:MSGNotFalse];
+    [self setMessage:@"isn't true." forKey:MSGNotTrue];
     
     //NGPropertyValidator + Syntax
-    [self setMessage:@"has invalid syntax." forError:NGRErrorNotEmail];
-    [self setMessage:@"should contain only letters." forError:NGRErrorNotName];
-    [self setMessage:@"has invalid syntax." forError:NGRErrorNotHTTP];
-    [self setMessage:@"do not match pattern." forError:NGRErrorWrongRegex];
+    [self setMessage:@"has invalid syntax." forKey:MSGNotEmail];
+    [self setMessage:@"should contain only letters." forKey:MSGNotName];
+    [self setMessage:@"has invalid syntax." forKey:MSGNotHttp];
+    [self setMessage:@"do not match pattern." forKey:MSGWrongRegex];
     
     //NGPropertyValidator + Compare
-    [self setMessage:@"isn't earlier than compared date." forError:NGRErrorNotEarlierThan];
-    [self setMessage:@"isn't later than compared date." forError:NGRErrorNotLaterThan];
-    [self setMessage:@"isn't earlier than or equal to compared date." forError:NGRErrorNotEarlierThanOrEqualTo];
-    [self setMessage:@"isn't later than or equal to compared date." forError:NGRErrorNotLaterThanOrEqualTo];
-    [self setMessage:@"isn't between given dates." forError:NGRErrorNotBetweenDates];
+    [self setMessage:@"isn't earlier than compared date." forKey:MSGNotEarlierThan];
+    [self setMessage:@"isn't later than compared date." forKey:MSGNotLaterThan];
+    [self setMessage:@"isn't earlier than or equal to compared date." forKey:MSGNotEarlierThanOrEqualTo];
+    [self setMessage:@"isn't later than or equal to compared date." forKey:MSGNotLaterThanOrEqualTo];
+    [self setMessage:@"isn't between given dates." forKey:MSGNotBetweenDates];
 }
 
 @end

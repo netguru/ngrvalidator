@@ -54,7 +54,7 @@ describe(@"NGRPropertyValidator", ^{
         });
         
         it(@"should have proper name for error message.", ^{
-            expect([sut.messages messageForError:NGRErrorTooLong]).to.equal(@"Fixture message");
+            expect([sut.messages messageForKey:MSGTooLong]).to.equal(@"Fixture message");
         });
         
         it(@"should not have any scenario.", ^{
@@ -77,7 +77,7 @@ describe(@"NGRPropertyValidator", ^{
             
             it(@"should scenario name be set properly.", ^{
                 NGRTestModel *model = [[NGRTestModel alloc] init];
-                [NGRValidator validateModel:model scenario:sut.scenarios.firstObject usingRules:^NSArray *{
+                [NGRValidator validateModel:model scenario:sut.scenarios.firstObject delegate:nil rules:^NSArray *{
                     return @[sut];
                 }];
                 expect(sut.scenario).to.equal(@"Fixture scenario");

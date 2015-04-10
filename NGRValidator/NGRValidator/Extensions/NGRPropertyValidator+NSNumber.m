@@ -8,22 +8,22 @@
 
 #import "NGRPropertyValidator+NSNumber.h"
 
-typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
+typedef NGRMsgKey *(^NGRNumberValidationBlock)(NSNumber *number);
 
 @implementation NGRPropertyValidator (NSNumber)
 
 #pragma mark - Rules
 
 - (void)validateNumberWithName:(NSString *)name block:(NGRNumberValidationBlock)block {
-    [self validateClass:[NSNumber class] withName:name validationBlock:^NGRError(NSNumber *value) {
+    [self validateClass:[NSNumber class] withName:name validationBlock:^NGRMsgKey *(NSNumber *value) {
         return block(value);
     }];
 }
 
 - (NGRPropertyValidator *(^)(float))min {
     return ^(float min) {
-        [self validateNumberWithName:@"min" block:^NGRError(NSNumber *number) {
-            return (number.floatValue < min) ? NGRErrorTooSmall : NGRErrorNoone;
+        [self validateNumberWithName:@"min" block:^NGRMsgKey *(NSNumber *number) {
+            return (number.floatValue < min) ? MSGTooSmall : nil;
         }];
         return self;
     };
@@ -31,8 +31,8 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(float))max {
     return ^(float max) {
-        [self validateNumberWithName:@"max" block:^NGRError(NSNumber *number) {
-            return (number.floatValue > max) ? NGRErrorTooBig : NGRErrorNoone;
+        [self validateNumberWithName:@"max" block:^NGRMsgKey *(NSNumber *number) {
+            return (number.floatValue > max) ? MSGTooBig : nil;
         }];
         return self;
     };
@@ -40,13 +40,13 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(float, float))range {
     return ^(float min, float max) {
-        [self validateNumberWithName:@"range" block:^NGRError(NSNumber *number) {
+        [self validateNumberWithName:@"range" block:^NGRMsgKey *(NSNumber *number) {
             if (number.floatValue > MAX(min, max)) {
-                return NGRErrorTooBig;
+                return MSGTooBig;
             } else if (number.floatValue < MIN(min, max)) {
-                return NGRErrorTooSmall;
+                return MSGTooSmall;
             }
-            return NGRErrorNoone;
+            return nil;
         }];
         return self;
     };
@@ -54,8 +54,8 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(float))exact {
     return ^(float exactFloat) {
-        [self validateNumberWithName:@"exact" block:^NGRError(NSNumber *number) {
-            return ([number isEqualToNumber:@(exactFloat)]) ? NGRErrorNoone : NGRErrorNotExact;
+        [self validateNumberWithName:@"exact" block:^NGRMsgKey *(NSNumber *number) {
+            return ([number isEqualToNumber:@(exactFloat)]) ? nil : MSGNotExact;
         }];
         return self;
     };
@@ -63,8 +63,8 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)())beFalse {
     return ^() {
-        [self validateNumberWithName:@"false value" block:^NGRError(NSNumber *number) {
-            return [number boolValue] ? NGRErrorNotFalse : NGRErrorNoone;
+        [self validateNumberWithName:@"false value" block:^NGRMsgKey *(NSNumber *number) {
+            return [number boolValue] ? MSGNotFalse : nil;
         }];
         return self;
     };
@@ -72,8 +72,8 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)())beTrue {
     return ^() {
-        [self validateNumberWithName:@"true value" block:^NGRError(NSNumber *number) {
-            return [number boolValue] ? NGRErrorNoone : NGRErrorNotTrue;
+        [self validateNumberWithName:@"true value" block:^NGRMsgKey *(NSNumber *number) {
+            return [number boolValue] ? nil : MSGNotTrue;
         }];
         return self;
     };
@@ -83,35 +83,35 @@ typedef NGRError (^NGRNumberValidationBlock)(NSNumber *number);
 
 - (NGRPropertyValidator *(^)(NSString *))msgTooSmall {
     return ^(NSString *message) {
-        [self.messages setMessage:message forError:NGRErrorTooSmall];
+        [self.messages setMessage:message forKey:MSGTooSmall];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgTooBig {
     return ^(NSString *message) {
-        [self.messages setMessage:message forError:NGRErrorTooBig];
+        [self.messages setMessage:message forKey:MSGTooBig];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotExact {
     return ^(NSString *message) {
-        [self.messages setMessage:message forError:NGRErrorNotExact];
+        [self.messages setMessage:message forKey:MSGNotExact];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotTrue {
     return ^(NSString *message) {
-        [self.messages setMessage:message forError:NGRErrorNotTrue];
+        [self.messages setMessage:message forKey:MSGNotTrue];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NSString *))msgNotFalse {
     return ^(NSString *message) {
-        [self.messages setMessage:message forError:NGRErrorNotFalse];
+        [self.messages setMessage:message forKey:MSGNotFalse];
         return self;
     };
 }

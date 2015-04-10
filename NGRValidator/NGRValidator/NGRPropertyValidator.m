@@ -12,10 +12,10 @@
 #import "NSObject+NGRValidator.h"
 #import "NSArray+NGRValidator.h"
 #import "NSString+NGRValidator.h"
+#import "NSError+NGRValidator.h"
 
-NSString * const NGRValidatorDomain = @"com.ngr.validator.domain";
-NSInteger const NGRValidationInconsistencyCode = 10000;
 NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
+NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClass";
 
 @interface NGRPropertyValidator ()
 
@@ -58,7 +58,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 - (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block {
     __weak typeof(self) weakSelf = self;
 
-    [self addValidatonBlockWithName:name block:^NGRError (id value) {
+    [self addValidatonBlockWithName:name block:^NGRMsgKey *(id value) {
         
         BOOL isRequiredRule = [name isEqualToString:@"required"];
         BOOL isValueAllowedToBeEmpty = weakSelf.allowEmptyProperty && [value ngr_isCountable] && isRequiredRule;
@@ -67,7 +67,7 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
         if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
         } else if (doesValueExistAndIsNotRequired || isValueAllowedToBeEmpty) {
-            return NGRErrorNoone;
+            return nil;
         }
         return block(value);
     }];
@@ -97,13 +97,13 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
 - (NGRPropertyValidator *(^)())required {
     return ^() {
         self.isRequired = YES;
-        [self validateClass:nil withName:@"required" validationBlock:^NGRError(id value) {
+        [self validateClass:nil withName:@"required" validationBlock:^NGRMsgKey *(id value) {
             
             BOOL doesValueExist = value && ![value isKindOfClass:[NSNull class]];
             if (!doesValueExist || [value ngr_isEmpty]) {
-                return NGRErrorRequired;
+                return MSGRequired;
             }
-            return NGRErrorNoone;
+            return nil;
         }];
         return self;
     };
@@ -128,32 +128,43 @@ NSUInteger const NGRPropertyValidatorDefaultPriority = 100;
     
     for (NGRValidationRule *validationRule in self.validationRules) {
         
-        NGRError error = validationRule.validationBlock(value);
+        NGRMsgKey *errorKey = validationRule.validationBlock(value);
         
-        if (error == NGRErrorUnexpectedClass) {
+        if (errorKey == NGRErrorUnexpectedClass) {
             NSAssert(NO, @"Value \"%@\" for \"%@\" parameter is wrong kind of class", value, self.property);
             
-        } else if (error != NGRErrorNoone) {
+        } else if (errorKey) {
             if (simpleValidation) {
-                return [self errorWithNGRError:error];
+                return [self errorWithErrorKey:errorKey];
             } else {
-                [array addObject:[self errorWithNGRError:error]];
+                [array addObject:[self errorWithErrorKey:errorKey]];
             }
         }
     }
     return simpleValidation ? nil : [array copy];
 }
 
-- (void)addValidatonBlockWithName:(NSString *)name block:(NGRError (^)(id))block {
+- (void)addValidatonBlockWithName:(NSString *)name block:(NGRMsgKey *(^)(id))block {
     
     NGRValidationRule *validatorRule = [[NGRValidationRule alloc] initWithName:name block:block];
     [self.validationRules addObject:validatorRule];
 }
 
-- (NSError *)errorWithNGRError:(NGRError)error {
+- (NSError *)errorWithErrorKey:(NGRMsgKey *)key {
+    
+    NSDictionary *messages;
+    if ([self.delegate respondsToSelector:@selector(validationErrorMessagesByPropertyKey)]) {
+        messages = [self.delegate validationErrorMessagesByPropertyKey];
+    }
+    
+    NSString *customDescription = messages[self.property][key];
+    if (customDescription) {
+        return [NSError ngr_errorWithDescription:customDescription];
+    }
+    
     NSString *propertyName = (self.localizedPropertyName) ?: [self.property ngr_stringByCapitalizeFirstLetter];
-    NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self.messages messageForError:error]];
-    return [NSError errorWithDomain:NGRValidatorDomain code:NGRValidationInconsistencyCode userInfo:@{NSLocalizedDescriptionKey : description}];
+    NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self.messages messageForKey:key]];
+    return [NSError ngr_errorWithDescription:description];
 }
 
 - (BOOL)shouldValidate {

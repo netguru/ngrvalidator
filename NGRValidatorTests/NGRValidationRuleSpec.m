@@ -15,8 +15,8 @@ describe(@"NGRValidationRule", ^{
     context(@"when initialized", ^{
         
         beforeEach(^{
-            sut = [[NGRValidationRule alloc] initWithName:@"Fixture Name" block:^NGRError(id value) {
-                return (NGRError)value;
+            sut = [[NGRValidationRule alloc] initWithName:@"Fixture Name" block:^NGRMsgKey *(NGRMsgKey *value) {
+                return value;
             }];
         });
         
@@ -27,13 +27,9 @@ describe(@"NGRValidationRule", ^{
         it(@"should have proper name.", ^{
             expect(sut.name).to.equal(@"Fixture Name");
         });
-        
+
         it(@"when expected value is given, should block return expected value.", ^{
-            expect(sut.validationBlock(NGRErrorNoone)).to.equal(NGRErrorNoone);
-        });
-        
-        it(@"when other value than expected is given, should block return expected value.", ^{
-            expect(sut.validationBlock(NGRErrorNoone)).toNot.equal(NGRErrorTooBig);
+            expect(sut.validationBlock(@"Fixture Block Parameter")).to.equal(@"Fixture Block Parameter");
         });
     });
 });

@@ -29,7 +29,7 @@ sharedExamplesFor(NGRMultiplePropertiesBehavior, ^(NSDictionary *data) {
         NSError *error; NSArray *array;
         
         // 1st
-        BOOL localSuccess = [NGRValidator validateModel:model error:&error usingRules:rules];
+        BOOL localSuccess = [NGRValidator validateModel:model error:&error delegate:nil rules:rules];
         
         if (success) {
             expect(localSuccess).to.beTruthy();
@@ -40,7 +40,7 @@ sharedExamplesFor(NGRMultiplePropertiesBehavior, ^(NSDictionary *data) {
         }
         
         // 2nd
-        array = [NGRValidator validateModel:model usingRules:rules];
+        array = [NGRValidator validateModel:model delegate:nil rules:rules];
         
         if (success) {
             expect(array).to.beNil();
@@ -75,17 +75,17 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             model.value = data[NGRValidValueKey];
             
             // 1st
-            success = [NGRValidator validateModel:model error:&error usingRules:rules];
+            success = [NGRValidator validateModel:model error:&error delegate:nil rules:rules];
             expect(success).to.beTruthy();
             expect(error).to.beNil();
             
             // 2nd
-            array = [NGRValidator validateModel:model usingRules:rules];
+            array = [NGRValidator validateModel:model delegate:nil rules:rules];
             expect(array).to.beNil();
             
             // 3rd
             error = nil;
-            error = [NGRValidator validateValue:model.value named:@"value" usingRules:^(NGRPropertyValidator *validator) {
+            error = [NGRValidator validateValue:model.value named:@"value" rules:^(NGRPropertyValidator *validator) {
                 [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
             }];
@@ -98,13 +98,13 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             model.value = data[NGRInvalidValueKey];
             
             // 1st
-            success = [NGRValidator validateModel:model error:&error usingRules:rules];
+            success = [NGRValidator validateModel:model error:&error delegate:nil rules:rules];
             expect(success).to.beFalsy();
             expect(error).toNot.beNil();
             expect(error.localizedDescription).to.contain(msg);
             
             // 2nd
-            array = [NGRValidator validateModel:model usingRules:rules];
+            array = [NGRValidator validateModel:model delegate:nil rules:rules];
             expect(array).to.haveCountOf([data[NGRErrorCountKey] integerValue]);
             for (NSError *error in array) {
                 expect(error.localizedDescription).to.contain(msg);
@@ -112,7 +112,7 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             
             // 3rd
             error = nil;
-            error = [NGRValidator validateValue:model.value named:@"value" usingRules:^(NGRPropertyValidator *validator) {
+            error = [NGRValidator validateValue:model.value named:@"value" rules:^(NGRPropertyValidator *validator) {
                 [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
             }];
@@ -149,12 +149,12 @@ sharedExamplesFor(NGRScenarioSuccessBehavior, ^(NSDictionary *data) {
             model.value = data[NGRValidValueKey];
             
             // 1st
-            success = [NGRValidator validateModel:model error:&error scenario:scenario usingRules:rules];
+            success = [NGRValidator validateModel:model error:&error scenario:scenario delegate:nil rules:rules];
             expect(success).to.beTruthy();
             expect(error).to.beNil();
             
             // 2nd
-            array = [NGRValidator validateModel:model scenario:scenario usingRules:rules];
+            array = [NGRValidator validateModel:model scenario:scenario delegate:nil rules:rules];
             expect(array).to.beNil();
         });
     });
@@ -187,13 +187,13 @@ sharedExamplesFor(NGRScenarioFailureBehavior, ^(NSDictionary *data) {
             model.value = data[NGRValidValueKey];
             
             // 1st
-            success = [NGRValidator validateModel:model error:&error scenario:scenario usingRules:rules];
+            success = [NGRValidator validateModel:model error:&error scenario:scenario delegate:nil rules:rules];
             expect(success).to.beFalsy();
             expect(error).toNot.beNil();
             expect(error.localizedDescription).to.contain(msg);
             
             // 2nd
-            array = [NGRValidator validateModel:model scenario:scenario usingRules:rules];
+            array = [NGRValidator validateModel:model scenario:scenario delegate:nil rules:rules];
             expect(array).to.haveCountOf([data[NGRErrorCountKey] integerValue]);
             for (NSError *error in array) {
                 expect(error.localizedDescription).to.contain(msg);
@@ -222,15 +222,15 @@ sharedExamplesFor(NGRAssertBehavior, ^(NSDictionary *data) {
         
     it(failureDescriptor, ^{
         expect(^{
-            [NGRValidator validateModel:model error:&error usingRules:rules];
+            [NGRValidator validateModel:model error:&error delegate:nil rules:rules];
         }).to.raise(NSInternalInconsistencyException);
         
         expect(^{
-            [NGRValidator validateModel:model usingRules:rules];
+            [NGRValidator validateModel:model delegate:nil rules:rules];
         }).to.raise(NSInternalInconsistencyException);
         
         expect(^{
-            [NGRValidator validateValue:model.value named:nil usingRules:^(NGRPropertyValidator *validator) {
+            [NGRValidator validateValue:model.value named:nil rules:^(NGRPropertyValidator *validator) {
                 [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
             }];

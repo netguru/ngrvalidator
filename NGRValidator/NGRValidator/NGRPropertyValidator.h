@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "NGRMessaging.h"
 #import "NGRMessages.h"
+#import "NGRConstants.h"
 
 extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
@@ -25,6 +28,9 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  Name of validated property.
  */
 @property (strong, nonatomic, readonly) NSString *property;
+
+#warning add description
+@property (weak, nonatomic) id<NGRMessaging> delegate;
 
 /**
  * Localized name of validated property. Used in localized description of error if has been set. (default: nil).

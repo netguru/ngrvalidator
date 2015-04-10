@@ -9,14 +9,14 @@
 #import "NGRPropertyValidator+Syntax.h"
 #import "NSString+NGRValidator.h"
 
-typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
+typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
 
 @implementation NGRPropertyValidator (Syntax)
 
 #pragma mark - Rules
 
 - (void)validateSyntaxWithName:(NSString *)name block:(NGRSyntaxValidationBlock)block {
-    [self validateClass:[NSString class] withName:name validationBlock:^NGRError(NSString *value) {
+    [self validateClass:[NSString class] withName:name validationBlock:^NGRMsgKey *(NSString *value) {
         return block(value);
     }];
 }
@@ -26,18 +26,18 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
         
         switch (aSyntax) {
             case NGRSyntaxEmail:
-                [self validateSyntaxWithName:@"syntax: email" block:^NGRError(NSString *string) {
-                    return [string ngr_isEmail] ? NGRErrorNoone : NGRErrorNotEmail;
+                [self validateSyntaxWithName:@"syntax: email" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isEmail] ? nil : MSGNotEmail;
                 }]; break;
                 
             case NGRSyntaxName:
-                [self validateSyntaxWithName:@"syntax: name" block:^NGRError(NSString *string) {
-                    return [string ngr_isName] ? NGRErrorNoone : NGRErrorNotName;
+                [self validateSyntaxWithName:@"syntax: name" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isName] ? nil : MSGNotName;
                 }]; break;
                 
             case NGRSyntaxHTTP:
-                [self validateSyntaxWithName:@"syntax: URL" block:^NGRError(NSString *string) {
-                    return [string ngr_isURL] ? NGRErrorNoone : NGRErrorNotHTTP;
+                [self validateSyntaxWithName:@"syntax: URL" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isURL] ? nil : MSGNotHttp;
                 }]; break;
                 
             default:
@@ -50,10 +50,10 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSString *, NSRegularExpressionOptions))regex {
     return ^(NSString *pattern, NSRegularExpressionOptions options) {
-        [self validateSyntaxWithName:@"regex" block:^NGRError(NSString *string) {
+        [self validateSyntaxWithName:@"regex" block:^NGRMsgKey *(NSString *string) {
             NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:options error:nil];
             NSUInteger matches = [regex numberOfMatchesInString:string options:0 range:NSMakeRange(0, string.length)];
-            return (matches == 1) ? NGRErrorNoone : NGRErrorWrongRegex;
+            return (matches == 1) ? nil : MSGWrongRegex;
         }];
         return self;
     };
@@ -63,29 +63,29 @@ typedef NGRError (^NGRSyntaxValidationBlock)(NSString *string);
 
 - (NGRPropertyValidator *(^)(NSString *))msgWrongRegex {
     return ^(NSString *message) {
-        [self.messages setMessage:message forError:NGRErrorWrongRegex];
+        [self.messages setMessage:message forKey:MSGWrongRegex];
         return self;
     };
 }
 
 - (NGRPropertyValidator *(^)(NGRSyntax, NSString *))msgWrongSyntax {
     return ^(NGRSyntax aSyntax, NSString *message) {
-        [self.messages setMessage:message forError:[self errorFromSyntax:aSyntax]];
+        [self.messages setMessage:message forKey:[self errorFromSyntax:aSyntax]];
         return self;
     };
 }
 
-- (NGRError)errorFromSyntax:(NGRSyntax)syntax {
+- (NGRMsgKey *)errorFromSyntax:(NGRSyntax)syntax {
     switch (syntax) {
         case NGRSyntaxEmail:
-            return NGRErrorNotEmail;
+            return MSGNotEmail;
         case NGRSyntaxName:
-            return NGRErrorNotName;
+            return MSGNotName;
         case NGRSyntaxHTTP:
-            return NGRErrorNotHTTP;
+            return MSGNotHttp;
             
         default:
-            return NGRErrorNoone;
+            return nil;
     }
 }
 

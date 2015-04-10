@@ -6,15 +6,15 @@
 //
 
 #import "NGRValidator.h"
+
 #import "NSArray+NGRValidator.h"
 #import "NSObject+NGRRuntime.h"
-#import "NSArray+NGRValidator.h"
 
 @implementation NGRValidator
 
 #pragma mark - Public
 
-+ (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {
++ (NSError *)validateValue:(NSObject *)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules {
     
     if (rules == NULL) {
         return nil;
@@ -25,13 +25,13 @@
     return [propertyValidator simpleValidationOfValue:value];
 }
 
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     
     if (rules == NULL) {
         return NO;
     }
     
-    NSError *validationError = [self validateModel:model tillFirstError:YES usingRules:rules scenario:scenario];
+    NSError *validationError = [self validateModel:model tillFirstError:YES delegate:delegate rules:rules scenario:scenario];
     if (validationError) {
         if (error && *error == NULL) {
             *error = validationError;
@@ -41,27 +41,27 @@
     return YES;
 }
 
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error usingRules:(NSArray *(^)())rules {
-    return [self validateModel:model error:error scenario:nil usingRules:rules];
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
+    return [self validateModel:model error:error scenario:nil delegate:delegate rules:rules];
 }
 
-+ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
++ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     
     if (rules == NULL) {
         return nil;
     }
     
-    NSArray *array = [self validateModel:model tillFirstError:NO usingRules:rules scenario:scenario];
+    NSArray *array = [self validateModel:model tillFirstError:NO delegate:delegate rules:rules scenario:scenario];
     return ([array count] == 0) ? nil : array;
 }
 
-+ (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules {
-    return [self validateModel:model scenario:nil usingRules:rules];
++ (NSArray *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
+    return [self validateModel:model scenario:nil delegate:delegate rules:rules];
 }
 
 #pragma mark - Private
 
-+ (id)validateModel:(NSObject *)model tillFirstError:(BOOL)tillFirstError usingRules:(NSArray *(^)())rules scenario:(NSString *)scenario {
++ (id)validateModel:(NSObject *)model tillFirstError:(BOOL)tillFirstError delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules scenario:(NSString *)scenario {
     
     NSArray *array = [rules() ngr_sortedArrayByPriority];
     NSArray *properties = [model ngr_properties];
@@ -73,6 +73,7 @@
     
     for (NGRPropertyValidator *validator in array) {
         validator.scenario = scenario;
+        validator.delegate = delegate;
         
         [self checkPresenceOfPropertyInValidator:validator model:model];
         
@@ -104,6 +105,30 @@
     @catch (NSException *exception) {
         NSAssert(NO, @"An exception did appear during validation of %@ parameter from %@ model. Did you remember to use parentheses in block call?", validator.property, [model class]);
     }
+}
+
+@end
+
+@implementation NGRValidator (Deprecated)
+
++ (NSError *)validateValue:(NSObject *)value named:(NSString *)name usingRules:(void (^)(NGRPropertyValidator *validator))rules {
+    return [self validateValue:value named:name rules:rules];
+}
+
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error usingRules:(NSArray *(^)())rules {
+    return [self validateModel:model error:error delegate:nil rules:rules];
+}
+
++ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
+    return [self validateModel:model error:error scenario:scenario delegate:nil rules:rules];
+}
+
++ (NSArray *)validateModel:(NSObject *)model usingRules:(NSArray *(^)())rules {
+    return [self validateModel:model delegate:nil rules:rules];
+}
+
++ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules {
+    return [self validateModel:model scenario:scenario delegate:nil rules:rules];
 }
 
 @end

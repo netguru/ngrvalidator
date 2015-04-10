@@ -23,11 +23,11 @@ describe(@"NGRMessages", ^{
     context(@"when setting new message", ^{
         
         beforeEach(^{
-            [sut setMessage:@"Fixture Message" forError:NGRErrorTooLong];
+            [sut setMessage:@"Fixture Message" forKey:MSGTooLong];
         });
         
         it(@"should new message be set properly.", ^{
-            expect([sut messageForError:NGRErrorTooLong]).to.equal(@"Fixture Message");
+            expect([sut messageForKey:MSGTooLong]).to.equal(@"Fixture Message");
         });
     });
 });

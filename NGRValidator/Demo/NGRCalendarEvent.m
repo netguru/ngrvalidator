@@ -32,7 +32,7 @@
 - (NSError *)validate {
     
     NSError *error = nil;
-    BOOL success = [NGRValidator validateModel:self error:&error usingRules:^NSArray *{
+    BOOL success = [NGRValidator validateModel:self error:&error delegate:nil rules:^NSArray *{
         return @[validate(@"title").is.required().to.have.minLength(6).msgTooShort(@"should have at least 6 signs"),
                  validate(@"creatorLastName").is.required().to.have.lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
                  validate(@"email").is.required().to.have.syntax(NGRSyntaxEmail),
