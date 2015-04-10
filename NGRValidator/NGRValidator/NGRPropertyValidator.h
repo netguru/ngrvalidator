@@ -29,11 +29,13 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  */
 @property (strong, nonatomic, readonly) NSString *property;
 
-#warning add description
+/**
+ * The delegate that responds to NGRMessaging protocol methods.
+ */
 @property (weak, nonatomic) id<NGRMessaging> delegate;
 
 /**
- * Localized name of validated property. Used in localized description of error if has been set. (default: nil).
+ * Localized name of validated property. Used in error description if has been set. (default: nil).
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^localizedName)(NSString *name);
 
@@ -43,7 +45,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^required)();
 
 /**
- *  Whether the validated property can be empty (means its length or count is greater than 0) when is required. (default: cannot be empty)
+ *  Whether the validated property can be empty (means it's length or count is greater than 0) when is required. (default: cannot be empty)
  *  When is not allowed to be empty (by default), validator will treat empty property same as nil.
  *
  *  NOTICE: Setting allowEmpty() works only when property is also required. Otherwise has no effect.
@@ -53,7 +55,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
 /**
  *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
- *  Default: All property validators have same priority and will be invoked in order of NSArray order returned in usingRules: block.
+ *  Default: All property validators have same priority and will be invoked in order of NSArray order returned in rules: block.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^order)(NSUInteger);
 
@@ -69,7 +71,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 @property (strong, nonatomic, readonly) NSMutableArray *scenarios;
 
 /**
- *  Describes scenario used during validation process.
+ *  Scenario used during validation process.
  */
 @property (strong, nonatomic) NSString *scenario;
 
@@ -84,7 +86,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 @property (strong, nonatomic, readonly) NSMutableArray *validationRules;
 
 /**
- * Dictionary of error - message pairs.
+ *  Validation error messages handler.
  */
 @property (strong, nonatomic, readonly) NGRMessages *messages;
 
@@ -107,8 +109,8 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  *  Adds a validator block to validators. Also checks if validated property is kind of given class.
  *
- *  @param aClass           The class which given property should be. If nil, class validation will be skipped
- *  @param name             The name of validator block
+ *  @param aClass           The class which given property should be. If nil, class validation will be skipped.
+ *  @param name             The name of validator block.
  *  @param validationBlock  The validation block invoked during validation proccess.
  */
 - (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block;

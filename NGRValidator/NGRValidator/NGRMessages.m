@@ -72,4 +72,8 @@
     [self setMessage:@"isn't between given dates." forKey:MSGNotBetweenDates];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@: %p, number of messages: %lu>", NSStringFromClass([self class]), self, self.messages.count];
+}
+
 @end

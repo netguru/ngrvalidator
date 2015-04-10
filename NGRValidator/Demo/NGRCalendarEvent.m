@@ -9,6 +9,10 @@
 #import "NGRCalendarEvent.h"
 #import "NGRValidator.h"
 
+@interface NGRCalendarEvent () <NGRMessaging>
+
+@end
+
 @implementation NGRCalendarEvent
 
 - (instancetype)init {
@@ -32,14 +36,14 @@
 - (NSError *)validate {
     
     NSError *error = nil;
-    BOOL success = [NGRValidator validateModel:self error:&error delegate:nil rules:^NSArray *{
+    BOOL success = [NGRValidator validateModel:self error:&error delegate:self rules:^NSArray *{
         return @[validate(@"title").is.required().to.have.minLength(6).msgTooShort(@"should have at least 6 signs"),
-                 validate(@"creatorLastName").is.required().to.have.lengthRange(4, 30).syntax(NGRSyntaxName).localizedName(@"Lastname").msgTooShort(@"should have at least 4 signs").msgTooLong(@"should have at most 30 signs."),
+                 validate(@"creatorLastName").is.required().to.have.lengthRange(4, 30).syntax(NGRSyntaxName),
                  validate(@"email").is.required().to.have.syntax(NGRSyntaxEmail),
                  validate(@"url").should.have.syntax(NGRSyntaxHTTP),
-                 validate(@"startDate").is.required().to.be.laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate).localizedName(@"Event start date").msgNotLaterThanOrEqualTo(@"cannot be earlier than now.").msgNotEarlierThan(@"cannot be later than it's end."),
-                 validate(@"endDate").is.required().to.be.laterThan(self.startDate).localizedName(@"Event end date").msgNotLaterThan(@"cannot be earlier than it's start"),
-                 validate(@"termsOfUse").is.required().to.beTrue().msgNotTrue(@"You have to accept terms of use.").localizedName(@"")];
+                 validate(@"startDate").is.required().to.be.laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate),
+                 validate(@"endDate").is.required().to.be.laterThan(self.startDate),
+                 validate(@"termsOfUse").is.required().to.beTrue()];
     }];
     
     success ? NSLog(@"Event validation succeed") : NSLog(@"Event validation failed because of an error: %@", error.localizedDescription);
@@ -52,6 +56,24 @@
     
     return [calendar dateFromComponents:dateComponents];;
 }
+
+#pragma mark - NGRMessaging
+
+- (NSDictionary *)validationErrorMessagesByPropertyKey {
+    
+    return @{@"termsOfUse" : @{MSGRequired : @"You have to accept terms of use.",
+                               MSGNotTrue : @"You have to accept terms of use." },
+             
+             @"endDate" : @{MSGNotLaterThan : @"Event end date cannot be earlier than it's start"},
+             
+             @"startDate" : @{MSGNotLaterThanOrEqualTo : @"Event start date cannot be earlier than now.",
+                              MSGNotEarlierThan : @"Event start date cannot be later than it's end."},
+             
+             @"creatorLastName" : @{MSGTooShort : @"Lastname should have at least 4 signs.",
+                                    MSGTooLong : @"Lastname should have at most 30 signs."}};
+}
+
+#pragma mark - Demo specific
 
 /**
  *  For demo purposes:

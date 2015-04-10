@@ -15,7 +15,7 @@
  *  Validates single value with given rules.
  *
  *  @param value The value which will be validated.
- *  @param name  The name of validated value. Passing name here same has effect to .localizedName(NSString *) method from NGRPropertyValidator (invoking this method in rules block is unnecessary).
+ *  @param name  The name of validated value. Passing name here, has same effect as using .localizedName(NSString *) method from NGRPropertyValidator (invoking this method in rules block is unnecessary).
  *  @param rules The rules block which pass prepared validator as an argument ready to apply validation rules.
  *
  *  @return an error if validation will not pass. Otherwise nil.
@@ -25,21 +25,23 @@
 /**
  *  Validates model with given rules. Returns YES when validation succeeded, NO otherwise.
  *
- *  @param model Model within properties are validated.
- *  @param error Validation error with decription, nil when validation will pass.
- *  @param rules An array of validation rules. Every property within a model is validated separately.
+ *  @param model    Model with properties to validate.
+ *  @param error    Validation error with decription, nil when validation will pass.
+ *  @param delegate Allows delegate to customize entire error messages.
+ *  @param rules    An array of validation rules. Every property in model is validated separately.
  *
  *  @return result of validation. YES if validation will pass, NO otherwise.
  */
 + (BOOL)validateModel:(NSObject *)model error:(NSError **)error delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
 
 /**
- *  Validates model with given rules and scenario. Returns YES when validation succeeded, NO otherwise.
+ *  Validates model with given rules. Returns YES when validation succeeded, NO otherwise.
  *
- *  @param model Model within properties are validated.
- *  @param error Validation error with decription, nil when validation will pass.
+ *  @param model    Model with properties to validate.
+ *  @param error    Validation error with decription, nil when validation will pass.
  *  @param scenario The scenario specifying which properties of model should be validated.
- *  @param rules An array of validation rules. Every property within a model is validated separately.
+ *  @param delegate Allows delegate to customize entire error messages.
+ *  @param rules    An array of validation rules. Every property in model is validated separately.
  *
  *  @return result of validation. YES if validation will pass, NO otherwise.
  */
@@ -48,21 +50,23 @@
 /**
  *  Validates model with given rules. Returns empty array when validation succeeded. If not, array will contains errors.
  *
- *  @param model Model within properties are validated.
- *  @param rules An array of validation rules. Every property within a model is validated separately.
+ *  @param model    Model with properties to validate.
+ *  @param delegate Allows delegate to customize entire error messages.
+ *  @param rules    An array of validation rules. Every property within a model is validated separately.
  *
- *  @return an array of errors. Nil if validation will pass, otherwise will contain NSError objects.
+ *  @return Nil if validation will pass, otherwise an array populated with validation errors.
  */
 + (NSArray *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
 
 /**
  *  Validates model with given rules and scenario. Returns empty array when validation succeeded. If not, array will contains errors.
  *
- *  @param model Model within properties are validated.
+ *  @param model    Model with properties to validate.
  *  @param scenario The scenario specifying which properties of model should be validated.
- *  @param rules An array of validation rules. Every property within a model is validated separately.
+ *  @param delegate Allows delegate to customize entire error messages.
+ *  @param rules    An array of validation rules. Every property within a model is validated separately.
  *
- *  @return an array of errors. Nil if validation will pass, otherwise will contain NSError objects.
+ *  @return Nil if validation will pass, otherwise an array populated with validation errors.
  */
 + (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
 

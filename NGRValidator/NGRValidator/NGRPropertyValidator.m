@@ -19,8 +19,6 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 
 @interface NGRPropertyValidator ()
 
-@property (strong, nonatomic, readwrite) NSMutableArray *validationRules;
-@property (strong, nonatomic, readwrite) NGRMessages *messages;
 @property (strong, nonatomic, readwrite) NSMutableArray *scenarios;
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;

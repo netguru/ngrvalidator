@@ -12,6 +12,21 @@
 
 @required
 
+/**
+ *  Asks delegate for error - messages dictionary for appropriate property key.
+ *
+ *  @discussion If any error will be encountered by validator, it will ask delegate first for error description.
+ *              If delegate will be nil or validator will not find message for expected error key and property name,
+ *              validator will use user defined error messages (given in rules block) or default one prepared by library.
+ *
+ *  Syntax example:
+ *                         taken from NGRConstants.h
+ *                         v
+ *  {@"propertyName" : @{NGRMsgKey : @"Description of an error for given NGRMsgKey"}}
+ *       ^
+ *       property name
+ *
+ */
 - (NSDictionary *)validationErrorMessagesByPropertyKey;
 
 @end

@@ -19,4 +19,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@: %p, name: %@, block: %@>", NSStringFromClass([self class]), self, self.name, self.validationBlock];
+}
+
 @end
