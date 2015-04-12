@@ -41,7 +41,7 @@
 - (void)setupMessages {
     
     //NGPropertyValidator + NSObject
-    [self setMessage:@"is required." forKey:MSGRequired];
+    [self setMessage:@"is required." forKey:MSGNil];
     
     //NGPropertyValidator + NSString
     [self setMessage:@"is too long." forKey:MSGTooLong];
@@ -61,7 +61,7 @@
     //NGPropertyValidator + Syntax
     [self setMessage:@"has invalid syntax." forKey:MSGNotEmail];
     [self setMessage:@"should contain only letters." forKey:MSGNotName];
-    [self setMessage:@"has invalid syntax." forKey:MSGNotHttp];
+    [self setMessage:@"has invalid syntax." forKey:MSGNotHTTP];
     [self setMessage:@"do not match pattern." forKey:MSGWrongRegex];
     
     //NGPropertyValidator + Compare

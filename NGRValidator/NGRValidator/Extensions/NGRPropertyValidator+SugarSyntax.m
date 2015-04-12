@@ -50,10 +50,6 @@
     return self;
 }
 
-- (NGRPropertyValidator *)when {
-    return self;
-}
-
 - (NGRPropertyValidator *)should {
     return self;
 }

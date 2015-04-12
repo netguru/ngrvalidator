@@ -11,7 +11,7 @@
 @implementation NGRMsgKey @end
 
 //NGRPropertyValidator + NSObject
-NGRMsgKey *const MSGRequired = (NGRMsgKey *)@"NGRRequiredMessage";
+NGRMsgKey *const MSGNil = (NGRMsgKey *)@"NGRNilMessage";
 
 //NGRPropertyValidator + NSString
 NGRMsgKey *const MSGTooLong = (NGRMsgKey *)@"NGRTooLongMessage";
@@ -31,7 +31,7 @@ NGRMsgKey *const MSGNotTrue = (NGRMsgKey *)@"NGRNotTrueMessage";
 //NGRPropertyValidator + Syntax
 NGRMsgKey *const MSGNotEmail = (NGRMsgKey *)@"NGRNotEmailMessage";
 NGRMsgKey *const MSGNotName = (NGRMsgKey *)@"NGRNotNameMessage";
-NGRMsgKey *const MSGNotHttp = (NGRMsgKey *)@"NGRNotHttpMessage";
+NGRMsgKey *const MSGNotHTTP = (NGRMsgKey *)@"NGRNotHttpMessage";
 NGRMsgKey *const MSGWrongRegex = (NGRMsgKey *)@"NGRWrongRegexMessage";
 
 //NGRPropertyValidator + NSDate

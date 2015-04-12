@@ -99,7 +99,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
             
             BOOL doesValueExist = value && ![value isKindOfClass:[NSNull class]];
             if (!doesValueExist || [value ngr_isEmpty]) {
-                return MSGRequired;
+                return MSGNil;
             }
             return nil;
         }];
@@ -161,7 +161,8 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
     }
     
     NSString *propertyName = (self.localizedPropertyName) ?: [self.property ngr_stringByCapitalizeFirstLetter];
-    NSString *description = [NSString stringWithFormat:@"%@ %@", propertyName, [self.messages messageForKey:key]];
+    NSString *space = propertyName.length > 0 ? @" " : @"";
+    NSString *description = [NSString stringWithFormat:@"%@%@%@", propertyName, space, [self.messages messageForKey:key]];
     return [NSError ngr_errorWithDescription:description];
 }
 

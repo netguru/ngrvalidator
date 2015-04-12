@@ -37,7 +37,7 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
                 
             case NGRSyntaxHTTP:
                 [self validateSyntaxWithName:@"syntax: URL" block:^NGRMsgKey *(NSString *string) {
-                    return [string ngr_isURL] ? nil : MSGNotHttp;
+                    return [string ngr_isURL] ? nil : MSGNotHTTP;
                 }]; break;
                 
             default:
@@ -82,7 +82,7 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
         case NGRSyntaxName:
             return MSGNotName;
         case NGRSyntaxHTTP:
-            return MSGNotHttp;
+            return MSGNotHTTP;
             
         default:
             return nil;

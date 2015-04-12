@@ -42,8 +42,6 @@
 
 @property (nonatomic, strong, readonly) NGRPropertyValidator *with;
 
-@property (nonatomic, strong, readonly) NGRPropertyValidator *when;
-
 @property (nonatomic, strong, readonly) NGRPropertyValidator *should;
 
 @end

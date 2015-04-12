@@ -60,10 +60,6 @@ describe(@"Sugar syntax", ^{
         expect(sut.with).to.beIdenticalTo(sut);
     });
     
-    it(@"when using `when`, should return same property validator.", ^{
-        expect(sut.when).to.beIdenticalTo(sut);
-    });
-    
     it(@"when using `should`, should return same property validator.", ^{
         expect(sut.should).to.beIdenticalTo(sut);
     });

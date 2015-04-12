@@ -61,7 +61,7 @@
 
 - (NSDictionary *)validationErrorMessagesByPropertyKey {
     
-    return @{@"termsOfUse" : @{MSGRequired : @"You have to accept terms of use.",
+    return @{@"termsOfUse" : @{MSGNil : @"You have to accept terms of use.",
                                MSGNotTrue : @"You have to accept terms of use." },
              
              @"endDate" : @{MSGNotLaterThan : @"Event end date cannot be earlier than it's start"},
@@ -82,7 +82,6 @@
 
 - (void)setTitle:(NSString *)title {
     _title = title;
-    
     if (self.isImmediatelyValidationEnabled) [self validate];
 }
 

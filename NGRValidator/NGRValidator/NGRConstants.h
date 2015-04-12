@@ -11,7 +11,7 @@
 @interface NGRMsgKey : NSString @end
 
 //NGRPropertyValidator + NSObject
-extern NGRMsgKey *const MSGRequired;
+extern NGRMsgKey *const MSGNil;
 
 //NGRPropertyValidator + NSString
 extern NGRMsgKey *const MSGTooLong;
@@ -32,7 +32,7 @@ extern NGRMsgKey *const MSGNotTrue;
 //NGRPropertyValidator + Syntax
 extern NGRMsgKey *const MSGNotEmail;
 extern NGRMsgKey *const MSGNotName;
-extern NGRMsgKey *const MSGNotHttp;
+extern NGRMsgKey *const MSGNotHTTP;
 extern NGRMsgKey *const MSGWrongRegex;
 
 //NGRPropertyValidator + NSDate
