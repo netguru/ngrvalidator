@@ -58,13 +58,12 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 
     [self addValidatonBlockWithName:name block:^NGRMsgKey *(id value) {
         
-        BOOL isRequiredRule = [name isEqualToString:@"required"];
-        BOOL isValueAllowedToBeEmpty = weakSelf.allowEmptyProperty && [value ngr_isCountable] && isRequiredRule;
+        BOOL isValueAllowedToBeEmpty = weakSelf.allowEmptyProperty && [value ngr_isCountable] && [value ngr_isEmpty];
         BOOL doesValueExistAndIsNotRequired = !weakSelf.isRequired && !value;
         
         if (value && aClass && ![value isKindOfClass:aClass]) {
             return NGRErrorUnexpectedClass;
-        } else if (doesValueExistAndIsNotRequired || isValueAllowedToBeEmpty) {
+        } else if (isValueAllowedToBeEmpty || doesValueExistAndIsNotRequired) {
             return nil;
         }
         return block(value);
@@ -128,7 +127,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
         
         NGRMsgKey *errorKey = validationRule.validationBlock(value);
         
-        if (errorKey == NGRErrorUnexpectedClass) {
+        if ([errorKey isEqualToString:NGRErrorUnexpectedClass]) {
             NSAssert(NO, @"Value \"%@\" for \"%@\" parameter is wrong kind of class", value, self.property);
             
         } else if (errorKey) {

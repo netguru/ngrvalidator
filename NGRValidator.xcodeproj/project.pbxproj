@@ -203,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				5E62ACB51AD7414F001976CE /* Headers */,
+				5E62ACAF1AD738BA001976CE /* NGRConstants.h */,
+				5E62ACB01AD738BA001976CE /* NGRConstants.m */,
 				5E0019591A498414002ED961 /* NGRValidator.h */,
 				5E00195A1A498414002ED961 /* NGRValidator.m */,
 				5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */,
@@ -325,8 +327,6 @@
 		5E62ACB51AD7414F001976CE /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				5E62ACAF1AD738BA001976CE /* NGRConstants.h */,
-				5E62ACB01AD738BA001976CE /* NGRConstants.m */,
 				5E62ACB31AD73EAC001976CE /* NGRValidatorDeprecated.h */,
 				5E62ACB41AD74069001976CE /* NGRValidatorShorthand.h */,
 				5E62ACB61AD741B3001976CE /* NGRValidatorUmbrellaHeader.h */,

@@ -21,6 +21,13 @@ describe(@"NGRValidatorSpec", ^{
     
     /** Emptiness and requirements test: **/
     
+    testDescriptor(@"required validator", @"any value with count selector", @"empty value");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@"foo", @"", 1, ^(NGRPropertyValidator *validator) {
+            return validator.required().msgNil(msg);
+        });
+    });
+    
     testDescriptor(@"required validator", @"any value with count selector", @"nil");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@"foo", nil, 1, ^(NGRPropertyValidator *validator) {
@@ -35,6 +42,20 @@ describe(@"NGRValidatorSpec", ^{
         });
     });
     
+    testDescriptor(@"allowEmpty validator", @"empty value with count selector", @"nil");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(nil, NGRSKIP, 1, ^(NGRPropertyValidator *validator) {
+            return validator.minLength(4).msgTooShort(msg).allowEmpty();
+        });
+    });
+
+    testDescriptor(@"required validator", @"any value with length selector", @"nil");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@[@"foo"], @[], 1, ^(NGRPropertyValidator *validator) {
+            return validator.required().msgNil(msg);
+        });
+    });
+
     testDescriptor(@"required validator", @"any value with length selector", @"nil");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@[@"foo"], nil, 1, ^(NGRPropertyValidator *validator) {

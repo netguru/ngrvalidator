@@ -45,10 +45,9 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^required)();
 
 /**
- *  Whether the validated property can be empty (means it's length or count is greater than 0) when is required. (default: cannot be empty)
- *  When is not allowed to be empty (by default), validator will treat empty property same as nil.
+ *  Whether the validated property can be empty (means it's length or count is equal to 0). By default cannot be empty.
+ *  When is allowed to be empty, validator will pass validation when property will be empty. Works for both required() and non-required rules.
  *
- *  NOTICE: Setting allowEmpty() works only when property is also required. Otherwise has no effect.
  *  Refers to NSString, NSAttributedString, NSData, NSArray, NSSet, NSDictionary (and their mutable counterparts).
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^allowEmpty)();

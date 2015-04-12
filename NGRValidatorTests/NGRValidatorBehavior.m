@@ -74,6 +74,10 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             success = NO;
             model.value = data[NGRValidValueKey];
             
+            if ([model.value isKindOfClass:[NSString class]] && [model.value isEqualToString:NGRSKIP]) {
+                return;
+            }
+            
             // 1st
             success = [NGRValidator validateModel:model error:&error delegate:nil rules:rules];
             expect(success).to.beTruthy();
@@ -96,6 +100,10 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             
             success = YES;
             model.value = data[NGRInvalidValueKey];
+            
+            if ([model.value isKindOfClass:[NSString class]] && [model.value isEqualToString:NGRSKIP]) {
+                return;
+            }
             
             // 1st
             success = [NGRValidator validateModel:model error:&error delegate:nil rules:rules];

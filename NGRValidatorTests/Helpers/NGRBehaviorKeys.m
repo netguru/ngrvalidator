@@ -26,6 +26,7 @@ NSString *validatorDescriptor;
 NSString *successDescriptor;
 NSString *failureDescriptor;
 NSString *const msg = @"foo";
+NSString *const NGRSKIP = @"NGRSKIP";
 
 NSDictionary * (^wrapData)(id, id, NSInteger, NGRPropertyValidatorBlock) = ^(id validValue, id invalidValue, NSInteger errorCount, NGRPropertyValidatorBlock block) {
     

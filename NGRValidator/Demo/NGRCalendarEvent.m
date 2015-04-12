@@ -40,7 +40,7 @@
         return @[validate(@"title").is.required().to.have.minLength(6).msgTooShort(@"should have at least 6 signs"),
                  validate(@"creatorLastName").is.required().to.have.lengthRange(4, 30).syntax(NGRSyntaxName),
                  validate(@"email").is.required().to.have.syntax(NGRSyntaxEmail),
-                 validate(@"url").should.have.syntax(NGRSyntaxHTTP),
+                 validate(@"url").should.have.syntax(NGRSyntaxHTTP).allowEmpty(),
                  validate(@"startDate").is.required().to.be.laterThanOrEqualTo([self currentDateWithoutSeconds]).earlierThan(self.endDate),
                  validate(@"endDate").is.required().to.be.laterThan(self.startDate),
                  validate(@"termsOfUse").is.required().to.beTrue()];

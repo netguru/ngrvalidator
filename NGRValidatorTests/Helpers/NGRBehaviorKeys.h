@@ -12,6 +12,7 @@ typedef NGRPropertyValidator * (^NGRPropertyValidatorBlock)(NGRPropertyValidator
 
 // helpers:
 extern NSString *const msg;
+extern NSString *const NGRSKIP;
 extern NSString *validatorDescriptor;
 extern NSString *successDescriptor;
 extern NSString *failureDescriptor;
