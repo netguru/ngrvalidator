@@ -8,13 +8,13 @@
 Pod::Spec.new do |s|
 
   s.name         = "ngrvalidator"
-  s.version      = "0.4.2"
-  s.summary      = "Simple validator for iOS."
+  s.version      = "1.0.0"
+  s.summary      = "Centralized and comprehensive validator for iOS"
 
-  s.description  = "NGRValidator allows you to validate your data in way you want! It's easy to read (even via non-developers), centralized and complex solution to validate your model just in few lines of code!"
+  s.description  = "NGRValidator is an Objective-C 3rd party library for iOS. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any Objective-C model in just a few lines of code."
 
   s.homepage      = "https://github.com/netguru/ngrvalidator"
-  s.license       = { :type => 'MIT', :file => 'LICENSE.md' }
+  s.license       = { :type => 'MIT', :file => 'MD/LICENSE.md' }
 
   s.authors       = {'Patryk Kaczmarek' => 'patryk.kaczmarek@netguru.pl'}
   s.source        = { :git => 'https://github.com/netguru/ngrvalidator.git', :tag => s.version.to_s }

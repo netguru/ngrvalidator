@@ -7,6 +7,7 @@
 //
 
 #import "NGRPropertyValidator.h"
+#import <UIKit/UIKit.h>
 
 @interface NGRPropertyValidator (NSNumber)
 
@@ -15,22 +16,22 @@
 /**
  *  Validates lower limit of NSNumber (inclusive).
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^min)(float min);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^min)(CGFloat min);
 
 /**
  *  Validates upper limit of NSNumber (inclusive).
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^max)(float max);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^max)(CGFloat max);
 
 /**
  *  Validates minimum and maximum value of NSSNumber (inclusive).
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^range)(float min, float max);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^range)(CGFloat min, CGFloat max);
 
 /**
  *  Validates exact value of NSNumber.
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^exact)(float exact);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^exact)(CGFloat exact);
 
 /**
  *  Validates if NSNumber represents false status.

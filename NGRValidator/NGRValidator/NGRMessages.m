@@ -73,7 +73,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, number of messages: %lu>", NSStringFromClass([self class]), self, self.messages.count];
+    return [NSString stringWithFormat:@"<%@: %p, number of messages: %lu>", NSStringFromClass([self class]), self, (unsigned long)self.messages.count];
 }
 
 @end

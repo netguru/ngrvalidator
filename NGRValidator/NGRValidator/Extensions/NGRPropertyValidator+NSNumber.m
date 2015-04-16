@@ -20,8 +20,8 @@ typedef NGRMsgKey *(^NGRNumberValidationBlock)(NSNumber *number);
     }];
 }
 
-- (NGRPropertyValidator *(^)(float))min {
-    return ^(float min) {
+- (NGRPropertyValidator *(^)(CGFloat))min {
+    return ^(CGFloat min) {
         [self validateNumberWithName:@"min" block:^NGRMsgKey *(NSNumber *number) {
             return (number.floatValue < min) ? MSGTooSmall : nil;
         }];
@@ -29,8 +29,8 @@ typedef NGRMsgKey *(^NGRNumberValidationBlock)(NSNumber *number);
     };
 }
 
-- (NGRPropertyValidator *(^)(float))max {
-    return ^(float max) {
+- (NGRPropertyValidator *(^)(CGFloat))max {
+    return ^(CGFloat max) {
         [self validateNumberWithName:@"max" block:^NGRMsgKey *(NSNumber *number) {
             return (number.floatValue > max) ? MSGTooBig : nil;
         }];
@@ -38,8 +38,8 @@ typedef NGRMsgKey *(^NGRNumberValidationBlock)(NSNumber *number);
     };
 }
 
-- (NGRPropertyValidator *(^)(float, float))range {
-    return ^(float min, float max) {
+- (NGRPropertyValidator *(^)(CGFloat, CGFloat))range {
+    return ^(CGFloat min, CGFloat max) {
         [self validateNumberWithName:@"range" block:^NGRMsgKey *(NSNumber *number) {
             if (number.floatValue > MAX(min, max)) {
                 return MSGTooBig;
@@ -52,8 +52,8 @@ typedef NGRMsgKey *(^NGRNumberValidationBlock)(NSNumber *number);
     };
 }
 
-- (NGRPropertyValidator *(^)(float))exact {
-    return ^(float exactFloat) {
+- (NGRPropertyValidator *(^)(CGFloat))exact {
+    return ^(CGFloat exactFloat) {
         [self validateNumberWithName:@"exact" block:^NGRMsgKey *(NSNumber *number) {
             return ([number isEqualToNumber:@(exactFloat)]) ? nil : MSGNotExact;
         }];
