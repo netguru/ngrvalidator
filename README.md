@@ -217,7 +217,7 @@ Property which doesn't conform any scenario, will be validated on every scenario
 
 Although **NGRValidator** contains default error messages for each validation, it is possible to customize them as well. There are two way to achieve this:
 
-##### 1. by using `msg_` prefixed method in `rules` block:
+##### 1. by using `msg` prefixed method in `rules` block:
 
 ```objc
 NGRValidate(@"password").minLength(5).msgTooShort(@"should have at least 5 signs")
@@ -236,6 +236,7 @@ localizedName(NSString *)
     return @{@"password" : 
     		    @{MSGTooShort : @"Password should have at least 5 signs."}
     	    };
+}
 ```
 
 This two methods can be used simultaneously. Order of taking messages is defined as follows: 
@@ -256,7 +257,7 @@ is, are, on, has, have, to, toNot, notTo, be, with, should
 
 Note difference between sugar syntax and regular validation method:
 
-```objc
+```
                           validation method has to be invoke always with parentheses (even if do not take any parameter).
                            v
  validate(@"password").is.required()
@@ -286,7 +287,7 @@ First, thank you for contributing! Here a few guidelines to follow:
 
 Changelog available [here](https://github.com/netguru/ngrvalidator/blob/master/MD/LICENSE.md).
 
-Have a question? Need to expand validation rules or have idea about feature **NGRValidator** should have? Please [open an issue](https://github.com/netguru/ngrvalidator/issues/new)!
+Feel free to contribute, comment, ask, and share your ideas by [opening an issue](https://github.com/netguru/ngrvalidator/issues/new).
 
 ## Author
  Created and maintained by [Patryk Kaczmarek](https://github.com/PatrykKaczmarek).
