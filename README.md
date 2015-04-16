@@ -7,7 +7,7 @@
 [![Version](https://cocoapod-badges.herokuapp.com/v/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
-**NGRValidator** allows to validate the data in the way you want! It's easy to read, centralized and complex solution to validate any objective-c model just in a few lines of code.**NGRValidator** also supports error messages customizations!
+**NGRValidator** is an Objective-C 3rd party library for iOS. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any Objective-C model in just a few lines of code.
 
 ## Why use NGRValidator?
 
@@ -16,10 +16,12 @@ Typically every project which handles user account requires email validation. Le
 ```objc
 NSString *email = <#your string email address#>;
 NSError *error = [NGRValidator validateValue:email named:@"E-mail address" rules:^(NGRPropertyValidator *validator) {
-    validator.required().syntax(NGRSyntaxEmail);
+    // 'is', 'to', 'have' are syntactic sugar and can be safely omitted
+    validator.is.required().to.have.syntax(NGRSyntaxEmail);
 }];
 ```
-Too much code? There are better ways to achieve this? But what if you want to validate password as well? You can use similar method as above. Nevertheless to keep MVC pattern it will be much better to create simple model with validation functionality:
+
+Too much code? There are better ways to achieve this? And, what if you want to validate passwords as well? You can use a similar method to the one above. Nevertheless, in order to keep the MVC pattern, it would be much better to create a simple model with validation functionality:
 
 ```objc
 @interface UserAccount : NSObject

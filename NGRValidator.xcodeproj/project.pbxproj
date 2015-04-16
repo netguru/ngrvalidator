@@ -258,6 +258,15 @@
 			name = "NGRPropertyValidator Extensions";
 			sourceTree = "<group>";
 		};
+		5E574B3D1ADFAF5B004E199C /* NGRPropertyValidator */ = {
+			isa = PBXGroup;
+			children = (
+				5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */,
+				5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */,
+			);
+			name = NGRPropertyValidator;
+			sourceTree = "<group>";
+		};
 		5E5C09E61A498164002D3E72 = {
 			isa = PBXGroup;
 			children = (
@@ -306,10 +315,9 @@
 			children = (
 				5E5C0A0C1A498164002D3E72 /* Supporting Files */,
 				5EEF83C41A8C0C6C00847CE1 /* Helpers */,
-				5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */,
 				5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */,
 				5EEE70EC1AD318C5005D5042 /* NGRMessagesSpec.m */,
-				5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */,
+				5E574B3D1ADFAF5B004E199C /* NGRPropertyValidator */,
 				5E92F29F1A97EFF000BDAEBC /* NGRValidator */,
 			);
 			path = NGRValidatorTests;

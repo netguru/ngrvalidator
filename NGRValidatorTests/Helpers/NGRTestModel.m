@@ -10,13 +10,8 @@
 
 @implementation NGRTestModel
 
-- (instancetype)initWithValue:(id)value secondValue:(id)secondValue {
-    self = [super init];
-    if (self) {
-        _value = value;
-        _secondValue = secondValue;
-    }
-    return self;
+- (NSDictionary *)validationErrorMessagesByPropertyKey {
+    return @{@"value" : @{MSGTooShort : @"Fixture too short message"}};
 }
 
 @end

@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NGRTestModel : NSObject
-
-- (instancetype)initWithValue:(id)value secondValue:(id)secondValue;
+@interface NGRTestModel : NSObject <NGRMessaging>
 
 @property (strong, nonatomic) id value;
 @property (strong, nonatomic) id secondValue;

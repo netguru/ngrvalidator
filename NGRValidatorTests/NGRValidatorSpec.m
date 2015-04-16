@@ -100,24 +100,66 @@ describe(@"NGRValidatorSpec", ^{
         });
     });
     
-    /** 2 properties in model test **/
-    
-    validatorDescriptor = @"when 2 properties do not match eachother, should fail.";
-    itShouldBehaveLike(NGRMultiplePropertiesBehavior, ^{
-        NGRTestModel *sut = [[NGRTestModel alloc] initWithValue:@"12345" secondValue:@"1234567"];
-        NSArray *rules = @[NGRValidate(@"value").required().minLength(5),
-                           NGRValidate(@"secondValue").required().match(sut.value)];
-
-        return wrapDataForMultipleProperties(sut, rules, NO);
-    });
-    
-    validatorDescriptor = @"when 2 properties match eachother, should succeed.";
-    itShouldBehaveLike(NGRMultiplePropertiesBehavior, ^{
-        NGRTestModel *sut = [[NGRTestModel alloc] initWithValue:@"12345" secondValue:@"12345"];
-        NSArray *rules = @[NGRValidate(@"value").required().minLength(5),
-                           NGRValidate(@"secondValue").required().match(sut.value)];
-
-        return wrapDataForMultipleProperties(sut, rules, YES);
+    context(@"", ^{
+        
+        __block NGRTestModel *model;
+        __block NSError *error;
+        
+        beforeEach(^{
+            model = [[NGRTestModel alloc] init];
+            error = nil;
+        });
+        
+        /** 2 properties in model test **/
+        
+        validatorDescriptor = @"when 2 properties do not match eachother, should fail.";
+        itShouldBehaveLike(NGRMultiplePropertiesBehavior, ^{
+            model.value = @"12345";
+            model.secondValue = @"1234567";
+            NSArray *rules = @[NGRValidate(@"value").required().minLength(5),
+                               NGRValidate(@"secondValue").required().match(model.value)];
+            
+            return wrapDataForMultipleProperties(model, rules, NO);
+        });
+        
+        validatorDescriptor = @"when 2 properties match eachother, should succeed.";
+        itShouldBehaveLike(NGRMultiplePropertiesBehavior, ^{
+            model.value = @"12345";
+            model.secondValue = @"12345";
+            NSArray *rules = @[NGRValidate(@"value").required().minLength(5),
+                               NGRValidate(@"secondValue").required().match(model.value)];
+            
+            return wrapDataForMultipleProperties(model, rules, YES);
+        });
+        
+        context(@"when using delegate for error messages", ^{
+            
+            beforeEach(^{
+                model.value = @"foo";
+                model.secondValue = @"foo";
+            });
+            
+            it(@"if property and message exist in dictionary, should return customize message.", ^{
+                [NGRValidator validateModel:model error:&error delegate:model rules:^NSArray *{
+                    return @[NGRValidate(@"value").required().minLength(10)];
+                }];
+                expect(error.localizedDescription).to.equal(@"Fixture too short message");
+            });
+            
+            it(@"if property exist and message doesn't exist in dictionary, should return default message.", ^{
+                [NGRValidator validateModel:model error:&error delegate:model rules:^NSArray *{
+                    return @[NGRValidate(@"value").required().maxLength(1)];
+                }];
+                expect(error.localizedDescription).to.equal(@"Value is too long.");
+            });
+            
+            it(@"if property doesn't exist in dictionary, should return default message.", ^{
+                [NGRValidator validateModel:model error:&error delegate:model rules:^NSArray *{
+                    return @[NGRValidate(@"secondValue").required().maxLength(1)];
+                }];
+                expect(error.localizedDescription).to.equal(@"SecondValue is too long.");
+            });
+        });
     });
 });
 
