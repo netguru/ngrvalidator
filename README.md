@@ -285,7 +285,7 @@ First, thank you for contributing! Here a few guidelines to follow:
 
 ## More Info
 
-Changelog available [here](https://github.com/netguru/ngrvalidator/blob/master/MD/LICENSE.md).
+Changelog available [here](https://github.com/netguru/ngrvalidator/blob/master/MD/Changelog.md).
 
 Feel free to contribute, comment, ask, and share your ideas by [opening an issue](https://github.com/netguru/ngrvalidator/issues/new).
 
