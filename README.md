@@ -289,6 +289,10 @@ Changelog available [here](https://github.com/netguru/ngrvalidator/blob/master/M
 
 Feel free to contribute, comment, ask, and share your ideas by [opening an issue](https://github.com/netguru/ngrvalidator/issues/new).
 
+
+You can also read our blog post [introducing: Open Source NGRValidator](https://netguru.co/blog/open-source-validator).
+
+
 ## Author
  Created and maintained by [Patryk Kaczmarek](https://github.com/PatrykKaczmarek).
 
