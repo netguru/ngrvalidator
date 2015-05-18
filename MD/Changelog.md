@@ -1,5 +1,8 @@
 ## Change Log
 
+### 1.1.0
+- OSX 10.7+ support. 
+
 ### 1.0.0
 
 - Introduced: 
