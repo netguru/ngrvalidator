@@ -38,4 +38,20 @@ typedef NGRMsgKey *(^NGRArrayValidationBlock)(NSArray *array);
     };
 }
 
+#pragma mark - Messaging
+
+- (NGRPropertyValidator *(^)(NSString *))msgNotInclude {
+    return ^(NSString *message) {
+        [self.messages setMessage:message forKey:MSGNotInclude];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSString *))msgNotExclude {
+    return ^(NSString *message) {
+        [self.messages setMessage:message forKey:MSGNotExclude];
+        return self;
+    };
+}
+
 @end
