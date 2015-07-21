@@ -28,7 +28,6 @@ extern NGRMsgKey *const MSGNotExact;
 extern NGRMsgKey *const MSGNotFalse;
 extern NGRMsgKey *const MSGNotTrue;
 
-
 //NGRPropertyValidator + Syntax
 extern NGRMsgKey *const MSGNotEmail;
 extern NGRMsgKey *const MSGNotName;
@@ -41,6 +40,10 @@ extern NGRMsgKey *const MSGNotLaterThan;
 extern NGRMsgKey *const MSGNotEarlierThanOrEqualTo;
 extern NGRMsgKey *const MSGNotLaterThanOrEqualTo;
 extern NGRMsgKey *const MSGNotBetweenDates;
+
+//NGRPropertyValidator + Collections
+extern NGRMsgKey *const MSGNotInclude;
+extern NGRMsgKey *const MSGNotExclude;
 
 typedef NGRMsgKey *(^NGRValidationBlock)(id);
 typedef NSArray *(^NGRRules)();

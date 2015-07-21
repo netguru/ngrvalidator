@@ -70,6 +70,10 @@
     [self setMessage:@"isn't earlier than or equal to compared date." forKey:MSGNotEarlierThanOrEqualTo];
     [self setMessage:@"isn't later than or equal to compared date." forKey:MSGNotLaterThanOrEqualTo];
     [self setMessage:@"isn't between given dates." forKey:MSGNotBetweenDates];
+    
+    //NGPropertyValidator + NSArray
+    [self setMessage:@"doesn't exclude given value." forKey:MSGNotExclude];
+    [self setMessage:@"doesn't include given value." forKey:MSGNotInclude];
 }
 
 - (NSString *)description {
