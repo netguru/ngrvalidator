@@ -45,5 +45,8 @@ extern NGRMsgKey *const MSGNotBetweenDates;
 extern NGRMsgKey *const MSGNotInclude;
 extern NGRMsgKey *const MSGNotExclude;
 
+extern NGRMsgKey *const MSGNotIncludedIn;
+extern NGRMsgKey *const MSGNotExcludedFrom;
+
 typedef NGRMsgKey *(^NGRValidationBlock)(id);
 typedef NSArray *(^NGRRules)();

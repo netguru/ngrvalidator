@@ -45,4 +45,5 @@ NGRMsgKey *const MSGNotBetweenDates = (NGRMsgKey *)@"NGRNotBetweenDatesMessage";
 NGRMsgKey *const MSGNotInclude = (NGRMsgKey *)@"MSGNotInclude";
 NGRMsgKey *const MSGNotExclude = (NGRMsgKey *)@"MSGNotExclude";
 
-
+NGRMsgKey *const MSGNotIncludedIn = (NGRMsgKey *)@"MSGNotIncludedIn";
+NGRMsgKey *const MSGNotExcludedFrom = (NGRMsgKey *)@"MSGNotExcludedFrom";
