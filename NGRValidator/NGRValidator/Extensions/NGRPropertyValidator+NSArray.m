@@ -23,7 +23,7 @@ typedef NGRMsgKey *(^NGRArrayValidationBlock)(NSArray *array);
 - (NGRPropertyValidator *(^)(NSObject *))includes {
     return ^(NSObject *object) {
         [self validateArrayWithName:@"include" block:^NGRMsgKey *(NSArray *array) {
-            return [array containsObject:object] ? nil : MSGNotIncludes;
+            return ([array containsObject:object] && array.count != 0) ? nil : MSGNotIncludes;
         }];
         return self;
     };
@@ -32,7 +32,7 @@ typedef NGRMsgKey *(^NGRArrayValidationBlock)(NSArray *array);
 - (NGRPropertyValidator *(^)(NSObject *))excludes {
     return ^(NSObject *object) {
         [self validateArrayWithName:@"exclude" block:^NGRMsgKey *(NSArray *array) {
-            return [array containsObject:object] ? MSGNotExcludes : nil;
+            return ([array containsObject:object] || array.count == 0) ? MSGNotExcludes : nil;
         }];
         return self;
     };

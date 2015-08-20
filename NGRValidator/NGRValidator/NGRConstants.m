@@ -41,7 +41,7 @@ NGRMsgKey *const MSGNotEarlierThanOrEqualTo = (NGRMsgKey *)@"NGRNotEarlierThanOr
 NGRMsgKey *const MSGNotLaterThanOrEqualTo = (NGRMsgKey *)@"NGRNotLaterThanOrEqualToMessage";
 NGRMsgKey *const MSGNotBetweenDates = (NGRMsgKey *)@"NGRNotBetweenDatesMessage";
 
-//NGRPropertyValidator + Collections
+//NGRPropertyValidator + NSArray
 NGRMsgKey *const MSGNotIncludes = (NGRMsgKey *)@"MSGNotIncludes";
 NGRMsgKey *const MSGNotExcludes = (NGRMsgKey *)@"MSGNotExcludes";
 
