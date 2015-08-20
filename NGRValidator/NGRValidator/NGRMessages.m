@@ -74,8 +74,8 @@
     [self setMessage:@"isn't between given dates." forKey:MSGNotBetweenDates];
     
     //NGPropertyValidator + NSArray
-    [self setMessage:@"doesn't exclude given value." forKey:MSGNotExclude];
-    [self setMessage:@"doesn't include given value." forKey:MSGNotInclude];
+    [self setMessage:@"doesn't exclude given value." forKey:MSGNotExcludes];
+    [self setMessage:@"doesn't include given value." forKey:MSGNotIncludes];
 }
 
 - (NSString *)description {

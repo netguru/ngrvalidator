@@ -42,8 +42,8 @@ extern NGRMsgKey *const MSGNotLaterThanOrEqualTo;
 extern NGRMsgKey *const MSGNotBetweenDates;
 
 //NGRPropertyValidator + Collections
-extern NGRMsgKey *const MSGNotInclude;
-extern NGRMsgKey *const MSGNotExclude;
+extern NGRMsgKey *const MSGNotIncludes;
+extern NGRMsgKey *const MSGNotExcludes;
 
 extern NGRMsgKey *const MSGNotIncludedIn;
 extern NGRMsgKey *const MSGNotExcludedFrom;

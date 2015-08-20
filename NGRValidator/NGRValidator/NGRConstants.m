@@ -42,8 +42,8 @@ NGRMsgKey *const MSGNotLaterThanOrEqualTo = (NGRMsgKey *)@"NGRNotLaterThanOrEqua
 NGRMsgKey *const MSGNotBetweenDates = (NGRMsgKey *)@"NGRNotBetweenDatesMessage";
 
 //NGRPropertyValidator + Collections
-NGRMsgKey *const MSGNotInclude = (NGRMsgKey *)@"MSGNotInclude";
-NGRMsgKey *const MSGNotExclude = (NGRMsgKey *)@"MSGNotExclude";
+NGRMsgKey *const MSGNotIncludes = (NGRMsgKey *)@"MSGNotIncludes";
+NGRMsgKey *const MSGNotExcludes = (NGRMsgKey *)@"MSGNotExcludes";
 
 NGRMsgKey *const MSGNotIncludedIn = (NGRMsgKey *)@"MSGNotIncludedIn";
 NGRMsgKey *const MSGNotExcludedFrom = (NGRMsgKey *)@"MSGNotExcludedFrom";

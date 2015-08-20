@@ -20,19 +20,19 @@ typedef NGRMsgKey *(^NGRArrayValidationBlock)(NSArray *array);
     }];
 }
 
-- (NGRPropertyValidator *(^)(NSObject *))include {
+- (NGRPropertyValidator *(^)(NSObject *))includes {
     return ^(NSObject *object) {
         [self validateArrayWithName:@"include" block:^NGRMsgKey *(NSArray *array) {
-            return [array containsObject:object] ? nil : MSGNotInclude;
+            return [array containsObject:object] ? nil : MSGNotIncludes;
         }];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSObject *))exclude {
+- (NGRPropertyValidator *(^)(NSObject *))excludes {
     return ^(NSObject *object) {
         [self validateArrayWithName:@"exclude" block:^NGRMsgKey *(NSArray *array) {
-            return [array containsObject:object] ? MSGNotExclude : nil;
+            return [array containsObject:object] ? MSGNotExcludes : nil;
         }];
         return self;
     };
@@ -40,16 +40,16 @@ typedef NGRMsgKey *(^NGRArrayValidationBlock)(NSArray *array);
 
 #pragma mark - Messaging
 
-- (NGRPropertyValidator *(^)(NSString *))msgNotInclude {
+- (NGRPropertyValidator *(^)(NSString *))msgNotIncludes {
     return ^(NSString *message) {
-        [self.messages setMessage:message forKey:MSGNotInclude];
+        [self.messages setMessage:message forKey:MSGNotIncludes];
         return self;
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))msgNotExclude {
+- (NGRPropertyValidator *(^)(NSString *))msgNotExcludes {
     return ^(NSString *message) {
-        [self.messages setMessage:message forKey:MSGNotExclude];
+        [self.messages setMessage:message forKey:MSGNotExcludes];
         return self;
     };
 }

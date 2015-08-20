@@ -12,14 +12,26 @@
 
 #pragma mark - Rules
 
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^include)(NSObject *object);
+/**
+ *  Validates wthether given object is included in validated array property or not.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^includes)(NSObject *object);
 
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^exclude)(NSObject *object);
+/**
+ *  Validates wthether given object is excluded from validated array property or not.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^excludes)(NSObject *object);
 
 #pragma mark - Messaging
 
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotInclude)(NSString *message);
+/**
+ *  User-defined error message used when object is not included in validated array property.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotIncludes)(NSString *message);
 
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotExclude)(NSString *message);
+/**
+ *  User-defined error message used when object is not excluded from validated array property.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotExcludes)(NSString *message);
 
 @end
