@@ -42,9 +42,7 @@
     
     //NGPropertyValidator + NSObject
     [self setMessage:@"is required." forKey:MSGNil];
-    [self setMessage:@"isn't included in given array." forKey:MSGNotIncludedIn];
-    [self setMessage:@"isn't excluded from given array." forKey:MSGNotExcludedFrom];
-    
+
     //NGPropertyValidator + NSString
     [self setMessage:@"is too long." forKey:MSGTooLong];
     [self setMessage:@"is too short." forKey:MSGTooShort];
@@ -76,6 +74,8 @@
     //NGPropertyValidator + NSArray
     [self setMessage:@"doesn't exclude given value." forKey:MSGNotExcludes];
     [self setMessage:@"doesn't include given value." forKey:MSGNotIncludes];
+    [self setMessage:@"isn't included in array." forKey:MSGNotIncludedIn];
+    [self setMessage:@"isn't excluded from array." forKey:MSGNotExcludedFrom];
 }
 
 - (NSString *)description {

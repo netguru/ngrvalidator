@@ -92,7 +92,7 @@ Continue reading to learn more about [rules](https://github.com/netguru/ngrvalid
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'ngrvalidator', '~> 1.1.0'
+pod 'ngrvalidator', '~> 1.2.0'
 ```
 and run `pod update` or `pod install`
 
@@ -205,6 +205,14 @@ There are 3 general methods of validation:
 * `laterThanOrEqualTo(NSDate *)` - validates if NSDate property is later than or equal to given date (inclusive).
 * `betweenDates(NSDate *, NSDate *, BOOL)` - validates if NSDate property is between given dates. `BOOL` parameter specify inclusiveness of comparison.
 
+**NSArray**:
+
+* `includes(NSObject *)` - validates whether given object is included in validated array property or not.
+* `excludes(NSObject *)` - validates whether given object is excluded from validated array property or not.
+* `includedIn(NSArray *)` - validates whether validated property is included in given array. If array is empty validation will return an error.
+* `excludedFrom(NSArray *)` - validates whether validated property is excluded from given array. If array is empty validation will pass.
+
+
 ## Scenarios
 
 Scenarios allows to keep same model across all possible actions. Sometimes some properties should be obligatory for one action and optional for another. Scenarios makes model validation more flexible and usable without any conditional statements. If property should conform specified scenario(s), pass `NSArray` of scenarios using:
@@ -259,7 +267,7 @@ is, are, on, has, have, to, toNot, notTo, be, with, should
 Note difference between sugar syntax and regular validation method:
 
 ```
-                          validation method has to be invoke always with parentheses (even if do not take any parameter).
+                          validation method has to be invoked always with parentheses (even if do not take any parameter).
                            v
  validate(@"password").is.required()
                        ^

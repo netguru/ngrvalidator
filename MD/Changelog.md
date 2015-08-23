@@ -1,5 +1,12 @@
 ## Change Log
 
+### 1.2.0
+- Introduced new array validators:
+    - `includes` - whether given object is included in validated array property or not.
+    - `excludes` - whether given object is excluded from validated array property or not.
+    - `includedIn` - whether validated property is included in given array.
+    - `excludedFrom` - whether validated property is excluded from given array.
+
 ### 1.1.0
 - OSX 10.7+ support. 
 

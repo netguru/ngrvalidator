@@ -125,3 +125,29 @@
 - message key/method: MSGNotBetweenDates/msgNotBetweenDates(NSString *)
 - default message: "isn't between given dates."
 ```
+
+#### NSArray
+
+```objc
+- rule: includedIn(NSArray *)
+- message key/method: MSGNotIncludedIn/msgNotIncludedIn(NSString *)
+- default message: "isn't included in array."
+```
+
+```objc
+- rule: excludedFrom(NSArray *)
+- message key/method: MSGNotExcludedFrom/msgNotExcludedFrom(NSString *)
+- default message: "isn't excluded from array."
+```
+
+```objc
+- rule: includes(NSObject *)
+- message key/method: MSGNotIncludes/msgNotIncludes(NSString *)
+- default message: "doesn't include given value."
+```
+
+```objc
+- rule: excludes(NSObject *)
+- message key/method: MSGNotExcludes/msgNotExcludes(NSString *)
+- default message: "doesn't exclude given value."
+```

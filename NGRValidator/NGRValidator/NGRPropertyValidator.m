@@ -159,7 +159,8 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
         return [NSError ngr_errorWithDescription:customDescription];
     }
     
-    NSString *propertyName = (self.localizedPropertyName) ?: [self.property ngr_stringByCapitalizeFirstLetter];
+    NSString *property = self.property ?: @"Validated property";
+    NSString *propertyName = (self.localizedPropertyName) ?: [property ngr_stringByCapitalizeFirstLetter];
     NSString *space = propertyName.length > 0 ? @" " : @"";
     NSString *description = [NSString stringWithFormat:@"%@%@%@", propertyName, space, [self.messages messageForKey:key]];
     return [NSError ngr_errorWithDescription:description];
@@ -173,7 +174,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
     return [self.scenarios ngr_containsString:self.scenario];
 }
 
-#pragma mark - Overwritten methods
+#pragma mark - Debugging
 
 - (NSString *)description {
     NSString *scenarios = [self.scenarios componentsJoinedByString:@","];
