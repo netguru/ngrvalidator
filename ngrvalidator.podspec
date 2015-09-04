@@ -8,7 +8,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ngrvalidator"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "Centralized and comprehensive validator for iOS"
 
   s.description  = "NGRValidator is an Objective-C 3rd party library for iOS and OSX. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any Objective-C model in just a few lines of code."

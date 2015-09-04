@@ -12,7 +12,7 @@ describe(@"Syntax validation", ^{
 
     testDescriptor(@"syntax Email validator", @"valid email syntax", @"invalid email syntax");
     itShouldBehaveLike(NGRValueBehavior, ^{
-        return wrapData(@"email@example.com", @"email@.", 1, ^(NGRPropertyValidator *validator) {
+        return wrapData(@"email@domain.international", @"email@.", 1, ^(NGRPropertyValidator *validator) {
             return validator.syntax(NGRSyntaxEmail).msgWrongSyntax(NGRSyntaxEmail, msg);
         });
     });
