@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const NGRValidatorDomain;
+
 @interface NSError (NGRValidator)
 
 + (instancetype)ngr_errorWithDescription:(NSString *)description;
