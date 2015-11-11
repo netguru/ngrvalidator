@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRValidator_NSArraySpec)
+SpecBegin(NGRValidator_NSArray)
 
 describe(@"Array validation", ^{
     

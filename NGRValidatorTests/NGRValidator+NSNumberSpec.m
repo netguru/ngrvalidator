@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRValidator_NSNumberSpec)
+SpecBegin(NGRValidator_NSNumber)
 
 describe(@"NSNumber validation", ^{
 

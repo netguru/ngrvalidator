@@ -156,14 +156,14 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
     
     NSString *customDescription = messages[self.property][key];
     if (customDescription) {
-        return [NSError ngr_errorWithDescription:customDescription];
+        return [NSError ngr_errorWithDescription:customDescription propertyName:self.property];
     }
     
     NSString *property = self.property ?: @"Validated property";
     NSString *propertyName = (self.localizedPropertyName) ?: [property ngr_stringByCapitalizeFirstLetter];
     NSString *space = propertyName.length > 0 ? @" " : @"";
     NSString *description = [NSString stringWithFormat:@"%@%@%@", propertyName, space, [self.messages messageForKey:key]];
-    return [NSError ngr_errorWithDescription:description];
+    return [NSError ngr_errorWithDescription:description propertyName:self.property];
 }
 
 - (BOOL)shouldValidate {

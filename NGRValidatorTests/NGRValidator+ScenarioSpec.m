@@ -9,7 +9,7 @@
 static NSString *const NGRFirstScenario = @"Fixture 1st Scenario";
 static NSString *const NGRSecondScenario = @"Fixture 2nd Scenario";
 
-SpecBegin(NGRValidator_ScenarioSpec)
+SpecBegin(NGRValidator_Scenario)
 
 describe(@"Scenario", ^{
     

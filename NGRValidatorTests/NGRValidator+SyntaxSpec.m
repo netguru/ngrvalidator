@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRValidator_SyntaxSpec)
+SpecBegin(NGRValidator_Syntax)
 
 describe(@"Syntax validation", ^{
 

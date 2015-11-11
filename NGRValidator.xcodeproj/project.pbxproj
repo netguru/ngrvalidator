@@ -550,6 +550,7 @@
 				5E5C0A051A498164002D3E72 /* Frameworks */,
 				5E5C0A061A498164002D3E72 /* Resources */,
 				7010E1BDA69E61E05205767B /* Copy Pods Resources */,
+				079AFF1B1C12124BFCB29E15 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -618,6 +619,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		079AFF1B1C12124BFCB29E15 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7010E1BDA69E61E05205767B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

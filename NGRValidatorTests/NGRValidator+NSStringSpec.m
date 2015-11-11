@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRValidator_NSStringSpec)
+SpecBegin(NGRValidator_NSString)
 
 describe(@"NSString validation", ^{
         

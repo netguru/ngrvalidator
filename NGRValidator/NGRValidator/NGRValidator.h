@@ -26,7 +26,7 @@
  *  Validates model with given rules. Returns YES when validation succeeded, NO otherwise.
  *
  *  @param model    Model with properties to validate.
- *  @param error    Validation error with decription, nil when validation will pass.
+ *  @param error    Validation error with description, nil when validation will pass.
  *  @param delegate Allows delegate to customize entire error messages.
  *  @param rules    An array of validation rules. Every property in model is validated separately.
  *
@@ -38,7 +38,7 @@
  *  Validates model with given rules. Returns YES when validation succeeded, NO otherwise.
  *
  *  @param model    Model with properties to validate.
- *  @param error    Validation error with decription, nil when validation will pass.
+ *  @param error    Validation error with description, nil when validation will pass.
  *  @param scenario The scenario specifying which properties of model should be validated.
  *  @param delegate Allows delegate to customize entire error messages.
  *  @param rules    An array of validation rules. Every property in model is validated separately.

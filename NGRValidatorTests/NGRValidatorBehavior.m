@@ -6,6 +6,8 @@
 //
 //
 
+#import "NSError+NGRValidator.h"
+
 SharedExamplesBegin(NGRValidatorBehavior)
 
 sharedExamplesFor(NGRMultiplePropertiesBehavior, ^(NSDictionary *data) {
@@ -110,6 +112,7 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             expect(success).to.beFalsy();
             expect(error).toNot.beNil();
             expect(error.localizedDescription).to.contain(msg);
+            expect(error.userInfo[NGRValidatorPropertyNameKey]).to.equal(@"value");
             
             // 2nd
             array = [NGRValidator validateModel:model delegate:nil rules:rules];
@@ -199,6 +202,7 @@ sharedExamplesFor(NGRScenarioFailureBehavior, ^(NSDictionary *data) {
             expect(success).to.beFalsy();
             expect(error).toNot.beNil();
             expect(error.localizedDescription).to.contain(msg);
+            expect(error.userInfo[NGRValidatorPropertyNameKey]).to.equal(@"value");
             
             // 2nd
             array = [NGRValidator validateModel:model scenario:scenario delegate:nil rules:rules];
