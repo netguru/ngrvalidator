@@ -85,14 +85,14 @@ Continue reading to learn more about [rules](https://github.com/netguru/ngrvalid
 
 - iOS 7.0+ SDK
 - OSX 10.7+ SDK
-- CocoaPods 0.35.0 (use `gem install cocoapods` to grab it!)
+- CocoaPods 0.39.0 (use `gem install cocoapods` to grab it!)
 
 ## Installation:
 #### Installation with CocoaPods
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'ngrvalidator', '~> 1.2.1'
+pod 'ngrvalidator', '~> 1.3.0'
 ```
 and run `pod update` or `pod install`
 
@@ -159,6 +159,8 @@ There are 3 general methods of validation:
                   delegate:(id<NGRMessaging>)delegate 
                      rules:(NSArray *(^)())rules;
 ```
+
+**Psst hey!** if any error did appear you can determine which property did not validate just by checking `error.userInfo[NGRValidatorPropertyNameKey]`.
 
 ## Validation rules
 

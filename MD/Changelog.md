@@ -1,5 +1,11 @@
 ## Change Log
 
+### 1.3.0
+- revealing `NGRValidatorDomain` as `extern` by [rad3ks](https://github.com/rad3ks)
+- introducing additional `NGRValidatorPropertyNameKey` key to `error.userInfo` by [paweldudek](https://github.com/paweldudek)
+
+	
+	
 ### 1.2.0
 - Introduced new array validators:
     - `includes` - whether given object is included in validated array property or not.
