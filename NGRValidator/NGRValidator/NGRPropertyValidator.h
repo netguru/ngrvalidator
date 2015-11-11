@@ -80,7 +80,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 @property (assign, readonly, nonatomic) NSUInteger priority;
 
 /**
- *  Array of NGRValidationRule objects, invoked one by one in validation proccess.
+ *  Array of NGRValidationRule objects, invoked one by one in validation process.
  */
 @property (strong, nonatomic, readonly) NSMutableArray *validationRules;
 
@@ -101,7 +101,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  Validates property and gather all possible errors.
  *
  *  @param value The value of validated property.
- *  @return An NSArray of errrors if any, otherwise nil.
+ *  @return An NSArray of errors if any, otherwise nil.
  */
 - (NSArray *)complexValidationOfValue:(id)value;
 
@@ -110,7 +110,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *
  *  @param aClass           The class which given property should be. If nil, class validation will be skipped.
  *  @param name             The name of validator block.
- *  @param validationBlock  The validation block invoked during validation proccess.
+ *  @param validationBlock  The validation block invoked during validation process.
  */
 - (void)validateClass:(Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block;
 

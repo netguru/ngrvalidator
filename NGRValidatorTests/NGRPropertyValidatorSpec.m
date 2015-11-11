@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRPropertyValidatorSpec)
+SpecBegin(NGRPropertyValidator)
 
 describe(@"NGRPropertyValidator", ^{
     

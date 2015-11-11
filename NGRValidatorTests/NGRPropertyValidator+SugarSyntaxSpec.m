@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRPropertyValidator_SugarSyntaxSpec)
+SpecBegin(NGRPropertyValidator_SugarSyntax)
 
 describe(@"Sugar syntax", ^{
     

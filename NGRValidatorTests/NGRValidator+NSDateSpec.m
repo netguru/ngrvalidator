@@ -6,7 +6,7 @@
 //
 //
 
-SpecBegin(NGRValidator_NSDateSpec)
+SpecBegin(NGRValidator_NSDate)
 
 describe(@"NSDate validation", ^{
     

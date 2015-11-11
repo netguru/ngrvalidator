@@ -6,9 +6,9 @@
 //
 //
 
-SpecBegin(NGRValidatorSpec)
+SpecBegin(NGRValidator)
 
-describe(@"NGRValidatorSpec", ^{
+describe(@"NGRValidator", ^{
     
     /** Multiple errors test: **/
     
