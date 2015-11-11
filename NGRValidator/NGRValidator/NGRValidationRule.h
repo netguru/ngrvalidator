@@ -20,6 +20,7 @@
  *  @return Instance of receiver.
  */
 - (instancetype)initWithName:(NSString *)name block:(NGRValidationBlock)block NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Validation rule name stored for easier access and identification.

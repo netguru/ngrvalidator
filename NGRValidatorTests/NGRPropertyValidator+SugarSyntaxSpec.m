@@ -13,7 +13,7 @@ describe(@"Sugar syntax", ^{
     __block NGRPropertyValidator *sut;
     
     beforeEach(^{
-        sut = [[NGRPropertyValidator alloc] init];
+        sut = [[NGRPropertyValidator alloc] initWithProperty:nil];
     });
     
     afterEach(^{
