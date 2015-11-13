@@ -192,10 +192,10 @@ There are 3 general methods of validation:
 
 **NSNumber**: 
 
-* `min(float)` - validates lower limit of NSNumber (inclusive).
-* `max(float)` - validates upper limit of NSNumber (inclusive).
-* `range(float, float)` - validates minimum and maximum value of NSSNumber (inclusive).
-* `exact(float)` - validates exact value of NSNumber.
+* `min(CGFloat)` - validates lower limit of NSNumber (inclusive).
+* `max(CGFloat)` - validates upper limit of NSNumber (inclusive).
+* `range(CGFloat, CGFloat)` - validates minimum and maximum value of NSSNumber (inclusive).
+* `exact(CGFloat)` - validates exact value of NSNumber.
 * `beFalse()` - validates if NSNumber represents false status.
 * `beTrue()` - validates if NSNumber represents true status.
 
