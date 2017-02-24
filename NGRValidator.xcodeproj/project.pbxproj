@@ -56,7 +56,7 @@
 		5EF1C5FC1AD482D500CC9173 /* NGRPropertyValidator+SugarSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1C5FB1AD482D500CC9173 /* NGRPropertyValidator+SugarSyntax.m */; };
 		5EF1C5FE1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */; };
 		5EFC9C941B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */; };
-		DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */; };
+		98841B369AEC0E753903DC39 /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,9 +163,9 @@
 		5EF1C5FB1AD482D500CC9173 /* NGRPropertyValidator+SugarSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+SugarSyntax.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+SugarSyntax.m"; sourceTree = "<group>"; };
 		5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRPropertyValidator+SugarSyntaxSpec.m"; sourceTree = "<group>"; };
 		5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NSArraySpec.m"; sourceTree = "<group>"; };
-		694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		7D6B6150E11182E932512349 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D70A57B1C5D6826EC061A31 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,17 +180,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE7F815529AF01B08397162D /* libPods-NGRValidatorTests.a in Frameworks */,
+				98841B369AEC0E753903DC39 /* libPods-NGRValidatorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FE3165896E87102CEE34281 /* Frameworks */ = {
+		139BD08AC3C3343F068E3BC8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				694413942B9120CB278F6871 /* libPods-NGRValidatorTests.a */,
+				84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -280,8 +280,8 @@
 				5E5C09F11A498164002D3E72 /* NGRValidator */,
 				5E5C0A0B1A498164002D3E72 /* NGRValidatorTests */,
 				5E5C09F01A498164002D3E72 /* Products */,
-				A6EA48BCBDCAB0C2609537C8 /* Pods */,
-				2FE3165896E87102CEE34281 /* Frameworks */,
+				F71716557E3588C05B308B69 /* Pods */,
+				139BD08AC3C3343F068E3BC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -512,11 +512,11 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		A6EA48BCBDCAB0C2609537C8 /* Pods */ = {
+		F71716557E3588C05B308B69 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */,
-				FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */,
+				8D70A57B1C5D6826EC061A31 /* Pods-NGRValidatorTests.debug.xcconfig */,
+				7D6B6150E11182E932512349 /* Pods-NGRValidatorTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -545,12 +545,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E5C0A151A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidatorTests" */;
 			buildPhases = (
-				D6DF47A466456CB09596D933 /* Check Pods Manifest.lock */,
+				E3EBD93FE259FA482491AAEE /* [CP] Check Pods Manifest.lock */,
 				5E5C0A041A498164002D3E72 /* Sources */,
 				5E5C0A051A498164002D3E72 /* Frameworks */,
 				5E5C0A061A498164002D3E72 /* Resources */,
-				7010E1BDA69E61E05205767B /* Copy Pods Resources */,
-				079AFF1B1C12124BFCB29E15 /* Embed Pods Frameworks */,
+				724C5AA9B7B482F1EB58CE51 /* [CP] Embed Pods Frameworks */,
+				FE86DAB90A80E47F45FD7892 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -619,14 +619,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		079AFF1B1C12124BFCB29E15 /* Embed Pods Frameworks */ = {
+		724C5AA9B7B482F1EB58CE51 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,34 +634,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7010E1BDA69E61E05205767B /* Copy Pods Resources */ = {
+		E3EBD93FE259FA482491AAEE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE86DAB90A80E47F45FD7892 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D6DF47A466456CB09596D933 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -870,7 +870,7 @@
 		};
 		5E5C0A161A498164002D3E72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C529EEA7D2F290421E1F80 /* Pods-NGRValidatorTests.debug.xcconfig */;
+			baseConfigurationReference = 8D70A57B1C5D6826EC061A31 /* Pods-NGRValidatorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -891,7 +891,7 @@
 		};
 		5E5C0A171A498164002D3E72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE66DA67A44D621453582AF9 /* Pods-NGRValidatorTests.release.xcconfig */;
+			baseConfigurationReference = 7D6B6150E11182E932512349 /* Pods-NGRValidatorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

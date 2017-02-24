@@ -8,7 +8,7 @@
 source 'https://rubygems.org'
 
 # Development tools
-gem 'cocoapods', '~> 0.36.3'
+gem 'cocoapods', '1.2.0'
 
 # Continious integration tools
 gem 'rake'
