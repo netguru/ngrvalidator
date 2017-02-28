@@ -47,9 +47,6 @@ workflows:
 
   pods-install:
     steps:
-      - script:
-          inputs:
-          - content: bundle install
       - cocoapods-install: {}
 
   # Cache
