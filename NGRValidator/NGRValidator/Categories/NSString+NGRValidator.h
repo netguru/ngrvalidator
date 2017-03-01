@@ -20,4 +20,8 @@
 
 - (NSString *)ngr_stringByCapitalizeFirstLetter;
 
+- (BOOL)ngr_isValidCreditCardNumber;
+
+- (BOOL)ngr_isValidCreditCardExpirationDate;
+
 @end

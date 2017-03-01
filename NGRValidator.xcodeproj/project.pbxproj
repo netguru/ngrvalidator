@@ -57,6 +57,8 @@
 		5EF1C5FE1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */; };
 		5EFC9C941B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */; };
 		98841B369AEC0E753903DC39 /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */; };
+		F01B68331E67106400378CEF /* NGRValidator+CreditCardSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */; };
+		F086F58A1E66DAA70059E698 /* NGRPropertyValidator+CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F086F5891E66C8A00059E698 /* NGRPropertyValidator+CreditCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +168,9 @@
 		7D6B6150E11182E932512349 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D70A57B1C5D6826EC061A31 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+CreditCardSpec.m"; sourceTree = "<group>"; };
+		F086F5881E66C8510059E698 /* NGRPropertyValidator+CreditCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+CreditCard.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+CreditCard.h"; sourceTree = "<group>"; };
+		F086F5891E66C8A00059E698 /* NGRPropertyValidator+CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+CreditCard.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+CreditCard.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +266,8 @@
 				5E26AD831B5E5DA70056F510 /* NGRPropertyValidator+NSArray.m */,
 				5EF1C5FA1AD482D500CC9173 /* NGRPropertyValidator+SugarSyntax.h */,
 				5EF1C5FB1AD482D500CC9173 /* NGRPropertyValidator+SugarSyntax.m */,
+				F086F5881E66C8510059E698 /* NGRPropertyValidator+CreditCard.h */,
+				F086F5891E66C8A00059E698 /* NGRPropertyValidator+CreditCard.m */,
 			);
 			name = "NGRPropertyValidator Extensions";
 			sourceTree = "<group>";
@@ -370,6 +377,7 @@
 				5E2EBFBE1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m */,
 				5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */,
 				5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */,
+				F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */,
 			);
 			name = NGRValidator;
 			sourceTree = "<group>";
@@ -699,6 +707,7 @@
 				5E0019741A498531002ED961 /* NSArray+NGRValidator.m in Sources */,
 				5ECAF8751A6311350011181C /* NGRSimpleDemoViewController.m in Sources */,
 				5E6D99C41A5395C600161808 /* NGRComplexDemoView.m in Sources */,
+				F086F58A1E66DAA70059E698 /* NGRPropertyValidator+CreditCard.m in Sources */,
 				5ECAF87E1A6311BA0011181C /* NGRMediumDemoViewController.m in Sources */,
 				5E5C09F51A498164002D3E72 /* main.m in Sources */,
 				5E3530DE1A98BB5C006978A0 /* NGRMessages.m in Sources */,
@@ -720,6 +729,7 @@
 				5EF1C5FE1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */,
 				5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */,
 				5E2EBFBD1A92752A00AFDBCD /* NGRValidator+NSDateSpec.m in Sources */,
+				F01B68331E67106400378CEF /* NGRValidator+CreditCardSpec.m in Sources */,
 				5E92F29E1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m in Sources */,
 				5E1E5D6D1A8D6A4800AE16A1 /* NGRValidatorBehavior.m in Sources */,
 				5E2EBFB91A924ED300AFDBCD /* NGRValidator+NSStringSpec.m in Sources */,

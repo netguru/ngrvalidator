@@ -7,6 +7,7 @@
 //
 
 #import "NSString+NGRValidator.h"
+#import "NSDate+NGRValidator.h"
 
 @implementation NSString (NGRValidator)
 
@@ -46,6 +47,51 @@
     return [self evaluateAllowedCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
 }
 
+
+- (BOOL)ngr_isValidCreditCardNumber {
+    NSString *number = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    if (![number ngr_isDecimal]) {
+        return NO;
+    }
+
+    if ([number length] < 12 || [number length] > 19) {
+        return NO;
+    }
+
+    return [number fulfillsLuhnAlgorithm];
+}
+
+- (BOOL)ngr_isValidCreditCardExpirationDate {
+
+    NSArray<NSString *> *components = [self componentsSeparatedByString:@"/"];
+
+    if ([components count] != 2) {
+        return NO;
+    }
+
+    if (
+        ([components[0] length] != 2) ||
+        ![components[0] ngr_isDecimal] ||
+        ([components[1] length] != 2) ||
+        ![components[1] ngr_isDecimal]
+        ) {
+        return NO;
+    }
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/yy"];
+    NSDate *expirationDate = [formatter dateFromString:self];
+
+    if (expirationDate == nil) {
+        return NO;
+    }
+
+    NSDate *endOfMonth = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitMonth value:1 toDate:expirationDate options:0];
+
+    return [endOfMonth ngr_isLaterThan:[[NSDate alloc] init]];
+}
+
 #pragma mark - Private
 
 - (BOOL)evaluatePattern:(NSString *)pattern {
@@ -57,6 +103,45 @@
     NSCharacterSet *set = [allowedCharacterSet invertedSet];
     NSRange range = [self rangeOfCharacterFromSet:set];
     return (range.location == NSNotFound);
+}
+
+- (BOOL)fulfillsLuhnAlgorithm {
+
+    // Luhn algorithm
+
+    NSMutableArray<NSNumber *> *digits = [[NSMutableArray alloc] initWithCapacity:[self length]];
+    for (int i = 0; i < [self length]; i++) {
+        NSString *character = [NSString stringWithFormat:@"%c", [self characterAtIndex:i]];
+        [digits addObject:[NSNumber numberWithInteger:[character integerValue]]];
+
+    }
+
+    // Store last digit
+    NSNumber *lastDigit = [digits lastObject];
+
+    // Drop the last digit:
+    [digits removeLastObject];
+
+    // Multiple odd digits by 2  &&  Subtract 9 to numbers over 9:
+    for (int i = 0; i < [digits count]; i++) {
+        if (!(i % 2)) {
+            digits[i] = [NSNumber numberWithInteger: [digits[i] integerValue] * 2];
+        }
+        if ([digits[i] integerValue] > 9) {
+            digits[i] = [NSNumber numberWithInteger: [digits[i] integerValue] - 9];
+        }
+    }
+
+    // Add all numbers:
+    int sum = 0;
+    for (id number in [digits objectEnumerator]) {
+        sum += [number integerValue];
+    }
+
+    // Multiply by 9 && Mod 10:
+    int result = sum * 9 % 10;
+
+    return result == [lastDigit integerValue];
 }
 
 @end
