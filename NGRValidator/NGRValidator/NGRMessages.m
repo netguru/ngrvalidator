@@ -64,7 +64,7 @@
     [self setMessage:@"has invalid syntax." forKey:MSGNotHTTP];
     [self setMessage:@"do not match pattern." forKey:MSGWrongRegex];
 
-    //NGPropertyValidator + Syntax
+    //NGPropertyValidator + CreditCard
     [self setMessage:@"is not valid credit card's number." forKey:MSGNotValidCreditCardNumber];
     [self setMessage:@"is not valid credit card's expiration date." forKey:MSGNotValidCreditCardExpirationDate];
     
