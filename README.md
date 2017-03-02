@@ -2,7 +2,7 @@
   <img src="https://raw.github.com/netguru/ngrvalidator/master/Documents/github_header.png" alt="NGRValidator" title="NGRValidator">
 </p>
 
-[![Circle CI](https://circleci.com/gh/netguru/ngrvalidator/tree/master.svg?style=svg)](https://circleci.com/gh/netguru/ngrvalidator/tree/master)
+![](https://www.bitrise.io/app/d7dfee0dbf9906ab.svg?token=kzdjMQiXgBIoTMkhLgXJ3Q&branch=develop)
 [![Platform](https://cocoapod-badges.herokuapp.com/p/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
 [![Version](https://cocoapod-badges.herokuapp.com/v/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
