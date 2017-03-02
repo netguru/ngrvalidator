@@ -49,7 +49,8 @@
 
 
 - (BOOL)ngr_isValidCreditCardNumber {
-    NSString *number = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *stringWithoutSpaces = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *number = [stringWithoutSpaces stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
 
     if (![number ngr_isDecimal]) {
         return NO;
@@ -59,7 +60,7 @@
         return NO;
     }
 
-    return [number fulfillsLuhnAlgorithm];
+    return [number ngr_fulfillsLuhnAlgorithm];
 }
 
 - (BOOL)ngr_isValidCreditCardExpirationDate {
@@ -105,7 +106,7 @@
     return (range.location == NSNotFound);
 }
 
-- (BOOL)fulfillsLuhnAlgorithm {
+- (BOOL)ngr_fulfillsLuhnAlgorithm {
 
     // Luhn algorithm
 
