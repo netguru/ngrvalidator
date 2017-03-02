@@ -32,19 +32,19 @@
     @"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
     @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
 
-    return [self evaluatePattern:emailRegEx];
+    return [self ngr_evaluatePattern:emailRegEx];
 }
 
 - (BOOL)ngr_isURL {
-    return [self evaluatePattern:@"http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?"];
+    return [self ngr_evaluatePattern:@"http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?"];
 }
 
 - (BOOL)ngr_isName {
-    return [self evaluateAllowedCharacterSet:[NSCharacterSet letterCharacterSet]];
+    return [self ngr_evaluateAllowedCharacterSet:[NSCharacterSet letterCharacterSet]];
 }
 
 - (BOOL)ngr_isDecimal {
-    return [self evaluateAllowedCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
+    return [self ngr_evaluateAllowedCharacterSet:[NSCharacterSet decimalDigitCharacterSet]];
 }
 
 
@@ -95,12 +95,12 @@
 
 #pragma mark - Private
 
-- (BOOL)evaluatePattern:(NSString *)pattern {
+- (BOOL)ngr_evaluatePattern:(NSString *)pattern {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:self];
 }
 
-- (BOOL)evaluateAllowedCharacterSet:(NSCharacterSet *)allowedCharacterSet {
+- (BOOL)ngr_evaluateAllowedCharacterSet:(NSCharacterSet *)allowedCharacterSet {
     NSCharacterSet *set = [allowedCharacterSet invertedSet];
     NSRange range = [self rangeOfCharacterFromSet:set];
     return (range.location == NSNotFound);
