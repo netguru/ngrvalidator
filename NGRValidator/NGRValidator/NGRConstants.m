@@ -34,6 +34,10 @@ NGRMsgKey *const MSGNotName = (NGRMsgKey *)@"NGRNotNameMessage";
 NGRMsgKey *const MSGNotHTTP = (NGRMsgKey *)@"NGRNotHttpMessage";
 NGRMsgKey *const MSGWrongRegex = (NGRMsgKey *)@"NGRWrongRegexMessage";
 
+//NGRPropertyValidator + CreditCard
+NGRMsgKey *const MSGNotValidCreditCardNumber = (NGRMsgKey *)@"MSGNotValidCreditCardNumberMessage";
+NGRMsgKey *const MSGNotValidCreditCardExpirationDate = (NGRMsgKey *)@"MSGNotValidCreditCardExpirationDateMessage";
+
 //NGRPropertyValidator + NSDate
 NGRMsgKey *const MSGNotEarlierThan = (NGRMsgKey *)@"NGRNotEarlierThanMessage";
 NGRMsgKey *const MSGNotLaterThan = (NGRMsgKey *)@"NGRNotLaterThanMessage";

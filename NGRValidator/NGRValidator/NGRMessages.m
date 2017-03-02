@@ -63,6 +63,10 @@
     [self setMessage:@"should contain only letters." forKey:MSGNotName];
     [self setMessage:@"has invalid syntax." forKey:MSGNotHTTP];
     [self setMessage:@"do not match pattern." forKey:MSGWrongRegex];
+
+    //NGPropertyValidator + CreditCard
+    [self setMessage:@"is not valid credit card's number." forKey:MSGNotValidCreditCardNumber];
+    [self setMessage:@"is not valid credit card's expiration date." forKey:MSGNotValidCreditCardExpirationDate];
     
     //NGPropertyValidator + Compare
     [self setMessage:@"isn't earlier than compared date." forKey:MSGNotEarlierThan];

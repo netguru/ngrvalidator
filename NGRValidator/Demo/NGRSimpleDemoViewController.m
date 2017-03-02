@@ -53,7 +53,7 @@
     NSError *error = [NGRValidator validateValue:self.aView.textField.text named:NSLocalizedString(@"E-mail address", nil) rules:^(NGRPropertyValidator *validator) {
         validator.is.required().to.have.syntax(NGRSyntaxEmail);
     }];
-    
+
     [self showAlertViewWithError:error];
 }
 
