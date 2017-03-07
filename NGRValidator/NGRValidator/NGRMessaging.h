@@ -27,6 +27,6 @@
  *       property name
  *
  */
-- (NSDictionary *)validationErrorMessagesByPropertyKey;
+- (nonnull NSDictionary *)validationErrorMessagesByPropertyKey;
 
 @end

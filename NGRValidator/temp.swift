@@ -10,10 +10,12 @@ import Foundation
 
 class Temp {
     
-    public func calculateSmth() -> Void {
-        let error = NGRValidator.validateValue("robert.abramczyk.1990@gmail.com" as NSObject, named: "Email", rules: { validator in
-            validator.is.required().to.have.syntax(0);
-        })
+    var email: NSString = ""
+    
+    public func calculateEmail() -> Bool {
+        
+        let _ = validator.is.required().to.have.syntax(.email)
+            
     }
     
 }

@@ -10,6 +10,8 @@
 
 @interface NGRPropertyValidator (NSArray)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Rules
 
 /**
@@ -53,5 +55,7 @@
  *  User-defined error message used when the property is not excluded from array.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotExcludedFrom)(NSString *message);
+
+NS_ASSUME_NONNULL_END
 
 @end

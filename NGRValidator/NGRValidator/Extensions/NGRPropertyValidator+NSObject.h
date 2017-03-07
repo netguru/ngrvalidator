@@ -10,11 +10,15 @@
 
 @interface NGRPropertyValidator (NSObject)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Messaging
 
 /**
  *  User-defined error message used when the property is nil (default: cannot be nil).
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNil)(NSString *message);
+@property (copy, nonatomic, readonly, nonnull) NGRPropertyValidator * _Nonnull (^msgNil)(NSString * _Nonnull message);
+
+NS_ASSUME_NONNULL_END
 
 @end

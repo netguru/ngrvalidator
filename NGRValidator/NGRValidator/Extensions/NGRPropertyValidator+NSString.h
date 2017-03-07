@@ -10,6 +10,8 @@
 
 @interface NGRPropertyValidator (NSString)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Rules
 
 /**
@@ -78,5 +80,7 @@
  *  User-defined error message used when validated string is not decimal.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotDecimal)(NSString *message);
+
+NS_ASSUME_NONNULL_END
 
 @end

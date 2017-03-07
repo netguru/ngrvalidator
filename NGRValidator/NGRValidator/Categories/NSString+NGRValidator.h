@@ -18,6 +18,6 @@
 
 - (BOOL)ngr_isDecimal;
 
-- (NSString *)ngr_stringByCapitalizeFirstLetter;
+- (nonnull NSString *)ngr_stringByCapitalizeFirstLetter;
 
 @end

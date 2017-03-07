@@ -22,7 +22,7 @@
     return NO;
 }
 
-- (NSArray *)ngr_sortedArrayByPriority {
+- (nonnull NSArray *)ngr_sortedArrayByPriority {
     return [self sortedArrayUsingComparator:^NSComparisonResult(NGRPropertyValidator *validatorA, NGRPropertyValidator *validatorB) {
         return [@(validatorA.priority) compare:@(validatorB.priority)];
     }];

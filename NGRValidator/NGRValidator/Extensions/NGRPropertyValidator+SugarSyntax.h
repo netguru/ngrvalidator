@@ -22,6 +22,8 @@
  */
 @interface NGRPropertyValidator (SugarSyntax)
 
+NS_ASSUME_NONNULL_BEGIN
+
 @property (nonatomic, strong, readonly) NGRPropertyValidator *is;
 
 @property (nonatomic, strong, readonly) NGRPropertyValidator *are;
@@ -43,5 +45,7 @@
 @property (nonatomic, strong, readonly) NGRPropertyValidator *with;
 
 @property (nonatomic, strong, readonly) NGRPropertyValidator *should;
+
+NS_ASSUME_NONNULL_END
 
 @end
