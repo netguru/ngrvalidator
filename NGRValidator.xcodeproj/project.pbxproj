@@ -59,7 +59,6 @@
 		98841B369AEC0E753903DC39 /* libPods-NGRValidatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */; };
 		F01B68331E67106400378CEF /* NGRValidator+CreditCardSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */; };
 		F086F58A1E66DAA70059E698 /* NGRPropertyValidator+CreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F086F5891E66C8A00059E698 /* NGRPropertyValidator+CreditCard.m */; };
-		EAA816871E64500D001123E5 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA816861E64500D001123E5 /* temp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,8 +171,6 @@
 		F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+CreditCardSpec.m"; sourceTree = "<group>"; };
 		F086F5881E66C8510059E698 /* NGRPropertyValidator+CreditCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+CreditCard.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+CreditCard.h"; sourceTree = "<group>"; };
 		F086F5891E66C8A00059E698 /* NGRPropertyValidator+CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+CreditCard.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+CreditCard.m"; sourceTree = "<group>"; };
-		EAA816851E64500D001123E5 /* NGRValidator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NGRValidator-Bridging-Header.h"; sourceTree = "<group>"; };
-		EAA816861E64500D001123E5 /* temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,8 +310,6 @@
 				5E00195C1A498418002ED961 /* NGRValidator */,
 				5E0019551A49827E002ED961 /* Resources */,
 				5E5C09F21A498164002D3E72 /* Supporting Files */,
-				EAA816861E64500D001123E5 /* temp.swift */,
-				EAA816851E64500D001123E5 /* NGRValidator-Bridging-Header.h */,
 			);
 			path = NGRValidator;
 			sourceTree = "<group>";
@@ -581,7 +576,7 @@
 		5E5C09E71A498164002D3E72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					5E5C09EE1A498164002D3E72 = {
 						CreatedOnToolsVersion = 6.1;
@@ -698,7 +693,6 @@
 				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
 				5ECAF8941A6343960011181C /* UIViewController+NGRDemo.m in Sources */,
 				5E4A2BB51A5788CF00744E93 /* NSObject+NGRValidator.m in Sources */,
-				EAA816871E64500D001123E5 /* temp.swift in Sources */,
 				5ECAF8821A6311D00011181C /* NGRMediumDemoView.m in Sources */,
 				5E62ACB11AD738BA001976CE /* NGRConstants.m in Sources */,
 				5E6D99C01A53959500161808 /* NGRComplexDemoViewController.m in Sources */,
@@ -780,16 +774,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -824,8 +822,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -834,6 +834,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -862,6 +863,7 @@
 				INFOPLIST_FILE = NGRValidator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "NGRValidator/NGRValidator-Bridging-Header.h";
@@ -884,6 +886,7 @@
 				INFOPLIST_FILE = NGRValidator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "NGRValidator/NGRValidator-Bridging-Header.h";
@@ -896,7 +899,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D70A57B1C5D6826EC061A31 /* Pods-NGRValidatorTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -909,6 +911,7 @@
 				);
 				INFOPLIST_FILE = NGRValidatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NGRValidator.app/NGRValidator";
 			};
@@ -918,7 +921,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D6B6150E11182E932512349 /* Pods-NGRValidatorTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -927,6 +929,7 @@
 				GCC_PREFIX_HEADER = "NGRValidatorTests/Unit-Tests-Prefix.pch";
 				INFOPLIST_FILE = NGRValidatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NGRValidator.app/NGRValidator";
 			};

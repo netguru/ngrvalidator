@@ -12,6 +12,8 @@ typedef NS_ENUM(NSInteger, NGRCreditCardProperty) {
 
 @interface NGRPropertyValidator (CreditCard)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Rules
 
 /**
@@ -25,5 +27,7 @@ typedef NS_ENUM(NSInteger, NGRCreditCardProperty) {
  *  User-defined error message used when credit card's property is invalid.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgInvalidCreditCardProperty)(NGRCreditCardProperty property, NSString *message);
+
+NS_ASSUME_NONNULL_END
 
 @end

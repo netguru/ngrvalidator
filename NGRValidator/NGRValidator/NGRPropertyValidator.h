@@ -22,7 +22,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  @param property Name of property given as NSString.
  *  @return Instance of NGPropertyValidator used to specify next validation rules.
  */
-- (nullable instancetype)initWithProperty:(nonnull NSString *)property NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithProperty:(nullable NSString *)property NS_DESIGNATED_INITIALIZER;
 - (nullable instancetype)init NS_UNAVAILABLE;
 
 /**
