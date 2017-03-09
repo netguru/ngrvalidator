@@ -24,3 +24,4 @@
 #import "NGRPropertyValidator+NSDate.h"
 #import "NGRPropertyValidator+SugarSyntax.h"
 #import "NGRPropertyValidator+NSArray.h"
+#import "NGRPropertyValidator+CreditCard.h"

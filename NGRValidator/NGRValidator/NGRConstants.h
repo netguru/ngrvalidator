@@ -34,6 +34,10 @@ extern NGRMsgKey *const MSGNotName;
 extern NGRMsgKey *const MSGNotHTTP;
 extern NGRMsgKey *const MSGWrongRegex;
 
+//NGRPropertyValidator + CreditCard
+extern NGRMsgKey *const MSGNotValidCreditCardNumber;
+extern NGRMsgKey *const MSGNotValidCreditCardExpirationDate;
+
 //NGRPropertyValidator + NSDate
 extern NGRMsgKey *const MSGNotEarlierThan;
 extern NGRMsgKey *const MSGNotLaterThan;
