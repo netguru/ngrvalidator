@@ -12,6 +12,8 @@
 
 @required
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Asks delegate for error - messages dictionary for appropriate property key.
  *
@@ -27,6 +29,8 @@
  *       property name
  *
  */
-- (nonnull NSDictionary *)validationErrorMessagesByPropertyKey;
+- (NSDictionary *)validationErrorMessagesByPropertyKey;
+
+NS_ASSUME_NONNULL_END
 
 @end
