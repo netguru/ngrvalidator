@@ -14,6 +14,8 @@
 
 extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NGRPropertyValidator : NSObject
 
 /**
@@ -28,7 +30,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  *  Name of validated property.
  */
-@property (strong, nonatomic, readonly, nonnull) NSString *property;
+@property (strong, nonatomic, readonly) NSString *property;
 
 /**
  * The delegate that responds to NGRMessaging protocol methods.
@@ -38,12 +40,12 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  * Localized name of validated property. Used in error description if has been set. (default: nil).
  */
-@property (copy, nonatomic, readonly, nonnull) NGRPropertyValidator * _Nonnull (^localizedName)(NSString * _Nonnull name);
+@property (copy, nonatomic, readonly) NGRPropertyValidator * (^localizedName)(NSString * name);
 
 /**
  *  Validates that the NSObject is nil or not.
  */
-@property (copy, nonatomic, readonly, nonnull) NGRPropertyValidator * _Nonnull (^required)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator * (^required)();
 
 /**
  *  Whether the validated property can be empty (means it's length or count is equal to 0). By default cannot be empty.
@@ -51,19 +53,19 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *
  *  Refers to NSString, NSAttributedString, NSData, NSArray, NSSet, NSDictionary (and their mutable counterparts).
  */
-@property (copy, nonatomic, readonly, nonnull) NGRPropertyValidator * _Nonnull (^allowEmpty)();
+@property (copy, nonatomic, readonly) NGRPropertyValidator * (^allowEmpty)();
 
 /**
  *  Sets priority of property validator. During validation proccess, property validators will be invoke one by one ordered by priority.
  *  Default: All property validators have same priority and will be invoked in order of NSArray order returned in rules: block.
  */
-@property (copy, nonatomic, readonly, nonnull) NGRPropertyValidator * _Nonnull (^order)(NSUInteger);
+@property (copy, nonatomic, readonly) NGRPropertyValidator * (^order)(NSUInteger);
 
 /**
  *  Sets scenarios which property validator has to conform. Do not use if property should be validate in every scenario.
  *  Remember to pass scenario names as NSStrings.
  */
-@property (copy, nonatomic, readonly, nonnull) NGRPropertyValidator * _Nonnull (^onScenarios)(NSArray * _Nonnull scenarios);
+@property (copy, nonatomic, readonly) NGRPropertyValidator * (^onScenarios)(NSArray * scenarios);
 
 /**
  *  A scenarios which property validator conforms. If nil, property validator will be valid in every scenario.
@@ -83,12 +85,12 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
 /**
  *  Array of NGRValidationRule objects, invoked one by one in validation process.
  */
-@property (strong, nonatomic, readonly, nonnull) NSMutableArray *validationRules;
+@property (strong, nonatomic, readonly) NSMutableArray *validationRules;
 
 /**
  *  Validation error messages handler.
  */
-@property (strong, nonatomic, readonly, nonnull) NGRMessages *messages;
+@property (strong, nonatomic, readonly) NGRMessages *messages;
 
 /**
  *  Validates property to first error.
@@ -96,7 +98,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  @param value The value of validated property.
  *  @return NSError The error if any, otherwise nil.
  */
-- (nullable NSError *)simpleValidationOfValue:(nonnull id)value;
+- (nullable NSError *)simpleValidationOfValue:(id)value;
 
 /**
  *  Validates property and gather all possible errors.
@@ -104,7 +106,7 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  @param value The value of validated property.
  *  @return An NSArray of errors if any, otherwise nil.
  */
-- (nullable NSArray *)complexValidationOfValue:(nonnull id)value;
+- (nullable NSArray *)complexValidationOfValue:(id)value;
 
 /**
  *  Adds a validator block to validators. Also checks if validated property is kind of given class.
@@ -113,6 +115,8 @@ extern NSUInteger const NGRPropertyValidatorDefaultPriority;
  *  @param name             The name of validator block.
  *  @param validationBlock  The validation block invoked during validation process.
  */
-- (void)validateClass:(nullable Class)aClass withName:(nonnull NSString *)name validationBlock:(nonnull NGRValidationBlock)block;
+- (void)validateClass:(nullable Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block;
+
+NS_ASSUME_NONNULL_END
 
 @end
