@@ -10,6 +10,8 @@
 
 @interface NSString (NGRValidator)
 
+NS_ASSUME_NONNULL_BEGIN
+
 - (BOOL)ngr_isEmail;
 
 - (BOOL)ngr_isURL;
@@ -23,5 +25,7 @@
 - (BOOL)ngr_isValidCreditCardNumber;
 
 - (BOOL)ngr_isValidCreditCardExpirationDate;
+
+NS_ASSUME_NONNULL_END
 
 @end

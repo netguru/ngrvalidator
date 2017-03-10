@@ -10,6 +10,8 @@
 
 @interface NGRPropertyValidator (NSDate)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Rules
 
 /**
@@ -63,5 +65,7 @@
  *  User-defined error message used when validated property is not between dates.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotBetweenDates)(NSString *message);
+
+NS_ASSUME_NONNULL_END
 
 @end

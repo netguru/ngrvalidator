@@ -16,6 +16,8 @@ typedef NS_ENUM(NSInteger, NGRSyntax) {
 
 @interface NGRPropertyValidator (Syntax)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Rules
 
 /**
@@ -39,5 +41,7 @@ typedef NS_ENUM(NSInteger, NGRSyntax) {
  *  User-defined error message used when validated property do not match given regex.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgWrongRegex)(NSString *message);
+
+NS_ASSUME_NONNULL_END
 
 @end

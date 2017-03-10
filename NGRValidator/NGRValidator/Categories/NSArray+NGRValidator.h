@@ -10,8 +10,12 @@
 
 @interface NSArray (NGRValidator)
 
+NS_ASSUME_NONNULL_BEGIN
+
 - (BOOL)ngr_containsString:(NSString *)string;
 
 - (NSArray *)ngr_sortedArrayByPriority;
+
+NS_ASSUME_NONNULL_END
 
 @end

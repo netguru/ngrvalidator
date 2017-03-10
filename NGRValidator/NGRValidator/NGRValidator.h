@@ -56,7 +56,7 @@
  *
  *  @return Nil if validation will pass, otherwise an array populated with validation errors.
  */
-+ (NSArray *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
++ (NSArray<NSError *> *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
 
 /**
  *  Validates model with given rules and scenario. Returns empty array when validation succeeded. If not, array will contains errors.
@@ -68,7 +68,7 @@
  *
  *  @return Nil if validation will pass, otherwise an array populated with validation errors.
  */
-+ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
++ (NSArray<NSError *> *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
 
 @end
 

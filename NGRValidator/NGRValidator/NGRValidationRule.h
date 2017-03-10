@@ -11,6 +11,8 @@
 
 @interface NGRValidationRule : NSObject
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Designated initializer of NGRValidationRule.
  *
@@ -19,8 +21,8 @@
  *
  *  @return Instance of receiver.
  */
-- (instancetype)initWithName:(NSString *)name block:(NGRValidationBlock)block NS_DESIGNATED_INITIALIZER;
-- (instancetype)init NS_UNAVAILABLE;
+- (nullable instancetype)initWithName:(NSString *)name block:(NGRValidationBlock)block NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Validation rule name stored for easier access and identification.
@@ -31,5 +33,7 @@
  *  Block which contains validation expression.
  */
 @property (copy, readonly, nonatomic) NGRValidationBlock validationBlock;
+
+NS_ASSUME_NONNULL_END
 
 @end

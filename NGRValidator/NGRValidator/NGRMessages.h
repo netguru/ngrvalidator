@@ -12,6 +12,8 @@
 
 @interface NGRMessages : NSObject
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Sets a message for the given error.
  *
@@ -26,6 +28,8 @@
  *  @param error The error specifying which message should be returned.
  *  @return The message fo given error.
  */
-- (NSString *)messageForKey:(NGRMsgKey *)key;
+- (nullable NSString *)messageForKey:(NGRMsgKey *)key;
+
+NS_ASSUME_NONNULL_END
 
 @end

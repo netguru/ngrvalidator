@@ -16,6 +16,8 @@
 
 @interface NGRPropertyValidator (NSNumber)
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - Rules
 
 /**
@@ -74,5 +76,7 @@
  *  User-defined error message used when validated property value isn't true.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotTrue)(NSString *message);
+
+NS_ASSUME_NONNULL_END
 
 @end

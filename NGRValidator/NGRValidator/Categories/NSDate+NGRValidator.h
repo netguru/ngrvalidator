@@ -10,6 +10,8 @@
 
 @interface NSDate (NGRValidator)
 
+NS_ASSUME_NONNULL_BEGIN
+
 - (BOOL)ngr_isBetweenFirstDate:(NSDate *)firstDate lastDate:(NSDate *)lastDate inclusive:(BOOL)inclusive;
 
 - (BOOL)ngr_isLaterThanOrEqualTo:(NSDate *)date;
@@ -19,5 +21,7 @@
 - (BOOL)ngr_isLaterThan:(NSDate *)date;
 
 - (BOOL)ngr_isEarlierThan:(NSDate *)date;
+
+NS_ASSUME_NONNULL_END
 
 @end

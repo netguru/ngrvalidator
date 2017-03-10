@@ -45,7 +45,7 @@
     return [self validateModel:model error:error scenario:nil delegate:delegate rules:rules];
 }
 
-+ (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
++ (NSArray<NSError *> *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     
     if (rules == NULL) {
         return nil;
@@ -55,7 +55,7 @@
     return ([array count] == 0) ? nil : array;
 }
 
-+ (NSArray *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
++ (NSArray<NSError *> *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     return [self validateModel:model scenario:nil delegate:delegate rules:rules];
 }
 

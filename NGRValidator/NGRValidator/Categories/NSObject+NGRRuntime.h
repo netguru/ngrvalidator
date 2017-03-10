@@ -10,10 +10,14 @@
 
 @interface NSObject (NGRRuntime)
 
+NS_ASSUME_NONNULL_BEGIN
+
 - (NSArray *)ngr_propertiesOfClass:(Class)aClass;
 
 - (NSArray *)ngr_properties;
 
-- (Class)ngr_classOfPropertyNamed:(NSString *)propertyName;
+- (nullable Class)ngr_classOfPropertyNamed:(NSString *)propertyName;
+
+NS_ASSUME_NONNULL_END
 
 @end
