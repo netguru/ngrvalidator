@@ -40,6 +40,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^match)(NSString *string);
 
 /**
+ *  Validates that the NSString contains emoji
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^emoji)(BOOL contain);
+
+/**
  *  Validates that the NSString is different than another string
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^differ)(NSString *string);
@@ -80,6 +85,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  User-defined error message used when validated string is not decimal.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgNotDecimal)(NSString *message);
+
+/**
+ *  User-defined error message used when validated string has emoji.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgHasEmoji)(NSString *message);
+
+/**
+ *  User-defined error message used when validated string has no emoji.
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^msgHasNoEmoji)(NSString *message);
+
 
 NS_ASSUME_NONNULL_END
 

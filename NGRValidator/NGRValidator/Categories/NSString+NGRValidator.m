@@ -8,6 +8,7 @@
 
 #import "NSString+NGRValidator.h"
 #import "NSDate+NGRValidator.h"
+#import "NSCharacterSet+NGRValidator.h"
 
 @implementation NSString (NGRValidator)
 
@@ -33,6 +34,10 @@
     @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
 
     return [self ngr_evaluatePattern:emailRegEx];
+}
+
+- (BOOL)ngr_hasEmoji {
+    return [self rangeOfCharacterFromSet:[NSCharacterSet emojisCharacterSet]].location != NSNotFound;
 }
 
 - (BOOL)ngr_isURL {
