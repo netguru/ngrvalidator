@@ -541,6 +541,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E5C0A121A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidator" */;
 			buildPhases = (
+				02C4B9781E7C8ED500F29AF0 /* Update Emojis Script */,
 				5E5C09EB1A498164002D3E72 /* Sources */,
 				5E5C09EC1A498164002D3E72 /* Frameworks */,
 				5E5C09ED1A498164002D3E72 /* Resources */,
@@ -633,6 +634,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02C4B9781E7C8ED500F29AF0 /* Update Emojis Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Emojis Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./Scripts/generate_emojis.sh;
+		};
 		724C5AA9B7B482F1EB58CE51 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

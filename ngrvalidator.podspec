@@ -25,5 +25,6 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'NGRValidator/NGRValidator/**/*.{h,m}'
   s.header_dir    = 'NGRValidator'
+  s.preserve_paths = 'Scripts/*'
 
 end
