@@ -12,19 +12,29 @@
 @implementation NSData (NGRValidator)
 
 - (BOOL)ngr_hasMimeType:(NGRMimeType *)type {
-    char bytes[12] = {0};
-    [self getBytes:&bytes length:12];
     
+    NSDictionary *metadataDictionary = [self metadataByMimeTypeKey];
+    NGRMimeTypeMetadata *metadata = metadataDictionary[type];
+    
+    NSAssert(metadata != nil, @"Detection not supported for this type");
+    
+    char bytes[32];
+    [self getBytes:&bytes length:metadata.length];
+    
+    return !memcmp(bytes, metadata.signature, metadata.length);
+}
+
+- (NSDictionary *)metadataByMimeTypeKey {
+    // Image signatures
     const char png[8] = {0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a};
-    NGRMimeTypeMetadata *metadata = [[NGRMimeTypeMetadata alloc] initWithName:NGRMimeTypePNG
-                                                    signature: png
-                                                       length:8];
     
-    if (!memcmp(bytes, metadata.signature, metadata.length)) {
-        return YES;
-    }
+    // Video signatures
     
-    return NO;
+    // Misc signatures
+    
+    return @{
+        NGRMimeTypePNG : [NGRMimeTypeMetadata dataWithSignature:png]
+    };
 }
 
 @end

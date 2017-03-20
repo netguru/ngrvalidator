@@ -9,14 +9,17 @@
 
 @implementation NGRMimeTypeMetadata
 
-- (instancetype)initWithName:(NGRMimeType *)name signature:(const char *)signature length:(unsigned long)length {
+- (instancetype)initWithSignature:(const char *)signature {
     self = [super init];
     if (self) {
         _signature = signature;
-        _length = length;
-        _name = name;
+        _length = sizeof(signature)/sizeof(char);
     }
     return self;
+}
+
++ (instancetype)dataWithSignature:(const char *)signature {
+    return [[self alloc] initWithSignature:signature];
 }
 
 @end
