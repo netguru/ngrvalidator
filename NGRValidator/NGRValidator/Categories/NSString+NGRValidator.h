@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)ngr_stringByCapitalizeFirstLetter;
 
+- (BOOL)ngr_hasEmoji;
+
 - (BOOL)ngr_isValidCreditCardNumber;
 
 - (BOOL)ngr_isValidCreditCardExpirationDate;

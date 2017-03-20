@@ -23,11 +23,25 @@ describe(@"NSString validation", ^{
             return validator.minLength(5).msgTooShort(msg);
         });
     });
-
+    
     testDescriptor(@"maxLength validator", @"string with required length", @"too long string");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@"foo", @"foo_bar_baz", 1, ^(NGRPropertyValidator *validator) {
             return validator.maxLength(5).msgTooLong(msg);
+        });
+    });
+    
+    testDescriptor(@"emoji validator", @"string without emoji", @"string with emoji");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@"foo", @"fooo 🙂", 1, ^(NGRPropertyValidator *validator) {
+            return validator.emoji(NO).msgHasEmoji(msg);
+        });
+    });
+    
+    testDescriptor(@"emoji validator", @"string with emoji", @"string without emoji");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@"fooo 🙂", @"foo", 1, ^(NGRPropertyValidator *validator) {
+            return validator.emoji(YES).msgHasNoEmoji(msg);
         });
     });
 

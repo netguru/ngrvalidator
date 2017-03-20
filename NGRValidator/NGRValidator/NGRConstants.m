@@ -20,6 +20,8 @@ NGRMsgKey *const MSGNotDecimal = (NGRMsgKey *)@"NGRNotDecimalMessage";
 NGRMsgKey *const MSGNotExactLength = (NGRMsgKey *)@"NGRNotExactLengthMessage";
 NGRMsgKey *const MSGNotMatch = (NGRMsgKey *)@"NGRNotMatchMessage";
 NGRMsgKey *const MSGNotDiffer = (NGRMsgKey *)@"NGRNotDifferMessage";
+NGRMsgKey *const MSGHasEmoji = (NGRMsgKey *)@"NGRHasEmojiMessage";
+NGRMsgKey *const MSGHasNoEmoji = (NGRMsgKey *)@"NGRHasNoEmojiMessage";
 
 //NGRPropertyValidator + NSNumber
 NGRMsgKey *const MSGTooSmall = (NGRMsgKey *)@"NGRTooSmallMessage";

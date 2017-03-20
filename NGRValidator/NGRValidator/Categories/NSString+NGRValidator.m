@@ -8,6 +8,7 @@
 
 #import "NSString+NGRValidator.h"
 #import "NSDate+NGRValidator.h"
+#import "NSCharacterSet+NGRValidator.h"
 
 @implementation NSString (NGRValidator)
 
@@ -49,6 +50,11 @@
 - (BOOL)ngr_isHttpURL {
     return [self ngr_isURLWithScheme:@"http"] || [self ngr_isURLWithScheme:@"https"];
 }
+
+- (BOOL)ngr_hasEmoji {
+    return [self rangeOfCharacterFromSet:[NSCharacterSet emojisCharacterSet]].location != NSNotFound;
+}
+
 
 - (BOOL)ngr_isName {
     return [self ngr_evaluateAllowedCharacterSet:[NSCharacterSet letterCharacterSet]];

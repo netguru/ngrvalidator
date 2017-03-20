@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		027139B11E7BF358002AD49E /* NSCharacterSet+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */; };
 		5E00195B1A498414002ED961 /* NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195A1A498414002ED961 /* NGRValidator.m */; };
 		5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195E1A49842B002ED961 /* NGRPropertyValidator.m */; };
 		5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019641A4984DA002ED961 /* NGRPropertyValidator+NSObject.m */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		027139AF1E7BF358002AD49E /* NSCharacterSet+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+NGRValidator.h"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.h"; sourceTree = "<group>"; };
+		027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+NGRValidator.m"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.m"; sourceTree = "<group>"; };
 		5E0019591A498414002ED961 /* NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRValidator.h; path = NGRValidator/NGRValidator.h; sourceTree = "<group>"; };
 		5E00195A1A498414002ED961 /* NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidator.m; path = NGRValidator/NGRValidator.m; sourceTree = "<group>"; };
 		5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = NGRPropertyValidator.h; path = NGRValidator/NGRPropertyValidator.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -245,6 +248,8 @@
 				5E0019801A499B5F002ED961 /* NSDate+NGRValidator.m */,
 				5E62ACA91AD72F28001976CE /* NSError+NGRValidator.h */,
 				5E62ACAA1AD72F28001976CE /* NSError+NGRValidator.m */,
+				027139AF1E7BF358002AD49E /* NSCharacterSet+NGRValidator.h */,
+				027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E5C0A121A498164002D3E72 /* Build configuration list for PBXNativeTarget "NGRValidator" */;
 			buildPhases = (
+				02C4B9781E7C8ED500F29AF0 /* Update Emojis Script */,
 				5E5C09EB1A498164002D3E72 /* Sources */,
 				5E5C09EC1A498164002D3E72 /* Frameworks */,
 				5E5C09ED1A498164002D3E72 /* Resources */,
@@ -628,6 +634,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02C4B9781E7C8ED500F29AF0 /* Update Emojis Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Emojis Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./Scripts/generate_emojis.sh;
+		};
 		724C5AA9B7B482F1EB58CE51 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,6 +703,7 @@
 				5E6D99BD1A53827000161808 /* NGRValidationRule.m in Sources */,
 				5E00196B1A4984F4002ED961 /* NGRPropertyValidator+NSNumber.m in Sources */,
 				5E0019871A49A82C002ED961 /* NGRPropertyValidator+NSDate.m in Sources */,
+				027139B11E7BF358002AD49E /* NSCharacterSet+NGRValidator.m in Sources */,
 				5E6D99CD1A539BA500161808 /* NGRDemoSwitchCell.m in Sources */,
 				5E26AD841B5E5DA70056F510 /* NGRPropertyValidator+NSArray.m in Sources */,
 				5E00196E1A498502002ED961 /* NGRPropertyValidator+Syntax.m in Sources */,
