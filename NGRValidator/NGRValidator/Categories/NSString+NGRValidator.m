@@ -35,8 +35,19 @@
     return [self ngr_evaluatePattern:emailRegEx];
 }
 
-- (BOOL)ngr_isURL {
-    return [self ngr_evaluatePattern:@"http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?"];
+- (BOOL)ngr_isURLWithScheme:(NSString *)scheme {
+    NSString *urlPathPattern = @"([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?";
+    NSString *urlPattern = [NSString stringWithFormat:@"%@://%@", scheme, urlPathPattern];
+    
+    return [self ngr_evaluatePattern:urlPattern];
+}
+
+- (BOOL)ngr_isFileURL {
+    return [self ngr_isURLWithScheme:@"file"];
+}
+
+- (BOOL)ngr_isHttpURL {
+    return [self ngr_isURLWithScheme:@"http"] || [self ngr_isURLWithScheme:@"https"];
 }
 
 - (BOOL)ngr_isName {

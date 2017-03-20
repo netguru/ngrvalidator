@@ -32,6 +32,7 @@ NGRMsgKey *const MSGNotTrue = (NGRMsgKey *)@"NGRNotTrueMessage";
 NGRMsgKey *const MSGNotEmail = (NGRMsgKey *)@"NGRNotEmailMessage";
 NGRMsgKey *const MSGNotName = (NGRMsgKey *)@"NGRNotNameMessage";
 NGRMsgKey *const MSGNotHTTP = (NGRMsgKey *)@"NGRNotHttpMessage";
+NGRMsgKey *const MSGNotFile = (NGRMsgKey *)@"NGRNotFileMessage";
 NGRMsgKey *const MSGWrongRegex = (NGRMsgKey *)@"NGRWrongRegexMessage";
 
 //NGRPropertyValidator + CreditCard

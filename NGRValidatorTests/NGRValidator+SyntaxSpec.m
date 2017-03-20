@@ -17,10 +17,17 @@ describe(@"Syntax validation", ^{
         });
     });
     
-    testDescriptor(@"syntax URL validator", @"valid url syntax", @"invalid url syntax");
+    testDescriptor(@"syntax HTTP URL validator", @"valid http url syntax", @"invalid http url syntax");
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(@"http://www.google.com", @"http://bar", 1, ^(NGRPropertyValidator *validator) {
             return validator.syntax(NGRSyntaxHTTP).msgWrongSyntax(NGRSyntaxHTTP, msg);
+        });
+    });
+    
+    testDescriptor(@"syntax File URL validator", @"valid file url syntax", @"invalid file url syntax");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(@"file://www.google.com", @"http://bar", 1, ^(NGRPropertyValidator *validator) {
+            return validator.syntax(NGRSyntaxFile).msgWrongSyntax(NGRSyntaxFile, msg);
         });
     });
     

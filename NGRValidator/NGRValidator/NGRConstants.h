@@ -33,6 +33,7 @@ extern NGRMsgKey *const MSGNotEmail;
 extern NGRMsgKey *const MSGNotName;
 extern NGRMsgKey *const MSGNotHTTP;
 extern NGRMsgKey *const MSGWrongRegex;
+extern NGRMsgKey *const MSGNotFile;
 
 //NGRPropertyValidator + CreditCard
 extern NGRMsgKey *const MSGNotValidCreditCardNumber;
