@@ -20,6 +20,8 @@ extern NGRMsgKey *const MSGNotDecimal;
 extern NGRMsgKey *const MSGNotExactLength;
 extern NGRMsgKey *const MSGNotMatch;
 extern NGRMsgKey *const MSGNotDiffer;
+extern NGRMsgKey *const MSGHasEmoji;
+extern NGRMsgKey *const MSGHasNoEmoji;
 
 //NGRPropertyValidator + NSNumber
 extern NGRMsgKey *const MSGTooSmall;
