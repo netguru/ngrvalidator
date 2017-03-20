@@ -36,10 +36,14 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
                 }]; break;
                 
             case NGRSyntaxHTTP:
-                [self validateSyntaxWithName:@"syntax: URL" block:^NGRMsgKey *(NSString *string) {
-                    return [string ngr_isURL] ? nil : MSGNotHTTP;
+                [self validateSyntaxWithName:@"syntax: HTTP URL" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isHttpURL] ? nil : MSGNotHTTP;
                 }]; break;
                 
+            case NGRSyntaxFile:
+                [self validateSyntaxWithName:@"syntax: File URL" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isFileURL] ? nil : MSGNotFile;
+                }]; break;
             default:
                 break;
         }
@@ -83,7 +87,8 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
             return MSGNotName;
         case NGRSyntaxHTTP:
             return MSGNotHTTP;
-            
+        case NGRSyntaxFile:
+            return MSGNotFile;
         default:
             return nil;
     }

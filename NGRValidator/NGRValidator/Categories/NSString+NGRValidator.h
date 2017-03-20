@@ -14,7 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)ngr_isEmail;
 
-- (BOOL)ngr_isURL;
+- (BOOL)ngr_isURLWithScheme:(NSString *)scheme;
+
+- (BOOL)ngr_isFileURL;
+
+- (BOOL)ngr_isHttpURL;
 
 - (BOOL)ngr_isName;
 
