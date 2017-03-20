@@ -6,25 +6,6 @@ EMOJIS=`/usr/libexec/PlistBuddy "$EMOJIS_PLIST" -c Print | grep " Data " | tr -s
 FILENAME="NSCharacterSet+NGRValidator"
 FILEPATH="./NGRValidator/NGRValidator/Categories"
 
-CONTENTS="\n
-// GENERATED AUTOMATICALLY - DO NOT MODIFY\n
-//\n
-//  $FILENAME.m\n
-//  NGRValidator\n
-//\n
-//\n
-\n
-#import \"$FILENAME.h\"\n
-\n
-@implementation NSCharacterSet (NGRValidator)\n
-\n
-+ (NSCharacterSet *)emojisCharacterSet {\n
-\t\t NSString *allEmojisString = @\"$EMOJIS\";\n
-\n
-\t\t return [NSCharacterSet characterSetWithCharactersInString:allEmojisString];\n
-}\n
-\n
-@end\n
-"
+CONTENTS="\n// GENERATED AUTOMATICALLY - DO NOT MODIFY\n//\n//  $FILENAME.m\n//  NGRValidator\n//\n//\n\n#import \"$FILENAME.h\"\n\n@implementation NSCharacterSet (NGRValidator)\n\n+ (NSCharacterSet *)emojisCharacterSet {\n\tNSString *allEmojisString = @\"$EMOJIS\";\n\n\treturn [NSCharacterSet characterSetWithCharactersInString:allEmojisString];\n}\n\n@end\n"
 
 echo -e $CONTENTS > $FILEPATH/$FILENAME.m
