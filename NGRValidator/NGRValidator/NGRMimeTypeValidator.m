@@ -30,8 +30,12 @@
 
 + (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size withOffset:(unsigned long)offset {
     return [[self alloc] initWithValidationBlock: ^BOOL(NSData *data) {
-        char bytes[size];
         
+        if (data.length < offset + size) {
+            return NO;
+        }
+        
+        char bytes[size];
         NSRange range = NSMakeRange(offset, size);
         
         [data getBytes:&bytes range:range];
@@ -102,6 +106,12 @@
         NGRMimeTypeMP3 : [NGRMimeTypeValidator mp3],
         NGRMimeTypeM4a : [NGRMimeTypeValidator m4a],
         NGRMimeTypeOgg : [NGRMimeTypeValidator ogg],
+        
+        NGRMimeTypeTar : [NGRMimeTypeValidator tar],
+        NGRMimeTypeGz : [NGRMimeTypeValidator gz],
+        NGRMimeTypeRar : [NGRMimeTypeValidator rar],
+        NGRMimeTypeZip : [NGRMimeTypeValidator zip],
+        NGRMimeType7z : [NGRMimeTypeValidator _7z],
     };
 }
 

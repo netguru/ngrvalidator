@@ -110,6 +110,28 @@
     return [self loadFile:@"logo" extension:@"mp3"];
 }
 
+#pragma mark - Compressed
+
++ (NSData *)gz {
+    return [self loadFile:@"logo" extension:@"tgz"];
+}
+
++ (NSData *)zip {
+    return [self loadFile:@"logo" extension:@"zip"];
+}
+
++ (NSData *)tar {
+    return [self loadFile:@"logo" extension:@"tar"];
+}
+
++ (NSData *)rar {
+    return [self loadFile:@"logo" extension:@"rar"];
+}
+
++ (NSData *)_7z {
+    return [self loadFile:@"logo" extension:@"7z"];
+}
+
 #pragma mark - Private
 
 + (NSBundle *)bundle {

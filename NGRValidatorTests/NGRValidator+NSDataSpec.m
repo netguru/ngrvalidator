@@ -40,6 +40,13 @@ describe(@"Syntax validation", ^{
     NSData *m4a = [NGRDataProvider m4a];
     NSData *ogg = [NGRDataProvider ogg];
     
+    //Compressed
+    NSData *zip = [NGRDataProvider zip];
+    NSData *rar = [NGRDataProvider rar];
+    NSData *gz = [NGRDataProvider gz];
+    NSData *tar = [NGRDataProvider tar];
+    NSData *_7z = [NGRDataProvider _7z];
+    
     NSArray<NGRMimeTypeValidationTestCase *> *testCases = @[
                                                             
         [NGRMimeTypeValidationTestCase test:NGRMimeTypePNG valid:png invalid:jpg],
@@ -68,6 +75,13 @@ describe(@"Syntax validation", ^{
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeWav valid:wav invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeM4a valid:m4a invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeOgg valid:ogg invalid:png],
+        
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeGz valid:gz invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeRar valid:rar invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeZip valid:zip invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeType7z valid:_7z invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeTar valid:tar invalid:png],
+        
     ];
     
     for (NGRMimeTypeValidationTestCase *testCase in testCases) {
