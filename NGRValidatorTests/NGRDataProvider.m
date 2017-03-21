@@ -36,6 +36,10 @@
     return [self loadFile:@"logo" extension:@"gif"];
 }
 
++ (NSData *)bmp {
+    return [self loadFile:@"logo" extension:@"bmp"];
+}
+
 #pragma mark - Video
 
 + (NSData *)_3gp {

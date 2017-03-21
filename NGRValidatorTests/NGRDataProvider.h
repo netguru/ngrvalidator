@@ -18,6 +18,7 @@
 + (NSData *)tiff;
 + (NSData *)ico;
 + (NSData *)gif;
++ (NSData *)bmp;
 
 #pragma mark - Video
 

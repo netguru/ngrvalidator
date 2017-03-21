@@ -21,5 +21,6 @@
     #import "NGRBehaviorKeys.h"
     #import "NGRTestModel.h"
     #import "NGRDataProvider.h"
+    #import "NGRMimeTypeValidationTestCase.h"
 
 #endif
