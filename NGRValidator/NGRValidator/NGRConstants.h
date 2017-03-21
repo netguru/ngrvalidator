@@ -50,6 +50,7 @@ extern NGRMsgKey *const MSGNotBetweenDates;
 
 //NGRPropertyValidator + NSDate
 extern NGRMsgKey *const MSGWrongMIMEType;
+extern NGRMsgKey *const MSGWrongMediaType;
 
 //NGRPropertyValidator + Collections
 extern NGRMsgKey *const MSGNotIncludes;

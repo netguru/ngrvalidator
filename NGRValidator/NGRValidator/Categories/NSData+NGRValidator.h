@@ -2,7 +2,6 @@
 //  NSData+NGRValidator.h
 //  NGRValidator
 //
-//  Created by Krzysztof Kapitan on 20.03.2017.
 //
 //
 
@@ -13,6 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)ngr_hasMimeType:(NGRMimeType *)type;
+
+- (BOOL)ngr_isImage;
+- (BOOL)ngr_isVideo;
+- (BOOL)ngr_isAudio;
+- (BOOL)ngr_isArchive;
 
 NS_ASSUME_NONNULL_END
 

@@ -2,7 +2,6 @@
 //  NGRMimeTypeValidator+Image.h
 //  NGRValidator
 //
-//  Created by Krzysztof Kapitan on 21.03.2017.
 //
 //
 

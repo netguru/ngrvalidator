@@ -2,7 +2,6 @@
 //  NGRMimeType.m
 //  NGRValidator
 //
-//  Created by Krzysztof Kapitan on 20.03.2017.
 //
 //
 
