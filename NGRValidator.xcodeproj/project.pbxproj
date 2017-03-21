@@ -9,13 +9,23 @@
 /* Begin PBXBuildFile section */
 		027139B11E7BF358002AD49E /* NSCharacterSet+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */; };
 		0273F0DE1E8000DF000B5949 /* NSData+NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0DD1E8000DF000B5949 /* NSData+NGRValidator.m */; };
-		0273F0E11E8017E0000B5949 /* NGRMimeTypeMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E01E8017E0000B5949 /* NGRMimeTypeMetadata.m */; };
+		0273F0E11E8017E0000B5949 /* NGRMimeTypeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E01E8017E0000B5949 /* NGRMimeTypeValidator.m */; };
 		0273F0E41E80189B000B5949 /* NGRMimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E31E80189B000B5949 /* NGRMimeType.m */; };
 		0273F0E71E801B6D000B5949 /* NGRPropertyValidator+NSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E61E801B6D000B5949 /* NGRPropertyValidator+NSData.m */; };
 		0273F0E91E802178000B5949 /* NGRValidator+NSDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E81E802178000B5949 /* NGRValidator+NSDataSpec.m */; };
 		0273F0EC1E80251F000B5949 /* NGRDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0EB1E80251F000B5949 /* NGRDataProvider.m */; };
 		0273F0F01E802600000B5949 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0EE1E802600000B5949 /* logo.png */; };
 		0273F0F11E802600000B5949 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0EF1E802600000B5949 /* logo.jpg */; };
+		0273F0F51E80403A000B5949 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0F21E80403A000B5949 /* logo.pdf */; };
+		0273F0F61E80403A000B5949 /* logo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0F31E80403A000B5949 /* logo.tiff */; };
+		0273F0F71E80403A000B5949 /* logo.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0F41E80403A000B5949 /* logo.ico */; };
+		0273F1011E804265000B5949 /* logo.wmv in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FA1E804265000B5949 /* logo.wmv */; };
+		0273F1021E804265000B5949 /* logo.flv in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FB1E804265000B5949 /* logo.flv */; };
+		0273F1031E804265000B5949 /* logo.mkv in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FC1E804265000B5949 /* logo.mkv */; };
+		0273F1041E804265000B5949 /* logo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FD1E804265000B5949 /* logo.mp4 */; };
+		0273F1051E804265000B5949 /* logo.avi in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FE1E804265000B5949 /* logo.avi */; };
+		0273F1061E804265000B5949 /* logo.3gp in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FF1E804265000B5949 /* logo.3gp */; };
+		0273F1071E804265000B5949 /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0273F1001E804265000B5949 /* logo.gif */; };
 		5E00195B1A498414002ED961 /* NGRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195A1A498414002ED961 /* NGRValidator.m */; };
 		5E00195F1A49842B002ED961 /* NGRPropertyValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E00195E1A49842B002ED961 /* NGRPropertyValidator.m */; };
 		5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0019641A4984DA002ED961 /* NGRPropertyValidator+NSObject.m */; };
@@ -85,8 +95,8 @@
 		027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+NGRValidator.m"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.m"; sourceTree = "<group>"; };
 		0273F0DC1E8000DF000B5949 /* NSData+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+NGRValidator.h"; path = "NGRValidator/Categories/NSData+NGRValidator.h"; sourceTree = "<group>"; };
 		0273F0DD1E8000DF000B5949 /* NSData+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+NGRValidator.m"; path = "NGRValidator/Categories/NSData+NGRValidator.m"; sourceTree = "<group>"; };
-		0273F0DF1E8017E0000B5949 /* NGRMimeTypeMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMimeTypeMetadata.h; path = NGRValidator/NGRMimeTypeMetadata.h; sourceTree = "<group>"; };
-		0273F0E01E8017E0000B5949 /* NGRMimeTypeMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMimeTypeMetadata.m; path = NGRValidator/NGRMimeTypeMetadata.m; sourceTree = "<group>"; };
+		0273F0DF1E8017E0000B5949 /* NGRMimeTypeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMimeTypeValidator.h; path = NGRValidator/NGRMimeTypeValidator.h; sourceTree = "<group>"; };
+		0273F0E01E8017E0000B5949 /* NGRMimeTypeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMimeTypeValidator.m; path = NGRValidator/NGRMimeTypeValidator.m; sourceTree = "<group>"; };
 		0273F0E21E80189B000B5949 /* NGRMimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMimeType.h; path = NGRValidator/NGRMimeType.h; sourceTree = "<group>"; };
 		0273F0E31E80189B000B5949 /* NGRMimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMimeType.m; path = NGRValidator/NGRMimeType.m; sourceTree = "<group>"; };
 		0273F0E51E801B6D000B5949 /* NGRPropertyValidator+NSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSData.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSData.h"; sourceTree = "<group>"; };
@@ -96,6 +106,16 @@
 		0273F0EB1E80251F000B5949 /* NGRDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRDataProvider.m; sourceTree = "<group>"; };
 		0273F0EE1E802600000B5949 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0273F0EF1E802600000B5949 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
+		0273F0F21E80403A000B5949 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
+		0273F0F31E80403A000B5949 /* logo.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = logo.tiff; sourceTree = "<group>"; };
+		0273F0F41E80403A000B5949 /* logo.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = logo.ico; sourceTree = "<group>"; };
+		0273F0FA1E804265000B5949 /* logo.wmv */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.wmv; sourceTree = "<group>"; };
+		0273F0FB1E804265000B5949 /* logo.flv */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.flv; sourceTree = "<group>"; };
+		0273F0FC1E804265000B5949 /* logo.mkv */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.mkv; sourceTree = "<group>"; };
+		0273F0FD1E804265000B5949 /* logo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.mp4; sourceTree = "<group>"; };
+		0273F0FE1E804265000B5949 /* logo.avi */ = {isa = PBXFileReference; lastKnownFileType = video.avi; path = logo.avi; sourceTree = "<group>"; };
+		0273F0FF1E804265000B5949 /* logo.3gp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.3gp; sourceTree = "<group>"; };
+		0273F1001E804265000B5949 /* logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo.gif; sourceTree = "<group>"; };
 		5E0019591A498414002ED961 /* NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRValidator.h; path = NGRValidator/NGRValidator.h; sourceTree = "<group>"; };
 		5E00195A1A498414002ED961 /* NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidator.m; path = NGRValidator/NGRValidator.m; sourceTree = "<group>"; };
 		5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = NGRPropertyValidator.h; path = NGRValidator/NGRPropertyValidator.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -219,10 +239,44 @@
 		0273F0ED1E802535000B5949 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				0273F0EE1E802600000B5949 /* logo.png */,
-				0273F0EF1E802600000B5949 /* logo.jpg */,
+				0273F1081E80429A000B5949 /* Misc */,
+				0273F0F91E80424B000B5949 /* Video */,
+				0273F0F81E804244000B5949 /* Image */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		0273F0F81E804244000B5949 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				0273F1001E804265000B5949 /* logo.gif */,
+				0273F0EE1E802600000B5949 /* logo.png */,
+				0273F0EF1E802600000B5949 /* logo.jpg */,
+				0273F0F21E80403A000B5949 /* logo.pdf */,
+				0273F0F31E80403A000B5949 /* logo.tiff */,
+				0273F0F41E80403A000B5949 /* logo.ico */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		0273F0F91E80424B000B5949 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				0273F0FA1E804265000B5949 /* logo.wmv */,
+				0273F0FB1E804265000B5949 /* logo.flv */,
+				0273F0FC1E804265000B5949 /* logo.mkv */,
+				0273F0FD1E804265000B5949 /* logo.mp4 */,
+				0273F0FE1E804265000B5949 /* logo.avi */,
+				0273F0FF1E804265000B5949 /* logo.3gp */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		0273F1081E80429A000B5949 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 		139BD08AC3C3343F068E3BC8 /* Frameworks */ = {
@@ -250,8 +304,8 @@
 				5E62ACB01AD738BA001976CE /* NGRConstants.m */,
 				0273F0E21E80189B000B5949 /* NGRMimeType.h */,
 				0273F0E31E80189B000B5949 /* NGRMimeType.m */,
-				0273F0DF1E8017E0000B5949 /* NGRMimeTypeMetadata.h */,
-				0273F0E01E8017E0000B5949 /* NGRMimeTypeMetadata.m */,
+				0273F0DF1E8017E0000B5949 /* NGRMimeTypeValidator.h */,
+				0273F0E01E8017E0000B5949 /* NGRMimeTypeValidator.m */,
 				5E0019591A498414002ED961 /* NGRValidator.h */,
 				5E00195A1A498414002ED961 /* NGRValidator.m */,
 				5E00195D1A49842B002ED961 /* NGRPropertyValidator.h */,
@@ -671,7 +725,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0273F0F11E802600000B5949 /* logo.jpg in Resources */,
+				0273F1071E804265000B5949 /* logo.gif in Resources */,
+				0273F0F61E80403A000B5949 /* logo.tiff in Resources */,
+				0273F0F71E80403A000B5949 /* logo.ico in Resources */,
+				0273F1011E804265000B5949 /* logo.wmv in Resources */,
+				0273F1061E804265000B5949 /* logo.3gp in Resources */,
+				0273F1021E804265000B5949 /* logo.flv in Resources */,
+				0273F1031E804265000B5949 /* logo.mkv in Resources */,
 				0273F0F01E802600000B5949 /* logo.png in Resources */,
+				0273F1051E804265000B5949 /* logo.avi in Resources */,
+				0273F1041E804265000B5949 /* logo.mp4 in Resources */,
+				0273F0F51E80403A000B5949 /* logo.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,7 +818,7 @@
 				5ECAF88D1A631EAC0011181C /* NGRUser.m in Sources */,
 				5E0019651A4984DA002ED961 /* NGRPropertyValidator+NSObject.m in Sources */,
 				5E00195B1A498414002ED961 /* NGRValidator.m in Sources */,
-				0273F0E11E8017E0000B5949 /* NGRMimeTypeMetadata.m in Sources */,
+				0273F0E11E8017E0000B5949 /* NGRMimeTypeValidator.m in Sources */,
 				5ECAF8861A6319F70011181C /* NGRTextField.m in Sources */,
 				5E0019711A49851B002ED961 /* NSObject+NGRRuntime.m in Sources */,
 				5ECAF8941A6343960011181C /* UIViewController+NGRDemo.m in Sources */,
