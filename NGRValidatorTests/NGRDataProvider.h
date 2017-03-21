@@ -14,7 +14,6 @@
 
 + (NSData *)jpg;
 + (NSData *)png;
-+ (NSData *)pdf;
 + (NSData *)tiff;
 + (NSData *)ico;
 + (NSData *)gif;
@@ -28,5 +27,14 @@
 + (NSData *)mp4;
 + (NSData *)wmv;
 + (NSData *)flv;
++ (NSData *)mov;
++ (NSData *)mpeg;
+
+#pragma mark - Video
+
++ (NSData *)pdf;
++ (NSData *)xml;
++ (NSData *)json;
++ (NSData *)utf8text;
 
 @end

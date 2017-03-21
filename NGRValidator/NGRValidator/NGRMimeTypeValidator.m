@@ -28,13 +28,20 @@
     return [[self alloc] initWithValidationBlock:block];
 }
 
-+ (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size {
++ (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size withOffset:(unsigned long)offset {
     return [[self alloc] initWithValidationBlock: ^BOOL(NSData *data) {
-        char bytes[size];
+        char bytes[32];
         
-        [data getBytes:&bytes length:size];
+        NSRange range = NSMakeRange(offset, size);
+        
+        [data getBytes:&bytes range:range];
+        printf("%s",bytes);
         return !memcmp(bytes, signature, size);
     }];
+}
+
++ (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size {
+    return [self validatorWithSignature:signature ofSize:size withOffset:0];
 }
 
 + (instancetype)validatorWithAnyOfValidators:(NSArray<NGRMimeTypeValidator *> *)validators {
@@ -63,7 +70,6 @@
     }];
 }
 
-
 + (NGRMimeTypeValidator *)validatorForMimeType:(NGRMimeType *)type {
     return [self validatorByMimeTypeKey][type];
 }
@@ -77,6 +83,20 @@
         NGRMimeTypeBMP : [NGRMimeTypeValidator bmp],
         NGRMimeTypeTiff : [NGRMimeTypeValidator tiff],
         NGRMimeTypeGif : [NGRMimeTypeValidator gif],
+        
+        NGRMimeTypeAvi : [NGRMimeTypeValidator avi],
+        NGRMimeTypeMP4 : [NGRMimeTypeValidator mp4],
+        NGRMimeTypeMov : [NGRMimeTypeValidator mov],
+        NGRMimeTypeWMV : [NGRMimeTypeValidator wmv],
+        NGRMimeTypeFlv : [NGRMimeTypeValidator flv],
+        NGRMimeType3gp : [NGRMimeTypeValidator _3gp],
+        NGRMimeTypeMkv : [NGRMimeTypeValidator mkv],
+        NGRMimeTypeMPEG : [NGRMimeTypeValidator mpeg],
+        
+        NGRMimeTypePDF : [NGRMimeTypeValidator pdf],
+        NGRMimeTypeUtf8Text : [NGRMimeTypeValidator utf8text],
+        NGRMimeTypeJSON : [NGRMimeTypeValidator json],
+        NGRMimeTypeXML : [NGRMimeTypeValidator xml],
     };
 }
 

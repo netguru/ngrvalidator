@@ -24,8 +24,11 @@ extern NGRMimeType *const NGRMimeTypeBMP;
 extern NGRMimeType *const NGRMimeType3gp;
 extern NGRMimeType *const NGRMimeTypeAvi;
 extern NGRMimeType *const NGRMimeTypeMkv;
-extern NGRMimeType *const NGRMimeTypeMlv;
 extern NGRMimeType *const NGRMimeTypeMP4;
+extern NGRMimeType *const NGRMimeTypeMPEG;
+extern NGRMimeType *const NGRMimeTypeMov;
+extern NGRMimeType *const NGRMimeTypeFlv;
+extern NGRMimeType *const NGRMimeTypeWMV;
 
 #pragma mark - Audio
 
@@ -45,5 +48,6 @@ extern NGRMimeType *const NGRMimeTypeGz;
 #pragma mark - Misc
 
 extern NGRMimeType *const NGRMimeTypePDF;
-extern NGRMimeType *const NGRMimeTypeText;
+extern NGRMimeType *const NGRMimeTypeUtf8Text;
 extern NGRMimeType *const NGRMimeTypeXML;
+extern NGRMimeType *const NGRMimeTypeJSON;

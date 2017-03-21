@@ -20,10 +20,6 @@
     return [self loadFile:@"logo" extension:@"png"];
 }
 
-+ (NSData *)pdf {
-    return [self loadFile:@"logo" extension:@"pdf"];
-}
-
 + (NSData *)tiff {
     return [self loadFile:@"logo" extension:@"tiff"];
 }
@@ -64,6 +60,32 @@
 
 + (NSData *)flv {
     return [self loadFile:@"logo" extension:@"flv"];
+}
+
++ (NSData *)mov {
+    return [self loadFile:@"logo" extension:@"mov"];
+}
+
++ (NSData *)mpeg {
+    return [self loadFile:@"logo" extension:@"mpg"];
+}
+
+#pragma mark - Misc
+
++ (NSData *)pdf {
+    return [self loadFile:@"logo" extension:@"pdf"];
+}
+
++ (NSData *)xml {
+    return [self loadFile:@"logo" extension:@"xml"];
+}
+
++ (NSData *)json {
+    return [self loadFile:@"logo" extension:@"json"];
+}
+
++ (NSData *)utf8text {
+    return [@"logo" dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 #pragma mark - Private
