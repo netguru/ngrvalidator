@@ -33,6 +33,13 @@ describe(@"Syntax validation", ^{
     NSData *xml = [NGRDataProvider xml];
     NSData *utf8text = [NGRDataProvider utf8text];
     
+    //Audio
+    NSData *mp3 = [NGRDataProvider mp3];
+    NSData *flac = [NGRDataProvider flac];
+    NSData *wav = [NGRDataProvider wav];
+    NSData *m4a = [NGRDataProvider m4a];
+    NSData *ogg = [NGRDataProvider ogg];
+    
     NSArray<NGRMimeTypeValidationTestCase *> *testCases = @[
                                                             
         [NGRMimeTypeValidationTestCase test:NGRMimeTypePNG valid:png invalid:jpg],
@@ -45,10 +52,10 @@ describe(@"Syntax validation", ^{
         [NGRMimeTypeValidationTestCase test:NGRMimeType3gp valid:_3gp invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeAvi valid:avi invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeMkv valid:mkv invalid:png],
-        //[NGRMimeTypeValidationTestCase test:NGRMimeTypeMP4 valid:mp4 invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMP4 valid:mp4 invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeWMV valid:wmv invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeFlv valid:flv invalid:png],
-        //[NGRMimeTypeValidationTestCase test:NGRMimeTypeMov valid:mov invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMov valid:mov invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeMPEG valid:mpeg invalid:png],
         
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeJSON valid:json invalid:png],
@@ -56,6 +63,11 @@ describe(@"Syntax validation", ^{
         [NGRMimeTypeValidationTestCase test:NGRMimeTypeUtf8Text valid:utf8text invalid:png],
         [NGRMimeTypeValidationTestCase test:NGRMimeTypePDF valid:pdf invalid:png],
         
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMP3 valid:mp3 invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeFlac valid:flac invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeWav valid:wav invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeM4a valid:m4a invalid:png],
+        [NGRMimeTypeValidationTestCase test:NGRMimeTypeOgg valid:ogg invalid:png],
     ];
     
     for (NGRMimeTypeValidationTestCase *testCase in testCases) {

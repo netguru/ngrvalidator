@@ -11,6 +11,7 @@
 @implementation NGRMimeTypeValidator (Video)
 
 + (instancetype)_3gp {
+    
     const char signature1[8] = {0x00, 0x00, 0x00, 0x20, 0x66, 0x74, 0x79, 0x70};
     NGRMimeTypeValidator *_3gp1 = [self validatorWithSignature:signature1 ofSize:8];
     
@@ -37,8 +38,14 @@
 }
 
 + (instancetype)mp4 {
-    const char signature[4] = {0x6d, 0x6d, 0x70, 0x34};
-    return [self validatorWithSignature:signature ofSize:4 withOffset:8];
+    
+    const char signature1[8] = {0x66, 0x74, 0x79, 0x70, 0x6d, 0x6d, 0x70, 0x34};
+    NGRMimeTypeValidator *mp4_1 = [self validatorWithSignature:signature1 ofSize:8 withOffset:4];
+    
+    const char signature2[8] = {0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6f, 0x6d};
+    NGRMimeTypeValidator *mp4_2 = [self validatorWithSignature:signature2 ofSize:8 withOffset:4];
+    
+    return [self validatorWithAnyOfValidators:@[mp4_1, mp4_2]];
 }
 
 + (instancetype)wmv {
@@ -52,28 +59,12 @@
 }
 
 + (instancetype)mov {
-    const char signature1[4] = {0x6d, 0x6f, 0x6f, 0x76};
-    NGRMimeTypeValidator* mov1 = [self validatorWithSignature:signature1 ofSize:4 withOffset:4];
-    
-    const char signature2[4] = {0x66, 0x72, 0x65, 0x65};
-    NGRMimeTypeValidator* mov2 = [self validatorWithSignature:signature2 ofSize:4 withOffset:4];
-    
-    const char signature3[4] = {0x6d, 0x64, 0x61, 0x74};
-    NGRMimeTypeValidator* mov3 = [self validatorWithSignature:signature3 ofSize:4 withOffset:4];
-    
-    const char signature4[4] = {0x77, 0x69, 0x64, 0x65};
-    NGRMimeTypeValidator* mov4 = [self validatorWithSignature:signature4 ofSize:4 withOffset:4];
-    
-    const char signature5[4] = {0x70, 0x6e, 0x6f, 0x74};
-    NGRMimeTypeValidator* mov5 = [self validatorWithSignature:signature5 ofSize:4 withOffset:4];
-    
-    const char signature6[4] = {0x73, 0x6b, 0x69, 0x70};
-    NGRMimeTypeValidator* mov6 = [self validatorWithSignature:signature6 ofSize:4 withOffset:4];
-    
-    return [self validatorWithAnyOfValidators:@[mov1, mov2, mov3, mov4, mov5, mov6]];
+    const char signature[8] = {0x66, 0x74, 0x79, 0x70, 0x71, 0x74, 0x20, 0x20};
+    return [self validatorWithSignature:signature ofSize:8 withOffset:4];
 }
 
 + (instancetype)mpeg {
+    
     const char signature1[4] = {0x00, 0x00, 0x01, 0xb3};
     NGRMimeTypeValidator* mpeg1 = [self validatorWithSignature:signature1 ofSize:4];
     

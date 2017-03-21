@@ -88,6 +88,28 @@
     return [@"logo" dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+#pragma mark - Audio
+
++ (NSData *)wav {
+    return [self loadFile:@"logo" extension:@"wav"];
+}
+
++ (NSData *)m4a {
+    return [self loadFile:@"logo" extension:@"m4a"];
+}
+
++ (NSData *)flac {
+    return [self loadFile:@"logo" extension:@"flac"];
+}
+
++ (NSData *)ogg {
+    return [self loadFile:@"logo" extension:@"ogg"];
+}
+
++ (NSData *)mp3 {
+    return [self loadFile:@"logo" extension:@"mp3"];
+}
+
 #pragma mark - Private
 
 + (NSBundle *)bundle {

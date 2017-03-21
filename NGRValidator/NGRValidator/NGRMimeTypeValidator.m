@@ -30,12 +30,11 @@
 
 + (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size withOffset:(unsigned long)offset {
     return [[self alloc] initWithValidationBlock: ^BOOL(NSData *data) {
-        char bytes[32];
+        char bytes[size];
         
         NSRange range = NSMakeRange(offset, size);
         
         [data getBytes:&bytes range:range];
-        printf("%s",bytes);
         return !memcmp(bytes, signature, size);
     }];
 }
@@ -97,6 +96,12 @@
         NGRMimeTypeUtf8Text : [NGRMimeTypeValidator utf8text],
         NGRMimeTypeJSON : [NGRMimeTypeValidator json],
         NGRMimeTypeXML : [NGRMimeTypeValidator xml],
+        
+        NGRMimeTypeFlac : [NGRMimeTypeValidator flac],
+        NGRMimeTypeWav : [NGRMimeTypeValidator wav],
+        NGRMimeTypeMP3 : [NGRMimeTypeValidator mp3],
+        NGRMimeTypeM4a : [NGRMimeTypeValidator m4a],
+        NGRMimeTypeOgg : [NGRMimeTypeValidator ogg],
     };
 }
 

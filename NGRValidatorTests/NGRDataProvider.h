@@ -37,4 +37,12 @@
 + (NSData *)json;
 + (NSData *)utf8text;
 
+#pragma mark - Video
+
++ (NSData *)wav;
++ (NSData *)m4a;
++ (NSData *)flac;
++ (NSData *)ogg;
++ (NSData *)mp3;
+
 @end

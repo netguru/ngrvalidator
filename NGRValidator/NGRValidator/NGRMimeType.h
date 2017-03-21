@@ -35,7 +35,8 @@ extern NGRMimeType *const NGRMimeTypeWMV;
 extern NGRMimeType *const NGRMimeTypeWav;
 extern NGRMimeType *const NGRMimeTypeMP3;
 extern NGRMimeType *const NGRMimeTypeFlac;
-extern NGRMimeType *const NGRMimeTypeMIDI;
+extern NGRMimeType *const NGRMimeTypeOgg;
+extern NGRMimeType *const NGRMimeTypeM4a;
 
 #pragma mark - Compression
 

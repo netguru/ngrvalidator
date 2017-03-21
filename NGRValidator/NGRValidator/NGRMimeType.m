@@ -35,7 +35,8 @@ NGRMimeType *const NGRMimeTypeWMV = (NGRMimeType *)@"video/wmv";
 NGRMimeType *const NGRMimeTypeWav = (NGRMimeType *)@"audio/wav";
 NGRMimeType *const NGRMimeTypeMP3 = (NGRMimeType *)@"audio/mp3";
 NGRMimeType *const NGRMimeTypeFlac = (NGRMimeType *)@"audio/flac";
-NGRMimeType *const NGRMimeTypeMIDI = (NGRMimeType *)@"audio/midi";
+NGRMimeType *const NGRMimeTypeOgg = (NGRMimeType *)@"audio/ogg";
+NGRMimeType *const NGRMimeTypeM4a = (NGRMimeType *)@"audio/m4a";
 
 #pragma mark - Compression
 

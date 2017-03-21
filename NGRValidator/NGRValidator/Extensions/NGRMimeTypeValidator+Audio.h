@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)wav;
 + (instancetype)mp3;
 + (instancetype)flac;
-+ (instancetype)midi;
++ (instancetype)m4a;
++ (instancetype)ogg;
 
 NS_ASSUME_NONNULL_END
 
