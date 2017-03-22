@@ -7,145 +7,232 @@
 
 #import "NGRDataProvider.h"
 
+@implementation NGRTestData
+
+- (instancetype)initWithMimeTypes:(NSArray<NGRMimeType *> *)types data:(LazyNSData)data {
+    self = [super init];
+    if (self) {
+        _mimeTypes = types;
+        _data = data;
+    }
+    return self;
+}
+
++ (instancetype)testDataWithFile:(NSString *)name extension:(NSString *)ext types:(NSArray<NGRMimeType *> *)types {
+    NSBundle *bundle = [NSBundle bundleForClass:self];
+    
+    return [[self alloc] initWithMimeTypes:types data:^{
+        NSURL *url = [bundle URLForResource:name withExtension:ext];
+        return [NSData dataWithContentsOfURL:url];
+    }];
+}
+
+@end
+
 @implementation NGRDataProvider
 
 #pragma mark - Image
 
-+ (LazyNSData)jpg {
-    return [self loadFile:@"logo" extension:@"jpg"];
++ (NGRTestData *)jpg {
+    return [self loadFile:@"logo" extension:@"jpg" types:@[NGRMimeTypeJPG]];
 }
 
-+ (LazyNSData)png {
-    return [self loadFile:@"logo" extension:@"png"];
++ (NGRTestData *)png {
+    return [self loadFile:@"logo" extension:@"png" types:@[NGRMimeTypePNG]];
 }
 
-+ (LazyNSData)tiff {
-    return [self loadFile:@"logo" extension:@"tiff"];
++ (NGRTestData *)tiff {
+    return [self loadFile:@"logo" extension:@"tiff" types:@[NGRMimeTypeTiff]];
 }
 
-+ (LazyNSData)ico {
-    return [self loadFile:@"logo" extension:@"ico"];
++ (NGRTestData *)ico {
+    return [self loadFile:@"logo" extension:@"ico" types:@[NGRMimeTypeIco]];
 }
 
-+ (LazyNSData)gif {
-    return [self loadFile:@"logo" extension:@"gif"];
++ (NGRTestData *)gif {
+    return [self loadFile:@"logo" extension:@"gif" types:@[NGRMimeTypeGif]];
 }
 
-+ (LazyNSData)bmp {
-    return [self loadFile:@"logo" extension:@"bmp"];
++ (NGRTestData *)bmp {
+    return [self loadFile:@"logo" extension:@"bmp" types:@[NGRMimeTypeBMP]];
 }
 
 #pragma mark - Video
 
-+ (LazyNSData)_3gp {
-    return [self loadFile:@"logo" extension:@"3gp"];
++ (NGRTestData *)_3gp {
+    return [self loadFile:@"logo" extension:@"3gp" types:@[NGRMimeType3gp]];
 }
 
-+ (LazyNSData)avi {
-    return [self loadFile:@"logo" extension:@"avi"];
++ (NGRTestData *)avi {
+    return [self loadFile:@"logo" extension:@"avi" types:@[NGRMimeTypeAvi]];
 }
 
-+ (LazyNSData)mkv {
-    return [self loadFile:@"logo" extension:@"mkv"];
++ (NGRTestData *)mkv {
+    return [self loadFile:@"logo" extension:@"mkv" types:@[NGRMimeTypeMkv]];
 }
 
-+ (LazyNSData)mp4 {
-    return [self loadFile:@"logo" extension:@"mp4"];
++ (NGRTestData *)mp4 {
+    return [self loadFile:@"logo" extension:@"mp4" types:@[NGRMimeTypeMP4]];
 }
 
-+ (LazyNSData)wmv {
-    return [self loadFile:@"logo" extension:@"wmv"];
++ (NGRTestData *)wmv {
+    return [self loadFile:@"logo" extension:@"wmv" types:@[NGRMimeTypeWMV]];
 }
 
-+ (LazyNSData)flv {
-    return [self loadFile:@"logo" extension:@"flv"];
++ (NGRTestData *)flv {
+    return [self loadFile:@"logo" extension:@"flv" types:@[NGRMimeTypeFlv]];
 }
 
-+ (LazyNSData)mov {
-    return [self loadFile:@"logo" extension:@"mov"];
++ (NGRTestData *)mov {
+    return [self loadFile:@"logo" extension:@"mov" types:@[NGRMimeTypeMov]];
 }
 
-+ (LazyNSData)mpeg {
-    return [self loadFile:@"logo" extension:@"mpg"];
++ (NGRTestData *)mpeg {
+    return [self loadFile:@"logo" extension:@"mpg" types:@[NGRMimeTypeMPEG]];
 }
 
 #pragma mark - Misc
 
-+ (LazyNSData)pdf {
-    return [self loadFile:@"logo" extension:@"pdf"];
++ (NGRTestData *)pdf {
+    return [self loadFile:@"logo" extension:@"pdf" types:@[NGRMimeTypePDF]];
 }
 
-+ (LazyNSData)xml {
-    return [self loadFile:@"logo" extension:@"xml"];
++ (NGRTestData *)xml {
+    return [self loadFile:@"logo" extension:@"xml" types:@[NGRMimeTypeXML, NGRMimeTypeUtf8Text]];
 }
 
-+ (LazyNSData)json {
-    return [self loadFile:@"logo" extension:@"json"];
++ (NGRTestData *)json {
+    return [self loadFile:@"logo" extension:@"json" types:@[NGRMimeTypeJSON, NGRMimeTypeUtf8Text]];
 }
 
-+ (LazyNSData)utf8text {
-    return ^{
++ (NGRTestData *)utf8text {
+    return [[NGRTestData alloc] initWithMimeTypes:@[NGRMimeTypeUtf8Text] data:^{
         return [@"logo" dataUsingEncoding:NSUTF8StringEncoding];
-    };
+    }];
 }
 
 #pragma mark - Audio
 
-+ (LazyNSData)wav {
-    return [self loadFile:@"logo" extension:@"wav"];
++ (NGRTestData *)wav {
+    return [self loadFile:@"logo" extension:@"wav" types:@[NGRMimeTypeWav]];
 }
 
-+ (LazyNSData)m4a {
-    return [self loadFile:@"logo" extension:@"m4a"];
++ (NGRTestData *)m4a {
+    return [self loadFile:@"logo" extension:@"m4a" types:@[NGRMimeTypeM4a]];
 }
 
-+ (LazyNSData)flac {
-    return [self loadFile:@"logo" extension:@"flac"];
++ (NGRTestData *)flac {
+    return [self loadFile:@"logo" extension:@"flac" types:@[NGRMimeTypeFlac]];
 }
 
-+ (LazyNSData)ogg {
-    return [self loadFile:@"logo" extension:@"ogg"];
++ (NGRTestData *)ogg {
+    return [self loadFile:@"logo" extension:@"ogg" types:@[NGRMimeTypeOgg]];
 }
 
-+ (LazyNSData)mp3 {
-    return [self loadFile:@"logo" extension:@"mp3"];
++ (NGRTestData *)mp3 {
+    return [self loadFile:@"logo" extension:@"mp3" types:@[NGRMimeTypeMP3]];
 }
 
 #pragma mark - Compressed
 
-+ (LazyNSData)gz {
-    return [self loadFile:@"logo" extension:@"tgz"];
++ (NGRTestData *)gz {
+    return [self loadFile:@"logo" extension:@"tgz" types:@[NGRMimeTypeGz]];
 }
 
-+ (LazyNSData)zip {
-    return [self loadFile:@"logo" extension:@"zip"];
++ (NGRTestData *)zip {
+    return [self loadFile:@"logo" extension:@"zip" types:@[NGRMimeTypeZip]];
 }
 
-+ (LazyNSData)tar {
-    return [self loadFile:@"logo" extension:@"tar"];
++ (NGRTestData *)tar {
+    return [self loadFile:@"logo" extension:@"tar" types:@[NGRMimeTypeTar]];
 }
 
-+ (LazyNSData)rar {
-    return [self loadFile:@"logo" extension:@"rar"];
++ (NGRTestData *)rar {
+    return [self loadFile:@"logo" extension:@"rar" types:@[NGRMimeTypeRar]];
 }
 
-+ (LazyNSData)_7z {
-    return [self loadFile:@"logo" extension:@"7z"];
++ (NGRTestData *)_7z {
+    return [self loadFile:@"logo" extension:@"7z" types:@[NGRMimeType7z]];
+}
+
+#pragma mark - Convenience 
+
++ (NSArray <NGRTestData *> *)images {
+    NGRTestData *png = [self png];
+    NGRTestData *jpg = [self jpg];
+    NGRTestData *tiff = [self tiff];
+    NGRTestData *ico = [self ico];
+    NGRTestData *gif = [self gif];
+    NGRTestData *bmp = [self bmp];
+    
+    return @[png, jpg, tiff, ico, gif, bmp];
+}
+
++ (NSArray <NGRTestData *> *)videos {
+    NGRTestData *_3gp = [self _3gp];
+    NGRTestData *avi = [self avi];
+    NGRTestData *mkv = [self mkv];
+    NGRTestData *mp4 = [self mp4];
+    NGRTestData *wmv = [self wmv];
+    NGRTestData *flv = [self flv];
+    NGRTestData *mov = [self mov];
+    NGRTestData *mpeg = [self mpeg];
+    
+    return @[_3gp, avi, mkv, mp4, wmv, flv, mov, mpeg];
+}
+
++ (NSArray <NGRTestData *> *)audios {
+    NGRTestData *mp3 = [self mp3];
+    NGRTestData *flac = [self flac];
+    NGRTestData *wav = [self wav];
+    NGRTestData *m4a = [self m4a];
+    NGRTestData *ogg = [self ogg];
+    
+    return @[mp3, flac, wav, m4a, ogg];
+}
+
++ (NSArray <NGRTestData *> *)miscs {
+    NGRTestData *pdf = [self pdf];
+    NGRTestData *json = [self json];
+    NGRTestData *xml = [self xml];
+    NGRTestData *utf8text = [self utf8text];
+    
+    return @[pdf, json, xml, utf8text];
+}
+
++ (NSArray <NGRTestData *> *)archives {
+    NGRTestData *zip = [self zip];
+    NGRTestData *rar = [self rar];
+    NGRTestData *gz = [self gz];
+    NGRTestData *tar = [self tar];
+    NGRTestData *_7z = [self _7z];
+    
+    return @[zip, rar, gz ,tar, _7z];
+}
+
++ (NSArray <NGRTestData *> *)all {
+    NSArray<NGRTestData *> *images = [self images];
+    NSArray<NGRTestData *> *videos = [self videos];
+    NSArray<NGRTestData *> *audios = [self audios];
+    NSArray<NGRTestData *> *miscs = [self miscs];
+    NSArray<NGRTestData *> *archives = [self archives];
+    
+    NSArray *categories = @[images, videos, audios, miscs, archives];
+    
+    NSMutableArray<NGRTestData *> *all = [NSMutableArray new];
+    for (NSArray<NGRTestData *> *category in categories) {
+        for (NGRTestData *testData in category) {
+            [all addObject:testData];
+        }
+    }
+    
+    return [all copy];
 }
 
 #pragma mark - Private
 
-+ (NSBundle *)bundle {
-    return [NSBundle bundleForClass:self];
-}
-
-+ (LazyNSData)loadFile:(NSString *)name extension:(NSString *)ext {
-    NSBundle *bundle = [self bundle];
-    
-    return ^{
-        NSURL *url = [bundle URLForResource:name withExtension:ext];
-        return [NSData dataWithContentsOfURL:url];
-    };
++ (NGRTestData *)loadFile:(NSString *)name extension:(NSString *)ext types:(NSArray <NGRMimeType *> *)types {
+    return [NGRTestData testDataWithFile:name extension:ext types:types];
 }
 
 @end

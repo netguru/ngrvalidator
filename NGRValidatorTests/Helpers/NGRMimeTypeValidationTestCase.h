@@ -10,11 +10,13 @@
 @interface NGRMimeTypeValidationTestCase : NSObject
 
 @property(nonatomic, strong, readonly) NGRMimeType *mimeType;
-@property(nonatomic, strong, readonly) LazyNSData validData;
-@property(nonatomic, strong, readonly) LazyNSData invalidData;
+@property(nonatomic, strong, readonly) NSArray<NGRTestData *> *cases;
 
-+ (instancetype)test:(NGRMimeType *)type valid:(LazyNSData)valid invalid:(LazyNSData)invalid;
++ (instancetype)test:(NGRMimeType *)type withCases:(NSArray<NGRTestData *> *)cases;
 
 - (NSString *)name;
+- (NSArray <NGRTestData *> *)validCases;
+- (NSArray <NGRTestData *> *)invalidCases;
+
 
 @end

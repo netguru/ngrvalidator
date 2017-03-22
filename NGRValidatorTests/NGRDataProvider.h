@@ -9,49 +9,69 @@
 
 typedef NSData*(^LazyNSData)();
 
+@interface NGRTestData : NSObject
+
+@property (nonatomic, strong, readonly) NSArray<NGRMimeType *> *mimeTypes;
+@property (nonatomic, copy, readonly) LazyNSData data;
+
+- (instancetype)initWithMimeTypes:(NSArray<NGRMimeType *> *)types data:(LazyNSData)data;
++ (instancetype)testDataWithFile:(NSString *)name extension:(NSString *)ext types:(NSArray<NGRMimeType *> *)types;
+
+@end
+
 @interface NGRDataProvider : NSObject
 
 #pragma mark - Image
 
-+ (LazyNSData)jpg;
-+ (LazyNSData)png;
-+ (LazyNSData)tiff;
-+ (LazyNSData)ico;
-+ (LazyNSData)gif;
-+ (LazyNSData)bmp;
++ (NGRTestData *)jpg;
++ (NGRTestData *)png;
++ (NGRTestData *)tiff;
++ (NGRTestData *)ico;
++ (NGRTestData *)gif;
++ (NGRTestData *)bmp;
 
 #pragma mark - Video
 
-+ (LazyNSData)_3gp;
-+ (LazyNSData)avi;
-+ (LazyNSData)mkv;
-+ (LazyNSData)mp4;
-+ (LazyNSData)wmv;
-+ (LazyNSData)flv;
-+ (LazyNSData)mov;
-+ (LazyNSData)mpeg;
++ (NGRTestData *)_3gp;
++ (NGRTestData *)avi;
++ (NGRTestData *)mkv;
++ (NGRTestData *)mp4;
++ (NGRTestData *)wmv;
++ (NGRTestData *)flv;
++ (NGRTestData *)mov;
++ (NGRTestData *)mpeg;
 
 #pragma mark - Misc
 
-+ (LazyNSData)pdf;
-+ (LazyNSData)xml;
-+ (LazyNSData)json;
-+ (LazyNSData)utf8text;
++ (NGRTestData *)pdf;
++ (NGRTestData *)xml;
++ (NGRTestData *)json;
++ (NGRTestData *)utf8text;
 
 #pragma mark - Audio
 
-+ (LazyNSData)wav;
-+ (LazyNSData)m4a;
-+ (LazyNSData)flac;
-+ (LazyNSData)ogg;
-+ (LazyNSData)mp3;
++ (NGRTestData *)wav;
++ (NGRTestData *)m4a;
++ (NGRTestData *)flac;
++ (NGRTestData *)ogg;
++ (NGRTestData *)mp3;
 
 #pragma mark - Compressed
 
-+ (LazyNSData)gz;
-+ (LazyNSData)zip;
-+ (LazyNSData)tar;
-+ (LazyNSData)rar;
-+ (LazyNSData)_7z;
++ (NGRTestData *)gz;
++ (NGRTestData *)zip;
++ (NGRTestData *)tar;
++ (NGRTestData *)rar;
++ (NGRTestData *)_7z;
+
+#pragma mark - Convenience
+
++ (NSArray <NGRTestData *> *)images;
++ (NSArray <NGRTestData *> *)videos;
++ (NSArray <NGRTestData *> *)audios;
++ (NSArray <NGRTestData *> *)miscs;
++ (NSArray <NGRTestData *> *)archives;
++ (NSArray <NGRTestData *> *)all;
+
 
 @end

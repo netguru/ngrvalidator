@@ -10,14 +10,8 @@
 @implementation NGRMimeTypeValidator (Video)
 
 + (instancetype)_3gp {
-    
-    const char signature1[8] = {0x00, 0x00, 0x00, 0x20, 0x66, 0x74, 0x79, 0x70};
-    NGRMimeTypeValidator *_3gp1 = [self validatorWithSignature:signature1 ofSize:8];
-    
-    const char signature2[8] = {0x00, 0x00, 0x00, 0x14, 0x66, 0x74, 0x79, 0x70};
-    NGRMimeTypeValidator *_3gp2 = [self validatorWithSignature:signature2 ofSize:8];
-    
-    return [self validatorWithAnyOfValidators:@[_3gp1, _3gp2]];
+    const char signature[8] = {0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70};
+    return [self validatorWithSignature:signature ofSize:7 withOffset:4];
 }
 
 + (instancetype)avi {
