@@ -5,9 +5,9 @@
 //
 //
 
-#import "NGRMimeTypeValidationTestCase.h"
+#import "NGRMimeTypeValidationTest.h"
 
-@implementation NGRMimeTypeValidationTestCase
+@implementation NGRMimeTypeValidationTest
 
 - (instancetype)initWithMimeType:(NGRMimeType *)type withCases:(NSArray<NGRTestData *> *)cases {
     self = [super init];

@@ -5,7 +5,7 @@
 //
 //
 
-#import "NGRDataProvider.h"
+#import "NGRTestDataProvider.h"
 
 @implementation NGRTestData
 
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation NGRDataProvider
+@implementation NGRTestDataProvider
 
 #pragma mark - Image
 

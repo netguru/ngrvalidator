@@ -13,7 +13,7 @@
 		0273F0E41E80189B000B5949 /* NGRMimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E31E80189B000B5949 /* NGRMimeType.m */; };
 		0273F0E71E801B6D000B5949 /* NGRPropertyValidator+NSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E61E801B6D000B5949 /* NGRPropertyValidator+NSData.m */; };
 		0273F0E91E802178000B5949 /* NGRValidator+NSDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E81E802178000B5949 /* NGRValidator+NSDataSpec.m */; };
-		0273F0EC1E80251F000B5949 /* NGRDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0EB1E80251F000B5949 /* NGRDataProvider.m */; };
+		0273F0EC1E80251F000B5949 /* NGRTestDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0EB1E80251F000B5949 /* NGRTestDataProvider.m */; };
 		0273F0F01E802600000B5949 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0EE1E802600000B5949 /* logo.png */; };
 		0273F0F11E802600000B5949 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0EF1E802600000B5949 /* logo.jpg */; };
 		0273F0F51E80403A000B5949 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0F21E80403A000B5949 /* logo.pdf */; };
@@ -27,7 +27,7 @@
 		0273F1061E804265000B5949 /* logo.3gp in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0FF1E804265000B5949 /* logo.3gp */; };
 		0273F1071E804265000B5949 /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0273F1001E804265000B5949 /* logo.gif */; };
 		028130C51E812EFE0070F828 /* logo.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 028130C41E812EFE0070F828 /* logo.bmp */; };
-		028130C81E812F360070F828 /* NGRMimeTypeValidationTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 028130C71E812F360070F828 /* NGRMimeTypeValidationTestCase.m */; };
+		028130C81E812F360070F828 /* NGRMimeTypeValidationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 028130C71E812F360070F828 /* NGRMimeTypeValidationTest.m */; };
 		028130CC1E8130AB0070F828 /* NGRMimeTypeValidator+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 028130CB1E8130AB0070F828 /* NGRMimeTypeValidator+Image.m */; };
 		028130CF1E8130C40070F828 /* NGRMimeTypeValidator+Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 028130CE1E8130C40070F828 /* NGRMimeTypeValidator+Video.m */; };
 		028130D21E8130DA0070F828 /* NGRMimeTypeValidator+Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 028130D11E8130DA0070F828 /* NGRMimeTypeValidator+Audio.m */; };
@@ -123,8 +123,8 @@
 		0273F0E51E801B6D000B5949 /* NGRPropertyValidator+NSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRPropertyValidator+NSData.h"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSData.h"; sourceTree = "<group>"; };
 		0273F0E61E801B6D000B5949 /* NGRPropertyValidator+NSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NSData.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NSData.m"; sourceTree = "<group>"; };
 		0273F0E81E802178000B5949 /* NGRValidator+NSDataSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NSDataSpec.m"; sourceTree = "<group>"; };
-		0273F0EA1E80251F000B5949 /* NGRDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRDataProvider.h; sourceTree = "<group>"; };
-		0273F0EB1E80251F000B5949 /* NGRDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRDataProvider.m; sourceTree = "<group>"; };
+		0273F0EA1E80251F000B5949 /* NGRTestDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRTestDataProvider.h; sourceTree = "<group>"; };
+		0273F0EB1E80251F000B5949 /* NGRTestDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRTestDataProvider.m; sourceTree = "<group>"; };
 		0273F0EE1E802600000B5949 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0273F0EF1E802600000B5949 /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		0273F0F21E80403A000B5949 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		0273F0FF1E804265000B5949 /* logo.3gp */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.3gp; sourceTree = "<group>"; };
 		0273F1001E804265000B5949 /* logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo.gif; sourceTree = "<group>"; };
 		028130C41E812EFE0070F828 /* logo.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = logo.bmp; sourceTree = "<group>"; };
-		028130C61E812F360070F828 /* NGRMimeTypeValidationTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMimeTypeValidationTestCase.h; path = Helpers/NGRMimeTypeValidationTestCase.h; sourceTree = "<group>"; };
-		028130C71E812F360070F828 /* NGRMimeTypeValidationTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMimeTypeValidationTestCase.m; path = Helpers/NGRMimeTypeValidationTestCase.m; sourceTree = "<group>"; };
+		028130C61E812F360070F828 /* NGRMimeTypeValidationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMimeTypeValidationTest.h; path = Helpers/NGRMimeTypeValidationTest.h; sourceTree = "<group>"; };
+		028130C71E812F360070F828 /* NGRMimeTypeValidationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRMimeTypeValidationTest.m; path = Helpers/NGRMimeTypeValidationTest.m; sourceTree = "<group>"; };
 		028130CA1E8130AB0070F828 /* NGRMimeTypeValidator+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRMimeTypeValidator+Image.h"; path = "NGRValidator/Extensions/NGRMimeTypeValidator+Image.h"; sourceTree = "<group>"; };
 		028130CB1E8130AB0070F828 /* NGRMimeTypeValidator+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRMimeTypeValidator+Image.m"; path = "NGRValidator/Extensions/NGRMimeTypeValidator+Image.m"; sourceTree = "<group>"; };
 		028130CD1E8130C40070F828 /* NGRMimeTypeValidator+Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NGRMimeTypeValidator+Video.h"; path = "NGRValidator/Extensions/NGRMimeTypeValidator+Video.h"; sourceTree = "<group>"; };
@@ -712,10 +712,10 @@
 				5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */,
 				5EC4860D1AD2F9DB001C7DBB /* NGRTestModel.h */,
 				5EC4860E1AD2F9DB001C7DBB /* NGRTestModel.m */,
-				0273F0EA1E80251F000B5949 /* NGRDataProvider.h */,
-				0273F0EB1E80251F000B5949 /* NGRDataProvider.m */,
-				028130C61E812F360070F828 /* NGRMimeTypeValidationTestCase.h */,
-				028130C71E812F360070F828 /* NGRMimeTypeValidationTestCase.m */,
+				0273F0EA1E80251F000B5949 /* NGRTestDataProvider.h */,
+				0273F0EB1E80251F000B5949 /* NGRTestDataProvider.m */,
+				028130C61E812F360070F828 /* NGRMimeTypeValidationTest.h */,
+				028130C71E812F360070F828 /* NGRMimeTypeValidationTest.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -975,8 +975,8 @@
 			files = (
 				5EFC9C941B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m in Sources */,
 				5EC4860F1AD2F9DB001C7DBB /* NGRTestModel.m in Sources */,
-				028130C81E812F360070F828 /* NGRMimeTypeValidationTestCase.m in Sources */,
-				0273F0EC1E80251F000B5949 /* NGRDataProvider.m in Sources */,
+				028130C81E812F360070F828 /* NGRMimeTypeValidationTest.m in Sources */,
+				0273F0EC1E80251F000B5949 /* NGRTestDataProvider.m in Sources */,
 				0273F0E91E802178000B5949 /* NGRValidator+NSDataSpec.m in Sources */,
 				5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */,
 				5EEE70ED1AD318C5005D5042 /* NGRMessagesSpec.m in Sources */,

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NGRMimeTypeValidationTestCase : NSObject
+@interface NGRMimeTypeValidationTest : NSObject
 
 @property(nonatomic, strong, readonly) NGRMimeType *mimeType;
 @property(nonatomic, strong, readonly) NSArray<NGRTestData *> *cases;

@@ -19,7 +19,7 @@ typedef NSData*(^LazyNSData)();
 
 @end
 
-@interface NGRDataProvider : NSObject
+@interface NGRTestDataProvider : NSObject
 
 #pragma mark - Image
 

@@ -9,55 +9,55 @@ SpecBegin(NGRValidator_Data)
 
 describe(@"Syntax validation", ^{
     
-    NSArray<NGRTestData *> *allCases = [NGRDataProvider all];
+    NSArray<NGRTestData *> *allCases = [NGRTestDataProvider all];
 
-    NSArray<NGRMimeTypeValidationTestCase *> *imageTestCases = @[
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypePNG withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeJPG withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeIco withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeTiff withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeGif withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeBMP withCases:allCases],
+    NSArray<NGRMimeTypeValidationTest *> *imageTestCases = @[
+        [NGRMimeTypeValidationTest test:NGRMimeTypePNG withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeJPG withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeIco withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeTiff withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeGif withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeBMP withCases:allCases],
     ];
     
-    NSArray<NGRMimeTypeValidationTestCase *> *archiveTestCases = @[
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeGz  withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeRar withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeZip withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeType7z withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeTar withCases:allCases],
+    NSArray<NGRMimeTypeValidationTest *> *archiveTestCases = @[
+        [NGRMimeTypeValidationTest test:NGRMimeTypeGz  withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeRar withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeZip withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeType7z withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeTar withCases:allCases],
     ];
     
-    NSArray<NGRMimeTypeValidationTestCase *> *audioTestCases = @[
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMP3 withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeFlac withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeWav withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeM4a withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeOgg withCases:allCases],
+    NSArray<NGRMimeTypeValidationTest *> *audioTestCases = @[
+        [NGRMimeTypeValidationTest test:NGRMimeTypeMP3 withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeFlac withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeWav withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeM4a withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeOgg withCases:allCases],
     ];
     
-    NSArray<NGRMimeTypeValidationTestCase *> *videoTestCases = @[
-        [NGRMimeTypeValidationTestCase test:NGRMimeType3gp withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeAvi withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMkv withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMP4 withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeWMV withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeFlv withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMov withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeMPEG withCases:allCases],
+    NSArray<NGRMimeTypeValidationTest *> *videoTestCases = @[
+        [NGRMimeTypeValidationTest test:NGRMimeType3gp withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeAvi withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeMkv withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeMP4 withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeWMV withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeFlv withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeMov withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeMPEG withCases:allCases],
     ];
     
-    NSArray<NGRMimeTypeValidationTestCase *> *miscTestCases = @[
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeJSON withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeXML withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypeUtf8Text withCases:allCases],
-        [NGRMimeTypeValidationTestCase test:NGRMimeTypePDF withCases:allCases],
+    NSArray<NGRMimeTypeValidationTest *> *miscTestCases = @[
+        [NGRMimeTypeValidationTest test:NGRMimeTypeJSON withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeXML withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypeUtf8Text withCases:allCases],
+        [NGRMimeTypeValidationTest test:NGRMimeTypePDF withCases:allCases],
     ];
     
-    NSArray<NSArray<NGRMimeTypeValidationTestCase *> *> *allTestCases = @[imageTestCases, videoTestCases, audioTestCases, archiveTestCases, miscTestCases];
+    NSArray<NSArray<NGRMimeTypeValidationTest *> *> *allTestCases = @[imageTestCases, videoTestCases, audioTestCases, archiveTestCases, miscTestCases];
     
-    for (NSArray<NGRMimeTypeValidationTestCase *> *testGroup in allTestCases) {
-        for (NGRMimeTypeValidationTestCase *test in testGroup) {
+    for (NSArray<NGRMimeTypeValidationTest *> *testGroup in allTestCases) {
+        for (NGRMimeTypeValidationTest *test in testGroup) {
             
             NSArray<NGRTestData *> *validCases = [test validCases];
             NSArray<NGRTestData *> *invalidCases = [test invalidCases];
@@ -77,44 +77,66 @@ describe(@"Syntax validation", ^{
             
         }
     }
-//    }
-//    
-//    for (NGRMimeTypeValidationTestCase *testCase in imageTestCases) {
-//        testDescriptor(testCase.name, @"image data", @"non-image data");
-//        itShouldBehaveLike(NGRValueBehavior, ^{
-//            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
-//                return validator.image().msgWrongMediaType(msg);
-//            });
-//        });
-//    }
-//    
-//    for (NGRMimeTypeValidationTestCase *testCase in videoTestCases) {
-//        testDescriptor(testCase.name, @"video data", @"non-video data");
-//        itShouldBehaveLike(NGRValueBehavior, ^{
-//            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
-//                return validator.video().msgWrongMediaType(msg);
-//            });
-//        });
-//    }
-//    
-//    for (NGRMimeTypeValidationTestCase *testCase in audioTestCases) {
-//        testDescriptor(testCase.name, @"audio data", @"non-audio data");
-//        itShouldBehaveLike(NGRValueBehavior, ^{
-//            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
-//                return validator.audio().msgWrongMediaType(msg);
-//            });
-//        });
-//    }
-//    
-//    for (NGRMimeTypeValidationTestCase *testCase in archiveTestCases) {
-//        testDescriptor(testCase.name, @"archive data", @"non-archive data");
-//        itShouldBehaveLike(NGRValueBehavior, ^{
-//            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
-//                return validator.archive().msgWrongMediaType(msg);
-//            });
-//        });
-//    }
     
+    for (NGRMimeTypeValidationTest *test in imageTestCases) {
+        
+        NSArray<NGRTestData *> *validCases = [test validCases];
+        NGRTestData *invalidData = [NGRTestDataProvider mp3];
+        
+        for (NGRTestData *validData in validCases) {
+            testDescriptor(test.name, @"image data", @"non-image data");
+            itShouldBehaveLike(NGRValueBehavior, ^{
+                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                    return validator.image().msgWrongMediaType(msg);
+                });
+            });
+        }
+    }
+    
+    for (NGRMimeTypeValidationTest *test in videoTestCases) {
+        
+        NSArray<NGRTestData *> *validCases = [test validCases];
+        NGRTestData *invalidData = [NGRTestDataProvider mp3];
+        
+        for (NGRTestData *validData in validCases) {
+            testDescriptor(test.name, @"video data", @"non-video data");
+            itShouldBehaveLike(NGRValueBehavior, ^{
+                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                    return validator.video().msgWrongMediaType(msg);
+                });
+            });
+        }
+    }
+    
+    for (NGRMimeTypeValidationTest *test in audioTestCases) {
+        
+        NSArray<NGRTestData *> *validCases = [test validCases];
+        NGRTestData *invalidData = [NGRTestDataProvider png];
+        
+        for (NGRTestData *validData in validCases) {
+            testDescriptor(test.name, @"audio data", @"non-audio data");
+            itShouldBehaveLike(NGRValueBehavior, ^{
+                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                    return validator.audio().msgWrongMediaType(msg);
+                });
+            });
+        }
+    }
+    
+    for (NGRMimeTypeValidationTest *test in archiveTestCases) {
+        
+        NSArray<NGRTestData *> *validCases = [test validCases];
+        NGRTestData *invalidData = [NGRTestDataProvider mp3];
+        
+        for (NGRTestData *validData in validCases) {
+            testDescriptor(test.name, @"archive data", @"non-archive data");
+            itShouldBehaveLike(NGRValueBehavior, ^{
+                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                    return validator.archive().msgWrongMediaType(msg);
+                });
+            });
+        }
+    }
 });
 
 SpecEnd
