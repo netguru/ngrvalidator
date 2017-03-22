@@ -11,123 +11,125 @@
 
 #pragma mark - Image
 
-+ (NSData *)jpg {
++ (LazyNSData)jpg {
     return [self loadFile:@"logo" extension:@"jpg"];
 }
 
-+ (NSData *)png {
++ (LazyNSData)png {
     return [self loadFile:@"logo" extension:@"png"];
 }
 
-+ (NSData *)tiff {
++ (LazyNSData)tiff {
     return [self loadFile:@"logo" extension:@"tiff"];
 }
 
-+ (NSData *)ico {
++ (LazyNSData)ico {
     return [self loadFile:@"logo" extension:@"ico"];
 }
 
-+ (NSData *)gif {
++ (LazyNSData)gif {
     return [self loadFile:@"logo" extension:@"gif"];
 }
 
-+ (NSData *)bmp {
++ (LazyNSData)bmp {
     return [self loadFile:@"logo" extension:@"bmp"];
 }
 
 #pragma mark - Video
 
-+ (NSData *)_3gp {
++ (LazyNSData)_3gp {
     return [self loadFile:@"logo" extension:@"3gp"];
 }
 
-+ (NSData *)avi {
++ (LazyNSData)avi {
     return [self loadFile:@"logo" extension:@"avi"];
 }
 
-+ (NSData *)mkv {
++ (LazyNSData)mkv {
     return [self loadFile:@"logo" extension:@"mkv"];
 }
 
-+ (NSData *)mp4 {
++ (LazyNSData)mp4 {
     return [self loadFile:@"logo" extension:@"mp4"];
 }
 
-+ (NSData *)wmv {
++ (LazyNSData)wmv {
     return [self loadFile:@"logo" extension:@"wmv"];
 }
 
-+ (NSData *)flv {
++ (LazyNSData)flv {
     return [self loadFile:@"logo" extension:@"flv"];
 }
 
-+ (NSData *)mov {
++ (LazyNSData)mov {
     return [self loadFile:@"logo" extension:@"mov"];
 }
 
-+ (NSData *)mpeg {
++ (LazyNSData)mpeg {
     return [self loadFile:@"logo" extension:@"mpg"];
 }
 
 #pragma mark - Misc
 
-+ (NSData *)pdf {
++ (LazyNSData)pdf {
     return [self loadFile:@"logo" extension:@"pdf"];
 }
 
-+ (NSData *)xml {
++ (LazyNSData)xml {
     return [self loadFile:@"logo" extension:@"xml"];
 }
 
-+ (NSData *)json {
++ (LazyNSData)json {
     return [self loadFile:@"logo" extension:@"json"];
 }
 
-+ (NSData *)utf8text {
-    return [@"logo" dataUsingEncoding:NSUTF8StringEncoding];
++ (LazyNSData)utf8text {
+    return ^{
+        return [@"logo" dataUsingEncoding:NSUTF8StringEncoding];
+    };
 }
 
 #pragma mark - Audio
 
-+ (NSData *)wav {
++ (LazyNSData)wav {
     return [self loadFile:@"logo" extension:@"wav"];
 }
 
-+ (NSData *)m4a {
++ (LazyNSData)m4a {
     return [self loadFile:@"logo" extension:@"m4a"];
 }
 
-+ (NSData *)flac {
++ (LazyNSData)flac {
     return [self loadFile:@"logo" extension:@"flac"];
 }
 
-+ (NSData *)ogg {
++ (LazyNSData)ogg {
     return [self loadFile:@"logo" extension:@"ogg"];
 }
 
-+ (NSData *)mp3 {
++ (LazyNSData)mp3 {
     return [self loadFile:@"logo" extension:@"mp3"];
 }
 
 #pragma mark - Compressed
 
-+ (NSData *)gz {
++ (LazyNSData)gz {
     return [self loadFile:@"logo" extension:@"tgz"];
 }
 
-+ (NSData *)zip {
++ (LazyNSData)zip {
     return [self loadFile:@"logo" extension:@"zip"];
 }
 
-+ (NSData *)tar {
++ (LazyNSData)tar {
     return [self loadFile:@"logo" extension:@"tar"];
 }
 
-+ (NSData *)rar {
++ (LazyNSData)rar {
     return [self loadFile:@"logo" extension:@"rar"];
 }
 
-+ (NSData *)_7z {
++ (LazyNSData)_7z {
     return [self loadFile:@"logo" extension:@"7z"];
 }
 
@@ -137,9 +139,13 @@
     return [NSBundle bundleForClass:self];
 }
 
-+ (NSData *)loadFile:(NSString *)name extension:(NSString *)ext {
-    NSURL *url = [[self bundle] URLForResource:name withExtension:ext];
-    return [NSData dataWithContentsOfURL:url];
++ (LazyNSData)loadFile:(NSString *)name extension:(NSString *)ext {
+    NSBundle *bundle = [self bundle];
+    
+    return ^{
+        NSURL *url = [bundle URLForResource:name withExtension:ext];
+        return [NSData dataWithContentsOfURL:url];
+    };
 }
 
 @end

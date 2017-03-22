@@ -7,49 +7,51 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NSData*(^LazyNSData)();
+
 @interface NGRDataProvider : NSObject
 
 #pragma mark - Image
 
-+ (NSData *)jpg;
-+ (NSData *)png;
-+ (NSData *)tiff;
-+ (NSData *)ico;
-+ (NSData *)gif;
-+ (NSData *)bmp;
++ (LazyNSData)jpg;
++ (LazyNSData)png;
++ (LazyNSData)tiff;
++ (LazyNSData)ico;
++ (LazyNSData)gif;
++ (LazyNSData)bmp;
 
 #pragma mark - Video
 
-+ (NSData *)_3gp;
-+ (NSData *)avi;
-+ (NSData *)mkv;
-+ (NSData *)mp4;
-+ (NSData *)wmv;
-+ (NSData *)flv;
-+ (NSData *)mov;
-+ (NSData *)mpeg;
++ (LazyNSData)_3gp;
++ (LazyNSData)avi;
++ (LazyNSData)mkv;
++ (LazyNSData)mp4;
++ (LazyNSData)wmv;
++ (LazyNSData)flv;
++ (LazyNSData)mov;
++ (LazyNSData)mpeg;
 
 #pragma mark - Misc
 
-+ (NSData *)pdf;
-+ (NSData *)xml;
-+ (NSData *)json;
-+ (NSData *)utf8text;
++ (LazyNSData)pdf;
++ (LazyNSData)xml;
++ (LazyNSData)json;
++ (LazyNSData)utf8text;
 
 #pragma mark - Audio
 
-+ (NSData *)wav;
-+ (NSData *)m4a;
-+ (NSData *)flac;
-+ (NSData *)ogg;
-+ (NSData *)mp3;
++ (LazyNSData)wav;
++ (LazyNSData)m4a;
++ (LazyNSData)flac;
++ (LazyNSData)ogg;
++ (LazyNSData)mp3;
 
 #pragma mark - Compressed
 
-+ (NSData *)gz;
-+ (NSData *)zip;
-+ (NSData *)tar;
-+ (NSData *)rar;
-+ (NSData *)_7z;
++ (LazyNSData)gz;
++ (LazyNSData)zip;
++ (LazyNSData)tar;
++ (LazyNSData)rar;
++ (LazyNSData)_7z;
 
 @end

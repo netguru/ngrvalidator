@@ -9,7 +9,7 @@
 
 @implementation NGRMimeTypeValidationTestCase
 
-- (instancetype)initWithMimeType:(NGRMimeType *)type validData:(NSData *)valid invalidData:(NSData *)invalid {
+- (instancetype)initWithMimeType:(NGRMimeType *)type validData:(LazyNSData)valid invalidData:(LazyNSData)invalid {
     self = [super init];
     if (self) {
         _mimeType = type;
@@ -19,7 +19,7 @@
     return self;
 }
 
-+ (instancetype)test:(NGRMimeType *)type valid:(NSData *)valid invalid:(NSData *)invalid {
++ (instancetype)test:(NGRMimeType *)type valid:(LazyNSData)valid invalid:(LazyNSData)invalid {
     return [[self alloc] initWithMimeType:type validData:valid invalidData:invalid];
 }
 

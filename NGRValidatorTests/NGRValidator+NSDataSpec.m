@@ -10,42 +10,42 @@ SpecBegin(NGRValidator_Data)
 describe(@"Syntax validation", ^{
     
     // Images
-    NSData *png = [NGRDataProvider png];
-    NSData *jpg = [NGRDataProvider jpg];
-    NSData *tiff = [NGRDataProvider tiff];
-    NSData *ico = [NGRDataProvider ico];
-    NSData *gif = [NGRDataProvider gif];
-    NSData *bmp = [NGRDataProvider bmp];
+    LazyNSData png = [NGRDataProvider png];
+    LazyNSData jpg = [NGRDataProvider jpg];
+    LazyNSData tiff = [NGRDataProvider tiff];
+    LazyNSData ico = [NGRDataProvider ico];
+    LazyNSData gif = [NGRDataProvider gif];
+    LazyNSData bmp = [NGRDataProvider bmp];
     
     //Video
-    NSData *_3gp = [NGRDataProvider _3gp];
-    NSData *avi = [NGRDataProvider avi];
-    NSData *mkv = [NGRDataProvider mkv];
-    NSData *mp4 = [NGRDataProvider mp4];
-    NSData *wmv = [NGRDataProvider wmv];
-    NSData *flv = [NGRDataProvider flv];
-    NSData *mov = [NGRDataProvider mov];
-    NSData *mpeg = [NGRDataProvider mpeg];
+    LazyNSData _3gp = [NGRDataProvider _3gp];
+    LazyNSData avi = [NGRDataProvider avi];
+    LazyNSData mkv = [NGRDataProvider mkv];
+    LazyNSData mp4 = [NGRDataProvider mp4];
+    LazyNSData wmv = [NGRDataProvider wmv];
+    LazyNSData flv = [NGRDataProvider flv];
+    LazyNSData mov = [NGRDataProvider mov];
+    LazyNSData mpeg = [NGRDataProvider mpeg];
     
     //Misc
-    NSData *pdf = [NGRDataProvider pdf];
-    NSData *json = [NGRDataProvider json];
-    NSData *xml = [NGRDataProvider xml];
-    NSData *utf8text = [NGRDataProvider utf8text];
+    LazyNSData pdf = [NGRDataProvider pdf];
+    LazyNSData json = [NGRDataProvider json];
+    LazyNSData xml = [NGRDataProvider xml];
+    LazyNSData utf8text = [NGRDataProvider utf8text];
     
     //Audio
-    NSData *mp3 = [NGRDataProvider mp3];
-    NSData *flac = [NGRDataProvider flac];
-    NSData *wav = [NGRDataProvider wav];
-    NSData *m4a = [NGRDataProvider m4a];
-    NSData *ogg = [NGRDataProvider ogg];
+    LazyNSData mp3 = [NGRDataProvider mp3];
+    LazyNSData flac = [NGRDataProvider flac];
+    LazyNSData wav = [NGRDataProvider wav];
+    LazyNSData m4a = [NGRDataProvider m4a];
+    LazyNSData ogg = [NGRDataProvider ogg];
     
     //Compressed
-    NSData *zip = [NGRDataProvider zip];
-    NSData *rar = [NGRDataProvider rar];
-    NSData *gz = [NGRDataProvider gz];
-    NSData *tar = [NGRDataProvider tar];
-    NSData *_7z = [NGRDataProvider _7z];
+    LazyNSData zip = [NGRDataProvider zip];
+    LazyNSData rar = [NGRDataProvider rar];
+    LazyNSData gz = [NGRDataProvider gz];
+    LazyNSData tar = [NGRDataProvider tar];
+    LazyNSData _7z = [NGRDataProvider _7z];
     
     NSArray<NGRMimeTypeValidationTestCase *> *imageTestCases = @[
         [NGRMimeTypeValidationTestCase test:NGRMimeTypePNG valid:png invalid:wav],
@@ -96,7 +96,7 @@ describe(@"Syntax validation", ^{
         for (NGRMimeTypeValidationTestCase *testCase in testGroup) {
             testDescriptor(testCase.name, @"valid data", @"invalid data");
             itShouldBehaveLike(NGRValueBehavior, ^{
-                return wrapData(testCase.validData, testCase.invalidData, 1, ^(NGRPropertyValidator *validator) {
+                return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
                     return validator.mimeType(testCase.mimeType).msgWrongMIMEType(msg);
                 });
             });
@@ -106,7 +106,7 @@ describe(@"Syntax validation", ^{
     for (NGRMimeTypeValidationTestCase *testCase in imageTestCases) {
         testDescriptor(testCase.name, @"image data", @"non-image data");
         itShouldBehaveLike(NGRValueBehavior, ^{
-            return wrapData(testCase.validData, testCase.invalidData, 1, ^(NGRPropertyValidator *validator) {
+            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
                 return validator.image().msgWrongMediaType(msg);
             });
         });
@@ -115,7 +115,7 @@ describe(@"Syntax validation", ^{
     for (NGRMimeTypeValidationTestCase *testCase in videoTestCases) {
         testDescriptor(testCase.name, @"video data", @"non-video data");
         itShouldBehaveLike(NGRValueBehavior, ^{
-            return wrapData(testCase.validData, testCase.invalidData, 1, ^(NGRPropertyValidator *validator) {
+            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
                 return validator.video().msgWrongMediaType(msg);
             });
         });
@@ -124,7 +124,7 @@ describe(@"Syntax validation", ^{
     for (NGRMimeTypeValidationTestCase *testCase in audioTestCases) {
         testDescriptor(testCase.name, @"audio data", @"non-audio data");
         itShouldBehaveLike(NGRValueBehavior, ^{
-            return wrapData(testCase.validData, testCase.invalidData, 1, ^(NGRPropertyValidator *validator) {
+            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
                 return validator.audio().msgWrongMediaType(msg);
             });
         });
@@ -133,7 +133,7 @@ describe(@"Syntax validation", ^{
     for (NGRMimeTypeValidationTestCase *testCase in archiveTestCases) {
         testDescriptor(testCase.name, @"archive data", @"non-archive data");
         itShouldBehaveLike(NGRValueBehavior, ^{
-            return wrapData(testCase.validData, testCase.invalidData, 1, ^(NGRPropertyValidator *validator) {
+            return wrapData(testCase.validData(), testCase.invalidData(), 1, ^(NGRPropertyValidator *validator) {
                 return validator.archive().msgWrongMediaType(msg);
             });
         });
