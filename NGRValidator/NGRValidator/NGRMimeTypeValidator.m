@@ -78,41 +78,45 @@
 }
 
 + (NSDictionary *)validatorByMimeTypeKey {
-
-    return @{
-        NGRMimeTypePNG : [NGRMimeTypeValidator png],
-        NGRMimeTypeJPG : [NGRMimeTypeValidator jpg],
-        NGRMimeTypeIco : [NGRMimeTypeValidator ico],
-        NGRMimeTypeBMP : [NGRMimeTypeValidator bmp],
-        NGRMimeTypeTiff : [NGRMimeTypeValidator tiff],
-        NGRMimeTypeGif : [NGRMimeTypeValidator gif],
-        
-        NGRMimeTypeAvi : [NGRMimeTypeValidator avi],
-        NGRMimeTypeMP4 : [NGRMimeTypeValidator mp4],
-        NGRMimeTypeMov : [NGRMimeTypeValidator mov],
-        NGRMimeTypeWMV : [NGRMimeTypeValidator wmv],
-        NGRMimeTypeFlv : [NGRMimeTypeValidator flv],
-        NGRMimeType3gp : [NGRMimeTypeValidator _3gp],
-        NGRMimeTypeMkv : [NGRMimeTypeValidator mkv],
-        NGRMimeTypeMPEG : [NGRMimeTypeValidator mpeg],
-        
-        NGRMimeTypePDF : [NGRMimeTypeValidator pdf],
-        NGRMimeTypeUtf8Text : [NGRMimeTypeValidator utf8text],
-        NGRMimeTypeJSON : [NGRMimeTypeValidator json],
-        NGRMimeTypeXML : [NGRMimeTypeValidator xml],
-        
-        NGRMimeTypeFlac : [NGRMimeTypeValidator flac],
-        NGRMimeTypeWav : [NGRMimeTypeValidator wav],
-        NGRMimeTypeMP3 : [NGRMimeTypeValidator mp3],
-        NGRMimeTypeM4a : [NGRMimeTypeValidator m4a],
-        NGRMimeTypeOgg : [NGRMimeTypeValidator ogg],
-        
-        NGRMimeTypeTar : [NGRMimeTypeValidator tar],
-        NGRMimeTypeGz : [NGRMimeTypeValidator gz],
-        NGRMimeTypeRar : [NGRMimeTypeValidator rar],
-        NGRMimeTypeZip : [NGRMimeTypeValidator zip],
-        NGRMimeType7z : [NGRMimeTypeValidator _7z],
-    };
+    static NSDictionary *_validatorByMimeTypeKey = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _validatorByMimeTypeKey = @{
+            NGRMimeTypePNG : [NGRMimeTypeValidator png],
+            NGRMimeTypeJPG : [NGRMimeTypeValidator jpg],
+            NGRMimeTypeIco : [NGRMimeTypeValidator ico],
+            NGRMimeTypeBMP : [NGRMimeTypeValidator bmp],
+            NGRMimeTypeTiff : [NGRMimeTypeValidator tiff],
+            NGRMimeTypeGif : [NGRMimeTypeValidator gif],
+                                   
+            NGRMimeTypeAvi : [NGRMimeTypeValidator avi],
+            NGRMimeTypeMP4 : [NGRMimeTypeValidator mp4],
+            NGRMimeTypeMov : [NGRMimeTypeValidator mov],
+            NGRMimeTypeWMV : [NGRMimeTypeValidator wmv],
+            NGRMimeTypeFlv : [NGRMimeTypeValidator flv],
+            NGRMimeType3gp : [NGRMimeTypeValidator _3gp],
+            NGRMimeTypeMkv : [NGRMimeTypeValidator mkv],
+            NGRMimeTypeMPEG : [NGRMimeTypeValidator mpeg],
+                                   
+            NGRMimeTypePDF : [NGRMimeTypeValidator pdf],
+            NGRMimeTypeUtf8Text : [NGRMimeTypeValidator utf8text],
+            NGRMimeTypeJSON : [NGRMimeTypeValidator json],
+            NGRMimeTypeXML : [NGRMimeTypeValidator xml],
+                                   
+            NGRMimeTypeFlac : [NGRMimeTypeValidator flac],
+            NGRMimeTypeWav : [NGRMimeTypeValidator wav],
+            NGRMimeTypeMP3 : [NGRMimeTypeValidator mp3],
+            NGRMimeTypeM4a : [NGRMimeTypeValidator m4a],
+            NGRMimeTypeOgg : [NGRMimeTypeValidator ogg],
+                                   
+            NGRMimeTypeTar : [NGRMimeTypeValidator tar],
+            NGRMimeTypeGz : [NGRMimeTypeValidator gz],
+            NGRMimeTypeRar : [NGRMimeTypeValidator rar],
+            NGRMimeTypeZip : [NGRMimeTypeValidator zip],
+            NGRMimeType7z : [NGRMimeTypeValidator _7z],
+        };
+    });
+    return _validatorByMimeTypeKey;
 }
 
 @end
