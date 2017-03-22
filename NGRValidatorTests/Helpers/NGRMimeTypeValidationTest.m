@@ -2,8 +2,6 @@
 //  NGRMimeTypeValidationTestCase.m
 //  NGRValidator
 //
-//
-//
 
 #import "NGRMimeTypeValidationTest.h"
 

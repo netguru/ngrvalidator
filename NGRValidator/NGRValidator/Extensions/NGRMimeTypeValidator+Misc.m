@@ -2,8 +2,6 @@
 //  NGRMimeTypeValidator+Misc.m
 //  NGRValidator
 //
-//
-//
 
 #import "NGRMimeTypeValidator+Misc.h"
 

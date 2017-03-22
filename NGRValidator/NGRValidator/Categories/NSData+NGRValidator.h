@@ -2,8 +2,6 @@
 //  NSData+NGRValidator.h
 //  NGRValidator
 //
-//
-//
 
 #import "NGRMimeType.h"
 

@@ -2,8 +2,6 @@
 //  NGRMimeType.h
 //  NGRValidator
 //
-//
-//
 
 #import <Foundation/Foundation.h>
 

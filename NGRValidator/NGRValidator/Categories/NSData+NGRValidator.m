@@ -2,8 +2,6 @@
 //  NSData+NGRValidator.m
 //  NGRValidator
 //
-//
-//
 
 #import "NSData+NGRValidator.h"
 #import "NGRMimeTypeValidator.h"
@@ -18,26 +16,54 @@
 }
 
 - (BOOL)ngr_isImage {
-    NSArray<NGRMimeType *> *imageTypes = @[NGRMimeTypePNG, NGRMimeTypeIco, NGRMimeTypeGif, NGRMimeTypeTiff, NGRMimeTypeJPG, NGRMimeTypeBMP];
+    NSArray<NGRMimeType *> *imageTypes = @[
+        NGRMimeTypePNG,
+        NGRMimeTypeIco,
+        NGRMimeTypeGif,
+        NGRMimeTypeTiff,
+        NGRMimeTypeJPG,
+        NGRMimeTypeBMP
+    ];
     
     return [self ngr_hasOneOfTypes:imageTypes];
 }
 
 - (BOOL)ngr_isVideo {
-    NSArray<NGRMimeType *> *videoTypes = @[NGRMimeType3gp, NGRMimeTypeAvi, NGRMimeTypeMkv, NGRMimeTypeMP4, NGRMimeTypeMPEG, NGRMimeTypeMov, NGRMimeTypeFlv, NGRMimeTypeWMV];
+    NSArray<NGRMimeType *> *videoTypes = @[
+        NGRMimeType3gp,
+        NGRMimeTypeAvi,
+        NGRMimeTypeMkv,
+        NGRMimeTypeMP4,
+        NGRMimeTypeMPEG,
+        NGRMimeTypeMov,
+        NGRMimeTypeFlv,
+        NGRMimeTypeWMV
+    ];
     
     return [self ngr_hasOneOfTypes:videoTypes];
 }
 
 
 - (BOOL)ngr_isAudio {
-    NSArray<NGRMimeType *> *audioTypes = @[NGRMimeTypeWav, NGRMimeTypeMP3, NGRMimeTypeFlac, NGRMimeTypeOgg, NGRMimeTypeM4a];
+    NSArray<NGRMimeType *> *audioTypes = @[
+        NGRMimeTypeWav,
+        NGRMimeTypeMP3,
+        NGRMimeTypeFlac,
+        NGRMimeTypeOgg,
+        NGRMimeTypeM4a
+    ];
     
     return [self ngr_hasOneOfTypes:audioTypes];
 }
 
 - (BOOL)ngr_isArchive {
-    NSArray<NGRMimeType *> *archiveTypes = @[NGRMimeTypeZip, NGRMimeTypeRar, NGRMimeType7z, NGRMimeTypeTar, NGRMimeTypeGz];
+    NSArray<NGRMimeType *> *archiveTypes = @[
+        NGRMimeTypeZip,
+        NGRMimeTypeRar,
+        NGRMimeType7z,
+        NGRMimeTypeTar,
+        NGRMimeTypeGz
+    ];
     
     return [self ngr_hasOneOfTypes:archiveTypes];
 }

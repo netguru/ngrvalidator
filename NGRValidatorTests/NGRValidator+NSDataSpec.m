@@ -2,8 +2,6 @@
 //  NGRValidator+NSDataSpec.m
 //  NGRValidator
 //
-//
-//
 
 SpecBegin(NGRValidator_Data)
 

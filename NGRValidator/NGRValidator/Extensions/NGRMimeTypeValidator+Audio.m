@@ -2,8 +2,6 @@
 //  NGRMimeTypeValidator+Audio.m
 //  NGRValidator
 //
-//
-//
 
 #import "NGRMimeTypeValidator+Audio.h"
 

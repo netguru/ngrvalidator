@@ -2,8 +2,6 @@
 //  NGRMimeType.m
 //  NGRValidator
 //
-//
-//
 
 #import "NGRMimeType.h"
 
