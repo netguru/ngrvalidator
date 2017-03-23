@@ -59,5 +59,10 @@ extern NGRMsgKey *const MSGNotExcludes;
 extern NGRMsgKey *const MSGNotIncludedIn;
 extern NGRMsgKey *const MSGNotExcludedFrom;
 
+//NGRPropertyValidator + NGRImage
+extern NGRMsgKey *const MSGImageTooBig;
+extern NGRMsgKey *const MSGImageTooSmall;
+extern NGRMsgKey *const MSGWrongAspectRatio;
+
 typedef NGRMsgKey *(^NGRValidationBlock)(id);
 typedef NSArray *(^NGRRules)();

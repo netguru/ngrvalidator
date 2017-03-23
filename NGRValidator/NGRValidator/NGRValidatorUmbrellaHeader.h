@@ -8,6 +8,7 @@
 
 //protocols:
 #import "NGRMessaging.h"
+#import "NGRImage.h"
 
 //constants
 #import "NGRConstants.h"

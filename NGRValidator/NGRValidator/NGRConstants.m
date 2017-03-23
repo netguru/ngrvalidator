@@ -58,3 +58,9 @@ NGRMsgKey *const MSGNotExcludes = (NGRMsgKey *)@"MSGNotExcludes";
 
 NGRMsgKey *const MSGNotIncludedIn = (NGRMsgKey *)@"MSGNotIncludedIn";
 NGRMsgKey *const MSGNotExcludedFrom = (NGRMsgKey *)@"MSGNotExcludedFrom";
+
+//NGRPropertyValidator + NGRImage
+NGRMsgKey *const MSGImageTooBig = (NGRMsgKey *)@"MSGImageTooBig";
+NGRMsgKey *const MSGImageTooSmall = (NGRMsgKey *)@"MSGImageTooSmall";
+NGRMsgKey *const MSGWrongAspectRatio = (NGRMsgKey *)@"MSGWrongAspectRatio";
+
