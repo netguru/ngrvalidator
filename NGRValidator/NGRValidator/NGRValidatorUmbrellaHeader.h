@@ -28,3 +28,4 @@
 #import "NGRPropertyValidator+NSArray.h"
 #import "NGRPropertyValidator+CreditCard.h"
 #import "NGRPropertyValidator+NSData.h"
+#import "NGRPropertyValidator+NGRImage.h"
