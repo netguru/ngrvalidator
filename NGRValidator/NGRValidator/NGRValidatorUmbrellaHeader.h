@@ -11,6 +11,7 @@
 
 //constants
 #import "NGRConstants.h"
+#import "NGRMimeType.h"
 
 //headers:
 #import "NGRValidatorDeprecated.h"
