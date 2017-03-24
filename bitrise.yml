@@ -34,7 +34,7 @@ workflows:
 
   build-and-test:
     envs:
-      - XCODEBUILD_SCHEME: NGRValidator
+      - XCODEBUILD_SCHEME: NGRValidator-iOS
     before_run:
       - cache-pull
       - pods-install

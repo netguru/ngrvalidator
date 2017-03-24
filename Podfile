@@ -21,6 +21,5 @@ end
 
 target 'NGRValidatorTests-MacOS' do
     platform :osx, '10.10'
-    pod 'Expecta'
-    pod 'Specta'
+    testing_pods
 end
