@@ -139,7 +139,6 @@
 		022227EF1E85046A00CE4399 /* NSError+NGRValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E62ACA91AD72F28001976CE /* NSError+NGRValidator.h */; };
 		022227F01E85046A00CE4399 /* NSCharacterSet+NGRValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 027139AF1E7BF358002AD49E /* NSCharacterSet+NGRValidator.h */; };
 		0222283F1E85061300CE4399 /* NGRValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 022227F51E85046A00CE4399 /* NGRValidator.framework */; };
-		022228461E8507A700CE4399 /* NGRValidator-MacOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 022228451E8507A700CE4399 /* NGRValidator-MacOS-Info.plist */; };
 		022228471E85084F00CE4399 /* NGRValidatorBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */; };
 		022228481E85085500CE4399 /* NGRBehaviorKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */; };
 		022228491E85085800CE4399 /* NGRTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC4860E1AD2F9DB001C7DBB /* NGRTestModel.m */; };
@@ -306,6 +305,7 @@
 		022228451E8507A700CE4399 /* NGRValidator-MacOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NGRValidator-MacOS-Info.plist"; sourceTree = "<group>"; };
 		022228911E850C4400CE4399 /* libPods-NGRValidatorTests-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NGRValidatorTests-iOS.a"; path = "Pods/../build/Debug-iphoneos/libPods-NGRValidatorTests-iOS.a"; sourceTree = "<group>"; };
 		022228931E85147C00CE4399 /* NGRValidatorTests-MacOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NGRValidatorTests-MacOS.plist"; sourceTree = "<group>"; };
+		022D5A581E852693000FCEC4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Demo/Info.plist; sourceTree = "<group>"; };
 		027139AF1E7BF358002AD49E /* NSCharacterSet+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+NGRValidator.h"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.h"; sourceTree = "<group>"; };
 		027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+NGRValidator.m"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.m"; sourceTree = "<group>"; };
 		0273F0DC1E8000DF000B5949 /* NSData+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+NGRValidator.h"; path = "NGRValidator/Categories/NSData+NGRValidator.h"; sourceTree = "<group>"; };
@@ -405,7 +405,6 @@
 		5E4A2BB31A5788CF00744E93 /* NSObject+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+NGRValidator.h"; path = "NGRValidator/Categories/NSObject+NGRValidator.h"; sourceTree = "<group>"; };
 		5E4A2BB41A5788CF00744E93 /* NSObject+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+NGRValidator.m"; path = "NGRValidator/Categories/NSObject+NGRValidator.m"; sourceTree = "<group>"; };
 		5E5C09EF1A498164002D3E72 /* NGRValidatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NGRValidatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E5C09F31A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E5C09F41A498164002D3E72 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5E5C09F61A498164002D3E72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E5C09F71A498164002D3E72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -763,7 +762,7 @@
 		5E5C09F21A498164002D3E72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5E5C09F31A498164002D3E72 /* Info.plist */,
+				022D5A581E852693000FCEC4 /* Info.plist */,
 				5E5C09F41A498164002D3E72 /* main.m */,
 				5E8AFF671AD3484200FB73CD /* NGRValidator.pch */,
 			);
@@ -1271,7 +1270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				022228461E8507A700CE4399 /* NGRValidator-MacOS-Info.plist in Resources */,
 				5E5C09FE1A498164002D3E72 /* Main.storyboard in Resources */,
 				5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */,
 				022228941E85147C00CE4399 /* NGRValidatorTests-MacOS.plist in Resources */,
@@ -1870,7 +1868,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = NGRValidator/NGRValidator.pch;
-				INFOPLIST_FILE = NGRValidator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/NGRValidator/Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1893,7 +1891,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = NGRValidator/NGRValidator.pch;
-				INFOPLIST_FILE = NGRValidator/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/NGRValidator/Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
