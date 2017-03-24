@@ -187,6 +187,7 @@
 		0222288E1E85097A00CE4399 /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0EF1E802600000B5949 /* logo.jpg */; };
 		0222288F1E85097A00CE4399 /* logo.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0F31E80403A000B5949 /* logo.tiff */; };
 		022228901E85097A00CE4399 /* logo.ico in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0F41E80403A000B5949 /* logo.ico */; };
+		022228941E85147C00CE4399 /* NGRValidatorTests-MacOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = 022228931E85147C00CE4399 /* NGRValidatorTests-MacOS.plist */; };
 		0273F0E91E802178000B5949 /* NGRValidator+NSDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0E81E802178000B5949 /* NGRValidator+NSDataSpec.m */; };
 		0273F0EC1E80251F000B5949 /* NGRTestDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273F0EB1E80251F000B5949 /* NGRTestDataProvider.m */; };
 		0273F0F01E802600000B5949 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0273F0EE1E802600000B5949 /* logo.png */; };
@@ -302,9 +303,9 @@
 		020A96BD1E82D29100DF6E12 /* NGRValidator-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NGRValidator-iOS-Info.plist"; sourceTree = "<group>"; };
 		022227F51E85046A00CE4399 /* NGRValidator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NGRValidator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0222283A1E85061300CE4399 /* NGRValidatorTests-MacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NGRValidatorTests-MacOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0222283E1E85061300CE4399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		022228451E8507A700CE4399 /* NGRValidator-MacOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NGRValidator-MacOS-Info.plist"; sourceTree = "<group>"; };
 		022228911E850C4400CE4399 /* libPods-NGRValidatorTests-iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NGRValidatorTests-iOS.a"; path = "Pods/../build/Debug-iphoneos/libPods-NGRValidatorTests-iOS.a"; sourceTree = "<group>"; };
+		022228931E85147C00CE4399 /* NGRValidatorTests-MacOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NGRValidatorTests-MacOS.plist"; sourceTree = "<group>"; };
 		027139AF1E7BF358002AD49E /* NSCharacterSet+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSCharacterSet+NGRValidator.h"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.h"; sourceTree = "<group>"; };
 		027139B01E7BF358002AD49E /* NSCharacterSet+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSCharacterSet+NGRValidator.m"; path = "NGRValidator/Categories/NSCharacterSet+NGRValidator.m"; sourceTree = "<group>"; };
 		0273F0DC1E8000DF000B5949 /* NSData+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+NGRValidator.h"; path = "NGRValidator/Categories/NSData+NGRValidator.h"; sourceTree = "<group>"; };
@@ -411,7 +412,7 @@
 		5E5C09FD1A498164002D3E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E5C09FF1A498164002D3E72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5E5C0A081A498164002D3E72 /* NGRValidatorTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NGRValidatorTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E5C0A0D1A498164002D3E72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E5C0A0D1A498164002D3E72 /* NGRValidatorTests-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NGRValidatorTests-iOS.plist"; sourceTree = "<group>"; };
 		5E62ACA51AD72711001976CE /* NGRMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRMessaging.h; path = NGRValidator/NGRMessaging.h; sourceTree = "<group>"; };
 		5E62ACA91AD72F28001976CE /* NSError+NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+NGRValidator.h"; path = "NGRValidator/Categories/NSError+NGRValidator.h"; sourceTree = "<group>"; };
 		5E62ACAA1AD72F28001976CE /* NSError+NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+NGRValidator.m"; path = "NGRValidator/Categories/NSError+NGRValidator.m"; sourceTree = "<group>"; };
@@ -544,14 +545,6 @@
 				5E0019611A498497002ED961 /* Categories */,
 			);
 			path = NGRValidator;
-			sourceTree = "<group>";
-		};
-		0222283B1E85061300CE4399 /* NGRValidatorTests-MacOS */ = {
-			isa = PBXGroup;
-			children = (
-				0222283E1E85061300CE4399 /* Info.plist */,
-			);
-			path = "NGRValidatorTests-MacOS";
 			sourceTree = "<group>";
 		};
 		0273F0ED1E802535000B5949 /* Media */ = {
@@ -732,8 +725,7 @@
 			children = (
 				5E5C09F11A498164002D3E72 /* NGRValidatorDemo */,
 				020A96BB1E82D29100DF6E12 /* NGRValidator */,
-				5E5C0A0B1A498164002D3E72 /* NGRValidatorTests-iOS */,
-				0222283B1E85061300CE4399 /* NGRValidatorTests-MacOS */,
+				5E5C0A0B1A498164002D3E72 /* NGRValidatorTests */,
 				5E5C09F01A498164002D3E72 /* Products */,
 				F71716557E3588C05B308B69 /* Pods */,
 				139BD08AC3C3343F068E3BC8 /* Frameworks */,
@@ -778,7 +770,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5E5C0A0B1A498164002D3E72 /* NGRValidatorTests-iOS */ = {
+		5E5C0A0B1A498164002D3E72 /* NGRValidatorTests */ = {
 			isa = PBXGroup;
 			children = (
 				5E5C0A0C1A498164002D3E72 /* Supporting Files */,
@@ -788,7 +780,6 @@
 				5E574B3D1ADFAF5B004E199C /* NGRPropertyValidator */,
 				5E92F29F1A97EFF000BDAEBC /* NGRValidator */,
 			);
-			name = "NGRValidatorTests-iOS";
 			path = NGRValidatorTests;
 			sourceTree = "<group>";
 		};
@@ -796,7 +787,8 @@
 			isa = PBXGroup;
 			children = (
 				0273F0ED1E802535000B5949 /* Media */,
-				5E5C0A0D1A498164002D3E72 /* Info.plist */,
+				5E5C0A0D1A498164002D3E72 /* NGRValidatorTests-iOS.plist */,
+				022228931E85147C00CE4399 /* NGRValidatorTests-MacOS.plist */,
 				5EEF83BE1A8C08AD00847CE1 /* Unit-Tests-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -1282,6 +1274,7 @@
 				022228461E8507A700CE4399 /* NGRValidator-MacOS-Info.plist in Resources */,
 				5E5C09FE1A498164002D3E72 /* Main.storyboard in Resources */,
 				5E5C0A001A498164002D3E72 /* Images.xcassets in Resources */,
+				022228941E85147C00CE4399 /* NGRValidatorTests-MacOS.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1740,7 +1733,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = SK8PDF7SG9;
 				GCC_PREFIX_HEADER = "NGRValidatorTests/Unit-Tests-Prefix.pch";
-				INFOPLIST_FILE = "NGRValidatorTests-MacOS/Info.plist";
+				INFOPLIST_FILE = "NGRValidatorTests/NGRValidatorTests-MacOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1765,7 +1758,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = SK8PDF7SG9;
 				GCC_PREFIX_HEADER = "NGRValidatorTests/Unit-Tests-Prefix.pch";
-				INFOPLIST_FILE = "NGRValidatorTests-MacOS/Info.plist";
+				INFOPLIST_FILE = "NGRValidatorTests/NGRValidatorTests-MacOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1934,7 +1927,7 @@
 					"values>",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/NGRValidator-bspsrwuiorsqfvhjeryuzpjcvsgo/Build/Products/Debug/NGRValidator.framework/Headers\"",
 				);
-				INFOPLIST_FILE = NGRValidatorTests/Info.plist;
+				INFOPLIST_FILE = "NGRValidatorTests/NGRValidatorTests-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks @loader_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1958,7 +1951,7 @@
 					"values>",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/NGRValidator-bspsrwuiorsqfvhjeryuzpjcvsgo/Build/Products/Debug/NGRValidator.framework/Headers\"",
 				);
-				INFOPLIST_FILE = NGRValidatorTests/Info.plist;
+				INFOPLIST_FILE = "NGRValidatorTests/NGRValidatorTests-iOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks @loader_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
