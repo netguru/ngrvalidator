@@ -17,7 +17,7 @@
 #elif TARGET_OS_MAC && !TARGET_OS_IPHONE
 
 @interface NSImage (NGRImageProvider)
-+ (UIImage *)ngr_imageWithSize:(CGSize)size;
++ (NSImage *)ngr_imageWithSize:(CGSize)size;
 @end
 
 #endif

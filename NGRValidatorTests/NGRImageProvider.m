@@ -34,18 +34,19 @@
 
 @implementation NSImage (NGRImageProvider)
 
-+ (UIImage *)ngr_imageWithSize:(CGSize)size {
++ (NSImage *)ngr_imageWithSize:(CGSize)size {
     
-    CGFloat scale = [UIScreen mainScreen].scale;
+    CGFloat scale = [[NSScreen mainScreen] backingScaleFactor];
     
     CGSize scaledSize = CGSizeMake(size.width / scale, size.height / scale);
-    UIGraphicsBeginImageContextWithOptions(scaledSize, YES, 0);
+    NSImage *image = [[NSImage alloc] initWithSize:scaledSize];
     
-    [[UIColor whiteColor] setFill];
-    UIRectFill(CGRectMake(0, 0, scaledSize.width, scaledSize.height));
+    [image lockFocus];
     
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    [[NSColor whiteColor] setFill];
+    NSRectFill(CGRectMake(0, 0, scaledSize.width,scaledSize.height));
+    
+    [image unlockFocus];
     
     return image;
 }

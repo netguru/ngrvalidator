@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "020A96B91E82D29100DF6E12"
+               BlueprintIdentifier = "022227AB1E85046A00CE4399"
                BuildableName = "NGRValidator.framework"
-               BlueprintName = "NGRValidator"
+               BlueprintName = "NGRValidator-MacOS"
                ReferencedContainer = "container:NGRValidator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E5C0A071A498164002D3E72"
-               BuildableName = "NGRValidatorTests.xctest"
-               BlueprintName = "NGRValidatorTests"
+               BlueprintIdentifier = "022228391E85061300CE4399"
+               BuildableName = "NGRValidatorTests-MacOS.xctest"
+               BlueprintName = "NGRValidatorTests-MacOS"
                ReferencedContainer = "container:NGRValidator.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "020A96B91E82D29100DF6E12"
+            BlueprintIdentifier = "022227AB1E85046A00CE4399"
             BuildableName = "NGRValidator.framework"
-            BlueprintName = "NGRValidator"
+            BlueprintName = "NGRValidator-MacOS"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "020A96B91E82D29100DF6E12"
+            BlueprintIdentifier = "022227AB1E85046A00CE4399"
             BuildableName = "NGRValidator.framework"
-            BlueprintName = "NGRValidator"
+            BlueprintName = "NGRValidator-MacOS"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "020A96B91E82D29100DF6E12"
+            BlueprintIdentifier = "022227AB1E85046A00CE4399"
             BuildableName = "NGRValidator.framework"
-            BlueprintName = "NGRValidator"
+            BlueprintName = "NGRValidator-MacOS"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
