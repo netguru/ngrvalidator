@@ -25,7 +25,7 @@ typedef BOOL(^NGRMimeTypeValidationBlock)(NSData *);
 /**
  *  Initializes validator with given validation block.
  *
- *  @param  Validation block of type NGRMimeTypeValidationBlock with NSData as parameter and BOOL as return type.
+ *  @param  block - validation block of type NGRMimeTypeValidationBlock with NSData as parameter and BOOL as return type.
  *  @return Instance of NGRMimeTypeValidator used to validate NSData against specific MIMEType.
  */
 + (instancetype)validatorWithValidationBlock:(NGRMimeTypeValidationBlock)block;
@@ -33,9 +33,9 @@ typedef BOOL(^NGRMimeTypeValidationBlock)(NSData *);
 /**
  *  Initializes validator validating the MIMEType based on its signature.
  *
- *  @param Signature - const char * containing bytes which represents the signature.
- *  @param Size - size_t containing the size of a signature in bytes.
- *  @param Offset - unsigned long containing the position in the NSData byte representation from where the signature starts.
+ *  @param signature - const char * containing bytes which represents the signature.
+ *  @param size - size_t containing the size of a signature in bytes.
+ *  @param offset - unsigned long containing the position in the NSData byte representation from where the signature starts.
  *  @return Instance of NGRMimeTypeValidator used to validate NSData against specific MIMEType.
  */
 + (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size withOffset:(unsigned long)offset;
@@ -43,8 +43,8 @@ typedef BOOL(^NGRMimeTypeValidationBlock)(NSData *);
 /**
  *  Initializes validator validating the MIMEType based on its signature.
  *
- *  @param Signature - const char * containing bytes which represents the signature.
- *  @param Size - size_t containing the size of a signature in bytes.
+ *  @param signature - const char * containing bytes which represents the signature.
+ *  @param size - size_t containing the size of a signature in bytes.
  *  @return Instance of NGRMimeTypeValidator used to validate NSData against specific MIMEType.
  */
 + (instancetype)validatorWithSignature:(const char *)signature ofSize:(size_t)size;
@@ -53,7 +53,7 @@ typedef BOOL(^NGRMimeTypeValidationBlock)(NSData *);
  *  Initializes validator validating the MIMEType based on combination of other validators.
  *  It will succeed if ANY of the child validators succeeds.
  *
- *  @param Validators - NSArray<NGRMimeTypeValidator *> * containing the array of validators to combine.
+ *  @param validators - NSArray<NGRMimeTypeValidator *> * containing the array of validators to combine.
  *  @return Instance of NGRMimeTypeValidator used to validate NSData against specific MIMEType.
  */
 + (instancetype)validatorWithAnyOfValidators:(NSArray<NGRMimeTypeValidator *> *)validators;
@@ -62,7 +62,7 @@ typedef BOOL(^NGRMimeTypeValidationBlock)(NSData *);
  *  Initializes validator validating the MIMEType based on combination of other validators.
  *  It will succeed if ALL of the child validators succeeds.
  *
- *  @param Validators - NSArray<NGRMimeTypeValidator *> * containing the array of validators to combine.
+ *  @param validators - NSArray<NGRMimeTypeValidator *> * containing the array of validators to combine.
  *  @return Instance of NGRMimeTypeValidator used to validate NSData against specific MIMEType.
  */
 + (instancetype)validatorWithAllOfValidators:(NSArray<NGRMimeTypeValidator *> *)validators;
@@ -70,7 +70,7 @@ typedef BOOL(^NGRMimeTypeValidationBlock)(NSData *);
 /**
  *  Returns validator for given MIMEType.
  *
- *  @param Type - NGRMimeType containing the MIMEType to get the validator for.
+ *  @param type - NGRMimeType containing the MIMEType to get the validator for.
  *  @return Instance of NGRMimeTypeValidator used to validate NSData against specific MIMEType.
  */
 + (NGRMimeTypeValidator *)validatorForMimeType:(NGRMimeType *)type;

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "020A96B91E82D29100DF6E12"
-               BuildableName = "NGRValidator.framework"
-               BlueprintName = "NGRValidator"
+               BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
+               BuildableName = "NGRValidatorDemo.app"
+               BlueprintName = "NGRValidatorDemo"
                ReferencedContainer = "container:NGRValidator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E5C0A071A498164002D3E72"
-               BuildableName = "NGRValidatorTests.xctest"
-               BlueprintName = "NGRValidatorTests"
-               ReferencedContainer = "container:NGRValidator.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "020A96B91E82D29100DF6E12"
-            BuildableName = "NGRValidator.framework"
-            BlueprintName = "NGRValidator"
+            BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
+            BuildableName = "NGRValidatorDemo.app"
+            BlueprintName = "NGRValidatorDemo"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "020A96B91E82D29100DF6E12"
-            BuildableName = "NGRValidator.framework"
-            BlueprintName = "NGRValidator"
+            BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
+            BuildableName = "NGRValidatorDemo.app"
+            BlueprintName = "NGRValidatorDemo"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "020A96B91E82D29100DF6E12"
-            BuildableName = "NGRValidator.framework"
-            BlueprintName = "NGRValidator"
+            BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
+            BuildableName = "NGRValidatorDemo.app"
+            BlueprintName = "NGRValidatorDemo"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
