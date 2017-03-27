@@ -19,6 +19,34 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)ngr_isFileURL;
 
 - (BOOL)ngr_isHttpURL;
+    
+- (BOOL)ngr_isHttpsURL;
+    
+- (BOOL)ngr_isWebSocketURL;
+    
+- (BOOL)ngr_isSecureWebSocketURL;
+    
+- (BOOL)ngr_isIPv4;
+    
+- (BOOL)ngr_isIPv6;
+    
+- (BOOL)ngr_isDomain;
+    
+- (BOOL)ngr_isUUID;
+    
+- (BOOL)ngr_isGeoCoordinate;
+    
+- (BOOL)ngr_isCommaSeparatedPrice;
+    
+- (BOOL)ngr_isDotSeparatedPrice;
+    
+- (BOOL)ngr_isISBN;
+    
+- (BOOL)ngr_isHexColor;
+    
+- (BOOL)ngr_isPhoneNumber;
+    
+- (BOOL)ngr_isPostalCode;
 
 - (BOOL)ngr_isName;
 

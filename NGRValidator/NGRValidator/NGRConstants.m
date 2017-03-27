@@ -34,7 +34,21 @@ NGRMsgKey *const MSGNotTrue = (NGRMsgKey *)@"NGRNotTrueMessage";
 NGRMsgKey *const MSGNotEmail = (NGRMsgKey *)@"NGRNotEmailMessage";
 NGRMsgKey *const MSGNotName = (NGRMsgKey *)@"NGRNotNameMessage";
 NGRMsgKey *const MSGNotHTTP = (NGRMsgKey *)@"NGRNotHttpMessage";
-NGRMsgKey *const MSGNotFile = (NGRMsgKey *)@"NGRNotFileMessage";
+NGRMsgKey *const MSGNotHTTPS = (NGRMsgKey *)@"NGRNotHttpsMessage";
+NGRMsgKey *const MSGNotFile = (NGRMsgKey *)@"NGRNotFileMessage";;
+NGRMsgKey *const MSGNotIPv4 = (NGRMsgKey *)@"NGRNotIPv4Message";
+NGRMsgKey *const MSGNotIPv6 = (NGRMsgKey *)@"NGRNotIPv6Message";
+NGRMsgKey *const MSGNotDomain = (NGRMsgKey *)@"NGRNotDomainMessage";
+NGRMsgKey *const MSGNotUUID = (NGRMsgKey *)@"NGRNotUUIDMessage";
+NGRMsgKey *const MSGNotGeoCoord = (NGRMsgKey *)@"NGRNotGeoCoordinateMessage";
+NGRMsgKey *const MSGNotPriceWithDot = (NGRMsgKey *)@"NGRNotPriceWithDotMessage";
+NGRMsgKey *const MSGNotPriceWithComma = (NGRMsgKey *)@"NGRNotPriceWithCommaMessage";
+NGRMsgKey *const MSGNotISBN = (NGRMsgKey *)@"NGRNotISBNMessage";
+NGRMsgKey *const MSGNotHexColor = (NGRMsgKey *)@"NGRNotHexColorMessage";
+NGRMsgKey *const MSGNotPhoneNumber = (NGRMsgKey *)@"NGRNotPhoneNumberMessage";
+NGRMsgKey *const MSGNotPostalCode = (NGRMsgKey *)@"NGRNotPostalCodeMessage";
+NGRMsgKey *const MSGNotWebSocket = (NGRMsgKey *)@"NGRNotWebSocketMessage";
+NGRMsgKey *const MSGNotSecureWebSocket = (NGRMsgKey *)@"NGRNotSecureWebSocketMessage";
 NGRMsgKey *const MSGWrongRegex = (NGRMsgKey *)@"NGRWrongRegexMessage";
 
 //NGRPropertyValidator + CreditCard

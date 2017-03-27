@@ -48,13 +48,96 @@
 }
 
 - (BOOL)ngr_isHttpURL {
-    return [self ngr_isURLWithScheme:@"http"] || [self ngr_isURLWithScheme:@"https"];
+    return [self ngr_isURLWithScheme:@"http"];
+}
+
+- (BOOL)ngr_isHttpsURL {
+    return [self ngr_isURLWithScheme:@"https"];
+}
+    
+- (BOOL)ngr_isWebSocketURL {
+    return [self ngr_isURLWithScheme:@"ws"];
+}
+    
+- (BOOL)ngr_isSecureWebSocketURL {
+    return [self ngr_isURLWithScheme:@"wss"];
+}
+
+- (BOOL)ngr_isIPv4 {
+    NSString *pattern = @"((^|\\.)((25[0-5])|(2[0-4]\\d)|(1\\d\\d)|([1-9]?\\d))){4}$";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isIPv6 {
+    NSString *pattern = @"((^|:)([0-9a-fA-F]{0,4})){1,8}$";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isDomain {
+    NSString *pattern = @"^([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}$";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isUUID {
+    NSString *pattern = @"^[0-9A-Fa-f]{8}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{12}$";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isGeoCoordinate {
+    NSString *pattern = @"-?\\d{1,3}\\.\\d+";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isCommaSeparatedPrice {
+    return [self ngr_isPriceWithSeparator:@","];
+}
+    
+- (BOOL)ngr_isDotSeparatedPrice {
+    return [self ngr_isPriceWithSeparator:@"\\."];
+}
+    
+- (BOOL)ngr_isISBN {
+    NSString *pattern = @"(?:(?=.{17}$)97[89][ -](?:[0-9]+[ -]){2}[0-9]+[ -][0-9]|97[89][0-9]{10}|(?=.{13}$)(?:[0-9]+[ -]){2}[0-9]+[ -][0-9Xx]|[0-9]{9}[0-9Xx])";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isHexColor {
+    NSString *pattern = @"^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$";
+    return [self ngr_evaluatePattern:pattern];
+}
+    
+- (BOOL)ngr_isPhoneNumber {
+    NSArray<NSString *> *patterns = @[
+        @"\\d{3}[\\-]\\d{3}[\\-]\\d{4}",
+        @"[\\+]\\d{2}[\(]\\d{2}[\\)]\\d{4}[\\-]\\d{4}",
+        @"^\\s*\(?(020[7,8]{1}\\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\\s*$",
+        @"^(?:0|\(?\\+33\\)?\\s?|0033\\s?)[1-79](?:[\\.\\-\\s]?\\d\\d){4}$",
+    ];
+    
+    return [self ngr_evaluateAnyOfPatterns:patterns];
+}
+    
+- (BOOL)ngr_isPostalCode {
+    NSArray<NSString *> *patterns = @[
+        @"(\\d{5}([\\-]\\d{4})?)",
+        @"[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]",
+        @"[0-9]{5}[\\-]?[0-9]{3}",
+        @"[0-9]{3,4,5}",
+        @"[1-9][0-9]{3}\\s?[a-zA-Z]{2}",
+        @"\\d{3}-\\d{4}",
+        @"(L\\s*(-|—|–))\\s*?[\\d]{4}",
+        @"[0-9]{2}\\-[0-9]{3}",
+        @"((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}",
+        @"\\d{3}\\s?\\d{2}",
+        @"[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}"
+    ];
+    
+    return [self ngr_evaluateAnyOfPatterns:patterns];
 }
 
 - (BOOL)ngr_hasEmoji {
     return [self rangeOfCharacterFromSet:[NSCharacterSet emojisCharacterSet]].location != NSNotFound;
 }
-
 
 - (BOOL)ngr_isName {
     return [self ngr_evaluateAllowedCharacterSet:[NSCharacterSet letterCharacterSet]];
@@ -112,9 +195,24 @@
 
 #pragma mark - Private
 
+- (BOOL)ngr_isPriceWithSeparator:(NSString *)separator {
+    NSString *pattern = [NSString stringWithFormat:@"\\d+(%@\\d{2})?", separator];
+    return [self ngr_evaluatePattern:pattern];
+}
+    
 - (BOOL)ngr_evaluatePattern:(NSString *)pattern {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:self];
+}
+    
+- (BOOL)ngr_evaluateAnyOfPatterns:(NSArray<NSString *> *)patterns {
+    for (NSString *pattern in patterns) {
+        if ([self ngr_evaluatePattern:pattern]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 - (BOOL)ngr_evaluateAllowedCharacterSet:(NSCharacterSet *)allowedCharacterSet {

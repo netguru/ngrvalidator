@@ -12,7 +12,21 @@ typedef NS_ENUM(NSInteger, NGRSyntax) {
     NGRSyntaxEmail, // validates email syntax.
     NGRSyntaxName, // validates if given string contains only alphabetic signs.
     NGRSyntaxHTTP,  // validates syntax of HTTP url.
+    NGRSyntaxHTTPS,
     NGRSyntaxFile, // validates syntax of File url.
+    NGRSyntaxIPv4,
+    NGRSyntaxIPv6,
+    NGRSyntaxDomain,
+    NGRSyntaxUUID,
+    NGRSyntaxGeoCoord,
+    NGRSyntaxPriceWithComma,
+    NGRSyntaxPriceWithDot,
+    NGRSyntaxISBN,
+    NGRSyntaxHexColor,
+    NGRSyntaxPhoneNumber,
+    NGRSyntaxPostalCode,
+    NGRSyntaxWebSocket,
+    NGRSyntaxSecureWebSocket,
 };
 
 @interface NGRPropertyValidator (Syntax)
