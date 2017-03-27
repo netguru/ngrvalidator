@@ -18,6 +18,5 @@
 
 #define NGRValidate(property) [[NGRPropertyValidator alloc] initWithProperty:property]
 
-#ifdef VALIDATOR_SHORTHAND
-    #define validate(property) NGRValidate(property)
-#endif
+#define validate(property) NGRValidate(property)
+

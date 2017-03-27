@@ -5,7 +5,24 @@
 
 SpecBegin(NGRValidator_Data)
 
-describe(@"Syntax validation", ^{
+describe(@"NSData validation", ^{
+    
+    NGRTestData *png = [NGRTestDataProvider png];
+    NGRTestData *mp4 = [NGRTestDataProvider mp4];
+    
+    testDescriptor(@"Max size", @"data with valid size", @"data with invalid size");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(png.data(), mp4.data(), 1, ^(NGRPropertyValidator *validator) {
+            return validator.maxByteSize(8000).msgByteSizeTooBig(msg);
+        });
+    });
+    
+    testDescriptor(@"Min size", @"data with valid size", @"data with invalid size");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(mp4.data(), png.data(), 1, ^(NGRPropertyValidator *validator) {
+            return validator.minByteSize(8000).msgByteSizeTooSmall(msg);
+        });
+    });
     
     NSArray<NGRTestData *> *allCases = [NGRTestDataProvider all];
 

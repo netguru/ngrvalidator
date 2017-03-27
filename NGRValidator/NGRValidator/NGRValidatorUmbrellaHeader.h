@@ -8,6 +8,7 @@
 
 //protocols:
 #import "NGRMessaging.h"
+#import "NGRImage.h"
 
 //constants
 #import "NGRConstants.h"
@@ -27,3 +28,4 @@
 #import "NGRPropertyValidator+NSArray.h"
 #import "NGRPropertyValidator+CreditCard.h"
 #import "NGRPropertyValidator+NSData.h"
+#import "NGRPropertyValidator+NGRImage.h"
