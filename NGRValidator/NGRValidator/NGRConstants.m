@@ -51,6 +51,8 @@ NGRMsgKey *const MSGNotBetweenDates = (NGRMsgKey *)@"NGRNotBetweenDatesMessage";
 //NGRPropertyValidator + NSDate
 NGRMsgKey *const MSGWrongMIMEType = (NGRMsgKey *)@"NGRWrongMIMEType";
 NGRMsgKey *const MSGWrongMediaType = (NGRMsgKey *)@"NGRWrongMediaType";
+NGRMsgKey *const MSGDataTooBig = (NGRMsgKey *)@"MSGDataTooBig";
+NGRMsgKey *const MSGDataTooSmall = (NGRMsgKey *)@"MSGDataTooSmall";
 
 //NGRPropertyValidator + NSArray
 NGRMsgKey *const MSGNotIncludes = (NGRMsgKey *)@"MSGNotIncludes";
