@@ -24,7 +24,7 @@
 }
     
 + (NSString *)ipv4 {
-    return @"192.6.23.123";
+    return @"192.168.23.123";
 }
     
 + (NSString *)ipv6 {
@@ -44,7 +44,7 @@
 }
     
 + (NSString *)price {
-    return @"23.3";
+    return @"23.30";
 }
     
 + (NSString *)ISBN {
