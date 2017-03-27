@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//! Project version number for NGRValidator.
+FOUNDATION_EXPORT double NGRValidatorVersionNumber;
+
+//! Project version string for NGRValidator.
+FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
+
 #import "NGRValidatorUmbrellaHeader.h"
 
 @interface NGRValidator : NSObject

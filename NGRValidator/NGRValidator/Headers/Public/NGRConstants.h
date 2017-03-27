@@ -51,6 +51,8 @@ extern NGRMsgKey *const MSGNotBetweenDates;
 //NGRPropertyValidator + NSDate
 extern NGRMsgKey *const MSGWrongMIMEType;
 extern NGRMsgKey *const MSGWrongMediaType;
+extern NGRMsgKey *const MSGDataTooBig;
+extern NGRMsgKey *const MSGDataTooSmall;
 
 //NGRPropertyValidator + Collections
 extern NGRMsgKey *const MSGNotIncludes;
@@ -58,6 +60,11 @@ extern NGRMsgKey *const MSGNotExcludes;
 
 extern NGRMsgKey *const MSGNotIncludedIn;
 extern NGRMsgKey *const MSGNotExcludedFrom;
+
+//NGRPropertyValidator + NGRImage
+extern NGRMsgKey *const MSGImageTooBig;
+extern NGRMsgKey *const MSGImageTooSmall;
+extern NGRMsgKey *const MSGWrongAspectRatio;
 
 typedef NGRMsgKey *(^NGRValidationBlock)(id);
 typedef NSArray *(^NGRRules)();

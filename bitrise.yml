@@ -14,10 +14,10 @@ default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 trigger_map:
 
   - push_branch: 'develop'
-    workflow: build-and-test
+    workflow: build-and-test-all-platforms
 
   - pull_request_target_branch: 'develop'
-    workflow: build-and-test
+    workflow: build-and-test-all-platforms
 
 # Environment configuration
 
@@ -31,17 +31,35 @@ app:
 workflows:
 
   # Top level build workflows
+  build-and-test-all-platforms:
+    before_run:
+      - resolve_dependencies
+    after_run:
+      - build-ios
+      - build-macos
+      - cache-push
+      - deploy-artifacts
 
-  build-and-test:
+  # Platform specific builds
+
+  build-macos:
     envs:
-      - XCODEBUILD_SCHEME: NGRValidator
+      - XCODEBUILD_SCHEME: NGRValidator-MacOS
+    after_run:
+      - xcode-test-mac
+
+  build-ios:
+    envs:
+      - XCODEBUILD_SCHEME: NGRValidator-iOS
+    after_run:
+      - xcode-test
+
+  # Dependencies
+
+  resolve_dependencies:
     before_run:
       - cache-pull
       - pods-install
-      - xcode-test
-    after_run:
-      - cache-push
-      - deploy-artifacts
 
   # Cocoapods
 
@@ -63,6 +81,14 @@ workflows:
                 ./Pods -> ./Podfile.lock
 
   # Xcode
+  xcode-test-mac:
+    steps:
+      - xcode-test-mac:
+          inputs:
+            - project_path: $XCODEBUILD_PROJECT
+            - scheme: $XCODEBUILD_SCHEME
+            - xcodebuild_test_options: $XCODEBUILD_OPTIONS
+            - generate_code_coverage_files: 'yes'
 
   xcode-test:
     steps:

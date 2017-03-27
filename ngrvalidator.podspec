@@ -19,12 +19,13 @@ Pod::Spec.new do |s|
   s.authors       = {'Patryk Kaczmarek' => 'patryk.kaczmarek@netguru.pl'}
   s.source        = { :git => 'https://github.com/netguru/ngrvalidator.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.7'
   s.requires_arc  = true
 
   s.source_files  = 'NGRValidator/NGRValidator/**/*.{h,m}'
   s.header_dir    = 'NGRValidator'
+  s.private_header_files = 'NGRValidator/NGRValidator/Headers/Private/*'
   s.preserve_paths = 'Scripts/*'
 
 end

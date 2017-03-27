@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
-               BuildableName = "NGRValidator.app"
-               BlueprintName = "NGRValidator"
-               ReferencedContainer = "container:NGRValidator.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E5C0A071A498164002D3E72"
-               BuildableName = "NGRValidatorTests.xctest"
-               BlueprintName = "NGRValidatorTests"
+               BlueprintIdentifier = "022227AB1E85046A00CE4399"
+               BuildableName = "NGRValidator.framework"
+               BlueprintName = "NGRValidator-MacOS"
                ReferencedContainer = "container:NGRValidator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E5C0A071A498164002D3E72"
-               BuildableName = "NGRValidatorTests.xctest"
-               BlueprintName = "NGRValidatorTests"
+               BlueprintIdentifier = "022228391E85061300CE4399"
+               BuildableName = "NGRValidatorTests-MacOS.xctest"
+               BlueprintName = "NGRValidatorTests-MacOS"
                ReferencedContainer = "container:NGRValidator.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
-            BuildableName = "NGRValidator.app"
-            BlueprintName = "NGRValidator"
+            BlueprintIdentifier = "022227AB1E85046A00CE4399"
+            BuildableName = "NGRValidator.framework"
+            BlueprintName = "NGRValidator-MacOS"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
-            BuildableName = "NGRValidator.app"
-            BlueprintName = "NGRValidator"
+            BlueprintIdentifier = "022227AB1E85046A00CE4399"
+            BuildableName = "NGRValidator.framework"
+            BlueprintName = "NGRValidator-MacOS"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5E5C09EE1A498164002D3E72"
-            BuildableName = "NGRValidator.app"
-            BlueprintName = "NGRValidator"
+            BlueprintIdentifier = "022227AB1E85046A00CE4399"
+            BuildableName = "NGRValidator.framework"
+            BlueprintName = "NGRValidator-MacOS"
             ReferencedContainer = "container:NGRValidator.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

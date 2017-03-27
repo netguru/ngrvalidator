@@ -22,5 +22,6 @@
     #import "NGRTestModel.h"
     #import "NGRTestDataProvider.h"
     #import "NGRMimeTypeValidationTest.h"
+    #import "NGRImageProvider.h"
 
 #endif

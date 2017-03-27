@@ -18,6 +18,26 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
     }];
 }
 
+#pragma mark - Rules
+    
+- (NGRPropertyValidator *(^)(NSUInteger))maxByteSize {
+    return ^(NSUInteger max) {
+        [self validateDataWithName:@"max size" block:^NGRMsgKey *(NSData *data) {
+            return [data length] <= max ? nil : MSGDataTooBig;
+        }];
+        return self;
+    };
+}
+    
+- (NGRPropertyValidator *(^)(NSUInteger))minByteSize {
+    return ^(NSUInteger min) {
+        [self validateDataWithName:@"min size" block:^NGRMsgKey *(NSData *data) {
+            return [data length] >= min ? nil : MSGDataTooSmall;
+        }];
+        return self;
+    };
+}
+    
 - (NGRPropertyValidator *(^)(NGRMimeType *))mimeType {
     return ^(NGRMimeType *mimeType) {
         [self validateDataWithName:@"MIME type" block:^NGRMsgKey *(NSData *data) {
@@ -62,6 +82,8 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
         return self;
     };
 }
+    
+#pragma mark - Messaging
 
 - (NGRPropertyValidator *(^)(NSString *))msgWrongMIMEType {
     return ^(NSString *message) {
@@ -73,6 +95,20 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
 - (NGRPropertyValidator *(^)(NSString *))msgWrongMediaType {
     return ^(NSString *message) {
         [self.messages setMessage:message forKey:MSGWrongMediaType];
+        return self;
+    };
+}
+    
+- (NGRPropertyValidator *(^)(NSString *))msgByteSizeTooSmall {
+    return ^(NSString *message) {
+        [self.messages setMessage:message forKey:MSGDataTooSmall];
+        return self;
+    };
+}
+    
+- (NGRPropertyValidator *(^)(NSString *))msgByteSizeTooBig {
+    return ^(NSString *message) {
+        [self.messages setMessage:message forKey:MSGDataTooBig];
         return self;
     };
 }

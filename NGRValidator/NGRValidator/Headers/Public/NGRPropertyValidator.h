@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param aClass           The class which given property should be. If nil, class validation will be skipped.
  *  @param name             The name of validator block.
- *  @param validationBlock  The validation block invoked during validation process.
+ *  @param block  The validation block invoked during validation process.
  */
 - (void)validateClass:(nullable Class)aClass withName:(NSString *)name validationBlock:(NGRValidationBlock)block;
 
