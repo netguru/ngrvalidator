@@ -2,8 +2,6 @@
 //  NGRImage.m
 //  NGRValidator
 //
-//
-//
 
 #import "NGRImage.h"
 
@@ -40,5 +38,3 @@
 @end
 
 #endif
-
-
