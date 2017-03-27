@@ -85,14 +85,9 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
                     return [string ngr_isGeoCoordinate] ? nil : MSGNotGeoCoord;
                 }]; break;
             
-            case NGRSyntaxPriceWithDot:
+            case NGRSyntaxPrice:
                 [self validateSyntaxWithName:@"syntax: Price" block:^NGRMsgKey *(NSString *string) {
-                    return [string ngr_isDotSeparatedPrice] ? nil : MSGNotPriceWithDot;
-                }]; break;
-            
-            case NGRSyntaxPriceWithComma:
-                [self validateSyntaxWithName:@"syntax: Price" block:^NGRMsgKey *(NSString *string) {
-                    return [string ngr_isCommaSeparatedPrice] ? nil : MSGNotPriceWithComma;
+                    return [string ngr_isPrice] ? nil : MSGNotPrice;
                 }]; break;
             
             case NGRSyntaxISBN:
@@ -168,10 +163,8 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
             return MSGNotUUID;
         case NGRSyntaxGeoCoord:
             return MSGNotGeoCoord;
-        case NGRSyntaxPriceWithComma:
-            return MSGNotPriceWithComma;
-        case NGRSyntaxPriceWithDot:
-            return MSGNotPriceWithDot;
+        case NGRSyntaxPrice:
+            return MSGNotPrice;
         case NGRSyntaxISBN:
             return MSGNotISBN;
         case NGRSyntaxHexColor:

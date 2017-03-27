@@ -35,10 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)ngr_isUUID;
     
 - (BOOL)ngr_isGeoCoordinate;
-    
-- (BOOL)ngr_isCommaSeparatedPrice;
-    
-- (BOOL)ngr_isDotSeparatedPrice;
+ 
+- (BOOL)ngr_isPrice;
     
 - (BOOL)ngr_isISBN;
     

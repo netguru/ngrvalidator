@@ -88,12 +88,13 @@
     return [self ngr_evaluatePattern:pattern];
 }
     
-- (BOOL)ngr_isCommaSeparatedPrice {
-    return [self ngr_isPriceWithSeparator:@","];
-}
+- (BOOL)ngr_isPrice {
+    NSArray<NSString *> *patterns = @[
+        @"\\d+(\\.\\d{2})?",
+        @"\\d+(,\\d{2})?",
+    ];
     
-- (BOOL)ngr_isDotSeparatedPrice {
-    return [self ngr_isPriceWithSeparator:@"\\."];
+    return [self ngr_evaluateAnyOfPatterns:patterns];
 }
     
 - (BOOL)ngr_isISBN {
@@ -194,11 +195,6 @@
 }
 
 #pragma mark - Private
-
-- (BOOL)ngr_isPriceWithSeparator:(NSString *)separator {
-    NSString *pattern = [NSString stringWithFormat:@"\\d+(%@\\d{2})?", separator];
-    return [self ngr_evaluatePattern:pattern];
-}
     
 - (BOOL)ngr_evaluatePattern:(NSString *)pattern {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
