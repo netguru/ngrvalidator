@@ -43,7 +43,6 @@
     return [self ngr_hasOneOfTypes:videoTypes];
 }
 
-
 - (BOOL)ngr_isAudio {
     NSArray<NGRMimeType *> *audioTypes = @[
         NGRMimeTypeWav,
