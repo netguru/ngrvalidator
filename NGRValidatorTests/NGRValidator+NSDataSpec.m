@@ -6,7 +6,7 @@
 SpecBegin(NGRValidator_Data)
 
 describe(@"NSData validation", ^{
-    return;
+    
     NGRTestData *png = [NGRTestDataProvider png];
     NGRTestData *mp4 = [NGRTestDataProvider mp4];
     

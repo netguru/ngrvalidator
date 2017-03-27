@@ -44,7 +44,7 @@
 }
 
 - (BOOL)ngr_isFileURL {
-    return [self ngr_isURLWithScheme:@"file"];
+    return [[NSURL URLWithString:self] isFileURL];
 }
 
 - (BOOL)ngr_isHttpURL {
@@ -108,14 +108,9 @@
 }
     
 - (BOOL)ngr_isPhoneNumber {
-    NSArray<NSString *> *patterns = @[
-        @"\\d{3}[\\-]\\d{3}[\\-]\\d{4}",
-        @"[\\+]\\d{2}[\(]\\d{2}[\\)]\\d{4}[\\-]\\d{4}",
-        @"^\\s*\(?(020[7,8]{1}\\)?[ ]?[1-9]{1}[0-9{2}[ ]?[0-9]{4})|(0[1-8]{1}[0-9]{3}\\)?[ ]?[1-9]{1}[0-9]{2}[ ]?[0-9]{3})\\s*$",
-        @"^(?:0|\(?\\+33\\)?\\s?|0033\\s?)[1-79](?:[\\.\\-\\s]?\\d\\d){4}$",
-    ];
-    
-    return [self ngr_evaluateAnyOfPatterns:patterns];
+    NSString *pattern = @"^((\\+)|(00))[0-9]{6,14}$";
+
+    return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isPostalCode {
@@ -123,7 +118,7 @@
         @"(\\d{5}([\\-]\\d{4})?)",
         @"[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]",
         @"[0-9]{5}[\\-]?[0-9]{3}",
-        @"[0-9]{3,4,5}",
+        @"[0-9]{3,5}",
         @"[1-9][0-9]{3}\\s?[a-zA-Z]{2}",
         @"\\d{3}-\\d{4}",
         @"(L\\s*(-|—|–))\\s*?[\\d]{4}",

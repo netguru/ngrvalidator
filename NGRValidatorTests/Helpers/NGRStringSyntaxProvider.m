@@ -16,7 +16,7 @@
 }
     
 + (NSString *)file {
-    return @"file://test/docs";
+    return @"file://www.test/docs";
 }
     
 + (NSString *)name {
@@ -64,7 +64,7 @@
 }
     
 + (NSString *)postalCode {
-    return @"http://www.google.com";
+    return @"SW1A 0AA";
 }
     
 + (NSString *)webSocket {
