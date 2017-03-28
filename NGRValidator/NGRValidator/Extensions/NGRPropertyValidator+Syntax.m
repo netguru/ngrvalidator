@@ -44,8 +44,72 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
                 [self validateSyntaxWithName:@"syntax: File URL" block:^NGRMsgKey *(NSString *string) {
                     return [string ngr_isFileURL] ? nil : MSGNotFile;
                 }]; break;
-            default:
-                break;
+            
+            case NGRSyntaxHTTPS:
+                [self validateSyntaxWithName:@"syntax: HTTPS URL" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isHttpsURL] ? nil : MSGNotHTTPS;
+                }]; break;
+            
+            case NGRSyntaxWebSocket:
+                [self validateSyntaxWithName:@"syntax: Web Socket URL" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isWebSocketURL] ? nil : MSGNotWebSocket;
+                }]; break;
+            
+            case NGRSyntaxSecureWebSocket:
+                [self validateSyntaxWithName:@"syntax: Secure Web Socket URL" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isSecureWebSocketURL] ? nil : MSGNotSecureWebSocket;
+                }]; break;
+            
+            case NGRSyntaxIPv4:
+                [self validateSyntaxWithName:@"syntax: IPv4" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isIPv4] ? nil : MSGNotIPv4;
+                }]; break;
+            
+            case NGRSyntaxIPv6:
+                [self validateSyntaxWithName:@"syntax: IPv6" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isIPv6] ? nil : MSGNotIPv6;
+                }]; break;
+            
+            case NGRSyntaxUUID:
+                [self validateSyntaxWithName:@"syntax: UUID" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isUUID] ? nil : MSGNotUUID;
+                }]; break;
+            
+            case NGRSyntaxDomain:
+                [self validateSyntaxWithName:@"syntax: Domain" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isDomain] ? nil : MSGNotDomain;
+                }]; break;
+            
+            case NGRSyntaxGeoCoord:
+                [self validateSyntaxWithName:@"syntax: GeoCoordinate" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isGeoCoordinate] ? nil : MSGNotGeoCoord;
+                }]; break;
+            
+            case NGRSyntaxPrice:
+                [self validateSyntaxWithName:@"syntax: Price" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isPrice] ? nil : MSGNotPrice;
+                }]; break;
+            
+            case NGRSyntaxISBN:
+                [self validateSyntaxWithName:@"syntax: ISBN" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isISBN] ? nil : MSGNotISBN;
+                }]; break;
+            
+            case NGRSyntaxHexColor:
+                [self validateSyntaxWithName:@"syntax: Hex color" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isHexColor] ? nil : MSGNotHexColor;
+                }]; break;
+            
+            case NGRSyntaxPhoneNumber:
+                [self validateSyntaxWithName:@"syntax: Phone number" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isPhoneNumber] ? nil : MSGNotPhoneNumber;
+                }]; break;
+            
+            case NGRSyntaxPostalCode:
+                [self validateSyntaxWithName:@"syntax: Postal code" block:^NGRMsgKey *(NSString *string) {
+                    return [string ngr_isPostalCode] ? nil : MSGNotPostalCode;
+                }]; break;
+
         }
         
         return self;
@@ -89,8 +153,32 @@ typedef NGRMsgKey *(^NGRSyntaxValidationBlock)(NSString *string);
             return MSGNotHTTP;
         case NGRSyntaxFile:
             return MSGNotFile;
-        default:
-            return nil;
+        case NGRSyntaxIPv4:
+            return MSGNotIPv4;
+        case NGRSyntaxIPv6:
+            return MSGNotIPv6;
+        case NGRSyntaxDomain:
+            return MSGNotDomain;
+        case NGRSyntaxUUID:
+            return MSGNotUUID;
+        case NGRSyntaxGeoCoord:
+            return MSGNotGeoCoord;
+        case NGRSyntaxPrice:
+            return MSGNotPrice;
+        case NGRSyntaxISBN:
+            return MSGNotISBN;
+        case NGRSyntaxHexColor:
+            return MSGNotHexColor;
+        case NGRSyntaxPhoneNumber:
+            return MSGNotPhoneNumber;
+        case NGRSyntaxPostalCode:
+            return MSGNotPostalCode;
+        case NGRSyntaxHTTPS:
+            return MSGNotHTTPS;
+        case NGRSyntaxSecureWebSocket:
+            return MSGNotSecureWebSocket;
+        case NGRSyntaxWebSocket:
+            return MSGNotWebSocket;
     }
 }
 

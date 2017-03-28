@@ -219,6 +219,10 @@
 		029830EB1E89009300F7F08B /* NGRValidatorShorthand.h in Headers */ = {isa = PBXBuildFile; fileRef = 029830A71E88FFAD00F7F08B /* NGRValidatorShorthand.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		029830EC1E89009300F7F08B /* NGRConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 029830951E88FF9F00F7F08B /* NGRConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		029830ED1E89009300F7F08B /* NGRValidatorUmbrellaHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 029830941E88FF9500F7F08B /* NGRValidatorUmbrellaHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		029830F01E89516400F7F08B /* NGRStringSyntaxProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 029830EF1E89516400F7F08B /* NGRStringSyntaxProvider.m */; };
+		029830F11E89516400F7F08B /* NGRStringSyntaxProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 029830EF1E89516400F7F08B /* NGRStringSyntaxProvider.m */; };
+		029830F41E89521100F7F08B /* NGRSyntaxTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 029830F31E89521100F7F08B /* NGRSyntaxTestData.m */; };
+		029830F51E89521100F7F08B /* NGRSyntaxTestData.m in Sources */ = {isa = PBXBuildFile; fileRef = 029830F31E89521100F7F08B /* NGRSyntaxTestData.m */; };
 		02B0BB4E1E841B7A003813DB /* NGRPropertyValidator+NGRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB4C1E841B7A003813DB /* NGRPropertyValidator+NGRImage.m */; };
 		02B0BB521E843AA1003813DB /* NGRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB501E843AA1003813DB /* NGRImage.m */; };
 		02B0BB571E8440D7003813DB /* NGRImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB561E8440D7003813DB /* NGRImageProvider.m */; };
@@ -383,6 +387,10 @@
 		029830A51E88FFAD00F7F08B /* NGRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRValidator.h; sourceTree = "<group>"; };
 		029830A61E88FFAD00F7F08B /* NGRValidatorDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRValidatorDeprecated.h; sourceTree = "<group>"; };
 		029830A71E88FFAD00F7F08B /* NGRValidatorShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRValidatorShorthand.h; sourceTree = "<group>"; };
+		029830EE1E89516400F7F08B /* NGRStringSyntaxProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRStringSyntaxProvider.h; path = Helpers/NGRStringSyntaxProvider.h; sourceTree = "<group>"; };
+		029830EF1E89516400F7F08B /* NGRStringSyntaxProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRStringSyntaxProvider.m; path = Helpers/NGRStringSyntaxProvider.m; sourceTree = "<group>"; };
+		029830F21E89521100F7F08B /* NGRSyntaxTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGRSyntaxTestData.h; path = Helpers/NGRSyntaxTestData.h; sourceTree = "<group>"; };
+		029830F31E89521100F7F08B /* NGRSyntaxTestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRSyntaxTestData.m; path = Helpers/NGRSyntaxTestData.m; sourceTree = "<group>"; };
 		02B0BB4C1E841B7A003813DB /* NGRPropertyValidator+NGRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NGRImage.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NGRImage.m"; sourceTree = "<group>"; };
 		02B0BB501E843AA1003813DB /* NGRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRImage.m; path = NGRValidator/NGRImage.m; sourceTree = "<group>"; };
 		02B0BB551E8440D7003813DB /* NGRImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRImageProvider.h; sourceTree = "<group>"; };
@@ -978,6 +986,10 @@
 				028130C71E812F360070F828 /* NGRMimeTypeValidationTest.m */,
 				02B0BB551E8440D7003813DB /* NGRImageProvider.h */,
 				02B0BB561E8440D7003813DB /* NGRImageProvider.m */,
+				029830EE1E89516400F7F08B /* NGRStringSyntaxProvider.h */,
+				029830EF1E89516400F7F08B /* NGRStringSyntaxProvider.m */,
+				029830F21E89521100F7F08B /* NGRSyntaxTestData.h */,
+				029830F31E89521100F7F08B /* NGRSyntaxTestData.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1520,11 +1532,13 @@
 			files = (
 				0222284A1E85085B00CE4399 /* NGRTestDataProvider.m in Sources */,
 				022228521E85088B00CE4399 /* NGRValidator+NSStringSpec.m in Sources */,
+				029830F11E89516400F7F08B /* NGRStringSyntaxProvider.m in Sources */,
 				022228471E85084F00CE4399 /* NGRValidatorBehavior.m in Sources */,
 				022228571E85089D00CE4399 /* NGRValidator+ScenarioSpec.m in Sources */,
 				0222284C1E85086400CE4399 /* NGRImageProvider.m in Sources */,
 				0222284F1E85087800CE4399 /* NGRPropertyValidatorSpec.m in Sources */,
 				022228501E85087C00CE4399 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */,
+				029830F51E89521100F7F08B /* NGRSyntaxTestData.m in Sources */,
 				022228531E85088E00CE4399 /* NGRValidator+NSNumberSpec.m in Sources */,
 				022228511E85088100CE4399 /* NGRValidatorSpec.m in Sources */,
 				022228591E8508A500CE4399 /* NGRValidator+NSDataSpec.m in Sources */,
@@ -1569,11 +1583,13 @@
 			files = (
 				5EFC9C941B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m in Sources */,
 				5EC4860F1AD2F9DB001C7DBB /* NGRTestModel.m in Sources */,
+				029830F01E89516400F7F08B /* NGRStringSyntaxProvider.m in Sources */,
 				028130C81E812F360070F828 /* NGRMimeTypeValidationTest.m in Sources */,
 				0273F0EC1E80251F000B5949 /* NGRTestDataProvider.m in Sources */,
 				0273F0E91E802178000B5949 /* NGRValidator+NSDataSpec.m in Sources */,
 				5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */,
 				5EEE70ED1AD318C5005D5042 /* NGRMessagesSpec.m in Sources */,
+				029830F41E89521100F7F08B /* NGRSyntaxTestData.m in Sources */,
 				5E2EBFBF1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m in Sources */,
 				5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */,
 				5EF1C5FE1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */,

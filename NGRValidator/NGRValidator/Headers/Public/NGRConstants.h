@@ -36,6 +36,19 @@ extern NGRMsgKey *const MSGNotName;
 extern NGRMsgKey *const MSGNotHTTP;
 extern NGRMsgKey *const MSGWrongRegex;
 extern NGRMsgKey *const MSGNotFile;
+extern NGRMsgKey *const MSGNotHTTPS;
+extern NGRMsgKey *const MSGNotIPv4;
+extern NGRMsgKey *const MSGNotIPv6;
+extern NGRMsgKey *const MSGNotDomain;
+extern NGRMsgKey *const MSGNotUUID;
+extern NGRMsgKey *const MSGNotGeoCoord;
+extern NGRMsgKey *const MSGNotPrice;
+extern NGRMsgKey *const MSGNotISBN;
+extern NGRMsgKey *const MSGNotHexColor;
+extern NGRMsgKey *const MSGNotPhoneNumber;
+extern NGRMsgKey *const MSGNotPostalCode;
+extern NGRMsgKey *const MSGNotWebSocket;
+extern NGRMsgKey *const MSGNotSecureWebSocket;
 
 //NGRPropertyValidator + CreditCard
 extern NGRMsgKey *const MSGNotValidCreditCardNumber;

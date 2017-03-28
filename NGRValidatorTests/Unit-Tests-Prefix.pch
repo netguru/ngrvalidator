@@ -23,5 +23,7 @@
     #import "NGRTestDataProvider.h"
     #import "NGRMimeTypeValidationTest.h"
     #import "NGRImageProvider.h"
+    #import "NGRStringSyntaxProvider.h"
+    #import "NGRSyntaxTestData.h"
 
 #endif
