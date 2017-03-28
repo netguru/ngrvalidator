@@ -30,7 +30,7 @@ describe(@"Syntax validation", ^{
     
     NSArray<NGRSyntaxTestData *> *allCases = @[
         [NGRSyntaxTestData test:@"HTTP" syntax:NGRSyntaxHTTP valid:http invalid:https],
-        [NGRSyntaxTestData test:@"File" syntax:NGRSyntaxFile valid:file invalid:https],
+        [NGRSyntaxTestData test:@"File" syntax:NGRSyntaxFile valid:file invalid:ISBN],
         [NGRSyntaxTestData test:@"Email" syntax:NGRSyntaxEmail valid:email invalid:https],
         [NGRSyntaxTestData test:@"Name" syntax:NGRSyntaxName valid:name invalid:https],
         [NGRSyntaxTestData test:@"IPv4" syntax:NGRSyntaxIPv4 valid:ipv4 invalid:https],

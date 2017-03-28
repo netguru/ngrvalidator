@@ -2,9 +2,6 @@
 //  NGRSyntaxTestData.m
 //  NGRValidator
 //
-//  Created by Krzysztof Kapitan on 27.03.2017.
-//
-//
 
 #import "NGRSyntaxTestData.h"
 

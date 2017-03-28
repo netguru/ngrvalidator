@@ -24,7 +24,7 @@
 - (BOOL)ngr_isEmail {
     
     // taken from: http://www.cocoawithlove.com/2009/06/verifying-that-string-is-email-address.html
-    NSString *emailRegEx =
+    static NSString *emailRegEx =
     @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
     @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
     @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"
@@ -37,7 +37,7 @@
 }
 
 - (BOOL)ngr_isURLWithScheme:(NSString *)scheme {
-    NSString *urlPathPattern = @"([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?";
+    static NSString *urlPathPattern = @"([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?";
     NSString *urlPattern = [NSString stringWithFormat:@"%@://%@", scheme, urlPathPattern];
     
     return [self ngr_evaluatePattern:urlPattern];
@@ -64,69 +64,79 @@
 }
 
 - (BOOL)ngr_isIPv4 {
-    NSString *pattern = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+    static NSString *pattern = @"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isIPv6 {
-    NSString *pattern = @"((^|:)([0-9a-fA-F]{0,4})){1,8}$";
+    static NSString *pattern = @"((^|:)([0-9a-fA-F]{0,4})){1,8}$";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isDomain {
-    NSString *pattern = @"^([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}$";
+    static NSString *pattern = @"^([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}$";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isUUID {
-    NSString *pattern = @"^[0-9A-Fa-f]{8}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{12}$";
+    static NSString *pattern = @"^[0-9A-Fa-f]{8}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{4}\\-[0-9A-Fa-f]{12}$";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isGeoCoordinate {
-    NSString *pattern = @"-?\\d{1,3}\\.\\d+";
+    static NSString *pattern = @"-?\\d{1,3}\\.\\d+";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isPrice {
-    NSArray<NSString *> *patterns = @[
-        @"\\d+(\\.\\d{2})?",
-        @"\\d+(,\\d{2})?",
-    ];
+    static NSArray<NSString *> *patterns = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        patterns = @[
+            @"\\d+(\\.\\d{2})?",
+            @"\\d+(,\\d{2})?",
+        ];
+    });
     
     return [self ngr_evaluateAnyOfPatterns:patterns];
 }
     
 - (BOOL)ngr_isISBN {
-    NSString *pattern = @"(?:(?=.{17}$)97[89][ -](?:[0-9]+[ -]){2}[0-9]+[ -][0-9]|97[89][0-9]{10}|(?=.{13}$)(?:[0-9]+[ -]){2}[0-9]+[ -][0-9Xx]|[0-9]{9}[0-9Xx])";
+    static NSString *pattern = @"(?:(?=.{17}$)97[89][ -](?:[0-9]+[ -]){2}[0-9]+[ -][0-9]|97[89][0-9]{10}|(?=.{13}$)(?:[0-9]+[ -]){2}[0-9]+[ -][0-9Xx]|[0-9]{9}[0-9Xx])";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isHexColor {
-    NSString *pattern = @"^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$";
+    static NSString *pattern = @"^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$";
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isPhoneNumber {
-    NSString *pattern = @"^((\\+)|(00))[0-9]{6,14}$";
+    static NSString *pattern = @"^((\\+)|(00))[0-9]{6,14}$";
 
     return [self ngr_evaluatePattern:pattern];
 }
     
 - (BOOL)ngr_isPostalCode {
-    NSArray<NSString *> *patterns = @[
-        @"(\\d{5}([\\-]\\d{4})?)",
-        @"[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]",
-        @"[0-9]{5}[\\-]?[0-9]{3}",
-        @"[0-9]{3,5}",
-        @"[1-9][0-9]{3}\\s?[a-zA-Z]{2}",
-        @"\\d{3}-\\d{4}",
-        @"(L\\s*(-|—|–))\\s*?[\\d]{4}",
-        @"[0-9]{2}\\-[0-9]{3}",
-        @"((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}",
-        @"\\d{3}\\s?\\d{2}",
-        @"[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}"
-    ];
+    static NSArray<NSString *> *patterns = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        patterns = @[
+            @"(\\d{5}([\\-]\\d{4})?)",
+            @"[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]",
+            @"[0-9]{5}[\\-]?[0-9]{3}",
+            @"[0-9]{3,5}",
+            @"[1-9][0-9]{3}\\s?[a-zA-Z]{2}",
+            @"\\d{3}-\\d{4}",
+            @"(L\\s*(-|—|–))\\s*?[\\d]{4}",
+            @"[0-9]{2}\\-[0-9]{3}",
+            @"((0[1-9]|5[0-2])|[1-4][0-9])[0-9]{3}",
+            @"\\d{3}\\s?\\d{2}",
+            @"[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]? [0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}"
+        ];
+    });
     
     return [self ngr_evaluateAnyOfPatterns:patterns];
 }
@@ -190,7 +200,7 @@
 }
 
 #pragma mark - Private
-    
+
 - (BOOL)ngr_evaluatePattern:(NSString *)pattern {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:self];
