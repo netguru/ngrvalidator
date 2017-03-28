@@ -39,6 +39,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^betweenDates)(NSDate *fromDate, NSDate *toDate, BOOL inclusive);
 
+/**
+ *  Validates if NSDate property is earlier than unix timestamp (inclusive).
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^earlierThanUnixTimestamp)(NSTimeInterval timestamp);
+
+/**
+ *  Validates if NSDate property is earlier than or equal to unix timestamp (inclusive).
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^earlierThanOrEqualToUnixTimestamp)(NSTimeInterval timestamp);
+
+/**
+ *  Validates if NSDate property is later than unix timestamp (inclusive).
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^laterThanUnixTimestamp)(NSTimeInterval timestamp);
+
+/**
+ *  Validates if NSDate property is later than or equal to unix timestamp (inclusive).
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^laterThanOrEqualToUnixTimestamp)(NSTimeInterval timestamp);
+
 #pragma mark - Messaging
 
 /**
