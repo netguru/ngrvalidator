@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class NGRPropertyValidator;
+
 @interface NGRMsgKey : NSString @end
 
 //NGRPropertyValidator + NSObject
@@ -80,4 +82,4 @@ extern NGRMsgKey *const MSGImageTooSmall;
 extern NGRMsgKey *const MSGWrongAspectRatio;
 
 typedef NGRMsgKey *(^NGRValidationBlock)(id);
-typedef NSArray *(^NGRRules)();
+typedef NSArray<NGRPropertyValidator *> *(^NGRRules)();

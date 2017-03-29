@@ -14,7 +14,7 @@
 
 #pragma mark - Public
 
-+ (NSError *)validateValue:(NSObject *)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules {
++ (NSError *)validateValue:(id)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules {
     
     if (rules == NULL) {
         return nil;
@@ -25,7 +25,7 @@
     return [propertyValidator simpleValidationOfValue:value];
 }
 
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
++ (BOOL)validateModel:(id)model error:(NSError **)error scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     
     if (rules == NULL) {
         return NO;
@@ -41,11 +41,11 @@
     return YES;
 }
 
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
++ (BOOL)validateModel:(id)model error:(NSError **)error delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     return [self validateModel:model error:error scenario:nil delegate:delegate rules:rules];
 }
 
-+ (NSArray<NSError *> *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
++ (NSArray<NSError *> *)validateModel:(id)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     
     if (rules == NULL) {
         return nil;
@@ -55,16 +55,17 @@
     return ([array count] == 0) ? nil : array;
 }
 
-+ (NSArray<NSError *> *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
++ (NSArray<NSError *> *)validateModel:(id)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules {
     return [self validateModel:model scenario:nil delegate:delegate rules:rules];
 }
 
 #pragma mark - Private
 
-+ (id)validateModel:(NSObject *)model tillFirstError:(BOOL)tillFirstError delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules scenario:(NSString *)scenario {
-    
++ (id)validateModel:(id)model tillFirstError:(BOOL)tillFirstError delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules scenario:(NSString *)scenario {
+
     NSArray *array = [rules() ngr_sortedArrayByPriority];
     NSArray *properties = [model ngr_properties];
+    
     NSMutableArray *errors = [NSMutableArray array];
     
     if (array.count == 0) {

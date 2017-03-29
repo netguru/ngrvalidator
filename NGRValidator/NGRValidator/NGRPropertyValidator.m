@@ -45,11 +45,11 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 
 #pragma mark - Public
 
-- (NSError *)simpleValidationOfValue:(id)value {
+- (NSError *)simpleValidationOfValue:(nullable id)value {
     return [self validateValue:value usingSimpleValidation:YES];
 }
 
-- (NSArray *)complexValidationOfValue:(id)value {
+- (NSArray<NSError *> *)complexValidationOfValue:(nullable id)value {
     return [self validateValue:value usingSimpleValidation:NO];
 }
 

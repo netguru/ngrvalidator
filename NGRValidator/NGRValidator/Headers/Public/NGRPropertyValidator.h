@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return Instance of NGPropertyValidator used to specify next validation rules.
  */
 - (nullable instancetype)initWithProperty:(nullable NSString *)property NS_DESIGNATED_INITIALIZER;
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Name of validated property.
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param value The value of validated property.
  *  @return NSError The error if any, otherwise nil.
  */
-- (nullable NSError *)simpleValidationOfValue:(id)value;
+- (nullable NSError *)simpleValidationOfValue:(nullable id)value;
 
 /**
  *  Validates property and gather all possible errors.
@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param value The value of validated property.
  *  @return An NSArray of errors if any, otherwise nil.
  */
-- (nullable NSArray *)complexValidationOfValue:(id)value;
+- (nullable NSArray<NSError *> *)complexValidationOfValue:(nullable id)value;
 
 /**
  *  Adds a validator block to validators. Also checks if validated property is kind of given class.
