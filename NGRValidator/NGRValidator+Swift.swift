@@ -46,4 +46,8 @@ public extension NGRValidator {
         
         return tillFirstError ? nil : errors
     }
+    
+    public static func validate(value: Any, named: String, rules: @escaping (NGRPropertyValidator?) -> Void) -> Error? {
+        return __validateValue(value, named: named, rules: rules)
+    }
 }

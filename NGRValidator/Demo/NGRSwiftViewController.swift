@@ -62,10 +62,10 @@ final class NGRSwiftViewController: UIViewController {
         validateButton.addTarget(self, action: #selector(validateAction), for: .touchUpInside)
     }
     
-    func validateAction() {
-        
+    func validateAction()
+    
         let user = User(name: nameTextField.text!, password: passwordTextField.text!)
-        
+    
         let validationErrors = NGRValidator.validate(model: user) { () -> [NGRPropertyValidator]? in
             return [
                 NGRPropertyValidator(property: "password")?.is.required().to.have.minLength(5).msgTooShort("should have at least 5 signs"),

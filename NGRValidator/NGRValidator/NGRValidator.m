@@ -14,7 +14,7 @@
 
 #pragma mark - Public
 
-+ (NSError *)validateValue:(id)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules {
++ (nullable NSError *)validateValue:(id)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules {
     
     if (rules == NULL) {
         return nil;

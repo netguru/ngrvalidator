@@ -242,7 +242,7 @@ sharedExamplesFor(NGRAssertBehavior, ^(NSDictionary *data) {
         }).to.raise(NSInternalInconsistencyException);
         
         expect(^{
-            [NGRValidator validateValue:model.value named:nil rules:^(NGRPropertyValidator *validator) {
+            [NGRValidator validateValue:model.value named:@"" rules:^(NGRPropertyValidator *validator) {
                 [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
             }];

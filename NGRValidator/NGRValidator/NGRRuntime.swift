@@ -5,7 +5,7 @@
 
 import Foundation
 
-@objc public final class NGRRuntimeInspector: NSObject {
+@objc internal final class NGRRuntimeInspector: NSObject {
     
     private let model: Any
     
