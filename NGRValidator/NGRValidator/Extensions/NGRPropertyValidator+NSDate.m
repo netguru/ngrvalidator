@@ -72,6 +72,50 @@ typedef NGRMsgKey *(^NGRDateValidationBlock)(NSDate *mainDate);
     };
 }
 
+- (NGRPropertyValidator *(^)(NSTimeInterval))earlierThanUnixTimestamp {
+    return ^(NSTimeInterval timestamp) {
+        NSDate *timestampDate = [NSDate dateWithTimeIntervalSince1970:timestamp];
+        [self validateDateWithName:@"earlier than unix timestamp" block:^NGRMsgKey *(NSDate *date) {
+            [self checkArgument:date];
+            return [date ngr_isEarlierThan:timestampDate] ? nil : MSGNotEarlierThan;
+        }];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSTimeInterval))earlierThanOrEqualToUnixTimestamp {
+    return ^(NSTimeInterval timestamp) {
+        NSDate *timestampDate = [NSDate dateWithTimeIntervalSince1970:timestamp];
+        [self validateDateWithName:@"earlier than or equal to unix timestamp" block:^NGRMsgKey *(NSDate *date) {
+            [self checkArgument:date];
+            return [date ngr_isEarlierThanOrEqualTo:timestampDate] ? nil : MSGNotEarlierThanOrEqualTo;
+        }];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSTimeInterval))laterThanUnixTimestamp {
+    return ^(NSTimeInterval timestamp) {
+        NSDate *timestampDate = [NSDate dateWithTimeIntervalSince1970:timestamp];
+        [self validateDateWithName:@"later than unix timestamp" block:^NGRMsgKey *(NSDate *date) {
+            [self checkArgument:date];
+            return [date ngr_isLaterThan:timestampDate] ? nil : MSGNotLaterThan;
+        }];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSTimeInterval))laterThanOrEqualToUnixTimestamp {
+    return ^(NSTimeInterval timestamp) {
+        NSDate *timestampDate = [NSDate dateWithTimeIntervalSince1970:timestamp];
+        [self validateDateWithName:@"later than or equal to unix timestamp" block:^NGRMsgKey *(NSDate *date) {
+            [self checkArgument:date];
+            return [date ngr_isLaterThanOrEqualTo:timestampDate] ? nil : MSGNotLaterThanOrEqualTo;
+        }];
+        return self;
+    };
+}
+
 #pragma mark - Messaging
 
 - (NGRPropertyValidator *(^)(NSString *message))msgNotEarlierThan {
