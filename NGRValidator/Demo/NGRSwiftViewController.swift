@@ -62,7 +62,7 @@ final class NGRSwiftViewController: UIViewController {
         validateButton.addTarget(self, action: #selector(validateAction), for: .touchUpInside)
     }
     
-    func validateAction()
+    func validateAction() {
     
         let user = User(name: nameTextField.text!, password: passwordTextField.text!)
     
