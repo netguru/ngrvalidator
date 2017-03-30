@@ -23,6 +23,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;
 @property (assign, nonatomic) BOOL allowEmptyProperty;
+@property (nullable, copy, nonatomic) NGRPropertyValidatorCondition condition;
 
 @end
 
@@ -39,6 +40,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
         _validationRules = [NSMutableArray array];
         _isRequired = NO;
         _allowEmptyProperty = NO;
+        _condition = NULL;
     }
     return self;
 }
@@ -73,6 +75,13 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 - (NGRPropertyValidator *(^)(NSArray *))onScenarios {
     return ^(NSArray *scenarios){
         self.scenarios = [scenarios mutableCopy];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NGRPropertyValidatorCondition))when {
+    return ^(NGRPropertyValidatorCondition condition){
+        self.condition = condition;
         return self;
     };
 }
@@ -167,11 +176,10 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 }
 
 - (BOOL)shouldValidate {
-    if (!self.scenarios || !self.scenario) {
-        return YES;
-    }
-    //only reached when self.scenario && self.scenarios:
-    return [self.scenarios ngr_containsString:self.scenario];
+    BOOL conditionsApply = !self.condition || self.condition();
+    BOOL scenariosApply = !self.scenarios || !self.scenario || [self.scenarios ngr_containsString:self.scenario];
+    
+    return conditionsApply && scenariosApply;
 }
 
 #pragma mark - Debugging

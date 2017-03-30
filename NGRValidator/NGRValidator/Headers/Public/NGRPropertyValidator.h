@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NGRPropertyValidator : NSObject
 
+typedef BOOL(^NGRPropertyValidatorCondition)();
+    
 /**
  *  Designed Initializer for validator. Don't use any other initializers.
  *
@@ -46,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Validates that the NSObject is nil or not.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^required)();
+    
+/**
+ *  Condition the validation should occur under
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^when)(NGRPropertyValidatorCondition condition);
 
 /**
  *  Whether the validated property can be empty (means it's length or count is equal to 0). By default cannot be empty.
