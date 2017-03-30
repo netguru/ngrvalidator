@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.11.4'
   s.requires_arc  = true
 
-  s.source_files  = 'NGRValidator/NGRValidator/**/*.{h,m}'
+  s.source_files  = 'NGRValidator/NGRValidator/**/*.{h,m,swift}'
   s.header_dir    = 'NGRValidator'
   s.private_header_files = 'NGRValidator/NGRValidator/Headers/Private/*'
   s.preserve_paths = 'Scripts/*'
