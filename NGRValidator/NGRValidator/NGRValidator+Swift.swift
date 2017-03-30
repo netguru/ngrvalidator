@@ -7,6 +7,15 @@ import Foundation
 
 public extension NGRValidator {
     
+    /**
+     *
+     * This is an extension providing convienient syntax for Swift 3.0 usage. Also this slightly modifies the way validations
+     * are handled by replacing Objective-c reflection API with the Swift counterpart called Mirrors. This way it is possible
+     * to validate Swift structs and classes. It has few limitations though. First of all computed properties are not supported,
+     * secondly optional values containing nil fail the validation by default.
+     *
+     **/
+    
     public static func validate(model: Any, tillFirstError: Bool = false, delegate: NGRMessaging? = nil, scenario: String? = nil, rules: NGRRules) -> [Error]? {
 
         guard let validators = rules()?.sorted(by: { $0.priority > $1.priority }) else {
