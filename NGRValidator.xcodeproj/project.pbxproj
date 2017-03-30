@@ -229,10 +229,17 @@
 		029831001E8C031A00F7F08B /* NGRValidator+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029830FF1E8C031A00F7F08B /* NGRValidator+Swift.swift */; };
 		029831011E8C031A00F7F08B /* NGRValidator+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029830FF1E8C031A00F7F08B /* NGRValidator+Swift.swift */; };
 		029831051E8C089600F7F08B /* NGRUserStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029831041E8C089600F7F08B /* NGRUserStructure.swift */; };
+		0298310E1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298310D1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift */; };
+		0298310F1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298310D1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift */; };
+		029831111E8D3C9100F7F08B /* NGRTestModelsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029831101E8D3C9100F7F08B /* NGRTestModelsSwift.swift */; };
+		029831121E8D3C9100F7F08B /* NGRTestModelsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029831101E8D3C9100F7F08B /* NGRTestModelsSwift.swift */; };
+		029831141E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029831131E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift */; };
+		029831151E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029831131E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift */; };
 		02B0BB4E1E841B7A003813DB /* NGRPropertyValidator+NGRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB4C1E841B7A003813DB /* NGRPropertyValidator+NGRImage.m */; };
 		02B0BB521E843AA1003813DB /* NGRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB501E843AA1003813DB /* NGRImage.m */; };
 		02B0BB571E8440D7003813DB /* NGRImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB561E8440D7003813DB /* NGRImageProvider.m */; };
 		02B0BB591E8446E1003813DB /* NGRValidator+NGRImageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB581E8446E1003813DB /* NGRValidator+NGRImageSpec.m */; };
+		1E4E3BD51890DF999D9AF6D0 /* Pods_NGRValidatorTests_MacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DA00A0831468D6584F2933 /* Pods_NGRValidatorTests_MacOS.framework */; };
 		5E1E5D6D1A8D6A4800AE16A1 /* NGRValidatorBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */; };
 		5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */; };
 		5E2EBFB91A924ED300AFDBCD /* NGRValidator+NSStringSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2EBFB81A924ED300AFDBCD /* NGRValidator+NSStringSpec.m */; };
@@ -264,8 +271,7 @@
 		5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEF83BF1A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m */; };
 		5EF1C5FE1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */; };
 		5EFC9C941B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */; };
-		A542BBD3C918BDEF72EF598A /* libPods-NGRValidatorTests-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE6D5D46F97BF35652A0DF4 /* libPods-NGRValidatorTests-MacOS.a */; };
-		E66FEE0826744AD56450AF25 /* libPods-NGRValidatorTests-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF3DCAC4F49597E101FA8CE /* libPods-NGRValidatorTests-iOS.a */; };
+		661D9BABBFF7ED523BA719B1 /* Pods_NGRValidatorTests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F575B094888E0EA83D71D8A /* Pods_NGRValidatorTests_iOS.framework */; };
 		F01B68331E67106400378CEF /* NGRValidator+CreditCardSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */; };
 /* End PBXBuildFile section */
 
@@ -402,13 +408,18 @@
 		029830FA1E8BD1B000F7F08B /* NGRRuntime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NGRRuntime.swift; path = NGRValidator/NGRRuntime.swift; sourceTree = "<group>"; };
 		029830FF1E8C031A00F7F08B /* NGRValidator+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NGRValidator+Swift.swift"; sourceTree = "<group>"; };
 		029831041E8C089600F7F08B /* NGRUserStructure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NGRUserStructure.swift; path = Demo/NGRUserStructure.swift; sourceTree = "<group>"; };
+		0298310B1E8D15BD00F7F08B /* NGRValidatorTests-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NGRValidatorTests-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		0298310C1E8D15BD00F7F08B /* NGRValidatorTests-MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NGRValidatorTests-MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		0298310D1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NGRValidator+SwiftSpec.swift"; sourceTree = "<group>"; };
+		029831101E8D3C9100F7F08B /* NGRTestModelsSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NGRTestModelsSwift.swift; path = Helpers/NGRTestModelsSwift.swift; sourceTree = "<group>"; };
+		029831131E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NGRRuntimeInspectorSpec.swift; sourceTree = "<group>"; };
 		02B0BB4C1E841B7A003813DB /* NGRPropertyValidator+NGRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+NGRImage.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+NGRImage.m"; sourceTree = "<group>"; };
 		02B0BB501E843AA1003813DB /* NGRImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRImage.m; path = NGRValidator/NGRImage.m; sourceTree = "<group>"; };
 		02B0BB551E8440D7003813DB /* NGRImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRImageProvider.h; sourceTree = "<group>"; };
 		02B0BB561E8440D7003813DB /* NGRImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRImageProvider.m; sourceTree = "<group>"; };
 		02B0BB581E8446E1003813DB /* NGRValidator+NGRImageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NGRImageSpec.m"; sourceTree = "<group>"; };
-		0BE6D5D46F97BF35652A0DF4 /* libPods-NGRValidatorTests-MacOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests-MacOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1120D8C17A3641AEB3316A29 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3F575B094888E0EA83D71D8A /* Pods_NGRValidatorTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NGRValidatorTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FF38918AD56FC67D8E45B6 /* libPods-NGRValidatorUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F735994929371E2F337658 /* Pods-NGRValidatorTests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests-iOS/Pods-NGRValidatorTests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5E00195A1A498414002ED961 /* NGRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGRValidator.m; path = NGRValidator/NGRValidator.m; sourceTree = "<group>"; };
@@ -481,11 +492,11 @@
 		5EF1C5FB1AD482D500CC9173 /* NGRPropertyValidator+SugarSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+SugarSyntax.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+SugarSyntax.m"; sourceTree = "<group>"; };
 		5EF1C5FD1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRPropertyValidator+SugarSyntaxSpec.m"; sourceTree = "<group>"; };
 		5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NSArraySpec.m"; sourceTree = "<group>"; };
+		74DA00A0831468D6584F2933 /* Pods_NGRValidatorTests_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NGRValidatorTests_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D9BCDC17B4E6A098AEAD09 /* Pods-NGRValidatorTests-MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests-MacOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests-MacOS/Pods-NGRValidatorTests-MacOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7860569BF25CCB951238FDB6 /* Pods-NGRValidatorTests-MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests-MacOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests-MacOS/Pods-NGRValidatorTests-MacOS.release.xcconfig"; sourceTree = "<group>"; };
 		84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E5832E53A6A4B736E19B05 /* Pods-NGRValidatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.release.xcconfig"; sourceTree = "<group>"; };
-		CEF3DCAC4F49597E101FA8CE /* libPods-NGRValidatorTests-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorTests-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+CreditCardSpec.m"; sourceTree = "<group>"; };
 		F086F5891E66C8A00059E698 /* NGRPropertyValidator+CreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NGRPropertyValidator+CreditCard.m"; path = "NGRValidator/Extensions/NGRPropertyValidator+CreditCard.m"; sourceTree = "<group>"; };
 		F5F50F7D96634F4593B3FC91 /* Pods-NGRValidatorTests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests-iOS/Pods-NGRValidatorTests-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -513,7 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0222283F1E85061300CE4399 /* NGRValidator.framework in Frameworks */,
-				A542BBD3C918BDEF72EF598A /* libPods-NGRValidatorTests-MacOS.a in Frameworks */,
+				1E4E3BD51890DF999D9AF6D0 /* Pods_NGRValidatorTests_MacOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				020A96FD1E82D80300DF6E12 /* NGRValidator.framework in Frameworks */,
-				E66FEE0826744AD56450AF25 /* libPods-NGRValidatorTests-iOS.a in Frameworks */,
+				661D9BABBFF7ED523BA719B1 /* Pods_NGRValidatorTests_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,8 +738,8 @@
 				022228911E850C4400CE4399 /* libPods-NGRValidatorTests-iOS.a */,
 				84831DFFEBB25354CFD9E6AF /* libPods-NGRValidatorTests.a */,
 				44FF38918AD56FC67D8E45B6 /* libPods-NGRValidatorUnitTests.a */,
-				0BE6D5D46F97BF35652A0DF4 /* libPods-NGRValidatorTests-MacOS.a */,
-				CEF3DCAC4F49597E101FA8CE /* libPods-NGRValidatorTests-iOS.a */,
+				74DA00A0831468D6584F2933 /* Pods_NGRValidatorTests_MacOS.framework */,
+				3F575B094888E0EA83D71D8A /* Pods_NGRValidatorTests_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -843,6 +854,7 @@
 				5EEF83C41A8C0C6C00847CE1 /* Helpers */,
 				5E92F29D1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m */,
 				5EEE70EC1AD318C5005D5042 /* NGRMessagesSpec.m */,
+				029831131E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift */,
 				5E574B3D1ADFAF5B004E199C /* NGRPropertyValidator */,
 				5E92F29F1A97EFF000BDAEBC /* NGRValidator */,
 			);
@@ -856,6 +868,8 @@
 				5E5C0A0D1A498164002D3E72 /* NGRValidatorTests-iOS.plist */,
 				022228931E85147C00CE4399 /* NGRValidatorTests-MacOS.plist */,
 				5EEF83BE1A8C08AD00847CE1 /* Unit-Tests-Prefix.pch */,
+				0298310B1E8D15BD00F7F08B /* NGRValidatorTests-iOS-Bridging-Header.h */,
+				0298310C1E8D15BD00F7F08B /* NGRValidatorTests-MacOS-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -882,6 +896,7 @@
 				F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */,
 				0273F0E81E802178000B5949 /* NGRValidator+NSDataSpec.m */,
 				02B0BB581E8446E1003813DB /* NGRValidator+NGRImageSpec.m */,
+				0298310D1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift */,
 			);
 			name = NGRValidator;
 			sourceTree = "<group>";
@@ -1030,6 +1045,7 @@
 				029830EF1E89516400F7F08B /* NGRStringSyntaxProvider.m */,
 				029830F21E89521100F7F08B /* NGRSyntaxTestData.h */,
 				029830F31E89521100F7F08B /* NGRSyntaxTestData.m */,
+				029831101E8D3C9100F7F08B /* NGRTestModelsSwift.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1256,6 +1272,7 @@
 					022228391E85061300CE4399 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = SK8PDF7SG9;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					5E5C09EE1A498164002D3E72 = {
@@ -1266,6 +1283,7 @@
 					5E5C0A071A498164002D3E72 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = SK8PDF7SG9;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -1581,6 +1599,7 @@
 				0222284A1E85085B00CE4399 /* NGRTestDataProvider.m in Sources */,
 				022228521E85088B00CE4399 /* NGRValidator+NSStringSpec.m in Sources */,
 				029830F11E89516400F7F08B /* NGRStringSyntaxProvider.m in Sources */,
+				029831121E8D3C9100F7F08B /* NGRTestModelsSwift.swift in Sources */,
 				022228471E85084F00CE4399 /* NGRValidatorBehavior.m in Sources */,
 				022228571E85089D00CE4399 /* NGRValidator+ScenarioSpec.m in Sources */,
 				0222284C1E85086400CE4399 /* NGRImageProvider.m in Sources */,
@@ -1596,6 +1615,8 @@
 				022228481E85085500CE4399 /* NGRBehaviorKeys.m in Sources */,
 				022228581E8508A100CE4399 /* NGRValidator+CreditCardSpec.m in Sources */,
 				0222284B1E85085F00CE4399 /* NGRMimeTypeValidationTest.m in Sources */,
+				0298310F1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift in Sources */,
+				029831151E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift in Sources */,
 				022228551E85089500CE4399 /* NGRValidator+SyntaxSpec.m in Sources */,
 				0222284D1E85086A00CE4399 /* NGRMessagesSpec.m in Sources */,
 				022228541E85089200CE4399 /* NGRValidator+NSDateSpec.m in Sources */,
@@ -1634,6 +1655,7 @@
 				5EFC9C941B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m in Sources */,
 				5EC4860F1AD2F9DB001C7DBB /* NGRTestModel.m in Sources */,
 				029830F01E89516400F7F08B /* NGRStringSyntaxProvider.m in Sources */,
+				029831111E8D3C9100F7F08B /* NGRTestModelsSwift.swift in Sources */,
 				028130C81E812F360070F828 /* NGRMimeTypeValidationTest.m in Sources */,
 				0273F0EC1E80251F000B5949 /* NGRTestDataProvider.m in Sources */,
 				0273F0E91E802178000B5949 /* NGRValidator+NSDataSpec.m in Sources */,
@@ -1649,6 +1671,8 @@
 				F01B68331E67106400378CEF /* NGRValidator+CreditCardSpec.m in Sources */,
 				5E92F29E1A97E3CD00BDAEBC /* NGRValidationRuleSpec.m in Sources */,
 				5E1E5D6D1A8D6A4800AE16A1 /* NGRValidatorBehavior.m in Sources */,
+				0298310E1E8D15BE00F7F08B /* NGRValidator+SwiftSpec.swift in Sources */,
+				029831141E8D3CD300F7F08B /* NGRRuntimeInspectorSpec.swift in Sources */,
 				5E2EBFB91A924ED300AFDBCD /* NGRValidator+NSStringSpec.m in Sources */,
 				5E2EBFBB1A924F7000AFDBCD /* NGRValidator+NSNumberSpec.m in Sources */,
 				02B0BB571E8440D7003813DB /* NGRImageProvider.m in Sources */,
@@ -1771,6 +1795,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11.4;
 				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.NGRValidator;
 				PRODUCT_NAME = NGRValidator;
 				SDKROOT = macosx;
@@ -1805,6 +1830,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11.4;
 				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.NGRValidator;
 				PRODUCT_NAME = NGRValidator;
 				SDKROOT = macosx;
@@ -1824,6 +1850,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1836,10 +1863,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.netguru.NGRValidatorTests-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "NGRValidatorTests/NGRValidatorTests-MacOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1849,6 +1879,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1862,10 +1893,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.netguru.NGRValidatorTests-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "NGRValidatorTests/NGRValidatorTests-MacOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2014,6 +2047,7 @@
 			baseConfigurationReference = 55F735994929371E2F337658 /* Pods-NGRValidatorTests-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SK8PDF7SG9;
@@ -2033,9 +2067,13 @@
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/NGRValidator-bspsrwuiorsqfvhjeryuzpjcvsgo/Build/Products/Debug/NGRValidator.framework/Headers\"",
 				);
 				INFOPLIST_FILE = "NGRValidatorTests/NGRValidatorTests-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks @loader_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NGRValidatorTests/NGRValidatorTests-iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2044,6 +2082,7 @@
 			baseConfigurationReference = F5F50F7D96634F4593B3FC91 /* Pods-NGRValidatorTests-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = SK8PDF7SG9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2058,9 +2097,12 @@
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/NGRValidator-bspsrwuiorsqfvhjeryuzpjcvsgo/Build/Products/Debug/NGRValidator.framework/Headers\"",
 				);
 				INFOPLIST_FILE = "NGRValidatorTests/NGRValidatorTests-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/Frameworks @loader_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.netguru.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NGRValidatorTests/NGRValidatorTests-iOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

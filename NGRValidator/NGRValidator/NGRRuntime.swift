@@ -24,6 +24,12 @@ import Foundation
     public func value(withKey key: String) -> Any? {
         return mirror.value(forKey: key)
     }
+    
+    public func isClassOrStruct() -> Bool {
+        let supportedDisplayStyles: [Mirror.DisplayStyle] = [.struct, .class]
+        
+        return mirror.displayStyle.map { supportedDisplayStyles.contains($0) } ?? false
+    }
 }
 
 fileprivate extension Mirror {
