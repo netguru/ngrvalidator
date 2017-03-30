@@ -65,7 +65,6 @@
 
     NSArray *array = [rules() ngr_sortedArrayByPriority];
     NSArray *properties = [model ngr_properties];
-    
     NSMutableArray *errors = [NSMutableArray array];
     
     if (array.count == 0) {

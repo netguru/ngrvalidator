@@ -2,9 +2,6 @@
 //  NGRUserStructure.swift
 //  NGRValidator
 //
-//  Created by Krzysztof Kapitan on 29.03.2017.
-//
-//
 
 import Foundation
 
