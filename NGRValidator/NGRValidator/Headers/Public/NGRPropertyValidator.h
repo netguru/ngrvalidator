@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NGRPropertyValidator : NSObject
 
+typedef BOOL(^NGRPropertyValidatorCondition)();
+    
 /**
  *  Designed Initializer for validator. Don't use any other initializers.
  *
@@ -25,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return Instance of NGPropertyValidator used to specify next validation rules.
  */
 - (nullable instancetype)initWithProperty:(nullable NSString *)property NS_DESIGNATED_INITIALIZER;
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 /**
  *  Name of validated property.
@@ -46,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Validates that the NSObject is nil or not.
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^required)();
+    
+/**
+ *  Adds condition the validation should occur under
+ */
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^when)(NGRPropertyValidatorCondition condition);
 
 /**
  *  Whether the validated property can be empty (means it's length or count is equal to 0). By default cannot be empty.
@@ -78,6 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic, nullable) NSString *scenario;
 
 /**
+ * Condition that must occur in order to perform validation.
+ */
+@property (copy, nonatomic, readonly, nullable) NGRPropertyValidatorCondition condition;
+
+/**
  *  Priority of property validator. Default equal to NGRPropertyValidatorDefaultPriority (100).
  */
 @property (assign, readonly, nonatomic) NSUInteger priority;
@@ -98,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param value The value of validated property.
  *  @return NSError The error if any, otherwise nil.
  */
-- (nullable NSError *)simpleValidationOfValue:(id)value;
+- (nullable NSError *)simpleValidationOfValue:(nullable id)value;
 
 /**
  *  Validates property and gather all possible errors.
@@ -106,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param value The value of validated property.
  *  @return An NSArray of errors if any, otherwise nil.
  */
-- (nullable NSArray *)complexValidationOfValue:(id)value;
+- (nullable NSArray<NSError *> *)complexValidationOfValue:(nullable id)value;
 
 /**
  *  Adds a validator block to validators. Also checks if validated property is kind of given class.

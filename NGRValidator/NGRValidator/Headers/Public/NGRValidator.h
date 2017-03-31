@@ -18,6 +18,8 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
 
 @interface NGRValidator : NSObject
 
+NS_ASSUME_NONNULL_BEGIN
+    
 /**
  *  Validates single value with given rules.
  *
@@ -27,7 +29,7 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
  *
  *  @return an error if validation will not pass. Otherwise nil.
  */
-+ (NSError *)validateValue:(NSObject *)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules;
++ (nullable NSError *)validateValue:(id)value named:(NSString *)name rules:(void (^)(NGRPropertyValidator *validator))rules NS_REFINED_FOR_SWIFT;
 
 /**
  *  Validates model with given rules. Returns YES when validation succeeded, NO otherwise.
@@ -39,7 +41,8 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
  *
  *  @return result of validation. YES if validation will pass, NO otherwise.
  */
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
++ (BOOL)validateModel:(id)model error:(NSError **)error delegate:(nullable id<NGRMessaging>)delegate rules:(NGRRules)rules
+    NS_SWIFT_UNAVAILABLE("Use validate(model:delegate:rules) instead");
 
 /**
  *  Validates model with given rules. Returns YES when validation succeeded, NO otherwise.
@@ -52,8 +55,8 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
  *
  *  @return result of validation. YES if validation will pass, NO otherwise.
  */
-+ (BOOL)validateModel:(NSObject *)model error:(NSError **)error scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
-
++ (BOOL)validateModel:(id)model error:(NSError **)error scenario:(nullable NSString *)scenario delegate:(nullable id<NGRMessaging>)delegate rules:(NGRRules)rules
+    NS_SWIFT_UNAVAILABLE("Use validate(model:tillFirstError:delegate:scenario:rules) instead");
 /**
  *  Validates model with given rules. Returns empty array when validation succeeded. If not, array will contains errors.
  *
@@ -63,8 +66,9 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
  *
  *  @return Nil if validation will pass, otherwise an array populated with validation errors.
  */
-+ (NSArray<NSError *> *)validateModel:(NSObject *)model delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
-
+    
++ (NSArray<NSError *> *)validateModel:(id)model delegate:(nullable id<NGRMessaging>)delegate rules:(NGRRules)rules
+    NS_SWIFT_UNAVAILABLE("Use validate(model:delegate:rules) instead");
 /**
  *  Validates model with given rules and scenario. Returns empty array when validation succeeded. If not, array will contains errors.
  *
@@ -75,7 +79,8 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
  *
  *  @return Nil if validation will pass, otherwise an array populated with validation errors.
  */
-+ (NSArray<NSError *> *)validateModel:(NSObject *)model scenario:(NSString *)scenario delegate:(id<NGRMessaging>)delegate rules:(NGRRules)rules;
++ (NSArray<NSError *> *)validateModel:(id)model scenario:(nullable NSString *)scenario delegate:(nullable id<NGRMessaging>)delegate rules:(NGRRules)rules
+    NS_SWIFT_UNAVAILABLE("Use validate(model:delegate:scenario:rules) instead");
 
 @end
 
@@ -92,3 +97,5 @@ FOUNDATION_EXPORT const unsigned char NGRValidatorVersionString[];
 + (NSArray *)validateModel:(NSObject *)model scenario:(NSString *)scenario usingRules:(NSArray *(^)())rules NGR_DEPRECATED_USE_INSTEAD("validateModel:scenario:delegate:rules:");
 
 @end
+
+NS_ASSUME_NONNULL_END

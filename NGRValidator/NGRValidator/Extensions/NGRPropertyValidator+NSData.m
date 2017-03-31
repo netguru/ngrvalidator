@@ -48,7 +48,7 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
 }
 
 - (NGRPropertyValidator *(^)())image {
-    return ^(NGRMimeType *mimeType) {
+    return ^() {
         [self validateDataWithName:@"image" block:^NGRMsgKey *(NSData *data) {
             return [data ngr_isImage] ? nil : MSGWrongMediaType;
         }];
@@ -57,7 +57,7 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
 }
 
 - (NGRPropertyValidator *(^)())video {
-    return ^(NGRMimeType *mimeType) {
+    return ^() {
         [self validateDataWithName:@"video" block:^NGRMsgKey *(NSData *data) {
             return [data ngr_isVideo] ? nil : MSGWrongMediaType;
         }];
@@ -66,7 +66,7 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
 }
 
 - (NGRPropertyValidator *(^)())audio {
-    return ^(NGRMimeType *mimeType) {
+    return ^() {
         [self validateDataWithName:@"audio" block:^NGRMsgKey *(NSData *data) {
             return [data ngr_isAudio] ? nil : MSGWrongMediaType;
         }];
@@ -75,7 +75,7 @@ typedef NGRMsgKey *(^NGRDataValidationBlock)(NSData *data);
 }
 
 - (NGRPropertyValidator *(^)())archive {
-    return ^(NGRMimeType *mimeType) {
+    return ^() {
         [self validateDataWithName:@"archive" block:^NGRMsgKey *(NSData *data) {
             return [data ngr_isArchive] ? nil : MSGWrongMediaType;
         }];

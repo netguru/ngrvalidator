@@ -94,6 +94,7 @@ sharedExamplesFor(NGRValueBehavior, ^(NSDictionary *data) {
             error = [NGRValidator validateValue:model.value named:@"value" rules:^(NGRPropertyValidator *validator) {
                 [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
+                [validator setValue:propertyValidator.condition forKey:@"condition"];
             }];
             expect(error).to.beNil();
         });
@@ -242,7 +243,7 @@ sharedExamplesFor(NGRAssertBehavior, ^(NSDictionary *data) {
         }).to.raise(NSInternalInconsistencyException);
         
         expect(^{
-            [NGRValidator validateValue:model.value named:nil rules:^(NGRPropertyValidator *validator) {
+            [NGRValidator validateValue:model.value named:@"" rules:^(NGRPropertyValidator *validator) {
                 [validator setValue:propertyValidator.validationRules forKey:@"validationRules"];
                 [validator setValue:propertyValidator.messages forKey:@"messages"];
             }];
