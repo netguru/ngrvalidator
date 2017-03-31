@@ -73,11 +73,11 @@ final class NGRSwiftViewController: UIViewController {
                 NGRPropertyValidator(property: "isAdmin")?.is.required().to.beTrue().msgNotTrue("should be admin"),
                 NGRPropertyValidator(property: "nonExistent")?.is.required().to.have.minLength(5).msgTooShort("should have at least 5 signs"),
                 NGRPropertyValidator(property: "birthDate")?.to.be.earlierThan(Date()).msgNotEarlierThan("should happen in the past"),
-                NGRPropertyValidator(property: "attachment")?.is.required().to.be.image().msgTooShort("should have at least 5 signs"),
+                NGRPropertyValidator(property: "attachment")?.is.required().to.be.image().msgTooShort("should have at least 5 signs").when({ false }),
             ].flatMap { $0 }
         }
         
-        guard let errors = validationErrors else { return }
+        guard let errors = validationErrors, !errors.isEmpty else { return }
         
         print(errors)
         

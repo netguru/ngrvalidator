@@ -239,6 +239,8 @@
 		02B0BB521E843AA1003813DB /* NGRImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB501E843AA1003813DB /* NGRImage.m */; };
 		02B0BB571E8440D7003813DB /* NGRImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB561E8440D7003813DB /* NGRImageProvider.m */; };
 		02B0BB591E8446E1003813DB /* NGRValidator+NGRImageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0BB581E8446E1003813DB /* NGRValidator+NGRImageSpec.m */; };
+		02B213311E8D5436006497E4 /* NGRValidator+ConditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2132E1E8D541D006497E4 /* NGRValidator+ConditionsSpec.m */; };
+		02B213321E8D5437006497E4 /* NGRValidator+ConditionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B2132E1E8D541D006497E4 /* NGRValidator+ConditionsSpec.m */; };
 		1E4E3BD51890DF999D9AF6D0 /* Pods_NGRValidatorTests_MacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74DA00A0831468D6584F2933 /* Pods_NGRValidatorTests_MacOS.framework */; };
 		5E1E5D6D1A8D6A4800AE16A1 /* NGRValidatorBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6C1A8D6A4800AE16A1 /* NGRValidatorBehavior.m */; };
 		5E1E5D701A8D6B6000AE16A1 /* NGRBehaviorKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E5D6F1A8D6B6000AE16A1 /* NGRBehaviorKeys.m */; };
@@ -418,6 +420,7 @@
 		02B0BB551E8440D7003813DB /* NGRImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGRImageProvider.h; sourceTree = "<group>"; };
 		02B0BB561E8440D7003813DB /* NGRImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGRImageProvider.m; sourceTree = "<group>"; };
 		02B0BB581E8446E1003813DB /* NGRValidator+NGRImageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+NGRImageSpec.m"; sourceTree = "<group>"; };
+		02B2132E1E8D541D006497E4 /* NGRValidator+ConditionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NGRValidator+ConditionsSpec.m"; sourceTree = "<group>"; };
 		1120D8C17A3641AEB3316A29 /* Pods-NGRValidatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NGRValidatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NGRValidatorTests/Pods-NGRValidatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F575B094888E0EA83D71D8A /* Pods_NGRValidatorTests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NGRValidatorTests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FF38918AD56FC67D8E45B6 /* libPods-NGRValidatorUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NGRValidatorUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -893,6 +896,7 @@
 				5E2EBFBE1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m */,
 				5EFC9C931B85EB5E00D9FEA7 /* NGRValidator+NSArraySpec.m */,
 				5EA4DF8E1A9296DA00C537F2 /* NGRValidator+ScenarioSpec.m */,
+				02B2132E1E8D541D006497E4 /* NGRValidator+ConditionsSpec.m */,
 				F01B68321E67106400378CEF /* NGRValidator+CreditCardSpec.m */,
 				0273F0E81E802178000B5949 /* NGRValidator+NSDataSpec.m */,
 				02B0BB581E8446E1003813DB /* NGRValidator+NGRImageSpec.m */,
@@ -1609,6 +1613,7 @@
 				022228531E85088E00CE4399 /* NGRValidator+NSNumberSpec.m in Sources */,
 				022228511E85088100CE4399 /* NGRValidatorSpec.m in Sources */,
 				022228591E8508A500CE4399 /* NGRValidator+NSDataSpec.m in Sources */,
+				02B213321E8D5437006497E4 /* NGRValidator+ConditionsSpec.m in Sources */,
 				022228561E85089900CE4399 /* NGRValidator+NSArraySpec.m in Sources */,
 				0222285A1E8508A800CE4399 /* NGRValidator+NGRImageSpec.m in Sources */,
 				022228491E85085800CE4399 /* NGRTestModel.m in Sources */,
@@ -1665,6 +1670,7 @@
 				5E2EBFBF1A92754400AFDBCD /* NGRValidator+SyntaxSpec.m in Sources */,
 				5EEF83C01A8C0AA900847CE1 /* NGRPropertyValidatorSpec.m in Sources */,
 				5EF1C5FE1AD4863200CC9173 /* NGRPropertyValidator+SugarSyntaxSpec.m in Sources */,
+				02B213311E8D5436006497E4 /* NGRValidator+ConditionsSpec.m in Sources */,
 				5EA4DF911A9296F800C537F2 /* NGRValidatorSpec.m in Sources */,
 				02B0BB591E8446E1003813DB /* NGRValidator+NGRImageSpec.m in Sources */,
 				5E2EBFBD1A92752A00AFDBCD /* NGRValidator+NSDateSpec.m in Sources */,
