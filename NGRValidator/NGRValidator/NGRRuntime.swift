@@ -26,9 +26,12 @@ import Foundation
     }
     
     public func isClassOrStruct() -> Bool {
-        let supportedDisplayStyles: [Mirror.DisplayStyle] = [.struct, .class]
-        
-        return mirror.displayStyle.map { supportedDisplayStyles.contains($0) } ?? false
+        switch mirror.displayStyle {
+        case .some(.struct), .some(.class):
+            return true
+        default:
+            return false
+        }
     }
 }
 
@@ -42,7 +45,7 @@ fileprivate extension Mirror {
     }
     
     func properties() -> [String] {
-        let childProperties = children.flatMap({ $0.label })
+        let childProperties = children.flatMap { $0.label }
         let superProperties = superclassMirror?.properties() ?? []
         
         return [childProperties, superProperties].flatMap { $0 }

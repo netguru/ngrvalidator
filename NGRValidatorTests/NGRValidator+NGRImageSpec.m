@@ -15,7 +15,7 @@ describe(@"Syntax validation", ^{
     itShouldBehaveLike(NGRValueBehavior, ^{
         return wrapData(valid, tooBig, 1, ^(NGRPropertyValidator *validator) {
             return validator.maxSize(CGSizeMake(10.0, 10.0)).msgImageTooBig(msg);
-        });
+        });x
     });
     
     testDescriptor(@"image min size validation", @"valid size", @"invalid size");
