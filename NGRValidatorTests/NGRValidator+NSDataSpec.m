@@ -78,30 +78,34 @@ describe(@"NSData validation", ^{
             NSArray<NGRTestData *> *invalidCases = [test invalidCases];
             
             for (NGRTestData *validData in validCases) {
-                for (NGRTestData *invalidData in invalidCases) {
-                
-                    testDescriptor(test.name, validData.mimeTypes.firstObject, invalidData.mimeTypes.firstObject);
-                    itShouldBehaveLike(NGRValueBehavior, ^{
-                        return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
-                            return validator.mimeType(test.mimeType).msgWrongMIMEType(msg);
-                        });
+
+                testDescriptor(test.name, validData.mimeTypes.firstObject, nil);
+                itShouldBehaveLike(NGRValueBehavior, ^{
+                    return wrapData(validData.data(), NGRSKIP, 1, ^(NGRPropertyValidator *validator) {
+                        return validator.mimeType(test.mimeType).msgWrongMIMEType(msg);
                     });
-                }
+                });
             }
             
-            
+            for (NGRTestData *invalidData in invalidCases) {
+                
+                testDescriptor(test.name, nil, invalidData.mimeTypes.firstObject);
+                itShouldBehaveLike(NGRValueBehavior, ^{
+                    return wrapData(NGRSKIP, invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                        return validator.mimeType(test.mimeType).msgWrongMIMEType(msg);
+                    });
+                });
+            }
         }
     }
     
     for (NGRMimeTypeValidationTest *test in imageTestCases) {
-        
         NSArray<NGRTestData *> *validCases = [test validCases];
-        NGRTestData *invalidData = [NGRTestDataProvider mp3];
         
         for (NGRTestData *validData in validCases) {
-            testDescriptor(test.name, @"image data", @"non-image data");
+            testDescriptor(test.name, @"image data", nil);
             itShouldBehaveLike(NGRValueBehavior, ^{
-                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                return wrapData(validData.data(), NGRSKIP, 1, ^(NGRPropertyValidator *validator) {
                     return validator.image().msgWrongMediaType(msg);
                 });
             });
@@ -109,14 +113,12 @@ describe(@"NSData validation", ^{
     }
     
     for (NGRMimeTypeValidationTest *test in videoTestCases) {
-        
         NSArray<NGRTestData *> *validCases = [test validCases];
-        NGRTestData *invalidData = [NGRTestDataProvider mp3];
         
         for (NGRTestData *validData in validCases) {
-            testDescriptor(test.name, @"video data", @"non-video data");
+            testDescriptor(test.name, @"video data", nil);
             itShouldBehaveLike(NGRValueBehavior, ^{
-                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                return wrapData(validData.data(), NGRSKIP, 1, ^(NGRPropertyValidator *validator) {
                     return validator.video().msgWrongMediaType(msg);
                 });
             });
@@ -124,14 +126,12 @@ describe(@"NSData validation", ^{
     }
     
     for (NGRMimeTypeValidationTest *test in audioTestCases) {
-        
         NSArray<NGRTestData *> *validCases = [test validCases];
-        NGRTestData *invalidData = [NGRTestDataProvider png];
         
         for (NGRTestData *validData in validCases) {
-            testDescriptor(test.name, @"audio data", @"non-audio data");
+            testDescriptor(test.name, @"audio data", nil);
             itShouldBehaveLike(NGRValueBehavior, ^{
-                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                return wrapData(validData.data(), NGRSKIP, 1, ^(NGRPropertyValidator *validator) {
                     return validator.audio().msgWrongMediaType(msg);
                 });
             });
@@ -139,14 +139,12 @@ describe(@"NSData validation", ^{
     }
     
     for (NGRMimeTypeValidationTest *test in archiveTestCases) {
-        
         NSArray<NGRTestData *> *validCases = [test validCases];
-        NGRTestData *invalidData = [NGRTestDataProvider mp3];
         
         for (NGRTestData *validData in validCases) {
-            testDescriptor(test.name, @"archive data", @"non-archive data");
+            testDescriptor(test.name, @"archive data", nil);
             itShouldBehaveLike(NGRValueBehavior, ^{
-                return wrapData(validData.data(), invalidData.data(), 1, ^(NGRPropertyValidator *validator) {
+                return wrapData(validData.data(), NGRSKIP, 1, ^(NGRPropertyValidator *validator) {
                     return validator.archive().msgWrongMediaType(msg);
                 });
             });
