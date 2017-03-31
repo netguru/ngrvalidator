@@ -50,7 +50,7 @@ typedef BOOL(^NGRPropertyValidatorCondition)();
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^required)();
     
 /**
- *  Condition the validation should occur under
+ *  Adds condition the validation should occur under
  */
 @property (copy, nonatomic, readonly) NGRPropertyValidator *(^when)(NGRPropertyValidatorCondition condition);
 
@@ -83,6 +83,11 @@ typedef BOOL(^NGRPropertyValidatorCondition)();
  *  Scenario used during validation process.
  */
 @property (strong, nonatomic, nullable) NSString *scenario;
+
+/**
+ * Condition that must occur in order to perform validation.
+ */
+@property (copy, nonatomic, readonly, nullable) NGRPropertyValidatorCondition condition;
 
 /**
  *  Priority of property validator. Default equal to NGRPropertyValidatorDefaultPriority (100).

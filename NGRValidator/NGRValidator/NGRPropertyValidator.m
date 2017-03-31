@@ -23,7 +23,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;
 @property (assign, nonatomic) BOOL allowEmptyProperty;
-@property (nullable, copy, nonatomic) NGRPropertyValidatorCondition condition;
+@property (copy, nonatomic, readwrite) NGRPropertyValidatorCondition condition;
 
 @end
 
