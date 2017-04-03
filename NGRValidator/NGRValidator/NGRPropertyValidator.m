@@ -93,7 +93,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))localizedName {
+- (NGRPropertyValidator *(^)(NSString * _Nullable))localizedName {
     return ^(NSString *message) {
         self.localizedPropertyName = message;
         return self;
