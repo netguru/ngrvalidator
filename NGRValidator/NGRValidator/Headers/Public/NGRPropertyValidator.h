@@ -42,7 +42,7 @@ typedef BOOL(^NGRPropertyValidatorCondition)();
 /**
  * Localized name of validated property. Used in error description if has been set. (default: nil).
  */
-@property (copy, nonatomic, readonly) NGRPropertyValidator *(^localizedName)(NSString *name);
+@property (copy, nonatomic, readonly) NGRPropertyValidator *(^localizedName)(NSString * _Nullable name);
 
 /**
  *  Validates that the NSObject is nil or not.

@@ -43,6 +43,44 @@ describe(@"NGRPropertyValidator", ^{
         });
     });
     
+    describe(@"adding localized name", ^{
+        __block NSString *errorDescription;
+        
+        beforeEach(^{
+            sut.is.required().to.have.syntax(NGRSyntaxHTTP);
+        });
+        
+        context(@"when localized name is non null", ^{
+            
+            
+            beforeEach(^{
+                sut.localizedName(@"Fixture Localized Name");
+                
+                NSError *error = [sut simpleValidationOfValue:@"wrong-syntax"];
+                errorDescription = error.userInfo[NSLocalizedDescriptionKey];
+            });
+            
+            it(@"error description should start with that name", ^{
+                expect(errorDescription).to.beginWith(@"Fixture Localized Name");
+            });
+        });
+        
+        context(@"when localized name is null", ^{
+            
+            beforeEach(^{
+                sut.localizedName(NULL);
+                
+                NSError *error = [sut simpleValidationOfValue:@"wrong-syntax"];
+                errorDescription = error.userInfo[NSLocalizedDescriptionKey];
+            });
+            
+            it(@"error description should start with property name", ^{
+                expect(errorDescription).to.beginWith(@"Fixture Value");
+            });
+        });
+        
+    });
+    
     context(@"when add 1 rule", ^{
         
         beforeEach(^{
