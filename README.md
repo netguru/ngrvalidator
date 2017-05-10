@@ -6,8 +6,10 @@
 [![Platform](https://cocoapod-badges.herokuapp.com/p/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator)
 [![Version](https://cocoapod-badges.herokuapp.com/v/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator)
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![Swift Version](https://img.shields.io/badge/Swift-3.0-orange.svg)
 
-**NGRValidator** is an Objective-C 3rd party library for iOS and macOS. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any Objective-C model in just a few lines of code.
+**NGRValidator** is a 3rd party library for iOS and macOS. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any model in just a few lines of code.
 
 ## Why use NGRValidator?
 
@@ -89,7 +91,7 @@ Continue reading to learn more about [rules](https://github.com/netguru/ngrvalid
 
 ## Installation:
 #### Installation with CocoaPods
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
 pod 'ngrvalidator', '~> 2.0.0'
