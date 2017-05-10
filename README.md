@@ -307,7 +307,7 @@ This two methods can be used simultaneously. Order of taking messages is defined
 > 2. If delegate will be nil or validator will not find message for expected error-key and property name, it will search for an error description in given in rules block.
 > 3. If developer didn't declare message for encoutered error, validator will use default one prepared by library.
 
-For more info please refer to [messaging system](https://github.com/netguru/ngrvalidator/blob/master/MD/Messages.md).
+For more info please refer to [messaging system](https://github.com/netguru/ngrvalidator/blob/master/Documents/Messages.md).
 
 ## Sugar syntax
 
