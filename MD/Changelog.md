@@ -1,6 +1,6 @@
 ## Change Log
 
-### 1.4.0
+### 2.0.0
 - Support for Swift 3.0
 - Support for Carthage
 - Support for pure Swift `class` or `struct` validation

@@ -3,15 +3,15 @@
 </p>
 
 ![](https://www.bitrise.io/app/d7dfee0dbf9906ab.svg?token=kzdjMQiXgBIoTMkhLgXJ3Q&branch=develop)
-[![Platform](https://cocoapod-badges.herokuapp.com/p/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
-[![Version](https://cocoapod-badges.herokuapp.com/v/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator) 
+[![Platform](https://cocoapod-badges.herokuapp.com/p/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator)
+[![Version](https://cocoapod-badges.herokuapp.com/v/ngrvalidator/badge.png)](http://cocoadocs.org/docsets/ngrvalidator)
 ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
-**NGRValidator** is an Objective-C 3rd party library for iOS and OSX. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any Objective-C model in just a few lines of code.
+**NGRValidator** is an Objective-C 3rd party library for iOS and macOS. It allows you to validate the data in the way that you want. It's an easy to read, centralized, and comprehensive solution to validating any Objective-C model in just a few lines of code.
 
 ## Why use NGRValidator?
 
-Typically every project which handles user account requires email validation. Let's take a look how to do this: 
+Typically every project which handles user account requires email validation. Let's take a look how to do this:
 
 ```objc
 NSString *email = <#your string email address#>;
@@ -78,13 +78,13 @@ Let's take it one step further. Consider this model should be used both for logi
 @end
 ```
 
-That's it! All validation requirements in one place. 
+That's it! All validation requirements in one place.
 Continue reading to learn more about [rules](https://github.com/netguru/ngrvalidator#validation-rules), [scenarios](https://github.com/netguru/ngrvalidator#scenarios) and [messaging](https://github.com/netguru/ngrvalidator#validation-messages).
 
 ## Requirements
 
-- iOS 7.0+ SDK
-- OSX 10.7+ SDK
+- iOS 9.0+ SDK
+- macOS 10.11.4+ SDK
 - CocoaPods 0.39.0 (use `gem install cocoapods` to grab it!)
 
 ## Installation:
@@ -92,9 +92,38 @@ Continue reading to learn more about [rules](https://github.com/netguru/ngrvalid
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party. To use **NGRValidator** via CocoaPods write in your Podfile:
 
 ```rb
-pod 'ngrvalidator', '~> 1.3.0'
+pod 'ngrvalidator', '~> 2.0.0'
 ```
 and run `pod update` or `pod install`
+
+#### Carthage
+
+Install using [Carthage](https://github.com/Carthage/Carthage) by adding the following line to your Cartfile:
+
+````
+github "netguru/ngrvalidator"
+````
+Then, run the following command:
+
+```bash
+$ carthage update
+```
+Last if you're building for macOS:
+
+- On your application targets “General” settings tab, in the “Embedded Binaries” section, drag and drop NGRValidator.framework from the Carthage/Build/Mac folder on disk.
+
+If you're building for iOS
+
+- On your application targets “General” settings tab, in the “Linked Frameworks and Libraries” section, drag and drop each framework you want to use from the Carthage/Build folder on disk.
+
+- On your application targets “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents:
+`/usr/local/bin/carthage copy-frameworks`
+
+- and add the paths to the frameworks you want to use under “Input Files”, e.g.:
+```
+$(SRCROOT)/Carthage/Build/iOS/NGRValidator.framework
+```
+
 
 #### Submodule
 In your projects git folder type:
@@ -127,21 +156,21 @@ There are 3 general methods of validation:
 * single value validation:
 
 ```objc
-+ (NSError *)validateValue:(NSObject *)value 
-					 named:(NSString *)name 
++ (NSError *)validateValue:(NSObject *)value
+					 named:(NSString *)name
 					 rules:(void (^)(NGRPropertyValidator *validator))rules;
 ```
 * model validation till first error. **NGRValidator** will break validation when any error will appear:
 
 ```objc
-+ (BOOL)validateModel:(NSObject *)model 
-			    error:(NSError **)error 
++ (BOOL)validateModel:(NSObject *)model
+			    error:(NSError **)error
 			 delegate:(id<NGRMessaging>)delegate
 			    rules:(NSArray *(^)())rules;
 
 // with scenario counterpart:
-+ (BOOL)validateModel:(NSObject *)model 
-			    error:(NSError **)error 
++ (BOOL)validateModel:(NSObject *)model
+			    error:(NSError **)error
 			 scenario:(NSString *)scenario
 			 delegate:(id<NGRMessaging>)delegate
 			    rules:(NSArray *(^)())rules;
@@ -149,14 +178,14 @@ There are 3 general methods of validation:
 * entire model validation. **NGRValidator** will validate entire model and return an array populated with errors (if validation failed). Otherwise nil:
 
 ```objc
-+ (NSArray *)validateModel:(NSObject *)model 
-                  delegate:(id<NGRMessaging>)delegate 
++ (NSArray *)validateModel:(NSObject *)model
+                  delegate:(id<NGRMessaging>)delegate
                      rules:(NSArray *(^)())rules;
-                     
+
 // with scenario counterpart:                
-+ (NSArray *)validateModel:(NSObject *)model 
++ (NSArray *)validateModel:(NSObject *)model
                   scenario:(NSString *)scenario
-                  delegate:(id<NGRMessaging>)delegate 
+                  delegate:(id<NGRMessaging>)delegate
                      rules:(NSArray *(^)())rules;
 ```
 
@@ -173,7 +202,7 @@ There are 3 general methods of validation:
 * `order(NSUInteger)` - changes priority of `NGRPropertyValidator`. By default all property validators have same priority and will be invoked in order of NSArray order returned in `rules:` block.
 
 **NSString**:
- 
+
 * `minLength(NSUInteger)` - validates minimum length of NSString (inclusive).
 * `maxLength(NSUInteger)` - validates maximum length of NSString (inclusive).
 * `lengthRange(NSUInteger, NSUInteger)` - validates minimum and maximum length of NSString (inclusive).
@@ -182,7 +211,7 @@ There are 3 general methods of validation:
 * `differ(NSString *)` - validates that the NSString is different than another NSString.
 * `decimal()` - validates that the NSString contains only decimal signs.
 
-**Syntax**: 
+**Syntax**:
 
 * `syntax(NGRSyntax)` - validates that the NSString has given syntax. There are 3 default syntax to choose:
     - `NGRSyntaxEmail` - validates email syntax.
@@ -190,7 +219,7 @@ There are 3 general methods of validation:
     - `NGRSyntaxHTTP` - validates syntax of HTTP URL.
 * `regex(NSString *, NSRegularExpressionOptions)` - validates that the NSString match given regex pattern with options.
 
-**NSNumber**: 
+**NSNumber**:
 
 * `min(CGFloat)` - validates lower limit of NSNumber (inclusive).
 * `max(CGFloat)` - validates upper limit of NSNumber (inclusive).
@@ -244,13 +273,13 @@ localizedName(NSString *)
 
 ```objc
 - (NSDictionary *)validationErrorMessagesByPropertyKey {
-    return @{@"password" : 
+    return @{@"password" :
     		    @{MSGTooShort : @"Password should have at least 5 signs."}
     	    };
 }
 ```
 
-This two methods can be used simultaneously. Order of taking messages is defined as follows: 
+This two methods can be used simultaneously. Order of taking messages is defined as follows:
 
 > 1. If any error will be encountered by validator, it will ask delegate first for error description.
 > 2. If delegate will be nil or validator will not find message for expected error-key and property name, it will search for an error description in given in rules block.
@@ -277,10 +306,11 @@ Note difference between sugar syntax and regular validation method:
 ```
 
 ##Demo
-Contains 4 examples:
+Contains 5 examples:
 
-* UI examples on 3 levels: simple, medium and complex. Every level has been eplained more on less in this readme. 
+* UI examples on 3 levels: simple, medium and complex. Every level has been eplained more on less in this readme.
 * coded
+* usage in Swift
 
 UI example will be automatically fired when you hit `⌘+R`. To enable coded example please change `logStory` flag from `NO` to `YES` in `AppDelegate`. To improve `story` readability and understandability, set brakepoint at the beginning of `story` method and follow debugger line by line.
 
@@ -308,4 +338,4 @@ You can also read our blog post [introducing: Open Source NGRValidator](https://
  Created and maintained by [Patryk Kaczmarek](https://github.com/PatrykKaczmarek).
 
 ##
-Copyright © 2014 - 2015 [Netguru](https://netguru.co)
+Copyright © 2014 - 2017 [Netguru](https://netguru.co)
