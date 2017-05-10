@@ -12,10 +12,12 @@ describe(@"NSDate validation", ^{
     
     __block NSDate *date1;
     __block NSDate *date2;
+    __block NSTimeInterval interval;
     
     beforeEach(^{
         date1 = [NSDate date];
         date2 = [NSDate dateWithTimeIntervalSinceNow:10];
+        interval = [date1 timeIntervalSince1970] + 5;
     });
     
     testDescriptor(@"earlierThan validator", @"2 correct dates", @"2 incorrect dates");
@@ -59,6 +61,35 @@ describe(@"NSDate validation", ^{
             return validator.betweenDates([NSDate dateWithTimeIntervalSinceNow:-10], date2, NO).msgNotBetweenDates(msg);
         });
     });
+
+    testDescriptor(@"earlierThanUnixTimestamp validator", @"2 correct dates", @"2 incorrect dates");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(date1, date2, 1, ^(NGRPropertyValidator *validator) {
+            return validator.earlierThanUnixTimestamp(interval).msgNotEarlierThan(msg);
+        });
+    });
+    
+    testDescriptor(@"earlierThanOrEqualToUnixTimestamp validator", @"2 correct dates", @"2 incorrect dates");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(date1, date2, 1, ^(NGRPropertyValidator *validator) {
+            return validator.earlierThanOrEqualToUnixTimestamp(interval).msgNotEarlierThanOrEqualTo(msg);
+        });
+    });
+    
+    testDescriptor(@"laterThanUnixTimestamp validator", @"2 correct dates", @"2 incorrect dates");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(date2, date1, 1, ^(NGRPropertyValidator *validator) {
+            return validator.laterThanUnixTimestamp(interval).msgNotLaterThan(msg);
+        });
+    });
+    
+    testDescriptor(@"laterThanOrEqualToUnixTimestamp validator", @"2 correct dates", @"2 incorrect dates");
+    itShouldBehaveLike(NGRValueBehavior, ^{
+        return wrapData(date2, date1, 1, ^(NGRPropertyValidator *validator) {
+            return validator.laterThanOrEqualToUnixTimestamp(interval).msgNotLaterThanOrEqualTo(msg);
+        });
+    });
+
 });
 
 SpecEnd

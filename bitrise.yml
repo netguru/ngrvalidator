@@ -1,0 +1,108 @@
+#
+# bitrise.yml
+#
+# Copyright (c) 2017 Netguru Sp. z o.o. All rights reserved.
+#
+
+# CLI metadata
+
+format_version: 1.3.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+# Workflow trigger map
+
+trigger_map:
+
+  - push_branch: 'develop'
+    workflow: build-and-test-all-platforms
+
+  - pull_request_target_branch: 'develop'
+    workflow: build-and-test-all-platforms
+
+# Environment configuration
+
+app:
+  envs:
+    - XCODEBUILD_PROJECT: NGRValidator.xcworkspace
+    - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
+
+# Workflow declarations
+
+workflows:
+
+  # Top level build workflows
+  build-and-test-all-platforms:
+    before_run:
+      - resolve_dependencies
+    after_run:
+      - build-ios
+      - build-macos
+      - cache-push
+      - deploy-artifacts
+
+  # Platform specific builds
+
+  build-macos:
+    envs:
+      - XCODEBUILD_SCHEME: NGRValidator-MacOS
+    after_run:
+      - xcode-test-mac
+
+  build-ios:
+    envs:
+      - XCODEBUILD_SCHEME: NGRValidator-iOS
+    after_run:
+      - xcode-test
+
+  # Dependencies
+
+  resolve_dependencies:
+    before_run:
+      - cache-pull
+      - pods-install
+
+  # Cocoapods
+
+  pods-install:
+    steps:
+      - cocoapods-install: {}
+
+  # Cache
+
+  cache-pull:
+    steps:
+      - cache-pull: {}
+
+  cache-push:
+    steps:
+      - cache-push:
+          inputs:
+            - cache_paths: |-
+                ./Pods -> ./Podfile.lock
+
+  # Xcode
+  xcode-test-mac:
+    steps:
+      - xcode-test-mac:
+          inputs:
+            - project_path: $XCODEBUILD_PROJECT
+            - scheme: $XCODEBUILD_SCHEME
+            - xcodebuild_test_options: $XCODEBUILD_OPTIONS
+            - generate_code_coverage_files: 'yes'
+
+  xcode-test:
+    steps:
+      - xcode-test:
+          inputs:
+            - project_path: $XCODEBUILD_PROJECT
+            - scheme: $XCODEBUILD_SCHEME
+            - xcodebuild_test_options: $XCODEBUILD_OPTIONS
+            - generate_code_coverage_files: 'yes'
+
+  # Deploy
+
+  deploy-artifacts:
+    steps:
+      - deploy-to-bitrise-io:
+          inputs:
+            - notify_user_groups: none

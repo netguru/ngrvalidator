@@ -30,6 +30,19 @@ typedef NGRMsgKey *(^NGRStringValidationBlock)(NSString *string);
     };
 }
 
+- (NGRPropertyValidator *(^)(BOOL contain))emoji {
+    return ^(BOOL contain) {
+        [self validateStringWithName:@"emojis" block:^NGRMsgKey *(NSString *string) {
+            if (contain) {
+                return string.ngr_hasEmoji ? nil : MSGHasNoEmoji;
+            } else {
+                return string.ngr_hasEmoji ? MSGHasEmoji : nil;
+            }
+        }];
+        return self;
+    };
+}
+
 - (NGRPropertyValidator *(^)(NSUInteger))maxLength {
     return ^(NSUInteger max) {
         [self validateStringWithName:@"maximum length" block:^NGRMsgKey *(NSString *string) {
@@ -129,6 +142,20 @@ typedef NGRMsgKey *(^NGRStringValidationBlock)(NSString *string);
 - (NGRPropertyValidator *(^)(NSString *))msgNotDecimal {
     return ^(NSString *message) {
         [self.messages setMessage:message forKey:MSGNotDecimal];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSString *))msgHasEmoji {
+    return ^(NSString *message) {
+        [self.messages setMessage:message forKey:MSGHasEmoji];
+        return self;
+    };
+}
+
+- (NGRPropertyValidator *(^)(NSString *))msgHasNoEmoji {
+    return ^(NSString *message) {
+        [self.messages setMessage:message forKey:MSGHasNoEmoji];
         return self;
     };
 }

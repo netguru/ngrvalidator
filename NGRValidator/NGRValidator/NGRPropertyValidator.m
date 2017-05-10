@@ -23,6 +23,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 @property (strong, nonatomic) NSString *localizedPropertyName;
 @property (assign, nonatomic) BOOL isRequired;
 @property (assign, nonatomic) BOOL allowEmptyProperty;
+@property (copy, nonatomic, readwrite) NGRPropertyValidatorCondition condition;
 
 @end
 
@@ -39,17 +40,18 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
         _validationRules = [NSMutableArray array];
         _isRequired = NO;
         _allowEmptyProperty = NO;
+        _condition = NULL;
     }
     return self;
 }
 
 #pragma mark - Public
 
-- (NSError *)simpleValidationOfValue:(id)value {
+- (NSError *)simpleValidationOfValue:(nullable id)value {
     return [self validateValue:value usingSimpleValidation:YES];
 }
 
-- (NSArray *)complexValidationOfValue:(id)value {
+- (NSArray<NSError *> *)complexValidationOfValue:(nullable id)value {
     return [self validateValue:value usingSimpleValidation:NO];
 }
 
@@ -77,6 +79,13 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
     };
 }
 
+- (NGRPropertyValidator *(^)(NGRPropertyValidatorCondition))when {
+    return ^(NGRPropertyValidatorCondition condition){
+        self.condition = condition;
+        return self;
+    };
+}
+
 - (NGRPropertyValidator *(^)(NSUInteger))order {
     return ^(NSUInteger priority){
         _priority = priority;
@@ -84,7 +93,7 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
     };
 }
 
-- (NGRPropertyValidator *(^)(NSString *))localizedName {
+- (NGRPropertyValidator *(^)(NSString * _Nullable))localizedName {
     return ^(NSString *message) {
         self.localizedPropertyName = message;
         return self;
@@ -167,11 +176,10 @@ NGRMsgKey *const NGRErrorUnexpectedClass = (NGRMsgKey *)@"NGRErrorUnexpectedClas
 }
 
 - (BOOL)shouldValidate {
-    if (!self.scenarios || !self.scenario) {
-        return YES;
-    }
-    //only reached when self.scenario && self.scenarios:
-    return [self.scenarios ngr_containsString:self.scenario];
+    BOOL conditionsApply = !self.condition || self.condition();
+    BOOL scenariosApply = !self.scenarios || !self.scenario || [self.scenarios ngr_containsString:self.scenario];
+    
+    return conditionsApply && scenariosApply;
 }
 
 #pragma mark - Debugging

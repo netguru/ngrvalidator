@@ -13,6 +13,8 @@
 #import "NGRMediumDemoViewController.h"
 #import "NGRComplexDemoViewController.h"
 
+#import "NGRValidatorDemo-Swift.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -31,17 +33,22 @@
     NGRComplexDemoViewController *complexDemoViewController = [[NGRComplexDemoViewController alloc] init];
     UINavigationController *complexNavigationController = [[UINavigationController alloc] initWithRootViewController:complexDemoViewController];
     
+    NGRSwiftViewController *swiftDemoViewController = [[NGRSwiftViewController alloc] init];
+    UINavigationController *swiftNavigationViewController = [[UINavigationController alloc] initWithRootViewController:swiftDemoViewController];
+    
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[simpleNavigationController, mediumNavigationController, complexNavigationController];
+    tabBarController.viewControllers = @[simpleNavigationController, mediumNavigationController, complexNavigationController, swiftNavigationViewController];
     
     [tabBarController.tabBar.items[0] setTitle:NSLocalizedString(@"Simple", nil)];
     [tabBarController.tabBar.items[1] setTitle:NSLocalizedString(@"Medium", nil)];
     [tabBarController.tabBar.items[2] setTitle:NSLocalizedString(@"Complex", nil)];
+    [tabBarController.tabBar.items[3] setTitle:NSLocalizedString(@"Swift", nil)];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
     return YES;
 }
 
