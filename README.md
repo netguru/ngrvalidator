@@ -212,6 +212,7 @@ There are 3 general methods of validation:
 * `match(NSString *)` - validates that the NSString match another NSString.
 * `differ(NSString *)` - validates that the NSString is different than another NSString.
 * `decimal()` - validates that the NSString contains only decimal signs.
+* `emoji(BOOL contains)` - validates that the NSString does or does not contain emoji.
 
 **Syntax**:
 
@@ -230,6 +231,13 @@ There are 3 general methods of validation:
 * `beFalse()` - validates if NSNumber represents false status.
 * `beTrue()` - validates if NSNumber represents true status.
 
+**UIImage/NSImage**:
+
+* `minRatio(CGFloat)/maxRatio(CGFLoat)` - validates if the ratio of the image is greater/smaller than CGFloat
+* `minWidth(CGFloat)/maxWidth(CGFloat)` - validates if the pixel width of the image is greater/smaller than CGFloat
+* `minHeight(CGFloat)/maxHeight(CGFloat)` - validates if the pixel height of the image is greater/smaller than CGFloat
+* `minSize(CGSize)/maxSize(CGSize)` - validates if the pixel size of the image is greater/smaller than CGSize on both dimensions
+
 **NSDate**:
 
 * `earlierThan(NSDate *)` - validates if NSDate property is earlier than given date (inclusive).
@@ -237,6 +245,18 @@ There are 3 general methods of validation:
 * `laterThan(NSDate *)` - validates if NSDate property is later than given date (inclusive).
 * `laterThanOrEqualTo(NSDate *)` - validates if NSDate property is later than or equal to given date (inclusive).
 * `betweenDates(NSDate *, NSDate *, BOOL)` - validates if NSDate property is between given dates. `BOOL` parameter specify inclusiveness of comparison.
+* `earlierThanUnixTimestamp(NSTimeInterval)` - validates if date is earlier than specified UNIX epoch
+* `earlierThanOrEqualToUnixTimestamp(NSTimeInterval)` - validates if date is earlier than or equal to specified UNIX epoch
+* `laterThanUnixTimestamp(NSTimeInterval)` - validates if date is later than specified UNIX epoch
+* `laterThanOrEqualToUnixTimestamp(NSTimeInterval)` - validates if date is later than or equal to specified UNIX epoch
+
+**NSData**:
+
+* `minByteSize(CGFloat)/maxByteSize(CGFloat)` - validates if data has byte size greater/smaller than CGFloat
+* `image/video/audio/archive` - validates if data represents image/video/audio/archive
+* `mimeType(NGRMimeType)` - validates if data has given MIMEType.
+
+For full list of supported MIMETypes go [here](../NGRValidator/NGRValidator/Headers/Public/NGRMimeType.h)
 
 **NSArray**:
 
