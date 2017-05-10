@@ -212,15 +212,15 @@ There are 3 general methods of validation:
 * `match(NSString *)` - validates that the NSString match another NSString.
 * `differ(NSString *)` - validates that the NSString is different than another NSString.
 * `decimal()` - validates that the NSString contains only decimal signs.
-* `emoji(BOOL contains)` - validates that the NSString does or does not contain emoji.
+* `emoji(BOOL)` - validates that the NSString does or does not contain emoji.
 
 **Syntax**:
 
-* `syntax(NGRSyntax)` - validates that the NSString has given syntax. There are 3 default syntax to choose:
-    - `NGRSyntaxEmail` - validates email syntax.
-    - `NGRSyntaxName` - validates if given string contains only alphabetic signs.
-    - `NGRSyntaxHTTP` - validates syntax of HTTP URL.
 * `regex(NSString *, NSRegularExpressionOptions)` - validates that the NSString match given regex pattern with options.
+* `syntax(NGRSyntax)` - validates that the NSString has given syntax.
+
+For full list of supported Syntaxes go [here](../NGRValidator/NGRValidator/Headers/Public/NGRPropertyValidator+Syntax.h)
+
 
 **NSNumber**:
 
