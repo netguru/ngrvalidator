@@ -1291,10 +1291,9 @@
 			};
 			buildConfigurationList = 5E5C09EA1A498164002D3E72 /* Build configuration list for PBXProject "NGRValidator" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
