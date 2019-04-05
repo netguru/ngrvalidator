@@ -10,6 +10,13 @@ DEPENDENCIES:
   - Quick (= 1.1.0)
   - Specta (= 1.0.5)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Expecta
+    - Nimble
+    - Quick
+    - Specta
+
 SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
@@ -18,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 891f44c3a75b3f20a9cabc88aca84394d180f380
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.6.1
