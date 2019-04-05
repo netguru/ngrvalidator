@@ -12,8 +12,8 @@ inhibit_all_warnings!
 def testing_pods
     pod 'Expecta', '1.0.5'
     pod 'Specta',  '1.0.5'
-    pod 'Quick', '1.1.0'
-    pod 'Nimble', '6.1.0'
+    pod 'Quick'
+    pod 'Nimble'
 end
 
 target 'NGRValidatorTests-iOS' do
