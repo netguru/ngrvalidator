@@ -45,7 +45,7 @@ fileprivate extension Mirror {
     }
     
     func properties() -> [String] {
-        let childProperties = children.flatMap { $0.label }
+        let childProperties = children.compactMap { $0.label }
         let superProperties = superclassMirror?.properties() ?? []
         
         return [childProperties, superProperties].flatMap { $0 }

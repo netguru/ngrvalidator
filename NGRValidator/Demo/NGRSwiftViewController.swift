@@ -62,7 +62,7 @@ final class NGRSwiftViewController: UIViewController {
         validateButton.addTarget(self, action: #selector(validateAction), for: .touchUpInside)
     }
     
-    func validateAction() {
+    @objc func validateAction() {
     
         let user = User(name: nameTextField.text!, password: passwordTextField.text!)
     
@@ -74,7 +74,7 @@ final class NGRSwiftViewController: UIViewController {
                 NGRPropertyValidator(property: "nonExistent")?.is.required().to.have.minLength(5).msgTooShort("should have at least 5 signs"),
                 NGRPropertyValidator(property: "birthDate")?.to.be.earlierThan(Date()).msgNotEarlierThan("should happen in the past"),
                 NGRPropertyValidator(property: "attachment")?.is.required().to.be.image().msgTooShort("should have at least 5 signs").when({ false }),
-            ].flatMap { $0 }
+            ].compactMap { $0 }
         }
         
         guard let errors = validationErrors, !errors.isEmpty else { return }
